@@ -4,6 +4,7 @@ import com.robvangastel.assign.api.domain.User;
 
 import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
+
 /**
  *
  * @author Rob
