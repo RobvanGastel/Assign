@@ -1,4 +1,4 @@
-package models;
+package com.robvangastel.assign.api.domain;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

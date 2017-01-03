@@ -1,4 +1,6 @@
-package models;
+package com.robvangastel.assign.api.dao;
+
+import com.robvangastel.assign.api.domain.User;
 
 import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
