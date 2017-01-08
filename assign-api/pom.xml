@@ -62,15 +62,9 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.3.5.Final</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+        
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
@@ -85,13 +79,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.30</version>
             <scope>runtime</scope>
         </dependency>
         
@@ -127,7 +114,7 @@
 
     <properties>
         <!-- hibernate -->
-        <hibernate.version>5.2.5.Final</hibernate.version>
+        <hibernate.version>5.2.5.FINAL</hibernate.version>
         <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
         
         <!-- spring -->

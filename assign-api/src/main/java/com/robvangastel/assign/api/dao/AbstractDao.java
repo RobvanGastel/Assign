@@ -22,7 +22,7 @@ public abstract class AbstractDao<T extends Serializable> {
         this.classObj = classObjToSet;
     }
 
-    public T findOne(final long id) {
+    public T findById(final long id) {
         return entityManager.find(classObj, id);
     }
 
@@ -44,7 +44,7 @@ public abstract class AbstractDao<T extends Serializable> {
     }
 
     public void deleteById(final long entityId) {
-        final T entity = findOne(entityId);
+        final T entity = findById(entityId);
         delete(entity);
     }
 }

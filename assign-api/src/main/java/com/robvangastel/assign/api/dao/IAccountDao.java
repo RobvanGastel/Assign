@@ -10,7 +10,9 @@ import java.util.List;
 
 public interface IAccountDao {
 
-    Account findOne(long id);
+    Account findById(long id);
+    
+    Account findByEmail(String email);
 
     List<Account> findAll();
 

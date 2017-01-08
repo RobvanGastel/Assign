@@ -23,12 +23,25 @@ public class AccountService {
         super();
     }
 
-    public void create(final Account entity) {
+    public void create(Account entity) {
         dao.create(entity);
     }
+    
+    public void delete(long id) {
+        Account entity = dao.findById(id);
+        dao.delete(entity);
+    }
+    
+    public void update(Account entity) {
+        dao.update(entity);
+    }
 
-    public Account findOne(final long id) {
-        return dao.findOne(id);
+    public Account findById(long id) {
+        return dao.findById(id);
+    }
+    
+    public Account findByEmail(String email) {
+        return dao.findByEmail(email);
     }
 
     public List<Account> findAll() {
