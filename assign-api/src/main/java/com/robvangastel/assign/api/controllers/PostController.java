@@ -1,13 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.robvangastel.assign.api.controllers;
 
-import com.robvangastel.assign.api.domain.Account;
-import com.robvangastel.assign.api.repositories.AccountService;
-
+import com.robvangastel.assign.api.domain.Post;
+import com.robvangastel.assign.api.repositories.PostService;
 import java.util.List;
-
-import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,67 +25,69 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 
 @Controller
-@RequestMapping("/accounts")
-public class AccountController {
+@RequestMapping("/posts")
+public class PostController {
     
     @Autowired
-    private AccountService accountService;
+    private PostService postService;
     
     /**
-     * On calling GET on /accounts
+     * On calling GET on /posts
      * @return All users
      */
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public List<Account> get() {
-        return accountService.findAll();
+    public List<Post> get() {
+        return postService.findAll();
     }
     
     /**
-     * on calling POST on /accounts
-     * @param email of the user
-     * @param password of the user
+     * on calling POST on /posts
+     * @param account_id of the poster
+     * @param title 
+     * @param description
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void post(@RequestParam("email") String email, 
-            @RequestParam("email") String password) {
-        accountService.create(new Account(email, password)); 
+    public void post(@RequestParam("account_id") Long account_id, 
+            @RequestParam("title") String title,
+            @RequestParam("description") String description) {
+        postService.create(new Post(account_id, title, description)); 
     }
     
     /**
-     * on calling DELETE on /accounts
+     * on calling DELETE on /posts
      * @param id of the user
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, 
             produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
     public void delete(@PathVariable("id") long id) {
-        accountService.delete(id);
+        postService.delete(id);
     }
     
     /**
-     * on calling PUT on /accounts 
-     * @param account entire Account object 
+     * on calling PUT on /posts 
+     * @param post entire Post object 
      */
     @RequestMapping(method = RequestMethod.PUT, 
             produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void update(@RequestBody Account account) {
-        if(account != null) {
-            accountService.update(account);
+    public void update(@RequestBody Post post) {
+        if(post != null) {
+            postService.update(post);
         }
     }
     
     /**
-     * on calling GET on /accounts
+     * on calling GET on /posts
      * @param id of the user
      * @return user found with the given id
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, 
             produces = "application/json")
     @ResponseBody
-    public Account getById(@PathVariable("id") long id) {
-        return accountService.findById(id);
+    public Post getById(@PathVariable("id") long id) {
+        return postService.findById(id);
     }
 }

@@ -23,5 +23,4 @@ public interface IAccountDao {
     void delete(Account entity);
 
     void deleteById(long entityId);
-
 }

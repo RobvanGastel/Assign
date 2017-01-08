@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 /**
  *
  * @author Rob
+ * @param <T>
  */
 
 public abstract class AbstractDao<T extends Serializable> {
