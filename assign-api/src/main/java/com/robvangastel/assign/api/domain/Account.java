@@ -5,10 +5,13 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,6 +26,9 @@ public class Account implements Serializable {
     private Long id;
     private Long social_id;
 
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy="account")
+    private List<Post> posts;
+    
     @JsonIgnore
     private String password;
     
@@ -176,5 +182,19 @@ public class Account implements Serializable {
      */
     public void setSocial_id(Long social_id) {
         this.social_id = social_id;
+    }
+
+    /**
+     * @return the posts
+     */
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    /**
+     * @param posts the posts to set
+     */
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

@@ -4,9 +4,14 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -19,16 +24,20 @@ public class Post implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    private Long account_id;
     
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Account account;
+    
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Tag> tags;
+        
     private boolean done;
     private String title;
     private String description;
     private String dateCreated;
     private Date dateDone;
     
-    public Post(Long account_id, String title, String description) {
-        this.account_id = account_id;
+    public Post(String title, String description) {
         this.title = title;
         this.description = description;
         this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
@@ -41,13 +50,6 @@ public class Post implements Serializable {
      */
     public Long getId() {
         return id;
-    }
-
-    /**
-     * @return the account_id
-     */
-    public Long getAccount_id() {
-        return account_id;
     }
 
     /**
@@ -111,5 +113,33 @@ public class Post implements Serializable {
      */
     public void setDateDone(Date dateDone) {
         this.dateDone = dateDone;
+    }
+
+    /**
+     * @return the account
+     */
+    public Account getAccount() {
+        return account;
+    }
+
+    /**
+     * @param account the account to set
+     */
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    /**
+     * @return the tags
+     */
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    /**
+     * @param tags the tags to set
+     */
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 }

@@ -1,6 +1,8 @@
 package com.robvangastel.assign.api.repositories;
 
+import com.robvangastel.assign.api.dao.IAccountDao;
 import com.robvangastel.assign.api.dao.IPostDao;
+import com.robvangastel.assign.api.domain.Account;
 import com.robvangastel.assign.api.domain.Post;
 
 import java.util.List;
@@ -19,30 +21,35 @@ import org.springframework.transaction.annotation.Transactional;
 public class PostService {
 
     @Autowired
-    private IPostDao dao;
+    private IPostDao postDao;
+    
+    @Autowired
+    private IAccountDao accountDao;
 
     public PostService() {
         super();
     }
 
-    public void create(Post entity) {
-        dao.create(entity);
+    public void create(Post entity, Long id) {
+        Account account = accountDao.findById(id);
+        entity.setAccount(account);
+        postDao.create(entity);
     }
     
     public void delete(long id) {
-        Post entity = dao.findById(id);
-        dao.delete(entity);
+        Post entity = postDao.findById(id);
+        postDao.delete(entity);
     }
     
     public void update(Post entity) {
-        dao.update(entity);
+        postDao.update(entity);
     }
 
     public Post findById(long id) {
-        return dao.findById(id);
+        return postDao.findById(id);
     }
 
     public List<Post> findAll() {
-        return dao.findAll();
+        return postDao.findAll();
     }
 }

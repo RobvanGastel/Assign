@@ -43,16 +43,16 @@ public class PostController {
     
     /**
      * on calling POST on /posts
-     * @param account_id of the poster
+     * @param id of the poster
      * @param title 
      * @param description
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void post(@RequestParam("account_id") Long account_id, 
+    public void post(@RequestParam("id") Long id, 
             @RequestParam("title") String title,
             @RequestParam("description") String description) {
-        postService.create(new Post(account_id, title, description)); 
+        postService.create(new Post(title, description), id); 
     }
     
     /**
