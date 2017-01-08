@@ -5,6 +5,8 @@ import com.robvangastel.assign.api.repositories.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -12,16 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-//@RequestMapping("/account/{userId}")
+@RequestMapping("/account")
 public class AccountRestController {
     
     @Autowired
     private AccountService accountService;
     
-    @RequestMapping("/")
-    public String index() {
-        accountService.create(new Account("asdasd", "asdsadasd"));
-        return "Hello World!";    
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    @ResponseBody
+    public Account Create() {
+        
+        Account account = new Account("asdsad", "asdsadasd");
+        accountService.create(account);
+        return account;    
     }
     
 }
