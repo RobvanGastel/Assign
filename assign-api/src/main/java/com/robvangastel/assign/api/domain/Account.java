@@ -21,6 +21,7 @@ public class Account implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    private Long social_id;
 
     @JsonIgnore
     private String password;
@@ -42,8 +43,7 @@ public class Account implements Serializable {
         this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     }
 
-    Account() { // jpa only
-    }
+    Account() {}
     
     /**
      * @return id
@@ -162,5 +162,19 @@ public class Account implements Serializable {
      */
     public String getDateCreated() {
         return dateCreated;
+    }
+
+    /**
+     * @return the social_id
+     */
+    public Long getSocial_id() {
+        return social_id;
+    }
+
+    /**
+     * @param social_id the social_id to set
+     */
+    public void setSocial_id(Long social_id) {
+        this.social_id = social_id;
     }
 }
