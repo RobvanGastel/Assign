@@ -1,5 +1,6 @@
 package com.robvangastel.assign.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,7 +10,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -25,9 +25,11 @@ public class Post implements Serializable {
     @GeneratedValue
     private Long id;
     
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private Account account;
     
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Tag> tags;
         

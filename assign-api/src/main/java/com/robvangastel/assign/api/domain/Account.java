@@ -1,6 +1,9 @@
 package com.robvangastel.assign.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
 import java.io.Serializable;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -27,9 +30,11 @@ public class Account implements Serializable {
     private Long id;
     private Long social_id;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy="account")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Post> posts;
     
+    @JsonBackReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private SocialChannels socialChannel;
     
