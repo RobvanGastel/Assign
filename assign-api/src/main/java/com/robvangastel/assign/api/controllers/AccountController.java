@@ -1,7 +1,10 @@
 package com.robvangastel.assign.api.controllers;
 
 import com.robvangastel.assign.api.domain.Account;
+import com.robvangastel.assign.api.domain.Post;
 import com.robvangastel.assign.api.repositories.AccountService;
+import com.robvangastel.assign.api.repositories.PostService;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -27,6 +30,9 @@ public class AccountController {
     
     @Autowired
     private AccountService accountService;
+    
+    @Autowired
+    private PostService postService;
     
     /**
      * On calling GET on /accounts
@@ -84,5 +90,17 @@ public class AccountController {
     @ResponseBody
     public Account getById(@PathVariable("id") long id) {
         return accountService.findById(id);
+    }
+    
+    /**
+     * on calling GET on /accounts/{id}/posts
+     * @param id of the user
+     * @return posts found with the given account id
+     */
+    @RequestMapping(value = "{id}/posts", method = RequestMethod.GET, 
+            produces = "application/json")
+    @ResponseBody
+    public List<Post> getPostByAccountId(@PathVariable("id") long id) {
+        return postService.findPostsByAccountId(id);
     }
 }

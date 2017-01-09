@@ -1,5 +1,6 @@
 package com.robvangastel.assign.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -29,7 +30,7 @@ public class Post implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Account account;
     
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Tag> tags;
         

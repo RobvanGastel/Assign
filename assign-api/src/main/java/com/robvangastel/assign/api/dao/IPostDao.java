@@ -10,6 +10,8 @@ import java.util.List;
 public interface IPostDao {
 
     Post findById(long id);
+    
+    List<Post> findPostsByAccountId(long id);
 
     List<Post> findAll();
 

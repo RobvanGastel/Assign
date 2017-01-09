@@ -3,10 +3,10 @@ package com.robvangastel.assign.api.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonView;
 import java.io.Serializable;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -28,13 +28,12 @@ public class Account implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    private Long social_id;
-
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Post> posts;
     
-    @JsonBackReference
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Post> posts = new ArrayList<Post>();
+    
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private SocialChannels socialChannel;
     
@@ -177,20 +176,6 @@ public class Account implements Serializable {
      */
     public String getDateCreated() {
         return dateCreated;
-    }
-
-    /**
-     * @return the social_id
-     */
-    public Long getSocial_id() {
-        return social_id;
-    }
-
-    /**
-     * @param social_id the social_id to set
-     */
-    public void setSocial_id(Long social_id) {
-        this.social_id = social_id;
     }
 
     /**
