@@ -1,11 +1,9 @@
 package com.robvangastel.assign.api.domain;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -17,15 +15,11 @@ public class SocialChannels implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-        
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Account account;
     
     private String TwitterId;
     private String FacebookId;
     
-    public SocialChannels(Account account, String TwitterId, String FacebookId) {
-        this.account = account;
+    public SocialChannels(String TwitterId, String FacebookId) {
         this.TwitterId = TwitterId;
         this.FacebookId = FacebookId;
     }
@@ -65,19 +59,5 @@ public class SocialChannels implements Serializable {
      */
     public void setFacebookId(String FacebookId) {
         this.FacebookId = FacebookId;
-    }
-
-    /**
-     * @return the account
-     */
-    public Account getAccount() {
-        return account;
-    }
-
-    /**
-     * @param account the account to set
-     */
-    public void setAccount(Account account) {
-        this.account = account;
     }
 }

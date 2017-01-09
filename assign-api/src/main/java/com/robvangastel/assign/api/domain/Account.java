@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -28,6 +29,9 @@ public class Account implements Serializable {
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy="account")
     private List<Post> posts;
+    
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private SocialChannels socialChannel;
     
     @JsonIgnore
     private String password;
@@ -196,5 +200,19 @@ public class Account implements Serializable {
      */
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    /**
+     * @return the socialChannel
+     */
+    public SocialChannels getSocialChannel() {
+        return socialChannel;
+    }
+
+    /**
+     * @param socialChannel the socialChannel to set
+     */
+    public void setSocialChannel(SocialChannels socialChannel) {
+        this.socialChannel = socialChannel;
     }
 }
