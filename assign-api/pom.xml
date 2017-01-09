@@ -114,7 +114,7 @@
 
     <properties>
         <!-- hibernate -->
-        <hibernate.version>5.2.5.FINAL</hibernate.version>
+        <hibernate.version>5.2.4.Final</hibernate.version>
         <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
         
         <!-- spring -->
