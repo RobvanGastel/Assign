@@ -26,6 +26,7 @@ public class Response implements Serializable {
     
     @OneToOne(cascade = CascadeType.PERSIST)
     private Post post;
+    
     private String dateCreated;
     
     public Response(Account account, Post post) {

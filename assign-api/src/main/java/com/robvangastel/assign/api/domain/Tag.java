@@ -1,12 +1,11 @@
 package com.robvangastel.assign.api.domain;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -18,8 +17,9 @@ public class Tag implements Serializable {
     
     @Id
     @GeneratedValue
+    @Column(name = "tag_id", nullable = false)
     private Long id;
-        
+    
     private String title;
     
     public Tag (String title) {
