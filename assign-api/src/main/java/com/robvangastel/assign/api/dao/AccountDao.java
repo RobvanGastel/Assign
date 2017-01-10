@@ -23,6 +23,6 @@ public class AccountDao extends AbstractDao<Account> implements IAccountDao {
 
     @Override
     public Account findByEmail(String email) {
-        return entityManager.find(Account.class, email);
+        return entityManager.find(Account.class, new Long(1));
     }
 }

@@ -7,6 +7,7 @@ package com.robvangastel.assign.api.security;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.console;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,7 @@ public class CustomBasicAuthenticationEntryPoint extends BasicAuthenticationEntr
         response.addHeader("WWW-Authenticate", "Basic realm=\"" + getRealmName() + "\"");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         final PrintWriter writer = response.getWriter();
-        writer.println("HTTP Status " + HttpServletResponse.SC_UNAUTHORIZED + " - " + authException.getMessage());
+        writer.println("HTTP Status " + HttpServletResponse.SC_UNAUTHORIZED + " - " + authException.fillInStackTrace());
     }
 
     @Override

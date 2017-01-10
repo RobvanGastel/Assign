@@ -6,8 +6,11 @@
 package com.robvangastel.assign.api.security;
 
 import com.robvangastel.assign.api.domain.Account;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -15,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author Rob
  */
 public class CustomUserDetails implements UserDetails {
+    
     private Account account;
  
     public CustomUserDetails(Account account) {
@@ -25,7 +29,12 @@ public class CustomUserDetails implements UserDetails {
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        final List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        //final Privilege privilege : user.getPrivileges()
+//        for () {
+            authorities.add(new SimpleGrantedAuthority("USER_ROLE"));
+//        }
+        return authorities;
     }
 
     @Override
@@ -39,26 +48,26 @@ public class CustomUserDetails implements UserDetails {
     
     @Override
     public String getUsername() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return account.getEmail();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 }

@@ -232,4 +232,11 @@ public class Account implements Serializable {
     public void setSocialChannel(SocialChannels socialChannel) {
         this.socialChannel = socialChannel;
     }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
