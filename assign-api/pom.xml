@@ -47,6 +47,28 @@
         
         <!-- Spring Framework -->
         
+        <!-- Spring Security -->
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        
+        <!-- Spring Security -->
+        
         <!-- utils -->
 
         <dependency>
@@ -109,6 +131,7 @@
         </dependency>
         
         <!-- JSON -->
+        
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -121,8 +144,7 @@
             <artifactId>javassist</artifactId>
             <version>${javassist.version}</version>
         </dependency>
-        
-          
+
     </dependencies>
 
     <properties>
@@ -133,6 +155,7 @@
         <!-- spring -->
         <spring-data-jpa.version>1.10.5.RELEASE</spring-data-jpa.version>
         <spring.version>4.3.1.RELEASE</spring.version>
+        <spring.security.version>4.0.4.RELEASE</spring.security.version>
         
         <!-- util -->
         <guava.version>19.0</guava.version>
