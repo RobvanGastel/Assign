@@ -1,6 +1,5 @@
 package com.robvangastel.assign.api.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
@@ -50,11 +49,39 @@ public class Account implements Serializable {
     private Date lastLoggedIn;
     private String dateCreated;
     
+    /***
+     * Short Account constructor for testing
+     * @param email
+     * @param password 
+     */
     public Account(String email, String password) {
         this.email = email;
         this.password = password;
         
-        this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        this.socialChannel = new SocialChannels();
+        this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
+                .format(Calendar.getInstance().getTime());
+    }
+    
+    /***
+     * Complete Account constructor
+     * @param email
+     * @param password
+     * @param firstName
+     * @param surname
+     * @param phoneNumber
+     * @param socialChannel 
+     */
+    public Account(String email, String password, String firstName, 
+            String surname, String phoneNumber, SocialChannels socialChannel) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.socialChannel = socialChannel;
+        this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
+                .format(Calendar.getInstance().getTime());
     }
 
     Account() {}

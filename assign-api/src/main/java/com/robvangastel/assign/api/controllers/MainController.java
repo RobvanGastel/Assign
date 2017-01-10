@@ -6,7 +6,11 @@
 package com.robvangastel.assign.api.controllers;
 
 import com.robvangastel.assign.api.domain.Account;
+import com.robvangastel.assign.api.domain.Post;
+import com.robvangastel.assign.api.domain.SocialChannels;
 import com.robvangastel.assign.api.repositories.AccountService;
+import com.robvangastel.assign.api.repositories.PostService;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +27,9 @@ public class MainController {
     
     @Autowired
     private AccountService accountService;
+    
+    @Autowired
+    private PostService postService;
         
     /***
      * API version mapped on /
@@ -32,8 +39,17 @@ public class MainController {
     @ResponseBody
     public String index() {
         
+        //Hashing password
+        String PasswordHashRob = BCrypt.hashpw("LULIN2k17", BCrypt.gensalt(12));
+        String PasswordHashMax = BCrypt.hashpw("CSSISLEUK", BCrypt.gensalt(12));
+        
         //Initialize test users
-        accountService.create(new Account("ZU_LUL@LULIN2k17.com", "Twisted Bow")); 
+        accountService.create(new Account("robiscool@mail.com", PasswordHashRob, "Rob", 
+                "Jackson", "06 1800 1337", new SocialChannels("1821311231ACX"))); 
+        accountService.create(new Account("maximusMax@mail.com", PasswordHashMax, "Max", 
+                "Maximus", "06 9131 1337", new SocialChannels("3249-0daASSA"))); 
+        postService.create(new Post("Hoe werkt HTML5?", "Ik snap niks van HTML5 help me!"), (long) 1);
+        postService.create(new Post("Hoe center ik in CSS", "CSS is geweldig, als het werkt."), (long) 1);
         return "Version: 0.1";
     }
     

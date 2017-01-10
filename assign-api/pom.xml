@@ -84,12 +84,17 @@
         
         <!-- MySQL -->
         
+        <!-- Hash -->
+        
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>${jbcrypt.version}</version>
         </dependency>
+        
+        <!-- Hash -->
+        
+        <!-- JSON -->
         
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -101,6 +106,14 @@
             <groupId>xml-apis</groupId>
             <artifactId>xml-apis</artifactId>
             <version>${xml-apis.version}</version>
+        </dependency>
+        
+        <!-- JSON -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlets.version}</version>
+            <scope>provided</scope>
         </dependency>
         
         <dependency>
@@ -123,8 +136,15 @@
         
         <!-- util -->
         <guava.version>19.0</guava.version>
+        
+        <!-- JSON -->
         <jackson.version>2.7.5</jackson.version>
         <xml-apis.version>1.4.01</xml-apis.version>
+        
+        <!-- Hash -->
+        <jbcrypt.version>0.3m</jbcrypt.version>
+        
+        <servlets.version>3.1.0</servlets.version>
         <javassist.version>3.21.0-GA</javassist.version>
         
         <java.version>1.8</java.version>

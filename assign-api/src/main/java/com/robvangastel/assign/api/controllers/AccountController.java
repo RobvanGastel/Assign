@@ -2,11 +2,12 @@ package com.robvangastel.assign.api.controllers;
 
 import com.robvangastel.assign.api.domain.Account;
 import com.robvangastel.assign.api.domain.Post;
+import com.robvangastel.assign.api.domain.SocialChannels;
 import com.robvangastel.assign.api.repositories.AccountService;
 import com.robvangastel.assign.api.repositories.PostService;
-import java.util.ArrayList;
 
 import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,12 +49,26 @@ public class AccountController {
      * on calling POST on /accounts
      * @param email of the user
      * @param password of the user
+     * @param firstName
+     * @param surname
+     * @param phoneNumber
+     * @param FacebookId
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
     public void post(@RequestParam("email") String email, 
-            @RequestParam("email") String password) {
-        accountService.create(new Account(email, password)); 
+            @RequestParam("password") String password, @RequestParam("firstName") String firstName, 
+            @RequestParam("surname") String surname, @RequestParam("email") String phoneNumber,
+            @RequestParam("FacebookId") String FacebookId) {
+        
+        String PasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+         
+        //Example code for Authorization
+        //boolean matched = BCrypt.checkpw(originalPassword, generatedSecuredPasswordHash);
+        //System.out.println(matched);
+        
+        accountService.create(new Account(email, PasswordHash, firstName, 
+                surname, phoneNumber, new SocialChannels(FacebookId))); 
     }
     
     /**

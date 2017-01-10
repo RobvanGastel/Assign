@@ -17,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -45,7 +44,7 @@ public class Post implements Serializable {
     private String title;
     private String description;
     private String dateCreated;
-    private Date dateDone;
+    private String dateDone;
     
     public Post(String title, String description) {
         this.title = title;
@@ -74,6 +73,7 @@ public class Post implements Serializable {
      */
     public void setDone(boolean done) {
         this.done = done;
+        this.dateDone = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     }
 
     /**
@@ -109,20 +109,6 @@ public class Post implements Serializable {
      */
     public String getDateCreated() {
         return dateCreated;
-    }
-
-    /**
-     * @return the dateDone
-     */
-    public Date getDateDone() {
-        return dateDone;
-    }
-
-    /**
-     * @param dateDone the dateDone to set
-     */
-    public void setDateDone(Date dateDone) {
-        this.dateDone = dateDone;
     }
 
     /**

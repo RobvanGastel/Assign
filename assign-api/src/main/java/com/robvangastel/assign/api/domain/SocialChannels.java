@@ -19,8 +19,7 @@ public class SocialChannels implements Serializable {
     private String TwitterId;
     private String FacebookId;
     
-    public SocialChannels(String TwitterId, String FacebookId) {
-        this.TwitterId = TwitterId;
+    public SocialChannels(String FacebookId) {
         this.FacebookId = FacebookId;
     }
     
