@@ -106,16 +106,6 @@
         
         <!-- MySQL -->
         
-        <!-- Hash -->
-        
-        <dependency>
-            <groupId>org.mindrot</groupId>
-            <artifactId>jbcrypt</artifactId>
-            <version>${jbcrypt.version}</version>
-        </dependency>
-        
-        <!-- Hash -->
-        
         <!-- JSON -->
         
         <dependency>
@@ -163,9 +153,6 @@
         <!-- JSON -->
         <jackson.version>2.7.5</jackson.version>
         <xml-apis.version>1.4.01</xml-apis.version>
-        
-        <!-- Hash -->
-        <jbcrypt.version>0.3m</jbcrypt.version>
         
         <servlets.version>3.1.0</servlets.version>
         <javassist.version>3.21.0-GA</javassist.version>
