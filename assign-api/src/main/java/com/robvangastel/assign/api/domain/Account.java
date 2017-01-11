@@ -57,14 +57,22 @@ public class Account implements Serializable {
      * Short Account constructor for testing
      * @param email
      * @param password 
+     * @param firstName 
+     * @param surname 
+     * @param phoneNumber 
      */
-    public Account(String email, String password) {
+    public Account(String email, String password, String firstName, 
+            String surname, String phoneNumber) {
         this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
         
         this.socialChannel = new SocialChannels();
         this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
                 .format(Calendar.getInstance().getTime());
+        this.phoneNumber = phoneNumber;
     }
     
     /***
@@ -83,6 +91,7 @@ public class Account implements Serializable {
         this.firstName = firstName;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
+        
         this.socialChannel = socialChannel;
         this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
                 .format(Calendar.getInstance().getTime());
@@ -112,7 +121,7 @@ public class Account implements Serializable {
     }
 
     /**
-     * @return email the email to set
+     * @param email the email to set
      */
     public void setEmail(String email) {
         this.email = email;
@@ -242,5 +251,12 @@ public class Account implements Serializable {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
