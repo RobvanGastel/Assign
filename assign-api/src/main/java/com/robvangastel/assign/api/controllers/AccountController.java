@@ -7,11 +7,15 @@ import com.robvangastel.assign.api.repositories.AccountService;
 import com.robvangastel.assign.api.repositories.PostService;
 
 import java.util.List;
+import org.apache.commons.validator.EmailValidator;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,29 +54,36 @@ public class AccountController {
     
     /**
      * on calling POST on /accounts
-     * @param email of the user
-     * @param password of the user
-     * @param firstName
-     * @param surname
-     * @param phoneNumber
+     * @param account Account object
      * @param FacebookId
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void post(@RequestParam("email") String email, 
-            @RequestParam("password") String password, @RequestParam("firstName") String firstName, 
-            @RequestParam("surname") String surname, @RequestParam("email") String phoneNumber,
-            @RequestParam("FacebookId") String FacebookId) {
+    public void post(@RequestBody Account account, @RequestParam("FacebookId") String FacebookId) throws HttpMediaTypeNotSupportedException {
+        boolean valid = true;
         
-        //Example code for Authorization
-        //boolean matched = BCrypt.checkpw(originalPassword, generatedSecuredPasswordHash);
-        //System.out.println(matched);
+        //Encode password
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
         
-        accountService.create(new Account(email, passwordEncoder.encode(password), firstName, 
-                surname, phoneNumber, new SocialChannels(FacebookId))); 
+        //Set SocialChannel(s)
+        account.setSocialChannel(new SocialChannels(FacebookId));
+        
+        //Check if email is valid
+        String email = account.getEmail();
+        valid = EmailValidator.getInstance().isValid(email);
+        
+        //Check if the email exists
+        if(accountService.findByEmail(email) != null) {
+            valid = false;
+        }
+        
+        if(valid) {
+            accountService.create(account); 
+        }
     }
     
     /**
+     *  DISABLE ON PRODUCTION
      * on calling DELETE on /accounts
      * @param id of the user
      */
@@ -80,6 +91,7 @@ public class AccountController {
             produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
     public void delete(@PathVariable("id") long id) {
+        //Authentication check for user
         accountService.delete(id);
     }
     
@@ -92,6 +104,7 @@ public class AccountController {
     @ResponseStatus(value = HttpStatus.OK)
     public void update(@RequestBody Account account) {
         if(account != null) {
+            //Authentication check for user
             accountService.update(account);
         }
     }

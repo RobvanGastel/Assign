@@ -52,6 +52,7 @@ public class PostController {
     public void post(@RequestParam("id") Long id, 
             @RequestParam("title") String title,
             @RequestParam("description") String description) {
+        //Authentication check for user
         postService.create(new Post(title, description), id); 
     }
     
@@ -63,6 +64,7 @@ public class PostController {
             produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
     public void delete(@PathVariable("id") long id) {
+        //Authentication check for user
         postService.delete(id);
     }
     
@@ -75,6 +77,7 @@ public class PostController {
     @ResponseStatus(value = HttpStatus.OK)
     public void update(@RequestBody Post post) {
         if(post != null) {
+            //Authentication check for user
             postService.update(post);
         }
     }
