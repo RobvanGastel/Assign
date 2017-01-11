@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robvangastel.assign.api.controllers;
 
 import com.robvangastel.assign.api.domain.Account;
@@ -52,7 +47,7 @@ public class MainController {
                 "Maximus", "06 9131 1337", new SocialChannels("3249-0daASSA"))); 
         postService.create(new Post("Hoe werkt HTML5?", "Ik snap niks van HTML5 help me!"), (long) 1);
         postService.create(new Post("Hoe center ik in CSS", "CSS is geweldig, als het werkt."), (long) 1);
-        return "'Version': '0.1'";
+        return "\"Version\": \"0.1\"";
     }
     
 }

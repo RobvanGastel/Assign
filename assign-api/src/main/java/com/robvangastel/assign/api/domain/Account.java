@@ -72,7 +72,6 @@ public class Account implements Serializable {
         this.socialChannel = new SocialChannels();
         this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
                 .format(Calendar.getInstance().getTime());
-        this.phoneNumber = phoneNumber;
     }
     
     /***
