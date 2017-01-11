@@ -11,6 +11,7 @@ import com.robvangastel.assign.api.domain.SocialChannels;
 import com.robvangastel.assign.api.repositories.AccountService;
 import com.robvangastel.assign.api.repositories.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +31,6 @@ public class MainController {
     
     @Autowired
     private PostService postService;
-    
-    @Autowired
-    private PasswordEncoder passwordEncoder;
         
     /***
      * API version mapped on /
@@ -47,9 +45,10 @@ public class MainController {
         String PasswordHashMax = "CSSISLEUK";
 
         //Initialize test users
-        accountService.create(new Account("robiscool@mail.com", passwordEncoder.encode(PasswordHashRob), "Rob", 
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        accountService.create(new Account("robiscool@mail.com", encoder.encode(PasswordHashRob), "Rob", 
                 "Jackson", "06 1800 1337", new SocialChannels("1821311231ACX"))); 
-        accountService.create(new Account("maximusMax@mail.com", passwordEncoder.encode(PasswordHashMax), "Max", 
+        accountService.create(new Account("maximusMax@mail.com", encoder.encode(PasswordHashMax), "Max", 
                 "Maximus", "06 9131 1337", new SocialChannels("3249-0daASSA"))); 
         postService.create(new Post("Hoe werkt HTML5?", "Ik snap niks van HTML5 help me!"), (long) 1);
         postService.create(new Post("Hoe center ik in CSS", "CSS is geweldig, als het werkt."), (long) 1);

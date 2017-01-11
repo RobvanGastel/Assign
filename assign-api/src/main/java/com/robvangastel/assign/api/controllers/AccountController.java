@@ -7,11 +7,11 @@ import com.robvangastel.assign.api.repositories.AccountService;
 import com.robvangastel.assign.api.repositories.PostService;
 
 import java.util.List;
-import org.mindrot.jbcrypt.BCrypt;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +35,9 @@ public class AccountController {
     @Autowired
     private PostService postService;
     
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+        
     /**
      * On calling GET on /accounts
      * @return All users
@@ -61,13 +64,11 @@ public class AccountController {
             @RequestParam("surname") String surname, @RequestParam("email") String phoneNumber,
             @RequestParam("FacebookId") String FacebookId) {
         
-        String PasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
-         
         //Example code for Authorization
         //boolean matched = BCrypt.checkpw(originalPassword, generatedSecuredPasswordHash);
         //System.out.println(matched);
         
-        accountService.create(new Account(email, PasswordHash, firstName, 
+        accountService.create(new Account(email, passwordEncoder.encode(password), firstName, 
                 surname, phoneNumber, new SocialChannels(FacebookId))); 
     }
     
