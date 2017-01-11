@@ -20,6 +20,7 @@ public class Tag implements Serializable {
     @Column(name = "tag_id", nullable = false)
     private Long id;
     
+    @Column(nullable = false, unique = true)
     private String title;
     
     public Tag (String title) {

@@ -1,12 +1,13 @@
 package com.robvangastel.assign.api.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,16 +40,22 @@ public class Post implements Serializable {
     @ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags = new ArrayList<Tag>();
-        
-    private boolean done;
+    
+    @Column(nullable = false, unique = true)
     private String title;
+    
+    @Column(nullable = false, unique = true)
     private String description;
-    private String dateCreated;
+    
+    private String dateCreated;    
+    private boolean done;
     private String dateDone;
     
     public Post(String title, String description) {
         this.title = title;
         this.description = description;
+        
+        this.done = false;
         this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     }
     

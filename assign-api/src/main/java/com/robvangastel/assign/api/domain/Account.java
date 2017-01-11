@@ -2,14 +2,16 @@ package com.robvangastel.assign.api.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.persistence.CascadeType;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,7 +41,9 @@ public class Account implements Serializable {
     @JsonIgnore
     private String password;
     
+    @Column(nullable = false, unique = true)
     private String email;
+    
     private String firstName;
     private String surname;
     private String education;
