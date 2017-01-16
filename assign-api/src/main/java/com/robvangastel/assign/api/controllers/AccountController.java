@@ -57,7 +57,7 @@ public class AccountController {
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void post(@RequestBody Account account, @RequestParam("FacebookId") String FacebookId) throws HttpMediaTypeNotSupportedException {
+    public void post(@RequestBody Account account, @RequestParam("FacebookId") String FacebookId) {
         boolean valid = true;
         
         //Encode password
