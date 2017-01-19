@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ob9-ut-Dgz">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ob9-ut-Dgz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="0oj-xF-day">
             <objects>
                 <viewController id="rEC-V3-RdI" sceneMemberID="viewController">
@@ -18,16 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="djY-UZ-Y9g">
-                                <frame key="frameInset" minY="28" height="44"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAM-uI-P0j">
+                                <frame key="frameInset" minY="20" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="rEC-V3-RdI" id="odY-cF-YrA"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Search" id="n63-K1-Hej">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rgX-J5-34J"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="ueP-WF-3QG" id="5Rk-Ar-PuY"/>
+                        <outlet property="searchDisplayController" destination="8Oq-IU-gNQ" id="2Eu-Mo-q7n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gq-MS-vSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -39,8 +49,17 @@
                         <outlet property="searchResultsDelegate" destination="rEC-V3-RdI" id="kt9-gY-WS7"/>
                     </connections>
                 </searchDisplayController>
+                <searchDisplayController id="8Oq-IU-gNQ">
+                    <connections>
+                        <outlet property="delegate" destination="rEC-V3-RdI" id="EBA-60-8fb"/>
+                        <outlet property="searchBar" destination="bAM-uI-P0j" id="WIb-pR-QWD"/>
+                        <outlet property="searchContentsController" destination="rEC-V3-RdI" id="lSd-in-eXs"/>
+                        <outlet property="searchResultsDataSource" destination="rEC-V3-RdI" id="EXK-4e-wUf"/>
+                        <outlet property="searchResultsDelegate" destination="rEC-V3-RdI" id="8aO-B8-YYq"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2030" y="-568"/>
+            <point key="canvasLocation" x="2055" y="-568"/>
         </scene>
         <!--Overzicht-->
         <scene sceneID="2sL-c4-1mf">
@@ -69,7 +88,7 @@
                     <navigationItem key="navigationItem" title="Overzicht" id="P2w-tc-tfZ" userLabel="Overview">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="viY-dN-mNm">
                             <connections>
-                                <segue destination="rEC-V3-RdI" kind="presentation" id="p54-Cw-mnF"/>
+                                <segue destination="rEC-V3-RdI" kind="presentation" id="XYw-lA-eeU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="M2c-KH-RwY">
@@ -100,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="-49" y="-568"/>
         </scene>
-        <!--Title-->
+        <!--Add item-->
         <scene sceneID="UsV-FD-Hmf">
             <objects>
                 <viewController id="nqU-Wi-bqa" sceneMemberID="viewController">
@@ -113,7 +132,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="qzd-bv-tUj"/>
+                    <navigationItem key="navigationItem" title="Add item" id="qzd-bv-tUj">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="kFG-fZ-9oe"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6b-mB-xw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */; };
+		201F96ED1E3154BB0082702E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EC1E3154BB0082702E /* User.swift */; };
+		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
+		201F96F11E3156400082702E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96F01E3156400082702E /* Tag.swift */; };
 		20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */; };
 		20CC17C91E17E1DB006D5A13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C81E17E1DB006D5A13 /* ViewController.swift */; };
 		20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17CA1E17E1DB006D5A13 /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
+		201F96EC1E3154BB0082702E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		201F96EE1E3154F10082702E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		201F96F01E3156400082702E /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		20CC17C31E17E1DB006D5A13 /* assign-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assign-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20CC17C81E17E1DB006D5A13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,16 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		201F96EB1E31547C0082702E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				201F96EC1E3154BB0082702E /* User.swift */,
+				201F96EE1E3154F10082702E /* Post.swift */,
+				201F96F01E3156400082702E /* Tag.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		20CC17BA1E17E1D9006D5A13 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +82,7 @@
 		20CC17C51E17E1DB006D5A13 /* assign-app */ = {
 			isa = PBXGroup;
 			children = (
+				201F96EB1E31547C0082702E /* Models */,
 				2013FC341E2D5C3200C85F5D /* Controllers */,
 				20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */,
 				20CC17C81E17E1DB006D5A13 /* ViewController.swift */,
@@ -150,9 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				20CC17C91E17E1DB006D5A13 /* ViewController.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
+				201F96F11E3156400082702E /* Tag.swift in Sources */,
 				2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */,
+				201F96ED1E3154BB0082702E /* User.swift in Sources */,
 				20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +298,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.assing.assign-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.0;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -290,6 +311,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.assing.assign-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.0;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

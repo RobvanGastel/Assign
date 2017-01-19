@@ -36,6 +36,24 @@ class OverviewTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+    func loadJsonData()
+    {
+        let url = NSURL(string: "http://localhost:8080/")
+        let request = NSURLRequest(url: url! as URL)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
+            do
+            {
+
+            }
+            catch
+            {
+                print("Error parsing JSON data")
+            }
+        }
+        dataTask.resume();
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
