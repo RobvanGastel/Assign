@@ -10,8 +10,17 @@ import UIKit
 
 class OverviewTableViewController: UITableViewController {
 
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //loadJsonData()
+        
+        posts = [
+        Post(id: 1, title: "Help", description: "MEEE"),
+        Post(id: 2, title: "Help", description: "MEEE")]
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,42 +37,73 @@ class OverviewTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return posts.count
     }
     
+    //Example API call
     func loadJsonData()
     {
-        let url = NSURL(string: "http://localhost:8080/")
-        let request = NSURLRequest(url: url! as URL)
+        let urlString: String = "https://localhost:8084/api/"
+        
+        //Guard checks for a valid URL
+        guard let url = URL(string: urlString) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-            do
-            {
-
+        let task = session.dataTask(with: urlRequest) { data, response, error in
+            // check for any errors
+            guard error == nil else {
+                print("error calling GET on /todos/1")
+                print(error!)
+                return
             }
-            catch
-            {
-                print("Error parsing JSON data")
+            // check if data exists
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            
+            // parse the result as JSON
+            do {
+                guard let posts = try JSONSerialization.jsonObject(with: responseData, options: [])
+                    as? [String: Any] else {
+                        print("error trying to convert data to JSON")
+                        return
+                }
+                print(posts)
+                
+            } catch  {
+                print("error trying to convert data to JSON")
+                return
             }
         }
-        dataTask.resume();
+        task.resume()
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let post = posts[indexPath.row] as Post
+        
+        if let titleLabel = cell.viewWithTag(101) as? UILabel {
+            titleLabel.text = post.title
+        }
+        
+        if let nameLabel = cell.viewWithTag(102) as? UILabel {
+            nameLabel.text = post.description
+        }
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
