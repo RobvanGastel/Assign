@@ -121,6 +121,9 @@
 		20CC17BB1E17E1DA006D5A13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					date,
+				);
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Assign;

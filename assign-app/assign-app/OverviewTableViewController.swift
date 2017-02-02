@@ -17,8 +17,8 @@ class OverviewTableViewController: UITableViewController {
         //loadJsonData()
         
         posts = [
-        Post(id: 1, title: "Help", description: "MEEE"),
-        Post(id: 2, title: "Help", description: "MEEE")]
+            Post(id: 1, title: "Help", description: "MEEE", date: "Just now"),
+            Post(id: 2, title: "Help", description: "MEEE", date: "24m")]
         
         
 
@@ -99,6 +99,10 @@ class OverviewTableViewController: UITableViewController {
         
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
             nameLabel.text = post.description
+        }
+        
+        if let dateLabel = cell.viewWithTag(103) as? UILabel {
+            dateLabel.text = post.date
         }
 
         return cell
