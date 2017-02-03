@@ -52,6 +52,10 @@ public class PostService {
     public List<Post> findByAccountId(long id) {
         return postDao.findByAccountId(id);
     }
+    
+    public List<Post> FindAllOrderedByAccountId(long id) {
+        return postDao.FindAllOrderedByAccountId(id);
+    }
 
     public List<Post> findAll() {
         return postDao.findAll();

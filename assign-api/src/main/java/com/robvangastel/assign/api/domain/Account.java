@@ -1,11 +1,13 @@
 package com.robvangastel.assign.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -48,11 +50,13 @@ public class Account implements Serializable {
     private String phoneNumber;
     private String profileImage;
     
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false, unique = false)
-    private Date lastLoggedIn;
+    private Timestamp lastLoggedIn;
     
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false, unique = false)
-    private Date dateCreated;
+    private Timestamp dateCreated;
     
     /***
      * Short Account constructor for testing
@@ -71,8 +75,9 @@ public class Account implements Serializable {
         this.phoneNumber = phoneNumber;
         
         this.socialChannel = new SocialChannels();
-        this.dateCreated = new Date();
-        this.lastLoggedIn = new Date();
+        
+        this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+        this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
     
     /***
@@ -93,8 +98,9 @@ public class Account implements Serializable {
         this.phoneNumber = phoneNumber;
         
         this.socialChannel = socialChannel;
-        this.dateCreated = new Date();
-        this.lastLoggedIn = new Date();
+        
+        this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+        this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 
     Account() {}
@@ -200,21 +206,21 @@ public class Account implements Serializable {
     /**
      * @return the lastLoggedIn
      */
-    public Date getLastLoggedIn() {
+    public Timestamp getLastLoggedIn() {
         return lastLoggedIn;
     }
 
     /**
      * @param lastLoggedIn the lastLoggedIn to set
      */
-    public void setLastLoggedIn(Date lastLoggedIn) {
+    public void setLastLoggedIn(Timestamp lastLoggedIn) {
         this.lastLoggedIn = lastLoggedIn;
     }
 
     /**
      * @return the dateCreated
      */
-    public Date getDateCreated() {
+    public Timestamp getDateCreated() {
         return dateCreated;
     }
 

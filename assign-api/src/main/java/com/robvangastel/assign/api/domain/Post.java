@@ -1,12 +1,12 @@
 package com.robvangastel.assign.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,7 +30,6 @@ public class Post implements Serializable {
     
     @Id
     @GeneratedValue
-    @Column(name = "post_id", nullable = false)
     private Long id;
     
     @JsonManagedReference
@@ -48,17 +47,22 @@ public class Post implements Serializable {
     @Column(nullable = false, unique = true)
     private String description;
     
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false, unique = false)
-    private Date dateCreated;    
+    private Timestamp dateCreated;   
+    
     private boolean done;
-    private Date dateDone;
+    
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    private Timestamp dateDone;
     
     public Post(String title, String description) {
         this.title = title;
         this.description = description;
         
         this.done = false; 
-        this.dateCreated = new Date();
+        
+        this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
     
     Post() {}
@@ -82,7 +86,7 @@ public class Post implements Serializable {
      */
     public void setDone(boolean done) {
         this.done = done;
-        this.dateDone = new Date();
+        this.dateDone = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 
     /**
@@ -116,7 +120,7 @@ public class Post implements Serializable {
     /**
      * @return the dateCreated
      */
-    public Date getDateCreated() {
+    public Timestamp getDateCreated() {
         return dateCreated;
     }
 
