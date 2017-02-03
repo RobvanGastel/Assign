@@ -33,7 +33,10 @@ public class PostController {
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public List<Post> get() {
-        return postService.findAll();
+        //TODO Add check for user
+        
+        //Default to UserID == 1 
+        return postService.FindAllOrderedByAccountId(1L);
     }
     
     /**
@@ -47,7 +50,7 @@ public class PostController {
     public void post(@RequestParam("id") Long id, 
             @RequestParam("title") String title,
             @RequestParam("description") String description) {
-        //Authentication check for user
+
         postService.create(new Post(title, description), id); 
     }
     

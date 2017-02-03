@@ -39,6 +39,7 @@ public class PersistenceConfiguration {
     public PersistenceConfiguration () {
         super();
     }
+    
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();

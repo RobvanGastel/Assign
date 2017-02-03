@@ -12,6 +12,7 @@ import org.apache.commons.validator.EmailValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,7 +61,7 @@ public class AccountController {
         boolean valid = true;
         
         //Encode password
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
+        account.setPassword(account.getPassword());
         
         //Set SocialChannel(s)
         account.setSocialChannel(new SocialChannels(FacebookId));
@@ -127,6 +128,6 @@ public class AccountController {
             produces = "application/json")
     @ResponseBody
     public List<Post> getPostByAccountId(@PathVariable("id") long id) {
-        return postService.findPostsByAccountId(id);
+        return postService.findByAccountId(id);
     }
 }

@@ -24,7 +24,7 @@ public class PostDao extends AbstractDao<Post> implements IPostDao {
     } 
 
     @Override
-    public List<Post> findPostsByAccountId(long id) {
+    public List<Post> findByAccountId(long id) {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Post p WHERE p.account.id = :id")
                 .setParameter("id", id);
@@ -32,7 +32,10 @@ public class PostDao extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> FindAllOrdered(int user_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Post> FindAllOrderedByAccountId(long id) {
+                Query query = entityManager.createQuery(
+                "SELECT p FROM Post p WHERE :id NOT IN p.account.id ORDER BY p.dateCreated DESC")
+                .setParameter("id", id);
+        return query.getResultList();
     }
 }
