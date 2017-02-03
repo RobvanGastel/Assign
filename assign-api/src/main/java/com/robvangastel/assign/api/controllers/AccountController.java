@@ -127,6 +127,6 @@ public class AccountController {
             produces = "application/json")
     @ResponseBody
     public List<Post> getPostByAccountId(@PathVariable("id") long id) {
-        return postService.findPostsByAccountId(id);
+        return postService.findByAccountId(id);
     }
 }
