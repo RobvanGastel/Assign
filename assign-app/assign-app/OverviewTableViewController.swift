@@ -21,6 +21,7 @@ class OverviewTableViewController: UITableViewController {
             Post(id: 2, title: "Help", description: "MEEE", date: "24m")]
         
         
+        navigationController?.navigationBar.barTintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -104,7 +105,7 @@ class OverviewTableViewController: UITableViewController {
         if let dateLabel = cell.viewWithTag(103) as? UILabel {
             dateLabel.text = post.date
         }
-
+        
         return cell
     }
  
