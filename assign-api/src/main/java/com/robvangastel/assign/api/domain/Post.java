@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -47,16 +48,17 @@ public class Post implements Serializable {
     @Column(nullable = false, unique = true)
     private String description;
     
-    private String dateCreated;    
+    @Column(nullable = false, unique = false)
+    private Date dateCreated;    
     private boolean done;
-    private String dateDone;
+    private Date dateDone;
     
     public Post(String title, String description) {
         this.title = title;
         this.description = description;
         
-        this.done = false;
-        this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        this.done = false; 
+        this.dateCreated = new Date();
     }
     
     Post() {}
@@ -80,7 +82,7 @@ public class Post implements Serializable {
      */
     public void setDone(boolean done) {
         this.done = done;
-        this.dateDone = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        this.dateDone = new Date();
     }
 
     /**
@@ -114,7 +116,7 @@ public class Post implements Serializable {
     /**
      * @return the dateCreated
      */
-    public String getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 
