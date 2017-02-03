@@ -40,10 +40,10 @@ public class MainController {
         String PasswordHashMax = "CSSISLEUK";
 
         //Initialize test users
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        accountService.create(new Account("robiscool@mail.com", encoder.encode(PasswordHashRob), "Rob", 
+//        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        accountService.create(new Account("robiscool@mail.com", PasswordHashRob, "Rob", 
                 "Jackson", "06 1800 1337", new SocialChannels("1821311231ACX"))); 
-        accountService.create(new Account("maximusMax@mail.com", encoder.encode(PasswordHashMax), "Max", 
+        accountService.create(new Account("maximusMax@mail.com", PasswordHashMax, "Max", 
                 "Maximus", "06 9131 1337", new SocialChannels("3249-0daASSA"))); 
         postService.create(new Post("Hoe werkt HTML5?", "Ik snap niks van HTML5 help me!"), (long) 1);
         postService.create(new Post("Hoe center ik in CSS", "CSS is geweldig, als het werkt."), (long) 1);
