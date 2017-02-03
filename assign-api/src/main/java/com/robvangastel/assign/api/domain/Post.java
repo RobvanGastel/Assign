@@ -41,10 +41,10 @@ public class Post implements Serializable {
     @JoinTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags = new ArrayList<Tag>();
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String title;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String description;
     
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
