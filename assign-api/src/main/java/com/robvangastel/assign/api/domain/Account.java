@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -50,8 +48,11 @@ public class Account implements Serializable {
     private String phoneNumber;
     private String profileImage;
     
+    @Column(nullable = false, unique = false)
     private Date lastLoggedIn;
-    private String dateCreated;
+    
+    @Column(nullable = false, unique = false)
+    private Date dateCreated;
     
     /***
      * Short Account constructor for testing
@@ -70,8 +71,8 @@ public class Account implements Serializable {
         this.phoneNumber = phoneNumber;
         
         this.socialChannel = new SocialChannels();
-        this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
-                .format(Calendar.getInstance().getTime());
+        this.dateCreated = new Date();
+        this.lastLoggedIn = new Date();
     }
     
     /***
@@ -92,8 +93,8 @@ public class Account implements Serializable {
         this.phoneNumber = phoneNumber;
         
         this.socialChannel = socialChannel;
-        this.dateCreated = new SimpleDateFormat("yyyyMMdd_HHmmss")
-                .format(Calendar.getInstance().getTime());
+        this.dateCreated = new Date();
+        this.lastLoggedIn = new Date();
     }
 
     Account() {}
@@ -213,7 +214,7 @@ public class Account implements Serializable {
     /**
      * @return the dateCreated
      */
-    public String getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 

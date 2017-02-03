@@ -11,9 +11,21 @@ public interface IPostDao {
 
     Post findById(long id);
     
+    /**
+     * Retrieves all Posts by User
+     * @param id of the User
+     * @return All Posts of the User
+     */
     List<Post> findPostsByAccountId(long id);
 
     List<Post> findAll();
+    
+    /**
+     * Retrieves all Posts
+     * @return Posts ordered by date descending,
+     * removes posts of the user requesting the Posts
+     */
+    List<Post> FindAllOrdered(int user_id);
 
     void create(Post entity);
 
