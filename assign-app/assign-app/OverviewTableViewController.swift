@@ -17,8 +17,8 @@ class OverviewTableViewController: UITableViewController {
         //loadJsonData()
         
         posts = [
-            Post(id: 1, title: "Help", description: "MEEE", date: "Just now"),
-            Post(id: 2, title: "Help", description: "MEEE", date: "24m")]
+            Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now"),
+            Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", date: "24m")]
         
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
@@ -99,7 +99,7 @@ class OverviewTableViewController: UITableViewController {
         }
         
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = post.description
+            nameLabel.text = post.user
         }
         
         if let dateLabel = cell.viewWithTag(103) as? UILabel {

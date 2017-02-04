@@ -12,14 +12,14 @@ class Post {
 
     var id:Int?
     var title:String?
-    var description:String?
+    var user:String?
     var dateCreated:Date?
     var date:String?
     
-    init(id:Int, title:String, description:String, date:String) {
+    init(id:Int, title:String, user:String, date:String) {
         self.id = id
         self.title = title
-        self.description = description
+        self.user = user
         self.date = date
     }
 }
