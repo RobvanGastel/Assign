@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */; };
 		201F96ED1E3154BB0082702E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EC1E3154BB0082702E /* User.swift */; };
 		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
 		201F96F11E3156400082702E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96F01E3156400082702E /* Tag.swift */; };
@@ -16,7 +17,6 @@
 		20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17CD1E17E1DB006D5A13 /* assign_app.xcdatamodeld */; };
 		20CC17D11E17E1DB006D5A13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D01E17E1DB006D5A13 /* Assets.xcassets */; };
 		20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */; };
-		B2F6F1F51E45452600C5C47C /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
