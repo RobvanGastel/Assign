@@ -48,7 +48,7 @@ class OverviewTableViewController: UITableViewController {
     //Example API call
     func loadJsonData()
     {
-        let urlString: String = "https://localhost:8084/api/"
+        let urlString: String = "https://localhost:8084/api/posts/"
         
         //Guard checks for a valid URL
         guard let url = URL(string: urlString) else {
