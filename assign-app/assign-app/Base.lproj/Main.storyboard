@@ -177,23 +177,45 @@
                     <view key="view" contentMode="scaleToFill" id="KNc-1Y-YEG">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Waar wil je hulp mee nodig?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQg-Gr-2RH">
+                                <rect key="frame" x="40" y="56" width="295" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Geef een beschrijving" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlP-oq-3iH">
+                                <rect key="frame" x="40" y="109" width="295" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add item" id="qzd-bv-tUj">
-                        <barButtonItem key="backBarButtonItem" title="back" id="AN6-28-paM"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="TD1-nh-TtM">
+                            <color key="tintColor" red="1" green="0.56114366319999998" blue="0.1389160156" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="mdJ-8M-bOb" kind="show" id="yVl-o5-Zdg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6b-mB-xw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="-1316"/>
+            <point key="canvasLocation" x="2976.8000000000002" y="-1316.4917541229386"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kz4-WJ-cpx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rs9-AB-hgu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M0y-b9-TMc">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="M0y-b9-TMc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -207,5 +229,8 @@
             <point key="canvasLocation" x="2030" y="-1316"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yVl-o5-Zdg"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

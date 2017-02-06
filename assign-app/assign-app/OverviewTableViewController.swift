@@ -21,7 +21,6 @@ class OverviewTableViewController: UITableViewController {
             Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now"),
             Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", date: "24m")]
         
-        
         navigationController?.navigationBar.barTintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
 
         // Uncomment the following line to preserve selection between presentations
