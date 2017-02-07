@@ -1,6 +1,7 @@
 package com.robvangastel.assign.api.controllers;
 
 import com.robvangastel.assign.api.domain.Post;
+import com.robvangastel.assign.api.domain.Tag;
 import com.robvangastel.assign.api.repositories.PostService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,19 +40,35 @@ public class PostController {
         return postService.FindAllOrderedByAccountId(1L);
     }
     
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public List<Post> search(@RequestBody List<String> args) {
+        //TODO Add check for user
+        
+        //Default to UserID == 1 
+        return postService.FindAllOrderedByAccountId(1L);
+    }
+    
     /**
      * on calling POST on /posts
-     * @param id of the poster
      * @param title 
+     * @param tags List of Tags
      * @param description
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void post(@RequestParam("id") Long id, 
-            @RequestParam("title") String title,
-            @RequestParam("description") String description) {
+    public void post(@RequestParam("title") String title,
+            @RequestParam("description") String description,
+            @RequestBody List<Tag> tags) {
 
-        postService.create(new Post(title, description), id); 
+        //Default to UserID == 1
+        long id = 1L;
+        
+        if(tags != null) {
+            postService.create(new Post(title, description, tags), id); 
+        } else {
+            postService.create(new Post(title, description), id); 
+        }
     }
     
     /**

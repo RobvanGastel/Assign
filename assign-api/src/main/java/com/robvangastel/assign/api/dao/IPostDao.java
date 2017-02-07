@@ -26,6 +26,14 @@ public interface IPostDao {
      * removes posts of the user requesting the Posts
      */
     List<Post> FindAllOrderedByAccountId(long id);
+    
+    /**
+     * Checks title, description and name of the Account
+     * of the Post
+     * @param args 
+     * @return Post found by search
+     */
+    List<Post> FindBySearchQuery(List<String> args);
 
     void create(Post entity);
 
