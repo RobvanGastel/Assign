@@ -16,6 +16,8 @@
 		20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17CD1E17E1DB006D5A13 /* assign_app.xcdatamodeld */; };
 		20CC17D11E17E1DB006D5A13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D01E17E1DB006D5A13 /* Assets.xcassets */; };
 		20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */; };
+		D4437DCE1E48DE3600912C2C /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4437DCD1E48DE3600912C2C /* ApiService.swift */; };
+		D4437DD11E4B632A00912C2C /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4437DD01E4B632A00912C2C /* JSONDecodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		20CC17D01E17E1DB006D5A13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20CC17D31E17E1DB006D5A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20CC17D51E17E1DB006D5A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4437DCD1E48DE3600912C2C /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		D4437DD01E4B632A00912C2C /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		20CC17C51E17E1DB006D5A13 /* assign-app */ = {
 			isa = PBXGroup;
 			children = (
+				D4437DCF1E4B630300912C2C /* Services */,
 				201F96EB1E31547C0082702E /* Models */,
 				2013FC341E2D5C3200C85F5D /* Controllers */,
 				20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */,
@@ -90,6 +95,15 @@
 				20CC17CD1E17E1DB006D5A13 /* assign_app.xcdatamodeld */,
 			);
 			path = "assign-app";
+			sourceTree = "<group>";
+		};
+		D4437DCF1E4B630300912C2C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D4437DCD1E48DE3600912C2C /* ApiService.swift */,
+				D4437DD01E4B632A00912C2C /* JSONDecodable.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +185,10 @@
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
+				D4437DD11E4B632A00912C2C /* JSONDecodable.swift in Sources */,
 				2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */,
 				201F96ED1E3154BB0082702E /* User.swift in Sources */,
+				D4437DCE1E48DE3600912C2C /* ApiService.swift in Sources */,
 				20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

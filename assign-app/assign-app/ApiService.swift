@@ -8,26 +8,59 @@
 
 import Foundation
 
-class ApiService: NSObject {
+// MARK: - ApiService Errors
+enum ApiServiceError: Error {
     
-//    var request = URLRequest(url: URL(string: "http://localhost:8084/api/posts")!)
-//    request.httpMethod = "POST"
-//    let postString = "id=13&name=Jack"
-//    request.httpBody = postString.data(using: .utf8)
-//    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//        guard let data = data, error == nil else {                                                 // check for fundamental networking error
-//            print("error=\(error)")
-//            return
-//        }
-//        
-//        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-//            print("statusCode should be 200, but is \(httpStatus.statusCode)")
-//            print("response = \(response)")
-//        }
-//        
-//        let responseString = String(data: data, encoding: .utf8)
-//        print("responseString = \(responseString)")
-//    }
-//    task.resume()
+    case Unknown
+    case FailedRequest
+    case InvalidResponse
     
+}
+
+final class ApiService {
+    
+    typealias getPostsCompletion = (AnyObject?, ApiServiceError?) -> ()
+    
+    //Base URL for all API Requests
+    let baseURL = "http:/localhost:8084/api/"
+    //Future credentials to identify User in the back-end
+    let credentials = "Not implemented"
+    
+    //	MARK: - Request Posts
+    func getPosts(completion: @escaping getPostsCompletion) {
+        
+        // Create URL
+        //let URL = baseURL.appendingPathComponent("\(id))
+        let postURL = URL(string: baseURL + "/posts/")
+        
+        // Create Data Task
+        URLSession.shared.dataTask(with: postURL!) { (data, response, error) in
+            self.didFetchPosts(data: data, response: response, error: error, completion: completion)
+            }.resume()
+    }
+    
+    //	MARK: - Process Posts
+    private func didFetchPosts(data: Data?, response: URLResponse?, error: Error?, completion: getPostsCompletion) {
+        //Error Check on request
+        if let _ = error {
+            completion(nil, .FailedRequest)
+            
+        } else if let data = data, let response = response as? HTTPURLResponse {
+            //Check if valid response status code
+            if response.statusCode == 200 {
+                
+                //Process JSON
+                if let JSON = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject {
+                    completion(JSON, nil)
+                } else {
+                    completion(nil, .InvalidResponse)
+                }
+            } else {
+                completion(nil, .FailedRequest)
+            }
+            
+        } else {
+            completion(nil, .Unknown)
+        }
+    }
 }
