@@ -32,10 +32,12 @@ public class PostDao extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> FindAllOrderedByAccountId(long id) {
+    public List<Post> FindAllOrdered(long id) {
                 Query query = entityManager.createQuery(
                 "SELECT p FROM Post p WHERE :id NOT IN p.account.id ORDER BY p.dateCreated DESC")
                 .setParameter("id", id);
         return query.getResultList();
     }
+    
+    
 }
