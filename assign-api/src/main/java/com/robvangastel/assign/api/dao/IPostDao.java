@@ -10,9 +10,9 @@ import java.util.List;
 public interface IPostDao {
 
     Post findById(long id);
-    
+
     List<Post> findAll();
-        
+
     /**
      * Retrieves all Posts by User
      * @param id of the User
@@ -27,11 +27,19 @@ public interface IPostDao {
      */
     List<Post> findAllOrdered(long id);
 
+    /**
+     * Checks title, description and name of the Account
+     * of the Post
+     * @param args
+     * @return Post found by search
+     */
+    List<Post> FindBySearchQuery(List<String> args);
+
     void create(Post entity);
 
     Post update(Post entity);
 
     void delete(Post entity);
 
-    void deleteById(long entityId); 
+    void deleteById(long entityId);
 }

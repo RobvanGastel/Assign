@@ -14,14 +14,14 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class PostDao extends AbstractDao<Post> implements IPostDao {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
-        
+
     public PostDao() {
         super();
         setClassObj(Post.class);
-    } 
+    }
 
     @Override
     public List<Post> findByAccountId(long id) {
@@ -38,6 +38,11 @@ public class PostDao extends AbstractDao<Post> implements IPostDao {
                 .setParameter("id", id);
         return query.getResultList();
     }
-    
-    
+
+    @Override
+    public List<Post> FindBySearchQuery(List<String> args) {
+        //TODO Add search by title, description
+        //TODO Add search by Account email, firstname, surname
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

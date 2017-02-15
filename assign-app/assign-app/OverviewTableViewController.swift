@@ -10,22 +10,16 @@ import UIKit
 
 class OverviewTableViewController: UITableViewController {
 
-    
     var posts = [Post]()
-    private let apiService = ApiService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //loadJsonData()
         
-        //API Calls
-        apiService.getPosts() { (response, error) in
-            print(response!)
-        }
-        
-        //Test values for Posts
         posts = [
             Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now"),
             Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", date: "24m")]
+        
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
 
@@ -51,6 +45,49 @@ class OverviewTableViewController: UITableViewController {
         return posts.count
     }
     
+    //Example API call
+    func loadJsonData()
+    {
+        let urlString: String = "https://localhost:8084/api/"
+        
+        //Guard checks for a valid URL
+        guard let url = URL(string: urlString) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest) { data, response, error in
+            // check for any errors
+            guard error == nil else {
+                print("error calling GET on /todos/1")
+                print(error!)
+                return
+            }
+            // check if data exists
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            
+            // parse the result as JSON
+            do {
+                guard let posts = try JSONSerialization.jsonObject(with: responseData, options: [])
+                    as? [String: Any] else {
+                        print("error trying to convert data to JSON")
+                        return
+                }
+                print(posts)
+                
+            } catch  {
+                print("error trying to convert data to JSON")
+                return
+            }
+        }
+        task.resume()
+    }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)

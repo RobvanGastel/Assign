@@ -59,9 +59,17 @@ public class Post implements Serializable {
     public Post(String title, String description) {
         this.title = title;
         this.description = description;
-        
         this.done = false; 
         
+        this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+    }
+    
+    public Post(String title, String description, List<Tag> tags) {
+        this.title = title;
+        this.description = description;
+        this.tags = tags;
+        this.done = false; 
+
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
     
