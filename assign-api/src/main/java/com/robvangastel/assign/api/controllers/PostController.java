@@ -45,8 +45,7 @@ public class PostController {
     public List<Post> search(@RequestBody List<String> args) {
         //TODO Add check for user
         
-        //Default to UserID == 1 
-        return postService.FindAllOrderedByAccountId(1L);
+        return postService.findBySearch(args);
     }
     
     /**

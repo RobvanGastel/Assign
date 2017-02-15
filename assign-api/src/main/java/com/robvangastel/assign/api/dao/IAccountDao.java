@@ -14,7 +14,12 @@ public interface IAccountDao {
     
     Account findByEmail(String email);
     
-    List<Account> searchByName(String name);
+    /***
+     * Search by name and surname
+     * @param argument Name or surname
+     * @return 
+     */
+    List<Account> searchByName(String argument);
 
     List<Account> findAll();
 

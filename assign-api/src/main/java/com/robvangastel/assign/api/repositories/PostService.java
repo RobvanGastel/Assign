@@ -5,6 +5,7 @@ import com.robvangastel.assign.api.dao.IPostDao;
 import com.robvangastel.assign.api.domain.Account;
 import com.robvangastel.assign.api.domain.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,14 +43,13 @@ public class PostService {
     }
     
     public List<Post> findBySearch(List<String> args) {
-        //TODO 
-        //Search Account Names for each arg
-        //Search Post Title for each arg
-        //Search Post Description for each arg
+        List<Post> posts = new ArrayList<Post>();
         
+        for(int i = 0; i < args.size(); i++) {
+            posts.add((Post) postDao.searchByTitleAndDescription(args.get(i)));
+        }
         
-        
-        return null;
+        return posts;
     }
     
     public void update(Post entity) {

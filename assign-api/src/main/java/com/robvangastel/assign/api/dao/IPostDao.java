@@ -30,10 +30,10 @@ public interface IPostDao {
     /**
      * Checks title, description and name of the Account
      * of the Post
-     * @param args
+     * @param argument
      * @return Post found by search
      */
-    List<Post> FindBySearchQuery(List<String> args);
+    List<Post> searchByTitleAndDescription(String argument);
 
     void create(Post entity);
 

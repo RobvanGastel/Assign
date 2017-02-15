@@ -32,10 +32,10 @@ public class AccountDao extends AbstractDao<Account> implements IAccountDao {
     }
 
     @Override
-    public List<Account> searchByName(String name) {
+    public List<Account> searchByName(String argument) {
         Query Matches = entityManager.createQuery(
-                "SELECT a FROM Account a WHERE a.firstName LIKE %:name% OR a.surname LIKE %:name%")
-                .setParameter("name", name);
+                "SELECT a FROM Account a WHERE a.firstName LIKE %:argument% OR a.surname LIKE %:argument%")
+                .setParameter("argument", argument);
         
         return Matches.getResultList();  
     }

@@ -40,9 +40,11 @@ public class PostDao extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> FindBySearchQuery(List<String> args) {
-        //TODO Add search by title, description
-        //TODO Add search by Account email, firstname, surname
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Post> searchByTitleAndDescription(String argument) {
+        Query Matches = entityManager.createQuery(
+                "SELECT p FROM Post p WHERE p.title LIKE %:argument% OR p.description LIKE %:argument%")
+                .setParameter("argument", argument);
+        
+        return Matches.getResultList(); 
     }
 }
