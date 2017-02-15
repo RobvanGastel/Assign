@@ -37,7 +37,7 @@ public class PostController {
         //TODO Add check for user
         
         //Default to UserID == 1 
-        return postService.FindAllOrderedByAccountId(1L);
+        return postService.FindAllOrdered(1L);
     }
     
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
