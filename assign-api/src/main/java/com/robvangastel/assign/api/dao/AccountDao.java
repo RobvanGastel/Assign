@@ -1,8 +1,10 @@
 package com.robvangastel.assign.api.dao;
 
 import com.robvangastel.assign.api.domain.Account;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,6 +25,18 @@ public class AccountDao extends AbstractDao<Account> implements IAccountDao {
 
     @Override
     public Account findByEmail(String email) {
-        return entityManager.find(Account.class, new Long(1));
+        Query query = entityManager.createQuery(
+                "SELECT a FROM Account a WHERE a.email = :email")
+                .setParameter("email", email);
+        return (Account) query.getSingleResult();
+    }
+
+    @Override
+    public List<Account> searchByName(String name) {
+        Query Matches = entityManager.createQuery(
+                "SELECT a FROM Account a WHERE a.firstName LIKE %:name% OR a.surname LIKE %:name%")
+                .setParameter("name", name);
+        
+        return Matches.getResultList();  
     }
 }

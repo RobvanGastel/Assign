@@ -13,6 +13,8 @@ public interface IAccountDao {
     Account findById(long id);
     
     Account findByEmail(String email);
+    
+    List<Account> searchByName(String name);
 
     List<Account> findAll();
 

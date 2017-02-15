@@ -36,7 +36,7 @@ public class PostController {
         //TODO Add check for user
         
         //Default to UserID == 1 
-        return postService.FindAllOrdered(1L);
+        return postService.findAllOrdered(1L);
     }
     
     /**

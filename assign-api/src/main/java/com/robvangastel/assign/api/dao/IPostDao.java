@@ -25,7 +25,7 @@ public interface IPostDao {
      * @return Posts ordered by date descending,
      * removes posts of the user requesting the Posts
      */
-    List<Post> FindAllOrdered(long id);
+    List<Post> findAllOrdered(long id);
 
     void create(Post entity);
 

@@ -41,6 +41,17 @@ public class PostService {
         postDao.delete(entity);
     }
     
+    public List<Post> findBySearch(List<String> args) {
+        //TODO 
+        //Search Account Names for each arg
+        //Search Post Title for each arg
+        //Search Post Description for each arg
+        
+        
+        
+        return null;
+    }
+    
     public void update(Post entity) {
         postDao.update(entity);
     }
@@ -53,8 +64,8 @@ public class PostService {
         return postDao.findByAccountId(id);
     }
     
-    public List<Post> FindAllOrdered(long id) {
-        return postDao.FindAllOrdered(id);
+    public List<Post> findAllOrdered(long id) {
+        return postDao.findAllOrdered(id);
     }
 
     public List<Post> findAll() {
