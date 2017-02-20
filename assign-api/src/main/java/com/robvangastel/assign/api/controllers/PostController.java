@@ -40,7 +40,8 @@ public class PostController {
         return postService.findAllOrdered(1L);
     }
     
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json",
+            params="args")
     @ResponseBody
     public List<Post> search(@RequestBody List<String> args) {
         //TODO Add check for user
