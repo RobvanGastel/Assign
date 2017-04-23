@@ -1,194 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.robvangastel</groupId>
     <artifactId>assign-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-   
-    <dependencies>
-        <!-- Spring Framework -->
-        
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
- 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
- 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>${spring-data-jpa.version}</version>
-        </dependency>
-        
-        <!-- Spring Framework -->
-        
-        <!-- Spring Security -->
-        
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        
-        <!-- Spring Security -->
-        
-        <!-- utils -->
 
+    <name>assign-api</name>
+
+    <properties>
+        <junit.version>4.11</junit.version>
+        <hibernate.version>4.3.1.Final</hibernate.version>
+        <mysql-connector.version>5.1.40</mysql-connector.version>
+        <jackson.version>2.7.5</jackson.version>
+        <jsonwebtoken.version>0.6.0</jsonwebtoken.version>
+        <projectlombok.version>1.16.8</projectlombok.version>
+        <javaee-web.version>7.0</javaee-web.version>
+
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- junit -->
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
-        
-        <dependency>
-            <groupId>commons-validator</groupId>
-            <artifactId>commons-validator</artifactId>
-            <version>${commons.validator.version}</version>
-        </dependency>
-        
-        <!-- utils -->
-        
-        <!-- hibernate --> 
-        
+        <!-- END: junit -->
+
+        <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
+            <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
             <version>${hibernate.version}</version>
+            <scope>provided</scope>
         </dependency>
-        
-        <!-- hibernate --> 
-        
+        <!-- END: Hibernate -->
+
         <!-- MySQL -->
-        
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
+            <version>${mysql-connector.version}</version>
             <scope>runtime</scope>
         </dependency>
-        
-        <!-- MySQL -->
-        
-        <!-- JSON -->
-        
+        <!-- END: MySQL -->
+
+        <!-- Jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
             <type>jar</type>
         </dependency>
-        
+        <!-- END: Jackson -->
+
+        <!-- Tokens -->
         <dependency>
-            <groupId>xml-apis</groupId>
-            <artifactId>xml-apis</artifactId>
-            <version>${xml-apis.version}</version>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jsonwebtoken.version}</version>
         </dependency>
-        
-        <!-- JSON -->
-        
+
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlets.version}</version>
-            <scope>provided</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${projectlombok.version}</version>
         </dependency>
-        
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>${javassist.version}</version>
-        </dependency>
-        
+        <!-- END: Tokens -->
+
+        <!-- Javax -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>${javaee-web-api.version}</version>
+            <version>${javaee-web.version}</version>
+            <scope>provided</scope>
         </dependency>
-        
+        <!-- END: Javax -->
     </dependencies>
 
-    <properties>
-        <!-- hibernate -->
-        <hibernate.version>5.2.4.Final</hibernate.version>
-        <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
-        
-        <!-- spring -->
-        <spring-data-jpa.version>1.10.5.RELEASE</spring-data-jpa.version>
-        <spring.version>4.3.1.RELEASE</spring.version>
-        <spring.security.version>4.0.4.RELEASE</spring.security.version>
-        
-        <!-- util -->
-        <guava.version>19.0</guava.version>
-        <commons.validator.version>1.5.1</commons.validator.version>
-        
-        <!-- JSON -->
-        <jackson.version>2.7.5</jackson.version>
-        <xml-apis.version>1.4.01</xml-apis.version>
-        
-        <servlets.version>3.1.0</servlets.version>
-        <javassist.version>3.21.0-GA</javassist.version>
-        <javaee-web-api.version>7.0</javaee-web-api.version>
-        
-        <java.version>1.8</java.version>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-    </properties>
-
     <build>
-       <plugins>
-          <plugin>
-             <groupId>org.apache.maven.plugins</groupId>
-             <artifactId>maven-compiler-plugin</artifactId>
-             <version>3.1</version>
-             <configuration>
-                <source>1.6</source>
-                <target>1.6</target>
-                <encoding>UTF-8</encoding>
-             </configuration>
-          </plugin>
-       </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>7.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
-
 </project>
