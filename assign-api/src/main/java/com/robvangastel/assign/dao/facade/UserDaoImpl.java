@@ -18,7 +18,7 @@ import javax.persistence.Query;
 @Stateless
 public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
 
-    @PersistenceContext(unitName ="AssignPU")
+    @PersistenceContext(unitName ="assignPU")
     private EntityManager entityManager;
         
     public UserDaoImpl() {

@@ -70,6 +70,7 @@ public class User implements Serializable {
      */
     public User(String email, String password, String firstName,
                 String surname, String phoneNumber) {
+        this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -93,6 +94,7 @@ public class User implements Serializable {
      */
     public User(String email, String password, String firstName,
                 String surname, String phoneNumber, SocialChannels socialChannel) {
+        this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -101,6 +103,26 @@ public class User implements Serializable {
         
         this.socialChannel = socialChannel;
         
+        this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+        this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+    }
+
+    /***
+     *
+     * @param email
+     * @param password
+     * @param firstName
+     */
+    public User(String email, String password, String firstName) {
+        this.role = Role.USER.toString();
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.surname = "";
+        this.phoneNumber = "";
+
+        this.socialChannel = new SocialChannels();
+
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }

@@ -1,10 +1,10 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.security.Credentials;
+import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
 
-import javax.annotation.Resource;
-import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -64,7 +64,7 @@ public class UserController {
 	public User post(@QueryParam("email") String email,
 					 @QueryParam("username") String username,
 					 @QueryParam("password") String password) throws Exception {
-		User user = userService.create(new User(Role.USER, email, username, password));
+		User user = userService.create(new User(email, username, password));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		}
@@ -75,28 +75,20 @@ public class UserController {
 	@Path("/authenticate")
 	public void post(@QueryParam("username") String username,
 					 @QueryParam("password") String password) throws Exception {
-		userService.authenticate(username, password);
+		userService.authenticate(new Credentials(username, password));
 	}
 
 	@PUT
-	public void update(@QueryParam("location") String location,
+	@Secured
+	public void update(@QueryParam("id") long id,
+					   @QueryParam("location") String location,
 					   @QueryParam("websiteURL") String websiteURL,
 					   @QueryParam("bio") String bio) throws Exception {
-		User user = userService.findByUsername(context.getCallerPrincipal().getName());
-		if(user == null) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
-		userService.update(user);
-	}
-
-	@PUT
-	@Path("/{id}/username")
-	public void updateUsername(@QueryParam("username") String username, @PathParam("id") long id) throws Exception {
 		User user = userService.findById(id);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
-		userService.updateUsername(username, user);
+		userService.update(user);
 	}
 
 	@DELETE

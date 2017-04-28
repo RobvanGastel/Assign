@@ -18,7 +18,7 @@ import com.robvangastel.assign.domain.User;
 @Stateless
 public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
 
-    @PersistenceContext(unitName ="AssignPU")
+    @PersistenceContext(unitName ="assignPU")
     private EntityManager entityManager;
 
     public PostDaoImpl() {

@@ -1,4 +1,4 @@
-package com.fontys.overheid.security;
+package com.robvangastel.assign.security;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
