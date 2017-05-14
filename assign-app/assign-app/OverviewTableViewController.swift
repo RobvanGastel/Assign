@@ -20,6 +20,8 @@ class OverviewTableViewController: UITableViewController {
             Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now"),
             Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", date: "24m")]
         
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
