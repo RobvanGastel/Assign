@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -37,8 +36,8 @@ public class User implements Serializable {
     private String role;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Post> posts = new ArrayList<Post>();
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private List<Post> posts;
     
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)

@@ -37,7 +37,7 @@ public class Post implements Serializable {
     private User user;
     
     @JsonManagedReference
-    @ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags = new ArrayList<Tag>();
     
