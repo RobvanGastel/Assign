@@ -9,12 +9,12 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
-      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/kwetter"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/assign"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="hibernate.connection.password" value="root1"/>
       <property name="hibernate.connection.username" value="root1"/>
-      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.show_sql" value="false"/>
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>

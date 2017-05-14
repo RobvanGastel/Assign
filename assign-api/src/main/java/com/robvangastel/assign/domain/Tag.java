@@ -1,51 +1,35 @@
 package com.robvangastel.assign.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Rob on 23-4-2017.
  */
 
 @Entity
+@Data
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class Tag implements Serializable {
-    
+
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue
-    @Column(name = "tag_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "tag_id")
     private Long id;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String title;
     
     public Tag (String title) {
-        this.title = title;
-    }
-
-    Tag() {
-    }
-        
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @return the title
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * @param title the title to set
-     */
-    public void setTitle(String title) {
         this.title = title;
     }
 } 

@@ -1,5 +1,7 @@
 package com.robvangastel.assign;
 
+import org.jboss.logging.Logger;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Startup;
 import javax.ejb.Singleton;
@@ -11,6 +13,8 @@ import javax.ejb.Singleton;
 @Singleton
 @Startup
 public class StartUp {
+
+	private static final Logger LOG = Logger.getLogger(StartUp.class.getName());
 
 	@PostConstruct
 	public void initData() {

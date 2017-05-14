@@ -35,9 +35,4 @@ public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
     public User findByUsername(String username) {
         return null;
     }
-
-    @Override
-    public User updateRole(User entity) throws UserException {
-        return null;
-    }
 }

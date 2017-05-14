@@ -1,7 +1,7 @@
 package com.robvangastel.assign.controllers;
 
+import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.security.Credentials;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
 
@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 @Stateless
-@Path("/user")
+@Path("/users")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserController {
 
@@ -32,55 +32,48 @@ public class UserController {
 
 	@GET
 	@Path("/{id}")
-	public User getById(@PathParam("id") long id) {
+	public Response getById(@PathParam("id") long id) {
 		User user = userService.findById(id);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
-		return user;
+		return Response.ok(user).build();
 	}
 
 	@GET
 	@Path("/username")
-	public User getByUsername(@QueryParam("username") String username) {
+	public Response getByUsername(@QueryParam("username") String username) {
 		User user = userService.findByUsername(username);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
-		return user;
+		return Response.ok(user).build();
 	}
 
 	@GET
 	@Path("/email")
-	public User getByEmail(@QueryParam("email") String email) {
+	public Response getByEmail(@QueryParam("email") String email) {
 		User user = userService.findByEmail(email);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
-		return user;
+		return Response.ok(user).build();
 	}
 
 	@POST
-	public User post(@QueryParam("email") String email,
+	public Response create(@QueryParam("email") String email,
 					 @QueryParam("username") String username,
 					 @QueryParam("password") String password) throws Exception {
 		User user = userService.create(new User(email, username, password));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		}
-		return user;
-	}
-
-	@POST
-	@Path("/authenticate")
-	public void post(@QueryParam("username") String username,
-					 @QueryParam("password") String password) throws Exception {
-		userService.authenticate(new Credentials(username, password));
+		return Response.ok(user).build();
 	}
 
 	@PUT
-	@Secured
-	public void update(@QueryParam("id") long id,
+	@Secured({Role.USER, Role.ADMIN, Role.MODERATOR})
+	public Response update(@QueryParam("id") long id,
 					   @QueryParam("location") String location,
 					   @QueryParam("websiteURL") String websiteURL,
 					   @QueryParam("bio") String bio) throws Exception {
@@ -88,12 +81,13 @@ public class UserController {
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
-		userService.update(user);
+		return Response.noContent().build();
 	}
 
 	@DELETE
 	@Path("/{id}")
-	public void delete(@PathParam("id") long id) throws Exception {
+	public Response delete(@PathParam("id") long id) throws Exception {
 		userService.delete(id);
+		return Response.noContent().build();
 	}
 }
