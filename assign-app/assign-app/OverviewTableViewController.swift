@@ -17,8 +17,8 @@ class OverviewTableViewController: UITableViewController {
         //loadJsonData()
         
         posts = [
-            Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now"),
-            Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", date: "24m")]
+            Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now", profile: "profile@2x.jpg"),
+            Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", date: "24m", profile: "https://assets.entrepreneur.com/content/16x9/822/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg")]
         
         // Get rid of the nasty nav border
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
@@ -107,6 +107,10 @@ class OverviewTableViewController: UITableViewController {
             dateLabel.text = post.date
         }
         
+        if let profileLabel = cell.viewWithTag(104) as? UILabel {
+            profileLabel.text = post.profile
+        }
+        
         return cell
     }
  
@@ -157,3 +161,6 @@ class OverviewTableViewController: UITableViewController {
     */
 
 }
+
+
+
