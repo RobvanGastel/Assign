@@ -22,7 +22,7 @@ class UIProfile: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.cornerRadius = 12
+        self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
         self.image = #imageLiteral(resourceName: "profile.jpg")
     }

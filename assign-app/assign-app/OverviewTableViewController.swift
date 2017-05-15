@@ -9,12 +9,13 @@
 import UIKit
 
 class OverviewTableViewController: UITableViewController {
-
+    
     var posts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //loadJsonData()
+        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         
         posts = [
             Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", date: "Just now", profile: "profile@2x.jpg"),
