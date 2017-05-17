@@ -35,7 +35,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String role;
 
-    @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Post> posts;
     
@@ -69,15 +68,13 @@ public class User implements Serializable {
      * @param email
      * @param password
      * @param firstName
-     * @param socialChannel 
      */
-    public User(String email, String password, String firstName, SocialChannels socialChannel) {
+    public User(String email, String password, String firstName) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.firstName = firstName;
-        
-        this.socialChannel = socialChannel;
+
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 
@@ -87,13 +84,13 @@ public class User implements Serializable {
      * @param password
      * @param firstName
      */
-    public User(String email, String password, String firstName) {
+    public User(String email, String password, String firstName, String education) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.firstName = firstName;
+        this.education = education;
 
-        this.socialChannel = new SocialChannels();
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 

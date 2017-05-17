@@ -30,4 +30,16 @@ public class PostService implements Serializable {
     public void delete(long id) throws Exception  {
         postDao.deleteById(id);
     }
+
+    public Post findByEmail(String email) {
+        return postDao.findByEmail(email);
+    }
+
+    public Post create(Post entity) throws Exception {
+        return postDao.create(entity);
+    }
+
+    public List<Post> findByDescription(String description) {
+        return postDao.findByDescription(description);
+    }
 }

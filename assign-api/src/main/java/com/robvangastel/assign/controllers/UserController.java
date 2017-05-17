@@ -21,6 +21,7 @@ import java.util.List;
 @Path("/users")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserController {
+	//TODO Add correct auth levels
 
 	@Inject
 	private UserService userService;
@@ -41,16 +42,6 @@ public class UserController {
 	}
 
 	@GET
-	@Path("/username")
-	public Response getByUsername(@QueryParam("username") String username) {
-		User user = userService.findByUsername(username);
-		if(user == null) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
-		return Response.ok(user).build();
-	}
-
-	@GET
 	@Path("/email")
 	public Response getByEmail(@QueryParam("email") String email) {
 		User user = userService.findByEmail(email);
@@ -62,9 +53,10 @@ public class UserController {
 
 	@POST
 	public Response create(@QueryParam("email") String email,
-					 @QueryParam("username") String username,
-					 @QueryParam("password") String password) throws Exception {
-		User user = userService.create(new User(email, username, password));
+					 @QueryParam("password") String password,
+					 @QueryParam("firstName") String firstName) throws Exception {
+		//TODO validate variables validator
+		User user = userService.create(new User(email, password, firstName));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		}
@@ -72,11 +64,13 @@ public class UserController {
 	}
 
 	@PUT
+	@Path("/{id}")
 	@Secured({Role.USER, Role.ADMIN, Role.MODERATOR})
-	public Response update(@QueryParam("id") long id,
+	public Response update(@PathParam("id") long id,
 					   @QueryParam("location") String location,
 					   @QueryParam("websiteURL") String websiteURL,
 					   @QueryParam("bio") String bio) throws Exception {
+		//TODO add validation and correct variables
 		User user = userService.findById(id);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);

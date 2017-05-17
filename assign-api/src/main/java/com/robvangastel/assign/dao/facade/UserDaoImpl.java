@@ -28,11 +28,14 @@ public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
 
     @Override
     public User findByEmail(String email) {
-        return null;
-    }
+        Query query = entityManager.createQuery(
+                "SELECT u FROM User u WHERE u.email = :email")
+                .setParameter("email", email);
 
-    @Override
-    public User findByUsername(String username) {
-        return null;
+        if(query.getResultList().isEmpty()) {
+            return null;
+        } else {
+            return (User) query.getSingleResult();
+        }
     }
 }
