@@ -19,6 +19,8 @@
 		20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */; };
 		B277111E1EC8DDC5001D2382 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277111D1EC8DDC5001D2382 /* View.swift */; };
 		B27711201EC8F7CD001D2382 /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B277111F1EC8F7CD001D2382 /* profile@2x.jpg */; };
+		B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */; };
+		B2816EB21ECB01E000A63186 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2816EB11ECB01E000A63186 /* Add.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		20CC17D51E17E1DB006D5A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B277111D1EC8DDC5001D2382 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		B277111F1EC8F7CD001D2382 /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile@2x.jpg"; sourceTree = "<group>"; };
+		B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross@2x.png"; sourceTree = "<group>"; };
+		B2816EB11ECB01E000A63186 /* Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 				201F96EE1E3154F10082702E /* Post.swift */,
 				201F96F01E3156400082702E /* Tag.swift */,
 				B277111D1EC8DDC5001D2382 /* View.swift */,
+				B2816EB11ECB01E000A63186 /* Add.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 				2013FC341E2D5C3200C85F5D /* Controllers */,
 				20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */,
 				B277111F1EC8F7CD001D2382 /* profile@2x.jpg */,
+				B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */,
 				20CC17C81E17E1DB006D5A13 /* ViewController.swift */,
 				20CC17CA1E17E1DB006D5A13 /* Main.storyboard */,
 				20CC17D01E17E1DB006D5A13 /* Assets.xcassets */,
@@ -166,6 +172,7 @@
 			files = (
 				B27711201EC8F7CD001D2382 /* profile@2x.jpg in Resources */,
 				20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */,
+				B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */,
 				20CC17D11E17E1DB006D5A13 /* Assets.xcassets in Resources */,
 				20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */,
 			);
@@ -178,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2816EB21ECB01E000A63186 /* Add.swift in Sources */,
 				B277111E1EC8DDC5001D2382 /* View.swift in Sources */,
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				20CC17C91E17E1DB006D5A13 /* ViewController.swift in Sources */,
