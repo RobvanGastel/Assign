@@ -1,0 +1,93 @@
+package com.robvangastel.assign.controllers;
+
+import com.robvangastel.assign.domain.Role;
+import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.security.Secured;
+import com.robvangastel.assign.services.UserService;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import java.util.List;
+
+/**
+ * Created by Rob on 23-4-2017.
+ */
+
+@Stateless
+@Path("/users")
+@Produces({MediaType.APPLICATION_JSON})
+public class UserController {
+
+	@Inject
+	private UserService userService;
+
+	@GET
+	public List<User> get() {
+		return userService.findAll();
+	}
+
+	@GET
+	@Path("/{id}")
+	public Response getById(@PathParam("id") long id) {
+		User user = userService.findById(id);
+		if(user == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+		return Response.ok(user).build();
+	}
+
+	@GET
+	@Path("/username")
+	public Response getByUsername(@QueryParam("username") String username) {
+		User user = userService.findByUsername(username);
+		if(user == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+		return Response.ok(user).build();
+	}
+
+	@GET
+	@Path("/email")
+	public Response getByEmail(@QueryParam("email") String email) {
+		User user = userService.findByEmail(email);
+		if(user == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+		return Response.ok(user).build();
+	}
+
+	@POST
+	public Response create(@QueryParam("email") String email,
+					 @QueryParam("username") String username,
+					 @QueryParam("password") String password) throws Exception {
+		User user = userService.create(new User(email, username, password));
+		if(user == null) {
+			throw new WebApplicationException(Response.Status.BAD_REQUEST);
+		}
+		return Response.ok(user).build();
+	}
+
+	@PUT
+	@Secured({Role.USER, Role.ADMIN, Role.MODERATOR})
+	public Response update(@QueryParam("id") long id,
+					   @QueryParam("location") String location,
+					   @QueryParam("websiteURL") String websiteURL,
+					   @QueryParam("bio") String bio) throws Exception {
+		User user = userService.findById(id);
+		if(user == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+		return Response.noContent().build();
+	}
+
+	@DELETE
+	@Path("/{id}")
+	public Response delete(@PathParam("id") long id) throws Exception {
+		userService.delete(id);
+		return Response.noContent().build();
+	}
+}
