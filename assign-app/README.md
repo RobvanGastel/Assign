@@ -1,10 +1,10 @@
 # Assign-app
 iOS mobile App for Assign
 
-##CocoaPods
+## CocoaPods
 CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects.
 
-####How to install
+#### How to install
 Using the default Ruby install can require you to use sudo when installing gems. Make sure you're using Xcode 7 or 8.
 ```
 # Xcode 7 + 8
