@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.2'
+
+target 'assign-app' do
+  use_frameworks!
+  # Pods for assign-app
+  pod 'Alamofire', '~> 4.4'
+
+end
