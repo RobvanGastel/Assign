@@ -10,6 +10,8 @@ import Foundation
 
 class Storage {
     
+    //TODO set token with 'bearer '
+    
     class func getToken() -> String {
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "token")!
@@ -26,7 +28,7 @@ class Storage {
     }
     
     class func getURL() -> String {
-        return "http://84.26.134.115:8080/assign/api/"
+        return "http://84.26.134.115:8080/assign/api"
     }
     
     class func setToken(token: String) {

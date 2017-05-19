@@ -39,6 +39,10 @@ class LoginController: UIViewController {
         //If auth succesful redirect to page
         //Else return error to login
         
+        let authService = AuthService.init()
+        if authService.authenticate(email: email, password: password) {
+            
+        }
     }
 
     /*

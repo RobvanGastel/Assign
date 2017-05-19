@@ -23,6 +23,7 @@
 		B2816EB21ECB01E000A63186 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2816EB11ECB01E000A63186 /* Add.swift */; };
 		D41955791ECF023C009575DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955781ECF023C009575DE /* AuthService.swift */; };
 		D419557B1ECF0367009575DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557A1ECF0367009575DE /* Storage.swift */; };
+		D41955801ECF2345009575DE /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557F1ECF2345009575DE /* TokenAdapter.swift */; };
 		D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9064E1ECE4A370065B5A5 /* LoginController.swift */; };
 		D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D906521ECE541A0065B5A5 /* ApiService.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D419557E1ECF1BCD009575DE /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		D419557F1ECF2345009575DE /* TokenAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
 		D4D9064E1ECE4A370065B5A5 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +148,7 @@
 				D4D906521ECE541A0065B5A5 /* ApiService.swift */,
 				D41955781ECF023C009575DE /* AuthService.swift */,
 				D419557A1ECF0367009575DE /* Storage.swift */,
+				D419557F1ECF2345009575DE /* TokenAdapter.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
+				D41955801ECF2345009575DE /* TokenAdapter.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
 				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
 				2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */,

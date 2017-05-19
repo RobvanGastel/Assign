@@ -8,11 +8,10 @@
 
 import Foundation
 
-//TODO Create Calls for Posts etc.
-//TODO Split up Auth Service to store the JWT safe
+//Add sessionManager
+//Add RequestRetrier, RequestAdapter (for adding Headers)
 
 class ApiService {
     
-    //TODO add Configurable API call with auth embedded
     
 }
