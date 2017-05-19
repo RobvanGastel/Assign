@@ -10,40 +10,37 @@ import Foundation
 import Alamofire
 
 class AuthService {
-    //TODO create Authenticate
-    //TODO create new Token
-    
-    //let sessionManager = SessionManager()
-    //sessionManager.adapter
     
     func authenticate(email: String, password: String) -> Bool {
         let URL = Storage.getURL() + "/auth"
+        var valid = false
         
         let parameters: Parameters = [
             "email": email,
             "password": password
         ]
     
-        Alamofire.request(URL, method: .post, parameters: parameters).validate().responseJSON { response in
+        Alamofire.request(URL, method: .post, parameters: parameters, encoding: URLEncoding.queryString).validate().responseJSON { response in
             switch response.result {
             case .success:
                 
                 let json = response.result.value as? [String: Any]
-                let Token = json?["id_token"] as? String
+                let token = json?["id_token"] as? String
                 
-                Storage.setToken(token: Token!)
-                print("Validation Successful accesToken:\(String(describing: Token))")
+                Storage.setToken(token: token!)
+                print("AUTH: Token request successful")
+                
+                valid = true
             case .failure(let error):
                 print(error)
+                
+                valid = false
             }
         }
-        return true
+        return valid
     }
     
-    func refreshToken() -> Bool {
-        return true
-    }
-    
+    //TODO implement method
     func register() -> Bool {
         return true
     }

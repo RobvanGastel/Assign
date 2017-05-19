@@ -26,7 +26,6 @@ class LoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         if email.text != "" && password.text != "" {
-            //TODO authenticatie
             authenticate(email: email.text!, password: password.text!)
         } else {
             //TODO return error to login
@@ -34,14 +33,12 @@ class LoginController: UIViewController {
     }
     
     func authenticate(email: String, password : String) {
-        //TODO add api call
-        
-        //If auth succesful redirect to page
-        //Else return error to login
-        
-        let authService = AuthService.init()
-        if authService.authenticate(email: email, password: password) {
-            
+        let authService = AuthService()
+        if authService.authenticate(email: "admin@mail.nl", password: "admin") {
+            //TODO redirect to Posts
+            Storage.setCredentials(credentials: Credentials(email: email, password: password))
+        } else {
+            //TODO return error to login
         }
     }
 

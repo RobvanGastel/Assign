@@ -8,16 +8,30 @@
 
 import Foundation
 
-class User {
+class User: JSONDecodable {
     
     var id:Int?
     var firstName:String?
-    var surname:String?
     var email:String?
-    var phoneNumber:String?
+    var posts:[Post]?
     var dateCreated:Date?
     
-    init() {
+    init(id: Int, firstName:String, email:String, dateCreated:Date) {
+        self.id = id;
+        self.firstName = firstName;
+        self.email = email;
+        self.dateCreated = dateCreated;
+    }
+    
+    public required init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject] else { return nil }
         
+        guard let id = JSON["id"] as? Int else { return nil }
+        guard let firstName = JSON["firstName"] as? String else { return nil }
+        guard let email = JSON["email"] as? String else { return nil }
+        
+        self.id = id;
+        self.firstName = firstName;
+        self.email = email;
     }
 }

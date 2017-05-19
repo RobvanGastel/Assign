@@ -10,8 +10,6 @@ import Foundation
 
 class Storage {
     
-    //TODO set token with 'bearer '
-    
     class func getToken() -> String {
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "token")!
@@ -20,6 +18,11 @@ class Storage {
     class func getUser() -> User {
         let defaults = UserDefaults.standard
         return defaults.object(forKey: "currentUser")! as! User
+    }
+    
+    class func getCredentials() -> Credentials {
+        let defaults = UserDefaults.standard
+        return defaults.object(forKey: "credentials")! as! Credentials
     }
     
     class func getLoggedIn() -> Bool {
@@ -39,6 +42,11 @@ class Storage {
     class func setUser(user: User) {
         let defaults = UserDefaults.standard
         defaults.set(user, forKey: "currentUser")
+    }
+    
+    class func setCredentials(credentials: Credentials) {
+        let defaults = UserDefaults.standard
+        defaults.set(credentials, forKey: "credentials")
     }
     
     class func setLoggedIn(loggedIn: Bool) {
