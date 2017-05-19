@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class AuthService {
     //TODO create Authenticate

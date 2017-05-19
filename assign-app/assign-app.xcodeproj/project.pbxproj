@@ -48,6 +48,7 @@
 		CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.debug.xcconfig"; sourceTree = "<group>"; };
 		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		D419557E1ECF1BCD009575DE /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		D4D9064E1ECE4A370065B5A5 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +107,7 @@
 		20CC17C51E17E1DB006D5A13 /* assign-app */ = {
 			isa = PBXGroup;
 			children = (
+				D419557E1ECF1BCD009575DE /* Bridging.h */,
 				D4D906511ECE53F50065B5A5 /* Services */,
 				201F96EB1E31547C0082702E /* Models */,
 				2013FC341E2D5C3200C85F5D /* Controllers */,
@@ -420,6 +422,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.assign.app.assign-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -438,6 +441,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.assign.app.assign-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
