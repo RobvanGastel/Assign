@@ -10,6 +10,6 @@ import Foundation
 
 protocol JSONDecodable {
     
-    init?(JSON: Any)
+    init?(JSON: [String: Any])
     
 }

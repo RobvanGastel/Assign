@@ -11,9 +11,9 @@ import Alamofire
 
 class AuthService {
     
-    func authenticate(email: String, password: String) -> Bool {
+    func authenticate(email: String, password: String,
+                      completionHandler:@escaping (Bool) -> ()) {
         let URL = Storage.getURL() + "/auth"
-        var valid = false
         
         let parameters: Parameters = [
             "email": email,
@@ -30,14 +30,13 @@ class AuthService {
                 Storage.setToken(token: token!)
                 print("AUTH: Token request successful")
                 
-                valid = true
+                completionHandler(true)
             case .failure(let error):
+                print("AUTH: Token request error")
                 print(error)
-                
-                valid = false
+                completionHandler(false)
             }
         }
-        return valid
     }
     
     //TODO implement method

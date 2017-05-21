@@ -13,32 +13,44 @@ class LoginController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    var apiService: ApiService?
+    var authService: AuthService?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        apiService = ApiService()
+        authService = AuthService()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func login(_ sender: Any) {
-        if email.text != "" && password.text != "" {
+        //Check on not entering any credentials
+        if email.text == "" && password.text == "" {
             authenticate(email: email.text!, password: password.text!)
         } else {
-            //TODO return error to login
+            //TODO return error to page
         }
     }
     
     func authenticate(email: String, password : String) {
-        let authService = AuthService()
-        if authService.authenticate(email: "admin@mail.nl", password: "admin") {
-            //TODO redirect to Posts
-            Storage.setCredentials(credentials: Credentials(email: email, password: password))
-        } else {
-            //TODO return error to login
+
+        authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
+            if(success == true) {
+                Storage.setCredentials(credentials: Credentials(email: "admin@mail.nl", password: "admin"))
+                
+                self.apiService?.getCurrentUser { response in
+                    //TODO add Data to Core Data
+                    print("User: { username: \(String(describing: response?.email)), name: \(String(describing: response?.id)) }")
+                }
+                //TODO add Segue to next page
+                
+            } else {
+                //TODO Add error to page
+            }
         }
     }
 

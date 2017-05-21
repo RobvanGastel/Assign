@@ -9,6 +9,7 @@
 import Foundation
 
 class Storage {
+    //Not implemented set/getUser()
     
     class func getToken() -> String {
         let defaults = UserDefaults.standard
@@ -22,7 +23,10 @@ class Storage {
     
     class func getCredentials() -> Credentials {
         let defaults = UserDefaults.standard
-        return defaults.object(forKey: "credentials")! as! Credentials
+        let credentials = Credentials(email: defaults.string(forKey: "credentials_email")!,
+                                      password: defaults.string(forKey: "credentials_password")!)
+        
+        return credentials
     }
     
     class func getLoggedIn() -> Bool {
@@ -46,7 +50,8 @@ class Storage {
     
     class func setCredentials(credentials: Credentials) {
         let defaults = UserDefaults.standard
-        defaults.set(credentials, forKey: "credentials")
+        defaults.set(credentials.email, forKey:"credentials_email")
+        defaults.set(credentials.password, forKey:"credentials_password")
     }
     
     class func setLoggedIn(loggedIn: Bool) {

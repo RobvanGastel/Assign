@@ -8,38 +8,44 @@
 
 import Foundation
 
-class Post: JSONDecodable {
-
+    
+class Post:NSObject, JSONDecodable {
+        
     var id:Int?
     var title:String?
-    var description:String?
+    var text:String?
     
-    var user:User?
+    var user:String?
     var tags:[Tag]?
     var done:Bool?
     
+    var profile: String?
     var dateCreated:Date?
     var dateDone:Date?
     
-    init(id:Int, title:String, user:User, dateCreated:Date, description:String) {
+    init(id:Int, title:String, dateCreated:Date, text:String) {
         self.id = id
         self.title = title
-        self.description = description
-        self.user = user
+        self.text = text
         self.dateCreated = dateCreated
     }
     
-    public required init?(JSON: Any) {
-        guard let JSON = JSON as? [String: AnyObject] else { return nil }
-        
-        guard let id = JSON["id"] as? Int else { return nil }
-        guard let title = JSON["title"] as? String else { return nil }
-        guard let description = JSON["description"] as? String else { return nil }
-        guard let dateCreated = JSON["dateCreated"] as? Double else { return nil }
-        
+    init(id:Int, title:String, user: String, dateCreated:Date, text:String, profile: String) {
         self.id = id
         self.title = title
-        self.description = description
-        self.dateCreated = Date(timeIntervalSince1970: dateCreated)
+        self.user = user
+        self.text = text
+        self.profile = profile
+        self.dateCreated = dateCreated
+    }
+    
+    
+    convenience required init?(JSON: [String: Any]) {
+        guard let id = JSON["id"] as? Int else { return nil }
+        guard let title = JSON["title"] as? String else { return nil }
+        guard let text = JSON["description"] as? String else { return nil }
+        guard let dateCreated = JSON["dateCreated"] as? Double else { return nil }
+        
+        self.init(id: id, title: title, dateCreated: Date(timeIntervalSince1970: dateCreated), text: text)
     }
 }

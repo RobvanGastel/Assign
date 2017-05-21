@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Credentials {
+class Credentials:NSObject  {
     
     var email:String?
     var password:String?
