@@ -39,7 +39,6 @@ class Post:NSObject, JSONDecodable {
         self.dateCreated = dateCreated
     }
     
-    
     convenience required init?(JSON: [String: Any]) {
         guard let id = JSON["id"] as? Int else { return nil }
         guard let title = JSON["title"] as? String else { return nil }

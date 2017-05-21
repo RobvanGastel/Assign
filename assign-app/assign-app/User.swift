@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User:NSObject {
+class User:NSObject, JSONDecodable {
     
     var id:Int?
     var firstName:String?
@@ -31,14 +31,14 @@ class User:NSObject {
         self.dateCreated = dateCreated;
     }
     
-    convenience init?(JSON: [String: Any]) {
+    convenience required init?(JSON: [String: Any]) {
         guard let id = JSON["id"] as? Int else { return nil }
         guard let firstName = JSON["firstName"] as? String else { return nil }
         guard let email = JSON["email"] as? String else { return nil }
-//        guard let dateCreated = JSON["dateCreated"] as? Double else { return nil }
+        //TODO add serializer for Date
+        //guard let dateCreated = JSON["dateCreated"] as? Double else { return nil }
         
         self.init(id: id, firstName: firstName, email: email)
-        print(id)
     }
 }
 

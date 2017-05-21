@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-
+/// Manages the JWT tokens authentication on the API requests.
 class JWTHandler: RequestAdapter, RequestRetrier {
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?) -> Void
     

@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+/// Manages the Singleton of the SessionManager for Alamofire.
 class NetworkManager {
     
     private static var manager: SessionManager = {

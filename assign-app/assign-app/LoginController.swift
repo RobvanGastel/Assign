@@ -36,6 +36,9 @@ class LoginController: UIViewController {
         }
     }
     
+    /// Authenticates the user against the API.
+    /// 
+    /// TODO Add getter/setter for the User data.
     func authenticate(email: String, password : String) {
 
         authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
@@ -46,7 +49,10 @@ class LoginController: UIViewController {
                     //TODO add Data to Core Data
                     print("User: { username: \(String(describing: response?.email)), name: \(String(describing: response?.id)) }")
                 }
-                //TODO add Segue to next page
+
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PostsNavigationController") as! UINavigationController
+                self.present(nextViewController, animated:true, completion:nil)
                 
             } else {
                 //TODO Add error to page

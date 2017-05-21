@@ -9,8 +9,11 @@
 import Foundation
 import Alamofire
 
+/// Manages the Authentication API calls.
 class AuthService {
     
+    /// This function authenticates the Credentials against the API and sets
+    /// the token in the defaults.
     func authenticate(email: String, password: String,
                       completionHandler:@escaping (Bool) -> ()) {
         let URL = Storage.getURL() + "/auth"
@@ -39,7 +42,9 @@ class AuthService {
         }
     }
     
-    //TODO implement method
+    /// This function registers the User against the API.
+    ///
+    /// TODO write implementation
     func register() -> Bool {
         return true
     }

@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// Manages the API calls.
 class ApiService {
 
+    /// This function returns the *User* object of the authenticated user.
     @discardableResult
     func getCurrentUser(completionHandler: @escaping (_ response: User?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
@@ -37,20 +39,22 @@ class ApiService {
        }
     }
     
-//    func getPosts() -> Post {
-//        let URL = Storage.getURL() + "/posts"
-//        let user = Post(id: Int, title: String, user: String, date: String, profile: String)
-//        
-//        sessionManager.request(URL, method: .get).validate().responseJSON { response in
-//            switch response.result {
-//            case .success:
-//                //TODO add serializer for Posts
-//                print("API: Retrieve posts successful")
-//                
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//        return user
-//    }
+    /// This function returns a list of *Post* objects for the authenticated user.
+    @discardableResult
+    func getPosts() -> Post {
+        let URL = Storage.getURL() + "/posts"
+        let user = Post(id: Int, title: String, user: String, date: String, profile: String)
+        
+        sessionManager.request(URL, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                //TODO add serializer for Posts
+                print("API: Retrieve posts successful")
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        return user
+    }
 }

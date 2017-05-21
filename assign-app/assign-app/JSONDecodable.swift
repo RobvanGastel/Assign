@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Abstract class for the JSON init method
 protocol JSONDecodable {
     
     init?(JSON: [String: Any])

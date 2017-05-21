@@ -69,7 +69,7 @@
         <!--Overzicht-->
         <scene sceneID="2sL-c4-1mf">
             <objects>
-                <tableViewController storyboardIdentifier="OverviewController" title="Overzicht" id="mdJ-8M-bOb" customClass="OverviewTableViewController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PostsOverviewController" title="Overzicht" id="mdJ-8M-bOb" customClass="PostsViewController" customModule="assign_app" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="H1C-zB-l5z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,7 +226,7 @@
         <!--Navigation Controller-->
         <scene sceneID="IdY-bq-xZX">
             <objects>
-                <navigationController id="ob9-ut-Dgz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostsNavigationController" id="ob9-ut-Dgz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rrb-mm-dUH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
