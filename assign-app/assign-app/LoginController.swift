@@ -45,11 +45,11 @@ class LoginController: UIViewController {
             if(success == true) {
                 Storage.setCredentials(credentials: Credentials(email: "admin@mail.nl", password: "admin"))
                 
-                self.apiService?.getCurrentUser { response in
+                self.apiService?.getCurrentUser() { response in
                     //TODO add Data to Core Data
-                    print("User: { username: \(String(describing: response?.email)), name: \(String(describing: response?.id)) }")
+                    print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                 }
-
+                
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PostsNavigationController") as! UINavigationController
                 self.present(nextViewController, animated:true, completion:nil)

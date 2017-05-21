@@ -9,6 +9,8 @@
 import Foundation
 
 /// Manages the API calls.
+///
+/// TODO Add check if user is connected to Network.
 class ApiService {
 
     /// This function returns the *User* object of the authenticated user.
@@ -40,21 +42,34 @@ class ApiService {
     }
     
     /// This function returns a list of *Post* objects for the authenticated user.
+    ///
+    /// TODO Retrieve custom Posts of Call
     @discardableResult
-    func getPosts() -> Post {
-        let URL = Storage.getURL() + "/posts"
-        let user = Post(id: Int, title: String, user: String, date: String, profile: String)
+    func getPosts(completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
         
-        sessionManager.request(URL, method: .get).validate().responseJSON { response in
+        let URL = Storage.getURL() + "/posts"
+
+        return sessionManager.request(URL, method: .get, encoding: URLEncoding.queryString)
+                                    .validate().responseJSON{ response in
+                
             switch response.result {
             case .success:
-                //TODO add serializer for Posts
+                var postsArray = [Post]()
+                
+                if let posts = response.value as? [[String:Any]] {
+                    for post in posts {
+                        postsArray.append(Post(JSON: post)!)
+                    }
+                }
+                
                 print("API: Retrieve posts successful")
+                completionHandler(postsArray)
                 
             case .failure(let error):
+                print("API: Retrieve posts error")
                 print(error)
             }
         }
-        return user
     }
 }
