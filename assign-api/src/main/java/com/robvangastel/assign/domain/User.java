@@ -71,7 +71,7 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
-        this.profileImage = "default.jpg";
+        this.profileImage = "default.png";
 
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
@@ -88,7 +88,7 @@ public class User implements Serializable {
         this.password = password;
         this.firstName = firstName;
         this.education = education;
-        this.profileImage = "default.jpg";
+        this.profileImage = "default.png";
 
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
