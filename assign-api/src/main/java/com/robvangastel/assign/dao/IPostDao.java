@@ -21,41 +21,26 @@ public interface IPostDao {
     Post findById(long id);
 
     /***
-     * Find Post(s) by message
-     * @param message
+     * Find Post(s) by description
+     * @param description
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    List<Post> findByMessage(String message);
+    List<Post> findByDescription(String description);
 
     /***
      * Find Post(s) by User
-     * @param id User id
+     * @param email User email
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    List<Post> findByUser(long id);
-
-    /***
-     * Find Posts for User, includes Posts of his
-     * following list
-     * @param user
-     * @return Found Post(s) or Null when
-     * the Post(s) isn't found
-     */
-    List<Post> findForUser(User user);
+    Post findByEmail(String email);
 
     /***
      *
      * @return return all Posts
      */
     List<Post> findAll();
-
-    /***
-     *
-     * @return Posts orderd by Date
-     */
-    List<Post> findAllOrderedByDate();
 
     /***
      * Create a Post

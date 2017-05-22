@@ -39,25 +39,20 @@ public class UserService implements Serializable {
 		return dao.findByEmail(email);
 	}
 
-	public User findByUsername(String username) {
-		return dao.findByUsername(username);
-	}
-
 	public List<User> findAll() {
 		return dao.findAll();
 	}
 
 	public User create(User entity) throws Exception {
-		if(dao.findByUsername(entity.getEmail()) == null &&
-				dao.findByEmail(entity.getEmail()) == null) {
-			entity.setPassword(this.encoder.encode(entity.getPassword()));
+		if(dao.findByEmail(entity.getEmail()) == null) {
+			entity.setPassword(encoder.encode(entity.getPassword()));
 			return dao.create(entity);
 		}
 		return null;
 	}
 
 	public IdToken authenticate(Credentials credentials) {
-		User user = dao.findByUsername(credentials.getUsername());
+		User user = dao.findByEmail(credentials.getUsername());
 		if (user == null) {
 			throw new AuthenticationException();
 		}

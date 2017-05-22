@@ -11,6 +11,13 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 /**
@@ -21,9 +28,12 @@ import java.util.List;
 @Path("/users")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserController {
+	//TODO Add correct auth levels
 
 	@Inject
 	private UserService userService;
+
+	private static final String FILE_PATH = "c:\\myfile.txt";
 
 	@GET
 	public List<User> get() {
@@ -34,16 +44,6 @@ public class UserController {
 	@Path("/{id}")
 	public Response getById(@PathParam("id") long id) {
 		User user = userService.findById(id);
-		if(user == null) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
-		return Response.ok(user).build();
-	}
-
-	@GET
-	@Path("/username")
-	public Response getByUsername(@QueryParam("username") String username) {
-		User user = userService.findByUsername(username);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
@@ -62,9 +62,10 @@ public class UserController {
 
 	@POST
 	public Response create(@QueryParam("email") String email,
-					 @QueryParam("username") String username,
-					 @QueryParam("password") String password) throws Exception {
-		User user = userService.create(new User(email, username, password));
+					 @QueryParam("password") String password,
+					 @QueryParam("firstName") String firstName) throws Exception {
+		//TODO validate variables validator
+		User user = userService.create(new User(email, password, firstName));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		}
@@ -72,11 +73,13 @@ public class UserController {
 	}
 
 	@PUT
+	@Path("/{id}")
 	@Secured({Role.USER, Role.ADMIN, Role.MODERATOR})
-	public Response update(@QueryParam("id") long id,
+	public Response update(@PathParam("id") long id,
 					   @QueryParam("location") String location,
 					   @QueryParam("websiteURL") String websiteURL,
 					   @QueryParam("bio") String bio) throws Exception {
+		//TODO add validation and correct variables
 		User user = userService.findById(id);
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);

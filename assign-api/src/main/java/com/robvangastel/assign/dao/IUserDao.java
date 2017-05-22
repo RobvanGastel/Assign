@@ -28,14 +28,6 @@ public interface IUserDao {
     User findByEmail(String email);
 
     /***
-     * Find User by username
-     * @param username
-     * @return Found User or Null when
-     * The User isn't found
-     */
-    User findByUsername(String username);
-
-    /***
      * Find all Users
      * @return All Users
      */

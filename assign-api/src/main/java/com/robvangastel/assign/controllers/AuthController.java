@@ -25,10 +25,11 @@ public class AuthController {
     private UserService service;
 
     @POST
-    @Path("/login")
-    public Response authenticate(@QueryParam("username") String username,
+    public Response authenticate(@QueryParam("email") String username,
                          @QueryParam("password") String password) throws Exception {
         IdToken token = service.authenticate(new Credentials(username, password));
         return Response.ok(token).build();
     }
+
+    //TODO add change password
 }

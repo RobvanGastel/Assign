@@ -11,5 +11,5 @@ import javax.ws.rs.core.Application;
 
 @ApplicationPath("/api")
 public class JAXRSApplication extends Application {
-
+    //TODO add Swagger.io/ui
 }

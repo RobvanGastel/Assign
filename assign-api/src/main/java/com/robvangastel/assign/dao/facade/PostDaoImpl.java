@@ -27,22 +27,24 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> findByMessage(String message) {
-        return null;
+    public List<Post> findByDescription(String description) {
+        description = "%" + description + "%";
+        Query query = entityManager.createQuery(
+                "SELECT p FROM Post p WHERE p.description like :description ORDER BY p.dateCreated DESC")
+                .setParameter("description", description);
+        return query.getResultList();
     }
 
     @Override
-    public List<Post> findByUser(long id) {
-        return null;
-    }
+    public Post findByEmail(String email) {
+        Query query = entityManager.createQuery(
+                "SELECT p FROM Post p, User u WHERE p.user_id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
+                .setParameter("email", email);
 
-    @Override
-    public List<Post> findForUser(User user) {
-        return null;
-    }
-
-    @Override
-    public List<Post> findAllOrderedByDate() {
-        return null;
+        if(query.getResultList().isEmpty()) {
+            return null;
+        } else {
+            return (Post) query.getSingleResult();
+        }
     }
 }

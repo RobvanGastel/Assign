@@ -35,7 +35,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String role;
 
-    @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Post> posts;
     
@@ -51,10 +50,7 @@ public class User implements Serializable {
     
     private String firstName;
     private String education;
-
-    @Lob
-    @Basic(fetch=FetchType.EAGER)
-    private byte[] profileImage;
+    private String profileImage;
     
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false)
@@ -64,23 +60,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private Timestamp dateCreated;
     
-    /***
-     * Complete User constructor
-     * @param email
-     * @param password
-     * @param firstName
-     * @param socialChannel 
-     */
-    public User(String email, String password, String firstName, SocialChannels socialChannel) {
-        this.role = Role.USER.toString();
-        this.email = email;
-        this.password = password;
-        this.firstName = firstName;
-        
-        this.socialChannel = socialChannel;
-        this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
-    }
-
     /***
      *
      * @param email
@@ -92,8 +71,25 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
+        this.profileImage = "default.jpg";
 
-        this.socialChannel = new SocialChannels();
+        this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+    }
+
+    /***
+     * Complete User constructor
+     * @param email
+     * @param password
+     * @param firstName
+     */
+    public User(String email, String password, String firstName, String education) {
+        this.role = Role.USER.toString();
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.education = education;
+        this.profileImage = "default.jpg";
+
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 
