@@ -11,6 +11,13 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 /**
@@ -25,6 +32,8 @@ public class UserController {
 
 	@Inject
 	private UserService userService;
+
+	private static final String FILE_PATH = "c:\\myfile.txt";
 
 	@GET
 	public List<User> get() {
