@@ -69,7 +69,7 @@
         <!--Overzicht-->
         <scene sceneID="2sL-c4-1mf">
             <objects>
-                <tableViewController storyboardIdentifier="OverviewController" title="Overzicht" id="mdJ-8M-bOb" customClass="OverviewTableViewController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PostsOverviewController" title="Overzicht" id="mdJ-8M-bOb" customClass="PostsViewController" customModule="assign_app" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="H1C-zB-l5z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,15 +168,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-gD-y79">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-gD-y79">
                                 <rect key="frame" x="87" y="258" width="202" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gja-Qg-GvH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gja-Qg-GvH">
                                 <rect key="frame" x="87" y="196" width="202" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -195,7 +194,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyZ-e1-3E0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyZ-e1-3E0">
                                 <rect key="frame" x="165" y="318" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="cVp-pP-FMx"/>
@@ -203,11 +202,17 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="862-IJ-7cP" eventType="touchUpInside" id="F7e-gB-2PD"/>
-                                    <segue destination="ob9-ut-Dgz" kind="presentation" id="dhc-48-U9H"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DyZ-e1-3E0" firstAttribute="top" secondItem="Qxf-gD-y79" secondAttribute="bottom" constant="30" id="0AF-t9-pOf"/>
+                            <constraint firstItem="DyZ-e1-3E0" firstAttribute="centerX" secondItem="gja-Qg-GvH" secondAttribute="centerX" id="3qE-7H-Z8l"/>
+                            <constraint firstItem="DyZ-e1-3E0" firstAttribute="centerX" secondItem="cy9-Tg-lhZ" secondAttribute="centerX" id="EoS-qE-KZb"/>
+                            <constraint firstItem="DyZ-e1-3E0" firstAttribute="centerY" secondItem="cy9-Tg-lhZ" secondAttribute="centerY" id="KTo-Fb-QiX"/>
+                            <constraint firstItem="DyZ-e1-3E0" firstAttribute="centerX" secondItem="Qxf-gD-y79" secondAttribute="centerX" id="cDr-qx-nLP"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="email" destination="gja-Qg-GvH" id="XgB-h0-a2b"/>
@@ -221,7 +226,7 @@
         <!--Navigation Controller-->
         <scene sceneID="IdY-bq-xZX">
             <objects>
-                <navigationController id="ob9-ut-Dgz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostsNavigationController" id="ob9-ut-Dgz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rrb-mm-dUH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -305,8 +310,5 @@
     <resources>
         <image name="icon-cross.png" width="18" height="18"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="dhc-48-U9H"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -13,32 +13,51 @@ class LoginController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    var apiService: ApiService?
+    var authService: AuthService?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        apiService = ApiService()
+        authService = AuthService()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func login(_ sender: Any) {
-        if email.text != "" && password.text != "" {
-            //TODO authenticatie
+        //Check on not entering any credentials
+        if email.text == "" && password.text == "" {
             authenticate(email: email.text!, password: password.text!)
         } else {
-            //TODO return error to login
+            //TODO return error to page
         }
     }
     
+    /// Authenticates the user against the API.
+    /// 
+    /// TODO Add getter/setter for the User data.
     func authenticate(email: String, password : String) {
-        //TODO add api call
-        
-        //If auth succesful redirect to page
-        //Else return error to login
-        
+
+        authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
+            if(success == true) {
+                Storage.setCredentials(credentials: Credentials(email: "admin@mail.nl", password: "admin"))
+                
+                self.apiService?.getCurrentUser() { response in
+                    //TODO add Data to Core Data
+                    print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
+                }
+                
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PostsNavigationController") as! UINavigationController
+                self.present(nextViewController, animated:true, completion:nil)
+                
+            } else {
+                //TODO Add error to page
+            }
+        }
     }
 
     /*
