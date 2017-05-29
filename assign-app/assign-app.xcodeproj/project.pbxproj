@@ -216,7 +216,7 @@
 				TargetAttributes = {
 					20CC17C21E17E1DA006D5A13 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3YHSFD6C25;
+						DevelopmentTeam = 4FN25YZHXJ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -446,8 +446,9 @@
 			baseConfigurationReference = CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3YHSFD6C25;
+				DEVELOPMENT_TEAM = 4FN25YZHXJ;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -465,8 +466,9 @@
 			baseConfigurationReference = 15DBE38C839807CADA888864 /* Pods-assign-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3YHSFD6C25;
+				DEVELOPMENT_TEAM = 4FN25YZHXJ;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
