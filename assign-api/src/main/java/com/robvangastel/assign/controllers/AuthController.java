@@ -3,6 +3,7 @@ package com.robvangastel.assign.controllers;
 import com.robvangastel.assign.security.Credentials;
 import com.robvangastel.assign.security.IdToken;
 import com.robvangastel.assign.services.UserService;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -18,6 +19,7 @@ import javax.ws.rs.core.Response;
  */
 @Stateless
 @Path("/auth")
+@Api(tags = {"auth"}, value = "/auth", description = "Operations about authentication")
 @Produces({MediaType.APPLICATION_JSON})
 public class AuthController {
 

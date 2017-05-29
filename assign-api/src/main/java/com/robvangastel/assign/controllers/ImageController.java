@@ -34,7 +34,7 @@ import javax.ws.rs.core.Response.Status;
  */
 
 @Stateless
-@Path("img")
+@Path("/img")
 public class ImageController {
 
     /*
