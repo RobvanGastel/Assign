@@ -1,7 +1,10 @@
 package com.robvangastel.assign.controllers;
 
+import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
+import io.swagger.annotations.Api;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,6 +38,7 @@ import javax.ws.rs.core.Response.Status;
 
 @Stateless
 @Path("/img")
+@Api(tags = {"img"}, value = "/img", description = "Operations about images")
 public class ImageController {
 
     /*
@@ -51,6 +55,9 @@ public class ImageController {
 
     @Inject
     private UserService userService;
+
+    @Context
+    private SecurityContext context;
 
     /*
      * Download a list of all image file names.
@@ -76,13 +83,13 @@ public class ImageController {
 
     @POST
     @Path("/{id}/user")
+    @Secured({Role.USER})
     public Response uploadProfile(@PathParam("id") long id,
                                   InputStream in,
                                   @HeaderParam("Content-Type") String fileType,
                                   @HeaderParam("Content-Length") long fileSize,
                                   @Context UriInfo uriInfo) throws Exception {
 
-        //TODO Add file path to Object
         User u = userService.findById(id);
 
         // Make sure the file is not larger than the maximum allowed size.
@@ -90,7 +97,7 @@ public class ImageController {
             throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST).entity("Image is larger than " + MAX_SIZE_IN_MB + "MB").build());
         }
 
-        //TODO Add better HASH for file upload
+        //TODO Add better HASH / Remove unused files
         // Generate a random file name based on the current time.
         // This probably isn't 100% safe but works fine for this example.
         String fileName = "" + System.currentTimeMillis();

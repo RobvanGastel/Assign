@@ -4,12 +4,15 @@ import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,14 +29,15 @@ import java.util.List;
 
 @Stateless
 @Path("/users")
+@Api(tags = {"users"}, value = "/users", description = "Operations about users")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserController {
-	//TODO Add correct auth levels
 
 	@Inject
 	private UserService userService;
 
-	private static final String FILE_PATH = "c:\\myfile.txt";
+	@Context
+	private SecurityContext context;
 
 	@GET
 	public List<User> get() {
@@ -64,7 +68,6 @@ public class UserController {
 	public Response create(@QueryParam("email") String email,
 					 @QueryParam("password") String password,
 					 @QueryParam("firstName") String firstName) throws Exception {
-		//TODO validate variables validator
 		User user = userService.create(new User(email, password, firstName));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
@@ -74,13 +77,12 @@ public class UserController {
 
 	@PUT
 	@Path("/{id}")
-	@Secured({Role.USER, Role.ADMIN, Role.MODERATOR})
-	public Response update(@PathParam("id") long id,
-					   @QueryParam("location") String location,
+	@Secured({Role.USER})
+	public Response update(@QueryParam("location") String location,
 					   @QueryParam("websiteURL") String websiteURL,
 					   @QueryParam("bio") String bio) throws Exception {
-		//TODO add validation and correct variables
-		User user = userService.findById(id);
+		//TODO Update function
+		User user = userService.findByEmail(context.getUserPrincipal().getName());
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
@@ -89,6 +91,7 @@ public class UserController {
 
 	@DELETE
 	@Path("/{id}")
+	@Secured({Role.ADMIN})
 	public Response delete(@PathParam("id") long id) throws Exception {
 		userService.delete(id);
 		return Response.noContent().build();

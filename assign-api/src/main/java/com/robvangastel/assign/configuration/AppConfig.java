@@ -1,5 +1,7 @@
 package com.robvangastel.assign.configuration;
 
+import com.robvangastel.assign.controllers.AuthController;
+import com.robvangastel.assign.controllers.ImageController;
 import com.robvangastel.assign.controllers.PostController;
 import com.robvangastel.assign.controllers.UserController;
 import io.swagger.jaxrs.config.BeanConfig;
@@ -24,8 +26,8 @@ public class AppConfig extends Application {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("localhost:9080");
-        beanConfig.setBasePath("/assign");
+        beanConfig.setHost("localhost:8080");
+        beanConfig.setBasePath("/assign/api");
         beanConfig.setResourcePackage("com.robvangastel.assign");
         beanConfig.setScan(true);
     }
@@ -40,6 +42,8 @@ public class AppConfig extends Application {
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(AuthController.class);
+        resources.add(ImageController.class);
         resources.add(PostController.class);
         resources.add(UserController.class);
     }
