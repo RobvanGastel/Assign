@@ -111,4 +111,9 @@ public class User implements Serializable {
     public void setRole(Role role) {
         this.role = role.toString();
     }
+
+    @JsonIgnore
+    public String getPassword() {
+        return this.password;
+    }
 }

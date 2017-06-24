@@ -25,7 +25,7 @@ import javax.ws.rs.ext.Provider;
 @Secured
 @Provider
 @Priority(Priorities.AUTHENTICATION)
-public class   AuthenticationFilter implements ContainerRequestFilter {
+public class AuthenticationFilter implements ContainerRequestFilter {
 
     @Inject
     JwtHelper jwtHelper;

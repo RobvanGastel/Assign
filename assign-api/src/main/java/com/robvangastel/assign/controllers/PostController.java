@@ -1,23 +1,32 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.security.Secured;
+import com.robvangastel.assign.security.UserPrincipal;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.UserService;
+import io.swagger.annotations.Api;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
+import java.security.Principal;
 import java.util.List;
 
 /**
  * Created by Rob on 23-4-2017.
  */
 
-@Stateless
+@Secured({Role.USER})
+@RequestScoped
 @Path("/posts")
+@Api(tags = {"posts"}, value = "/posts", description = "Operations about posts")
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
 
@@ -26,6 +35,9 @@ public class PostController {
 
     @Inject
     private UserService userService;
+
+    @Context
+    private SecurityContext context;
 
     @GET
     public List<Post> get() {
@@ -63,11 +75,13 @@ public class PostController {
     }
 
     @POST
-    public Response create(@QueryParam("id") int id,
-                           @QueryParam("title") String title,
+    @Secured({Role.USER})
+    public Response create(@QueryParam("title") String title,
                            @QueryParam("description") String description) throws Exception {
-        //TODO add authentication
-        User user = userService.findById(id);
+        Principal p = context.getUserPrincipal();
+        UserPrincipal up = (UserPrincipal) p;
+
+        User user = userService.findByEmail(p.getName());
         Post post = postService.create(new Post(user, title, description));
         if(post == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
@@ -77,8 +91,16 @@ public class PostController {
 
     @DELETE
     @Path("/{id}")
+    @Secured({Role.USER})
     public Response delete(@PathParam("id") long id) throws Exception {
-        postService.delete(id);
-        return Response.noContent().build();
+        User user = userService.findByEmail(context.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        if(user.getId() == post.getUser().getId()) {
+            postService.delete(id);
+            return Response.noContent().build();
+        }
+
+        return Response.status(Response.Status.BAD_REQUEST).build();
     }
 }
