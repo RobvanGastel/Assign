@@ -452,7 +452,7 @@
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.assign.app.assign-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app.assign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
@@ -472,7 +472,7 @@
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.assign.app.assign-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app.assign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
