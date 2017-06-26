@@ -33,6 +33,8 @@ class AuthService {
                 Storage.setToken(token: token!)
                 print("AUTH: Token request successful")
                 
+                Storage.setLoggedIn(loggedIn: true)
+                
                 completionHandler(true)
             case .failure(let error):
                 print("AUTH: Token request error")
