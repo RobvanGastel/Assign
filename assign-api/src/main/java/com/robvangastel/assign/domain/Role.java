@@ -6,6 +6,5 @@ package com.robvangastel.assign.domain;
 
 public enum Role {
     ADMIN,
-    MODERATOR,
     USER
 }

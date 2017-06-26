@@ -5,4 +5,9 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
            version="3.0">
 
+    <context-param>
+        <param-name>resteasy.providers</param-name>
+        <param-value>com.robvangastel.assign.security.filter.AuthenticationFilter</param-value>
+    </context-param>
+
 </web-app>

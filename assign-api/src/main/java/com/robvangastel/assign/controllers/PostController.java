@@ -23,7 +23,6 @@ import java.util.List;
  * Created by Rob on 23-4-2017.
  */
 
-@Secured({Role.USER})
 @RequestScoped
 @Path("/posts")
 @Api(tags = {"posts"}, value = "/posts", description = "Operations about posts")
@@ -37,7 +36,7 @@ public class PostController {
     private UserService userService;
 
     @Context
-    private SecurityContext context;
+    private SecurityContext securityContext;
 
     @GET
     public List<Post> get() {
@@ -78,10 +77,8 @@ public class PostController {
     @Secured({Role.USER})
     public Response create(@QueryParam("title") String title,
                            @QueryParam("description") String description) throws Exception {
-        Principal p = context.getUserPrincipal();
-        UserPrincipal up = (UserPrincipal) p;
 
-        User user = userService.findByEmail(p.getName());
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.create(new Post(user, title, description));
         if(post == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
@@ -93,7 +90,7 @@ public class PostController {
     @Path("/{id}")
     @Secured({Role.USER})
     public Response delete(@PathParam("id") long id) throws Exception {
-        User user = userService.findByEmail(context.getUserPrincipal().getName());
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
 
         if(user.getId() == post.getUser().getId()) {

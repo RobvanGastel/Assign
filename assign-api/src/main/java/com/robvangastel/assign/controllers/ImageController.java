@@ -57,7 +57,7 @@ public class ImageController {
     private UserService userService;
 
     @Context
-    private SecurityContext context;
+    private SecurityContext securityContext;
 
     /*
      * Download a list of all image file names.
@@ -82,15 +82,14 @@ public class ImageController {
     }
 
     @POST
-    @Path("/{id}/user")
+    @Path("/user")
     @Secured({Role.USER})
-    public Response uploadProfile(@PathParam("id") long id,
-                                  InputStream in,
+    public Response uploadProfile(InputStream in,
                                   @HeaderParam("Content-Type") String fileType,
                                   @HeaderParam("Content-Length") long fileSize,
                                   @Context UriInfo uriInfo) throws Exception {
 
-        User u = userService.findById(id);
+        User u = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
         // Make sure the file is not larger than the maximum allowed size.
         if (fileSize > 1024 * 1024 * MAX_SIZE_IN_MB) {
@@ -102,7 +101,7 @@ public class ImageController {
         // This probably isn't 100% safe but works fine for this example.
         String fileName = "" + System.currentTimeMillis();
 
-        if (fileType.equals("image/jpeg")) {
+        if (fileType.equals("image/jpeg") || fileType.equals("image/jpg")) {
             fileName += ".jpg";
         } else {
             fileName += ".png";

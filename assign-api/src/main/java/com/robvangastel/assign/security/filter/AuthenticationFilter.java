@@ -13,6 +13,7 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
+import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
@@ -38,7 +39,8 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         try {
             // Validate the token
             UserPrincipal claims = jwtHelper.parseToken(token);
-            requestContext.setSecurityContext(new Authorizer(claims, originalContext.isSecure()));
+
+            requestContext.setSecurityContext(new AuthorizerContext(claims, originalContext.isSecure()));
 
         } catch (Exception e) {
             requestContext.abortWith(
@@ -59,12 +61,12 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         return token;
     }
 
-    static class Authorizer implements SecurityContext {
+    static class AuthorizerContext implements SecurityContext {
 
-        UserPrincipal principal;
-        boolean isSecure;
+        private UserPrincipal principal;
+        private boolean isSecure;
 
-        public Authorizer(UserPrincipal principal, boolean isSecure) {
+        public AuthorizerContext(UserPrincipal principal, boolean isSecure) {
             this.principal = principal;
             this.isSecure = isSecure;
         }
