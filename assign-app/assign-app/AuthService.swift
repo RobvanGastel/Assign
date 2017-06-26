@@ -15,7 +15,7 @@ class AuthService {
     /// This function authenticates the Credentials against the API and sets
     /// the token in the defaults.
     func authenticate(email: String, password: String,
-                      completionHandler:@escaping (Bool) -> ()) {
+                      completionHandler: @escaping (Bool) -> ()) {
         let URL = Storage.getURL() + "/auth"
         
         let parameters: Parameters = [

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostsViewController: UITableViewController {
+class PostsController: UITableViewController {
     
     var posts = [Post]()
     var apiService: ApiService?
@@ -34,6 +34,7 @@ class PostsViewController: UITableViewController {
         //    Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", dateCreated: Date(), text: "asdsadasd", profile: "https://assets.entrepreneur.com/content/16x9/822/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg")]
         
         apiService = ApiService()
+    
         self.apiService?.getPosts() { posts in
             //TODO add Data to Core Data
             for post in posts! {

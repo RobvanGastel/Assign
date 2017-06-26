@@ -72,4 +72,35 @@ class ApiService {
             }
         }
     }
+    
+    /// This function posts a *Post* for the authenticated user.
+    @discardableResult
+    func addPost(title: String, description: String,
+                 completionHandler: @escaping (Bool) -> ()) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+            let parameters: Parameters = [
+                "title": title,
+                "description": description
+            ]
+        
+        let URL = Storage.getURL() + "/posts"
+        
+        return sessionManager.request(URL, method: .post, parameters: parameters,
+                                      encoding: URLEncoding.queryString)
+            .validate().responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    
+                    print("API: Post sent successful")
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: Post sent error")
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
 }
