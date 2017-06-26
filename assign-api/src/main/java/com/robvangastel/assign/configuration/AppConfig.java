@@ -29,7 +29,7 @@ public class AppConfig extends Application {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("localhost:8080");
+        beanConfig.setHost("84.26.134.115:8080");
         beanConfig.setBasePath("/assign/api");
         beanConfig.setResourcePackage("com.robvangastel.assign");
         beanConfig.setScan(true);
