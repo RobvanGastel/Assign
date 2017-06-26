@@ -7,31 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */; };
 		201F96ED1E3154BB0082702E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EC1E3154BB0082702E /* User.swift */; };
 		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
 		201F96F11E3156400082702E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96F01E3156400082702E /* Tag.swift */; };
 		20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */; };
-		20CC17C91E17E1DB006D5A13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C81E17E1DB006D5A13 /* ViewController.swift */; };
 		20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17CA1E17E1DB006D5A13 /* Main.storyboard */; };
 		20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17CD1E17E1DB006D5A13 /* assign_app.xcdatamodeld */; };
 		20CC17D11E17E1DB006D5A13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D01E17E1DB006D5A13 /* Assets.xcassets */; };
 		20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */; };
+		2EDC80EB9C4A797B23A47EA8 /* Pods_assign_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7B4D5AEA8A177169FE3A2C /* Pods_assign_app.framework */; };
+		B23E560B1F0027D90026B05C /* logo-trans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B23E560A1F0027D90026B05C /* logo-trans@2x.png */; };
+		B277111E1EC8DDC5001D2382 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277111D1EC8DDC5001D2382 /* View.swift */; };
+		B27711201EC8F7CD001D2382 /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B277111F1EC8F7CD001D2382 /* profile@2x.jpg */; };
+		B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */; };
+		B2816EB21ECB01E000A63186 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2816EB11ECB01E000A63186 /* Add.swift */; };
+		D41955791ECF023C009575DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955781ECF023C009575DE /* AuthService.swift */; };
+		D419557B1ECF0367009575DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557A1ECF0367009575DE /* Storage.swift */; };
+		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
+		D41955841ECF4288009575DE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955831ECF4288009575DE /* Credentials.swift */; };
+		D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955851ECF627C009575DE /* JSONDecodable.swift */; };
+		D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9064E1ECE4A370065B5A5 /* LoginController.swift */; };
+		D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D906521ECE541A0065B5A5 /* ApiService.swift */; };
+		D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */; };
+		D4EEFB001ED1EA610085571B /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEFAFF1ED1EA610085571B /* PostsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
+		15DBE38C839807CADA888864 /* Pods-assign-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.release.xcconfig"; sourceTree = "<group>"; };
 		201F96EC1E3154BB0082702E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		201F96EE1E3154F10082702E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		201F96F01E3156400082702E /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		20CC17C31E17E1DB006D5A13 /* assign-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assign-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		20CC17C81E17E1DB006D5A13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		20CC17CB1E17E1DB006D5A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20CC17CE1E17E1DB006D5A13 /* assign_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = assign_app.xcdatamodel; sourceTree = "<group>"; };
 		20CC17D01E17E1DB006D5A13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20CC17D31E17E1DB006D5A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20CC17D51E17E1DB006D5A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A7B4D5AEA8A177169FE3A2C /* Pods_assign_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_assign_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B23E560A1F0027D90026B05C /* logo-trans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-trans@2x.png"; sourceTree = "<group>"; };
+		B277111D1EC8DDC5001D2382 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B277111F1EC8F7CD001D2382 /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile@2x.jpg"; sourceTree = "<group>"; };
+		B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross@2x.png"; sourceTree = "<group>"; };
+		B2816EB11ECB01E000A63186 /* Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.debug.xcconfig"; sourceTree = "<group>"; };
+		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		D419557E1ECF1BCD009575DE /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		D41955811ECF3E6A009575DE /* JWTHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHandler.swift; sourceTree = "<group>"; };
+		D41955831ECF4288009575DE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		D41955851ECF627C009575DE /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		D4D9064E1ECE4A370065B5A5 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D4EEFAFF1ED1EA610085571B /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDC80EB9C4A797B23A47EA8 /* Pods_assign_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +78,8 @@
 		2013FC341E2D5C3200C85F5D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2013FC351E2D5C5900C85F5D /* OverviewTableViewController.swift */,
+				D4D9064E1ECE4A370065B5A5 /* LoginController.swift */,
+				D4EEFAFF1ED1EA610085571B /* PostsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -59,6 +90,8 @@
 				201F96EC1E3154BB0082702E /* User.swift */,
 				201F96EE1E3154F10082702E /* Post.swift */,
 				201F96F01E3156400082702E /* Tag.swift */,
+				D41955831ECF4288009575DE /* Credentials.swift */,
+				D41955851ECF627C009575DE /* JSONDecodable.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -68,6 +101,8 @@
 			children = (
 				20CC17C51E17E1DB006D5A13 /* assign-app */,
 				20CC17C41E17E1DB006D5A13 /* Products */,
+				79FF4654951F6125CC681AEB /* Pods */,
+				5D41D0B5F70B3FFAFC7F11A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,10 +117,12 @@
 		20CC17C51E17E1DB006D5A13 /* assign-app */ = {
 			isa = PBXGroup;
 			children = (
+				D4EB70AF1ED1E55F003895C4 /* UI */,
+				D419557E1ECF1BCD009575DE /* Bridging.h */,
+				D4D906511ECE53F50065B5A5 /* Services */,
 				201F96EB1E31547C0082702E /* Models */,
 				2013FC341E2D5C3200C85F5D /* Controllers */,
 				20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */,
-				20CC17C81E17E1DB006D5A13 /* ViewController.swift */,
 				20CC17CA1E17E1DB006D5A13 /* Main.storyboard */,
 				20CC17D01E17E1DB006D5A13 /* Assets.xcassets */,
 				20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */,
@@ -95,6 +132,55 @@
 			path = "assign-app";
 			sourceTree = "<group>";
 		};
+		5D41D0B5F70B3FFAFC7F11A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A7B4D5AEA8A177169FE3A2C /* Pods_assign_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79FF4654951F6125CC681AEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */,
+				15DBE38C839807CADA888864 /* Pods-assign-app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D4D906511ECE53F50065B5A5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D4D906521ECE541A0065B5A5 /* ApiService.swift */,
+				D41955781ECF023C009575DE /* AuthService.swift */,
+				D419557A1ECF0367009575DE /* Storage.swift */,
+				D41955811ECF3E6A009575DE /* JWTHandler.swift */,
+				D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		D4EB70AF1ED1E55F003895C4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4EB70B01ED1E57B003895C4 /* img */,
+				B277111D1EC8DDC5001D2382 /* View.swift */,
+				B2816EB11ECB01E000A63186 /* Add.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		D4EB70B01ED1E57B003895C4 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				B23E560A1F0027D90026B05C /* logo-trans@2x.png */,
+				B277111F1EC8F7CD001D2382 /* profile@2x.jpg */,
+				B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20CC17D81E17E1DB006D5A13 /* Build configuration list for PBXNativeTarget "assign-app" */;
 			buildPhases = (
+				104DE02CB2390B9877FCEBDC /* [CP] Check Pods Manifest.lock */,
 				20CC17BF1E17E1DA006D5A13 /* Sources */,
 				20CC17C01E17E1DA006D5A13 /* Frameworks */,
 				20CC17C11E17E1DA006D5A13 /* Resources */,
+				611D9E299F230D1534DC4279 /* [CP] Embed Pods Frameworks */,
+				41C035827BD3E0E0E4B8F7C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,7 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23E560B1F0027D90026B05C /* logo-trans@2x.png in Resources */,
+				B27711201EC8F7CD001D2382 /* profile@2x.jpg in Resources */,
 				20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */,
+				B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */,
 				20CC17D11E17E1DB006D5A13 /* Assets.xcassets in Resources */,
 				20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */,
 			);
@@ -166,16 +258,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		104DE02CB2390B9877FCEBDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		41C035827BD3E0E0E4B8F7C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-assign-app/Pods-assign-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		611D9E299F230D1534DC4279 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-assign-app/Pods-assign-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		20CC17BF1E17E1DA006D5A13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */,
+				B2816EB21ECB01E000A63186 /* Add.swift in Sources */,
+				B277111E1EC8DDC5001D2382 /* View.swift in Sources */,
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
-				20CC17C91E17E1DB006D5A13 /* ViewController.swift in Sources */,
+				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
+				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
+				D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */,
+				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
+				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
-				2013FC361E2D5C5900C85F5D /* OverviewTableViewController.swift in Sources */,
+				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
+				D4EEFB001ED1EA610085571B /* PostsViewController.swift in Sources */,
+				D41955841ECF4288009575DE /* Credentials.swift in Sources */,
 				201F96ED1E3154BB0082702E /* User.swift in Sources */,
 				20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */,
 			);
@@ -298,16 +447,19 @@
 		};
 		20CC17D91E17E1DB006D5A13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4FN25YZHXJ;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.assign.assign-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app.assign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -315,16 +467,19 @@
 		};
 		20CC17DA1E17E1DB006D5A13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15DBE38C839807CADA888864 /* Pods-assign-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4FN25YZHXJ;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.assign.assign-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app.assign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
