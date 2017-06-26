@@ -18,16 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // navigationController?.navigationBar.barTintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-        
-        // Get rid of the nasty nav border
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(),for:.default)
-        
-        
-        // Set navigation bar tint / background color [broken]
-        // UINavigationBar.appearance().barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        
         return true
     }
 
