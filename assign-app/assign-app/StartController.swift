@@ -37,10 +37,10 @@ class StartController: UIViewController {
                 if(success == true) {
                     self.redirectViewController(identifier: "PostsNavigationController")
                     
-                    self.apiService?.getCurrentUser() { response in
-                        //TODO add Data to Core Data
-                        print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
-                    }
+//                    self.apiService?.getCurrentUser() { response in
+//                        //TODO add Data to Core Data
+//                        print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
+//                    }
                     
                 // Else prompt authentication
                 } else {
