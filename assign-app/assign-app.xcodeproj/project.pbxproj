@@ -26,6 +26,7 @@
 		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
 		D41955841ECF4288009575DE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955831ECF4288009575DE /* Credentials.swift */; };
 		D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955851ECF627C009575DE /* JSONDecodable.swift */; };
+		D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FE81F018FD8002FEBE7 /* StartController.swift */; };
 		D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9064E1ECE4A370065B5A5 /* LoginController.swift */; };
 		D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D906521ECE541A0065B5A5 /* ApiService.swift */; };
 		D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */; };
@@ -57,6 +58,7 @@
 		D41955811ECF3E6A009575DE /* JWTHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHandler.swift; sourceTree = "<group>"; };
 		D41955831ECF4288009575DE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D41955851ECF627C009575DE /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		D45D2FE81F018FD8002FEBE7 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D4D9064E1ECE4A370065B5A5 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		2013FC341E2D5C3200C85F5D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D45D2FE81F018FD8002FEBE7 /* StartController.swift */,
 				D4D9064E1ECE4A370065B5A5 /* LoginController.swift */,
 				D4EEFAFF1ED1EA610085571B /* PostsViewController.swift */,
 			);
@@ -219,7 +222,7 @@
 				TargetAttributes = {
 					20CC17C21E17E1DA006D5A13 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 4FN25YZHXJ;
+						DevelopmentTeam = 3YHSFD6C25;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -320,6 +323,7 @@
 				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
 				D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
+				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
 				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
@@ -452,11 +456,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4FN25YZHXJ;
+				DEVELOPMENT_TEAM = 3YHSFD6C25;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app.assign;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
@@ -472,11 +476,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4FN25YZHXJ;
+				DEVELOPMENT_TEAM = 3YHSFD6C25;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app.assign;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
