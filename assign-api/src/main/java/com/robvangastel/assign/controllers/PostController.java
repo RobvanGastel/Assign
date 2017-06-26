@@ -79,6 +79,7 @@ public class PostController {
                            @QueryParam("description") String description) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
         Post post = postService.create(new Post(user, title, description));
         if(post == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);

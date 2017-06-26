@@ -10,6 +10,7 @@ import com.robvangastel.assign.dao.AbstractDao;
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.PostException;
 
 /**
  * Created by Rob on 23-4-2017.
@@ -46,5 +47,12 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         } else {
             return (Post) query.getSingleResult();
         }
+    }
+
+    @Override
+    public Post create(Post entity) throws PostException {
+        entityManager.merge(entity);
+        entityManager.flush();
+        return entity;
     }
 }

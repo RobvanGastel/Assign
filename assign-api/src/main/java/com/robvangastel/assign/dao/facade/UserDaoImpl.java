@@ -38,4 +38,10 @@ public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
             return (User) query.getSingleResult();
         }
     }
+
+    @Override
+    public User create(User entity) {
+        entityManager.persist(entity);
+        return entity;
+    }
 }

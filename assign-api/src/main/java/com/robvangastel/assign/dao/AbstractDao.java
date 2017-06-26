@@ -31,11 +31,6 @@ public abstract class AbstractDao<T extends Serializable> {
         return entityManager.createQuery("from " + classObj.getName()).getResultList();
     }
 
-    public T create(final T entity) {
-        entityManager.persist(entity);
-        return entity;
-    }
-
     public T update(final T entity) {
         return entityManager.merge(entity);
     }
