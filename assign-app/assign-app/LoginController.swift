@@ -29,7 +29,7 @@ class LoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         //Check on not entering any credentials
-        if email.text == "" && password.text == "" {
+        if email.text != "" && password.text != "" {
             authenticate(email: email.text!, password: password.text!)
         } else {
             //TODO return error to page
