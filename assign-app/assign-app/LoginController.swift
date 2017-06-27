@@ -9,22 +9,31 @@
 import UIKit
 
 /// Controller to let the user authenticate.
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
 
-    //The API & Auth service
+    // The API & Auth service
     var apiService: ApiService?
     var authService: AuthService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
-        //Init of the services
+        // Init of the services
         apiService = ApiService()
         authService = AuthService()
         
+        self.password.delegate = self
+        self.password.returnKeyType = UIReturnKeyType.go
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        authenticate(email: email.text!, password: password.text!)
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,11 +42,7 @@ class LoginController: UIViewController {
 
     /// Login action from the view.
     @IBAction func login(_ sender: Any) {
-        if email.text == "" && password.text == "" {
-            authenticate(email: email.text!, password: password.text!)
-        } else {
-            // TODO return ERROR message.
-        }
+        authenticate(email: email.text!, password: password.text!)
     }
     
     @IBAction func registerRedirect(_ sender: Any) {
@@ -48,28 +53,36 @@ class LoginController: UIViewController {
     ///
     /// TODO Add getter/setter for the User data.
     func authenticate(email: String, password : String) {
-
-        authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
-            if(success == true) {
-                Storage.setCredentials(credentials: Credentials(email: "admin@mail.nl", password: "admin"))
-
-                self.apiService?.getCurrentUser() { response in
-                    // TODO add Data to Core Data
-                    print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
+        
+        // Check if the fields are filled
+        if email == "" && password == "" {
+            
+            authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
+                if(success == true) {
+                    
+                    self.apiService?.getCurrentUser() { response in
+                        // TODO add Data to Core Data
+                        print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
+                    }
+                    
+                    self.redirectViewController(identifier: "PostsNavigationController")
+                    
+                } else {
+                    
+                    // TODO return ERROR message
                 }
-
-                self.redirectViewController(identifier: "PostsNavigationController")
-
-            } else {
-                // TODO return ERROR message
             }
+        } else {
+            
+            // TODO return ERROR message.
         }
+
     }
     
     /// Redirect to another view.
     func redirectViewController(identifier: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: identifier)
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: false, completion: nil)
     }
 }

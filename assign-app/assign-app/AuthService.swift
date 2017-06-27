@@ -30,10 +30,12 @@ class AuthService {
                 let json = response.result.value as? [String: Any]
                 let token = json?["id_token"] as? String
 
+                // Set storage variables
                 Storage.setToken(token: token!)
+                Storage.setLoggedIn(loggedIn: false) // For debugging set to false
+                Storage.setCredentials(credentials: Credentials(email: email, password: password))
+                
                 print("AUTH: Token request successful")
-
-                Storage.setLoggedIn(loggedIn: false)
 
                 completionHandler(true)
             case .failure(let error):
@@ -47,7 +49,28 @@ class AuthService {
     /// This function registers the User against the API.
     ///
     /// TODO Add implementation
-    func register() -> Bool {
-        return true
+    func register(email: String, password: String, code: String,
+                  completionHandler: @escaping (Bool) -> ()) {
+        
+        let URL = Storage.getURL() + "/users"
+        
+        // TODO change firstName to code in the API
+        let parameters: Parameters = [
+            "email": email,
+            "password": password,
+            "firstName": code
+        ]
+        
+        Alamofire.request(URL, method: .post, parameters: parameters, encoding: URLEncoding.queryString).validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                print("AUTH: Register request successful")
+                completionHandler(true)
+            case .failure(let error):
+                print("AUTH: Register request error")
+                print(error)
+                completionHandler(false)
+            }
+        }
     }
 }

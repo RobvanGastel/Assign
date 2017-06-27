@@ -17,10 +17,8 @@
 		20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */; };
 		2EDC80EB9C4A797B23A47EA8 /* Pods_assign_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7B4D5AEA8A177169FE3A2C /* Pods_assign_app.framework */; };
 		B23E560B1F0027D90026B05C /* logo-trans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B23E560A1F0027D90026B05C /* logo-trans@2x.png */; };
-		B277111E1EC8DDC5001D2382 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277111D1EC8DDC5001D2382 /* View.swift */; };
 		B27711201EC8F7CD001D2382 /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B277111F1EC8F7CD001D2382 /* profile@2x.jpg */; };
 		B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */; };
-		B2816EB21ECB01E000A63186 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2816EB11ECB01E000A63186 /* Add.swift */; };
 		D41955791ECF023C009575DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955781ECF023C009575DE /* AuthService.swift */; };
 		D419557B1ECF0367009575DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557A1ECF0367009575DE /* Storage.swift */; };
 		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
@@ -30,6 +28,7 @@
 		D45D2FEB1F01AD8E002FEBE7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */; };
 		D45D2FED1F01ADBC002FEBE7 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */; };
 		D45D2FEF1F01ADD1002FEBE7 /* AddPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEE1F01ADD1002FEBE7 /* AddPostController.swift */; };
+		D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FF01F02CBA0002FEBE7 /* UIController.swift */; };
 		D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9064E1ECE4A370065B5A5 /* LoginController.swift */; };
 		D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D906521ECE541A0065B5A5 /* ApiService.swift */; };
 		D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */; };
@@ -50,10 +49,8 @@
 		20CC17D51E17E1DB006D5A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A7B4D5AEA8A177169FE3A2C /* Pods_assign_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_assign_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23E560A1F0027D90026B05C /* logo-trans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-trans@2x.png"; sourceTree = "<group>"; };
-		B277111D1EC8DDC5001D2382 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		B277111F1EC8F7CD001D2382 /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile@2x.jpg"; sourceTree = "<group>"; };
 		B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross@2x.png"; sourceTree = "<group>"; };
-		B2816EB11ECB01E000A63186 /* Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
 		CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.debug.xcconfig"; sourceTree = "<group>"; };
 		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -65,6 +62,7 @@
 		D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		D45D2FEE1F01ADD1002FEBE7 /* AddPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostController.swift; sourceTree = "<group>"; };
+		D45D2FF01F02CBA0002FEBE7 /* UIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIController.swift; sourceTree = "<group>"; };
 		D4D9064E1ECE4A370065B5A5 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -177,8 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EB70B01ED1E57B003895C4 /* img */,
-				B277111D1EC8DDC5001D2382 /* View.swift */,
-				B2816EB11ECB01E000A63186 /* Add.swift */,
+				D45D2FF01F02CBA0002FEBE7 /* UIController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -325,8 +322,6 @@
 			files = (
 				D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */,
 				D45D2FEF1F01ADD1002FEBE7 /* AddPostController.swift in Sources */,
-				B2816EB21ECB01E000A63186 /* Add.swift in Sources */,
-				B277111E1EC8DDC5001D2382 /* View.swift in Sources */,
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
@@ -337,6 +332,7 @@
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
+				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,
 				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
 				D4EEFB001ED1EA610085571B /* PostsController.swift in Sources */,
 				D45D2FED1F01ADBC002FEBE7 /* PostDetailController.swift in Sources */,
