@@ -9,8 +9,9 @@ import javax.enterprise.inject.spi.InjectionPoint;
 
 /**
  *
- * @author hantsy
+ * @author Rob van Gastel
  */
+ 
 @Dependent
 public class PasswordEncoderProducer {
 

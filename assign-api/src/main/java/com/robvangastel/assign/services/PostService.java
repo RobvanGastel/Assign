@@ -10,7 +10,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Stateless
@@ -31,7 +32,7 @@ public class PostService implements Serializable {
         postDao.deleteById(id);
     }
 
-    public Post findByEmail(String email) {
+    public List<Post> findByEmail(String email) {
         return postDao.findByEmail(email);
     }
 

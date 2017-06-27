@@ -15,7 +15,8 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ *
+ * @author Rob van Gastel
  */
 
 @ApplicationScoped
@@ -23,7 +24,8 @@ public class JwtHelper {
 
     private final String secret = "overheid";
 
-    private final long expirationInSeconds = 3600 * 24;//one day
+    // Current experation date is 1 day
+    private final long expirationInSeconds = 3600 * 24;
 
     private Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + this.expirationInSeconds * 1000);

@@ -8,12 +8,16 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.Provider;
 
 /**
- * Created by Rob on 28-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Provider
 public class CORSFilter implements ContainerResponseFilter {
 
+    /***
+     * Adds the CORS headers to the requests
+     */
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
             throws IOException {
         MultivaluedMap<String, Object> headers = responseContext.getHeaders();

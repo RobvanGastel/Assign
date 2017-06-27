@@ -16,7 +16,8 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Entity
@@ -37,29 +38,29 @@ public class User implements Serializable {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Post> posts;
-    
+
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private SocialChannels socialChannel;
-    
+
     @JsonIgnore
     private String password;
-    
+
     @Column(nullable = false, unique = true)
     private String email;
-    
+
     private String firstName;
     private String education;
     private String profileImage;
-    
+
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false)
     private Timestamp lastLoggedIn;
-    
+
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false)
     private Timestamp dateCreated;
-    
+
     /***
      *
      * @param email

@@ -15,17 +15,23 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by Rob on 28-4-2017.
+ *
+ * @author Rob van Gastel
  */
+
 @Stateless
 @Path("/auth")
-@Api(tags = {"auth"}, value = "/auth", description = "Operations about authentication")
+@Api(tags = {"auth"}, value = "/auth", description = "Manages the authentication of the users")
 @Produces({MediaType.APPLICATION_JSON})
 public class AuthController {
 
     @Inject
     private UserService service;
 
+    /***
+     * Authenticate the user
+     * @return Response with the JWT token
+     */
     @POST
     public Response authenticate(@QueryParam("email") String username,
                          @QueryParam("password") String password) throws Exception {
@@ -33,5 +39,5 @@ public class AuthController {
         return Response.ok(token).build();
     }
 
-    //TODO add change password
+    // TODO add change password
 }

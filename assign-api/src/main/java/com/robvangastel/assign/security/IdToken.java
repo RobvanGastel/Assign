@@ -9,8 +9,10 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ *
+ * @author Rob van Gastel
  */
+
 @Getter
 @ToString
 @NoArgsConstructor
@@ -18,10 +20,10 @@ public class IdToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty("id_token")
+    private String token;
+    
     public IdToken(String token) {
         this.token = token;
     }
-
-    @JsonProperty("id_token")
-    private String token;
 }

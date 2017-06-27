@@ -7,7 +7,8 @@ import com.robvangastel.assign.exception.PostException;
 import java.util.List;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 public interface IPostDao {
@@ -34,7 +35,7 @@ public interface IPostDao {
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    Post findByEmail(String email);
+    List<Post> findByEmail(String email);
 
     /***
      *
