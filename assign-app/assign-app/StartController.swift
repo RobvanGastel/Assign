@@ -21,6 +21,7 @@ class StartController: UIViewController {
         // Init API service
         authService = AuthService()
         apiService = ApiService()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {

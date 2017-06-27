@@ -17,13 +17,14 @@ class LoginController: UIViewController {
     //The API & Auth service
     var apiService: ApiService?
     var authService: AuthService?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //Init of the services
         apiService = ApiService()
         authService = AuthService()
+        
     }
 
     override func didReceiveMemoryWarning() {
