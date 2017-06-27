@@ -15,6 +15,9 @@ import javax.ws.rs.ext.Provider;
 @Provider
 public class CORSFilter implements ContainerResponseFilter {
 
+    /***
+     * Adds the CORS headers to the requests
+     */
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
             throws IOException {
         MultivaluedMap<String, Object> headers = responseContext.getHeaders();

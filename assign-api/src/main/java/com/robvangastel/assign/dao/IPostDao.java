@@ -35,7 +35,7 @@ public interface IPostDao {
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    Post findByEmail(String email);
+    List<Post> findByEmail(String email);
 
     /***
      *

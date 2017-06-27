@@ -41,6 +41,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             // Validate the token
             UserPrincipal claims = jwtHelper.parseToken(token);
 
+            // Set the SecurityContext with the CustomContext
             requestContext.setSecurityContext(new AuthorizerContext(claims, originalContext.isSecure()));
 
         } catch (Exception e) {
@@ -62,6 +63,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         return token;
     }
 
+    // Custom SecurityContext class
     static class AuthorizerContext implements SecurityContext {
 
         private UserPrincipal principal;

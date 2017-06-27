@@ -42,12 +42,7 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Post p, User u WHERE p.user_id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
                 .setParameter("email", email);
-
-        if(query.getResultList().isEmpty()) {
-            return null;
-        } else {
-            return (Post) query.getSingleResult();
-        }
+        return query.getResultList();
     }
 
     @Override

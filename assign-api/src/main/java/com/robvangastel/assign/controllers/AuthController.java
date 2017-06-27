@@ -21,13 +21,17 @@ import javax.ws.rs.core.Response;
 
 @Stateless
 @Path("/auth")
-@Api(tags = {"auth"}, value = "/auth", description = "Operations about authentication")
+@Api(tags = {"auth"}, value = "/auth", description = "Manages the authentication of the users")
 @Produces({MediaType.APPLICATION_JSON})
 public class AuthController {
 
     @Inject
     private UserService service;
 
+    /***
+     * Authenticate the user
+     * @return Response with the JWT token
+     */
     @POST
     public Response authenticate(@QueryParam("email") String username,
                          @QueryParam("password") String password) throws Exception {

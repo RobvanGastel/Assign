@@ -39,11 +39,19 @@ public class PostController {
     @Context
     private SecurityContext securityContext;
 
+    /***
+     * Retrieve all posts
+     * @return An array with the posts
+     */
     @GET
     public List<Post> get() {
         return postService.findAll();
     }
 
+    /***
+     * Get a post by id
+     * @return A post object with matcing id
+     */
     @GET
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
@@ -54,16 +62,21 @@ public class PostController {
         return Response.ok(post).build();
     }
 
+
     @GET
     @Path("/email")
     public Response getByEmail(@QueryParam("email") String email) {
-        Post post = postService.findByEmail(email);
-        if(post == null) {
+        List<Post> posts = postService.findByEmail(email);
+        if(posts == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        return Response.ok(post).build();
+        return Response.ok(posts).build();
     }
 
+    /***
+     * Get posts by a description query
+     * @return A list of Posts matching the description
+     */
     @GET
     @Path("/description")
     public Response getByDescription(@QueryParam("description") String description) {
@@ -74,6 +87,10 @@ public class PostController {
         return Response.ok(posts).build();
     }
 
+    /***
+     * Create
+     * @return A list of Posts matching the description
+     */
     @POST
     @Secured({Role.USER})
     public Response create(@QueryParam("title") String title,

@@ -32,7 +32,7 @@ public class PostService implements Serializable {
         postDao.deleteById(id);
     }
 
-    public Post findByEmail(String email) {
+    public List<Post> findByEmail(String email) {
         return postDao.findByEmail(email);
     }
 
