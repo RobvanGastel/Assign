@@ -6,31 +6,21 @@ import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
 import io.swagger.annotations.Api;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import javax.ws.rs.core.Response.Status;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  *
@@ -62,7 +52,8 @@ public class ImageController {
 
     /***
      * Download a list of all image file names
-     * @return an Array of filenames
+     * @return An array of filenames
+     * @throws IOException
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -85,7 +76,12 @@ public class ImageController {
 
     /***
      * Upload a profile picture for an user
-     * @return a response with statuscode indicating success or failure
+     * @param in the inputstream
+     * @param fileType type of the file
+     * @param fileSize length of the file
+     * @param uriInfo
+     * @return A response with statuscode indicating success or failure
+     * @throws Exception
      */
     @POST
     @Path("/user")
@@ -127,7 +123,9 @@ public class ImageController {
 
     /***
      * Download a JPEG file with matching name
+     * @param fileName
      * @return An inputstream with the image
+     * @throws IOException
      */
     @GET
     @Path("{name}.jpg")
@@ -146,7 +144,9 @@ public class ImageController {
 
     /***
      * Download a PNG file with matching name
+     * @param fileName
      * @return An inputstream with the image
+     * @throws IOException
      */
     @GET
     @Path("{name}.png")

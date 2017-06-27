@@ -4,7 +4,6 @@ import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
-import com.robvangastel.assign.security.UserPrincipal;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.UserService;
 import io.swagger.annotations.Api;
@@ -16,7 +15,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import java.security.Principal;
 import java.util.List;
 
 /**
@@ -40,7 +38,7 @@ public class PostController {
     private SecurityContext securityContext;
 
     /***
-     * Retrieve all posts
+     * Get all the posts
      * @return An array with the posts
      */
     @GET
@@ -50,7 +48,8 @@ public class PostController {
 
     /***
      * Get a post by id
-     * @return A post object with matcing id
+     * @param id of the post
+     * @return A post object with matching id
      */
     @GET
     @Path("/{id}")
@@ -62,7 +61,11 @@ public class PostController {
         return Response.ok(post).build();
     }
 
-
+    /***
+     * Get post(s) by email
+     * @param email of the user
+     * @return An array of posts matching the email
+     */
     @GET
     @Path("/email")
     public Response getByEmail(@QueryParam("email") String email) {
@@ -74,8 +77,9 @@ public class PostController {
     }
 
     /***
-     * Get posts by a description query
-     * @return A list of Posts matching the description
+     * Get post(s) by a description query
+     * @param description
+     * @return An array of posts matching the description
      */
     @GET
     @Path("/description")
@@ -88,8 +92,11 @@ public class PostController {
     }
 
     /***
-     * Create
-     * @return A list of Posts matching the description
+     * Create a post for the authenticated user
+     * @param title
+     * @param description
+     * @return The created post
+     * @throws Exception
      */
     @POST
     @Secured({Role.USER})
@@ -105,6 +112,12 @@ public class PostController {
         return Response.ok(post).build();
     }
 
+    /***
+     * Delete a post if the user created the post
+     * @param id
+     * @return A response with statuscode indicating success or failure
+     * @throws Exception
+     */
     @DELETE
     @Path("/{id}")
     @Secured({Role.USER})

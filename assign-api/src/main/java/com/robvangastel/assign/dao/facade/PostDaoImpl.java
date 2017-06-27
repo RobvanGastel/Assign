@@ -1,16 +1,15 @@
 package com.robvangastel.assign.dao.facade;
 
-import java.util.List;
+import com.robvangastel.assign.dao.AbstractDao;
+import com.robvangastel.assign.dao.IPostDao;
+import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.exception.PostException;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import com.robvangastel.assign.dao.AbstractDao;
-import com.robvangastel.assign.dao.IPostDao;
-import com.robvangastel.assign.domain.Post;
-import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.exception.PostException;
+import java.util.List;
 
 /**
  *
@@ -38,7 +37,7 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public Post findByEmail(String email) {
+    public List<Post> findByEmail(String email) {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Post p, User u WHERE p.user_id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
                 .setParameter("email", email);

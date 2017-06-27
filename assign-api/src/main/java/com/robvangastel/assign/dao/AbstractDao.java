@@ -1,10 +1,9 @@
 package com.robvangastel.assign.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *

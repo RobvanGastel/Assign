@@ -13,7 +13,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-
 import java.util.List;
 
 /**
@@ -33,11 +32,20 @@ public class UserController {
 	@Context
 	private SecurityContext securityContext;
 
+	/***
+	 * get all the users
+	 * @return An array of Users
+	 */
 	@GET
 	public List<User> get() {
 		return userService.findAll();
 	}
 
+	/***
+	 * Get user by id
+	 * @param id of the user
+	 * @return the User object with matching id
+	 */
 	@GET
 	@Path("/{id}")
 	public Response getById(@PathParam("id") long id) {
@@ -48,6 +56,11 @@ public class UserController {
 		return Response.ok(user).build();
 	}
 
+	/***
+	 * get user by email
+	 * @param email of the user
+	 * @return the User object with matching email
+	 */
 	@GET
 	@Path("/email")
 	public Response getByEmail(@QueryParam("email") String email) {
@@ -58,6 +71,14 @@ public class UserController {
 		return Response.ok(user).build();
 	}
 
+	/***
+	 * Register a user
+	 * @param email
+	 * @param password
+	 * @param firstName
+	 * @return the created user
+	 * @throws Exception
+	 */
 	@POST
 	public Response create(@QueryParam("email") String email,
 					 @QueryParam("password") String password,
@@ -69,6 +90,14 @@ public class UserController {
 		return Response.ok(user).build();
 	}
 
+	/***
+	 * Update a user
+	 * @param location
+	 * @param websiteURL
+	 * @param bio
+	 * @return A matching status code to indicate success or failure
+	 * @throws Exception
+	 */
 	@PUT
 	@Secured({Role.USER})
 	public Response update(@QueryParam("location") String location,
@@ -82,16 +111,17 @@ public class UserController {
 		return Response.noContent().build();
 	}
 
+	/***
+	 * Delete a user by id
+	 * @param id of the user
+	 * @return A matching status code to indicate success or failure
+	 * @throws Exception
+	 */
 	@DELETE
 	@Path("/{id}")
 	@Secured({Role.ADMIN})
 	public Response delete(@PathParam("id") long id) throws Exception {
-		User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-		if(user.getRole().equals(Role.ADMIN.toString())) {
-			userService.delete(id);
-			return Response.noContent().build();
-		} else {
-			throw new WebApplicationException(Response.Status.UNAUTHORIZED);
-		}
+		userService.delete(id);
+		return Response.noContent().build();
 	}
 }

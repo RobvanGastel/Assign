@@ -4,18 +4,12 @@ import com.robvangastel.assign.controllers.AuthController;
 import com.robvangastel.assign.controllers.ImageController;
 import com.robvangastel.assign.controllers.PostController;
 import com.robvangastel.assign.controllers.UserController;
-import com.robvangastel.assign.security.filter.AuthenticationFilter;
-import com.robvangastel.assign.security.filter.AuthorizationFilter;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
 import java.util.Set;
 
 /**

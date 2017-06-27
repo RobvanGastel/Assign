@@ -30,7 +30,10 @@ public class AuthController {
 
     /***
      * Authenticate the user
+     * @param username
+     * @param password
      * @return Response with the JWT token
+     * @throws Exception
      */
     @POST
     public Response authenticate(@QueryParam("email") String username,

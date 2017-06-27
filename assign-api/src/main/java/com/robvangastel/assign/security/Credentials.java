@@ -1,8 +1,8 @@
 package com.robvangastel.assign.security;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -18,9 +18,4 @@ public class Credentials implements Serializable {
 
     private String username;
     private String password;
-
-    public Credentials(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 }

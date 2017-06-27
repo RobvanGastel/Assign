@@ -16,7 +16,6 @@ package com.robvangastel.assign.crypto.bcrypt;
 
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
-
 import java.security.SecureRandom;
 
 /**

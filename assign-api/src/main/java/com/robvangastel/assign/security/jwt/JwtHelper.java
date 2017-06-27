@@ -1,18 +1,17 @@
 package com.robvangastel.assign.security.jwt;
 
-import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.domain.Role;
+import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.UserPrincipal;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import javax.enterprise.context.ApplicationScoped;
 
 /**
  *

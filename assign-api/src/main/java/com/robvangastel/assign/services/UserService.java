@@ -10,11 +10,11 @@ import com.robvangastel.assign.security.Credentials;
 import com.robvangastel.assign.security.IdToken;
 import com.robvangastel.assign.security.jwt.JwtHelper;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Pattern;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 /**
  *

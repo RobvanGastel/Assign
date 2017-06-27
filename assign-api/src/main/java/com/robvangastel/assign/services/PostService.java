@@ -2,12 +2,11 @@ package com.robvangastel.assign.services;
 
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
-import com.robvangastel.assign.domain.User;
 
-import java.io.Serializable;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *

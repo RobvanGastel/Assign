@@ -3,9 +3,7 @@ package com.robvangastel.assign.dao.facade;
 import com.robvangastel.assign.dao.AbstractDao;
 import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.exception.UserException;
 
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

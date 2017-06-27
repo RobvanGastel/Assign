@@ -1,7 +1,6 @@
 package com.robvangastel.assign.dao;
 
 import com.robvangastel.assign.domain.Post;
-import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.PostException;
 
 import java.util.List;
