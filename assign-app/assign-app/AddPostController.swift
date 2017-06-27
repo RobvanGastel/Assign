@@ -27,6 +27,12 @@ class AddPostController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    /// Set StatusBartStyle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
+    }
 
     /// Add post function
     @IBAction func addPost(_ sender: Any) {
