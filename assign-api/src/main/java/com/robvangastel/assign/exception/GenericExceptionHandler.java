@@ -30,7 +30,7 @@ public class GenericExceptionHandler implements ExceptionMapper<Throwable>
     }
 
     private void setHttpStatus(Throwable throwable, ErrorMessage errorMessage) {
-        if(throwable instanceof UserException ) {
+        if(throwable instanceof UserException) {
             errorMessage.setStatus(Response.Status.BAD_REQUEST.getStatusCode());
         } else {
             errorMessage.setStatus(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode());
