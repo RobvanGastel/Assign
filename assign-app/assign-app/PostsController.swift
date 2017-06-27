@@ -53,9 +53,11 @@ class PostsController: UITableViewController {
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    /// Set StatusBartStyle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
     }
 
     // MARK: - Table view with Posts
