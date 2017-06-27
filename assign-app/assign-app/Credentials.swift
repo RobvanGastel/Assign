@@ -8,8 +8,9 @@
 
 import Foundation
 
+/// This object is to manage the Credentials.
 class Credentials:NSObject  {
-    
+
     var email:String?
     var password:String?
 

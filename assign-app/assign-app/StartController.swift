@@ -8,48 +8,48 @@
 
 import UIKit
 
+/// Controller to register the user.
 class StartController: UIViewController {
 
+    // API service
     var authService: AuthService?
     var apiService: ApiService?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Init API service
         authService = AuthService()
         apiService = ApiService()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        // Checks if the user is logged in
-        // if true it opens the Tab Bar
-        // if flase it opens the sign up and login screen
+
+        // Checks if the user has loggedin in the past
         if(Storage.getLoggedIn()) {
-            
-            // Authenticate logged in user
+
+            // Authenticate the user with storage variables
             authService?.authenticate(email: Storage.getCredentials().email!,
                                       password: Storage.getCredentials().password!) { success in
-                
-                // If authentication succeded retrieve user
+
+                // If authentication succeded redirect to next view
                 if(success == true) {
                     self.redirectViewController(identifier: "PostsNavigationController")
-                    
-//                    self.apiService?.getCurrentUser() { response in
-//                        //TODO add Data to Core Data
-//                        print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
-//                    }
-                    
-                // Else prompt authentication
+
+                   // TODO Add retrieve user
+                   // self.apiService?.getCurrentUser() { response in
+                   //      print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
+                   //}
+
+                // Redirect to login view
                 } else {
                     self.redirectViewController(identifier: "LoginController")
                 }
             }
-            
+
         } else {
-            // Else prompt authentication
+            // Redirect to login view
             self.redirectViewController(identifier: "LoginController")
         }
     }
@@ -58,7 +58,8 @@ class StartController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    /// Redirect to another view.
     func redirectViewController(identifier: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: identifier)
