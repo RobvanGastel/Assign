@@ -6,7 +6,8 @@ import com.robvangastel.assign.exception.UserException;
 import java.util.List;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 public interface IUserDao {

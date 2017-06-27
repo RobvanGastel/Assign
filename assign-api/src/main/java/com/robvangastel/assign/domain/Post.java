@@ -18,7 +18,8 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Entity
@@ -33,28 +34,28 @@ public class Post implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
-    
+
     @JsonManagedReference
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags = new ArrayList<Tag>();
-    
+
     @Column(nullable = false)
     private String title;
-    
+
     @Column(nullable = false)
     private String description;
-    
+
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
-    private Timestamp dateCreated;   
-    
+    private Timestamp dateCreated;
+
     private boolean done;
-    
+
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     private Timestamp dateDone;
 

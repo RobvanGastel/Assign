@@ -8,7 +8,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
- * Created by robvangastel on 15/03/2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Provider

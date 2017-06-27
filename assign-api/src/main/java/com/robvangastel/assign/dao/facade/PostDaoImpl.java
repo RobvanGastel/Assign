@@ -13,7 +13,8 @@ import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.PostException;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Stateless

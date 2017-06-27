@@ -15,7 +15,8 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ *
+ * @author Rob van Gastel
  */
 
 @ApplicationScoped

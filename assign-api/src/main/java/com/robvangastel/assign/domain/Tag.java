@@ -9,7 +9,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Entity
@@ -25,11 +26,11 @@ public class Tag implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "tag_id")
     private Long id;
-    
+
     @Column(nullable = false)
     private String title;
-    
+
     public Tag (String title) {
         this.title = title;
     }
-} 
+}

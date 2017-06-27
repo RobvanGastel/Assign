@@ -19,13 +19,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Rob on 29-5-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @ApplicationPath("/api")
 public class AppConfig extends Application {
 
     public AppConfig() {
+        // Swagger.io configuration
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http"});
@@ -45,6 +47,7 @@ public class AppConfig extends Application {
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        // Controller mapping
         resources.add(AuthController.class);
         resources.add(ImageController.class);
         resources.add(PostController.class);

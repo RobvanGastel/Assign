@@ -7,7 +7,8 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * Created by Rob on 23-3-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @ToString

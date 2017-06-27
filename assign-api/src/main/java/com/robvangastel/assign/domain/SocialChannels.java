@@ -12,7 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Entity
@@ -27,7 +28,7 @@ public class SocialChannels implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String TwitterId;
     private String FacebookId;
 }

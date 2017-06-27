@@ -15,8 +15,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by Rob on 28-4-2017.
+ *
+ * @author Rob van Gastel
  */
+
 @Stateless
 @Path("/auth")
 @Api(tags = {"auth"}, value = "/auth", description = "Operations about authentication")
@@ -33,5 +35,5 @@ public class AuthController {
         return Response.ok(token).build();
     }
 
-    //TODO add change password
+    // TODO add change password
 }

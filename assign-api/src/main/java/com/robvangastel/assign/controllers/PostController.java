@@ -20,7 +20,8 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @RequestScoped

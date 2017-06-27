@@ -1,7 +1,8 @@
 package com.robvangastel.assign.domain;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 public enum Role {

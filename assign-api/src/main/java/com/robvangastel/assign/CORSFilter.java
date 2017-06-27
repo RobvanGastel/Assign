@@ -8,7 +8,8 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.Provider;
 
 /**
- * Created by Rob on 28-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Provider

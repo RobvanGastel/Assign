@@ -9,8 +9,10 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ *
+ * @author Rob van Gastel
  */
+ 
 @Getter
 @ToString
 @NoArgsConstructor

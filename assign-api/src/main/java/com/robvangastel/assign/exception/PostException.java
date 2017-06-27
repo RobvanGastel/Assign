@@ -1,7 +1,8 @@
 package com.robvangastel.assign.exception;
 
 /**
- * Created by robvangastel on 08/03/2017.
+ *
+ * @author Rob van Gastel
  */
 
 public class PostException extends Exception {

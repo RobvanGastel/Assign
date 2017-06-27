@@ -12,7 +12,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Stateless
@@ -20,7 +21,7 @@ public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
 
     @PersistenceContext(unitName ="assignPU")
     private EntityManager entityManager;
-        
+
     public UserDaoImpl() {
         super();
         setClassObj(User.class);

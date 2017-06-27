@@ -26,8 +26,10 @@ import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ *
+ * @author Rob van Gastel
  */
+ 
 @Secured
 @Provider
 @Priority(Priorities.AUTHORIZATION)

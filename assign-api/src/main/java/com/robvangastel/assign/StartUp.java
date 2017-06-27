@@ -12,7 +12,8 @@ import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 /**
- * Created by Rob on 23-4-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Singleton

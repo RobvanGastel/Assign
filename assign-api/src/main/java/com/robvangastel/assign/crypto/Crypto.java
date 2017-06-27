@@ -12,8 +12,9 @@ import javax.inject.Qualifier;
 
 /**
  *
- * @author hantsy
+ * @author Rob van Gastel
  */
+ 
 @Qualifier
 @Retention(RUNTIME)
 @Target({METHOD, FIELD, PARAMETER, TYPE})

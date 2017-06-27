@@ -3,7 +3,8 @@ package com.robvangastel.assign.exception;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by robvangastel on 15/03/2017.
+ *
+ * @author Rob van Gastel
  */
 
 public class ErrorMessage {

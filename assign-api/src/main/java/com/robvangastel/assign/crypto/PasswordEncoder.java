@@ -2,8 +2,9 @@ package com.robvangastel.assign.crypto;
 
 /**
  *
- * @author hantsy
+ * @author Rob van Gastel
  */
+ 
 public interface PasswordEncoder {
 
     public String encode(CharSequence rawPassword);

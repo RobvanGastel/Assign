@@ -33,7 +33,8 @@ import javax.ws.rs.core.*;
 import javax.ws.rs.core.Response.Status;
 
 /**
- * Created by Rob on 21-5-2017.
+ *
+ * @author Rob van Gastel
  */
 
 @Stateless
