@@ -218,7 +218,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-gD-y79">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-gD-y79" customClass="UIInput" customModule="assign_app" customModuleProvider="target">
                                 <rect key="frame" x="40" y="370" width="295" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -228,12 +228,12 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="gja-Qg-GvH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="gja-Qg-GvH" customClass="UIInput" customModule="assign_app" customModuleProvider="target">
                                 <rect key="frame" x="40" y="293" width="295" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -243,8 +243,8 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -350,7 +350,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-vR-RaG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-vR-RaG" customClass="UIInput" customModule="assign_app" customModuleProvider="target">
                                 <rect key="frame" x="40" y="370" width="295" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -360,12 +360,12 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="JCP-7b-5sE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="JCP-7b-5sE" customClass="UIInput" customModule="assign_app" customModuleProvider="target">
                                 <rect key="frame" x="40" y="293" width="295" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -375,8 +375,8 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -427,7 +427,7 @@
                                     <action selector="login:" destination="862-IJ-7cP" eventType="touchUpInside" id="EwG-i2-MHJ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School code" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-18-ytS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School code" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-18-ytS" customClass="UIInput" customModule="assign_app" customModuleProvider="target">
                                 <rect key="frame" x="40" y="447" width="295" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -437,8 +437,8 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
