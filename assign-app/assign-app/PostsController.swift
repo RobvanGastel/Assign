@@ -93,4 +93,13 @@ class PostsController: UITableViewController {
 
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostDetailSegue" ,
+            let nextView = segue.destination as? PostDetailController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            let post = posts[indexPath.row]
+            nextView.currentPost = post
+        }
+    }
 }
