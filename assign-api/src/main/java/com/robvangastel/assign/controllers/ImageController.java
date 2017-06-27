@@ -6,7 +6,7 @@ import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
 import io.swagger.annotations.Api;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -27,7 +27,7 @@ import java.nio.file.StandardCopyOption;
  * @author Rob van Gastel
  */
 
-@Stateless
+@RequestScoped
 @Path("/img")
 @Api(tags = {"img"}, value = "/img", description = "Manages the profile pictures of the users")
 public class ImageController {
