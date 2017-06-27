@@ -14,8 +14,15 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var currentPost:Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(currentPost?.title)
+        
+        self.userLabel.text = currentPost?.title
+        self.titleLabel.text = currentPost?.text
 
         // Do any additional setup after loading the view.
     }
