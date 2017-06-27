@@ -36,10 +36,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     /// Login action from the view.
     @IBAction func login(_ sender: Any) {
         authenticate(email: email.text!, password: password.text!)

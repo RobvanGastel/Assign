@@ -21,7 +21,6 @@ class StartController: UIViewController {
         // Init API service
         authService = AuthService()
         apiService = ApiService()
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -53,11 +52,6 @@ class StartController: UIViewController {
             // Redirect to login view
             self.redirectViewController(identifier: "LoginController")
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     /// Redirect to another view.
