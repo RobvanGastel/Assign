@@ -23,16 +23,17 @@ class Post:NSObject, JSONDecodable {
     var dateCreated:Date?
     var dateDone:Date?
 
-    init(id:Int, title:String, text:String) {
+    init(id:Int, title:String, text:String, dateCreated:Date) { // user: User
         self.id = id
         self.title = title
         self.text = text
+        self.dateCreated = dateCreated
+//        self.user = user
     }
 
     init(id:Int, title:String, user: String, dateCreated:Date, text:String, profile: String) {
         self.id = id
         self.title = title
-        self.user = user
         self.text = text
         self.profile = profile
         self.dateCreated = dateCreated
@@ -42,9 +43,14 @@ class Post:NSObject, JSONDecodable {
         guard let id = JSON["id"] as? Int else { return nil }
         guard let title = JSON["title"] as? String else { return nil }
         guard let text = JSON["description"] as? String else { return nil }
-        //TODO add serializer for Date
-        //guard let dateCreated = JSON["dateCreated"] as? Double else { return nil }
-
-        self.init(id: id, title: title, text: text)
+        guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
+//        guard let userString = JSON["user"] as AnyObject? as? String else { return nil }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HH-mm"
+        let dateCreated = formatter.date(from: dateCreatedString)
+        
+        self.init(id: id, title: title, text: text, dateCreated: dateCreated!) // user: user!
     }
 }
+
