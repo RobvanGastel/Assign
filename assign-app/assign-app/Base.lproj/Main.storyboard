@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I2f-aY-m96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I2f-aY-m96">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -270,6 +270,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Heb jij nog geen account? Meld je aan"/>
                                 <connections>
+                                    <action selector="registerRedirect:" destination="862-IJ-7cP" eventType="touchUpInside" id="cVa-15-Dsp"/>
                                     <segue destination="XdU-A0-wW9" kind="show" id="GFn-YV-L07"/>
                                 </connections>
                             </button>
@@ -404,6 +405,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="loginRedirect:" destination="XdU-A0-wW9" eventType="touchUpInside" id="kOQ-va-Fxl"/>
                                     <segue destination="862-IJ-7cP" kind="show" id="GIC-7P-GFR"/>
                                 </connections>
                             </button>
@@ -425,6 +427,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="login:" destination="862-IJ-7cP" eventType="touchUpInside" id="EwG-i2-MHJ"/>
+                                    <action selector="register:" destination="XdU-A0-wW9" eventType="touchUpInside" id="pkO-FU-zx1"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School code" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-18-ytS" customClass="UIInput" customModule="assign_app" customModuleProvider="target">
@@ -482,6 +485,11 @@
                             <constraint firstItem="kPa-E5-RrJ" firstAttribute="top" secondItem="p3g-Jv-acx" secondAttribute="bottom" constant="72" id="xiT-zC-CH4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="codeField" destination="Jg7-18-ytS" id="IF5-B0-DCO"/>
+                        <outlet property="emailField" destination="JCP-7b-5sE" id="2wz-Xt-ys1"/>
+                        <outlet property="passwordField" destination="rcq-vR-RaG" id="clE-TC-LGx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cs-x1-c1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

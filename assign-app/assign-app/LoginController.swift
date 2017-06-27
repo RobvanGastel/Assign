@@ -39,6 +39,10 @@ class LoginController: UIViewController {
             // TODO return ERROR message.
         }
     }
+    
+    @IBAction func registerRedirect(_ sender: Any) {
+        self.redirectViewController(identifier: "RegisterController")
+    }
 
     /// Authenticates the user against the API.
     ///
@@ -54,13 +58,18 @@ class LoginController: UIViewController {
                     print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                 }
 
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PostsNavigationController") as! UINavigationController
-                self.present(nextViewController, animated:true, completion:nil)
+                self.redirectViewController(identifier: "PostsNavigationController")
 
             } else {
-                // TODO return ERROR message.
+                // TODO return ERROR message
             }
         }
+    }
+    
+    /// Redirect to another view.
+    func redirectViewController(identifier: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: identifier)
+        self.present(vc, animated: true, completion: nil)
     }
 }
