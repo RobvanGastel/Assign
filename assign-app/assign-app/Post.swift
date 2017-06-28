@@ -40,11 +40,14 @@ class Post:NSObject, JSONDecodable {
     }
 
     convenience required init?(JSON: [String: Any]) {
+        // Post
         guard let id = JSON["id"] as? Int else { return nil }
         guard let title = JSON["title"] as? String else { return nil }
         guard let text = JSON["description"] as? String else { return nil }
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
-//        guard let userString = JSON["user"] as AnyObject? as? String else { return nil }
+        
+        let userId = JSON.index(forKey: "user")
+//        guard let user = User(JSON: userString as [String: Any])! else { return nil }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd-HH-mm"

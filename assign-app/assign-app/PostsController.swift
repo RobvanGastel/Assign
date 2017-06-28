@@ -84,7 +84,7 @@ class PostsController: UITableViewController {
         }
 
         if let dateLabel = cell.viewWithTag(103) as? UILabel {
-            dateLabel.text = post.dateCreated?.description
+            dateLabel.text = post.dateCreated?.timeAgoSimple
         }
 
         if let profileLabel = cell.viewWithTag(104) as? UILabel {
