@@ -28,8 +28,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         authService = AuthService()
         
         // Sets the delegate on the textField and creates a custom returnType
-        self.codeField.delegate = self as UITextFieldDelegate
-        self.codeField.returnKeyType = UIReturnKeyType.go
+        self.nameField.delegate = self as UITextFieldDelegate
+        self.nameField.returnKeyType = UIReturnKeyType.go
     }
     
     /// On the last return triggers the register method.

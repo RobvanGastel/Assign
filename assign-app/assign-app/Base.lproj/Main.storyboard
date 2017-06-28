@@ -563,6 +563,7 @@
                     <connections>
                         <outlet property="codeField" destination="Jg7-18-ytS" id="IF5-B0-DCO"/>
                         <outlet property="emailField" destination="JCP-7b-5sE" id="2wz-Xt-ys1"/>
+                        <outlet property="nameField" destination="VA4-i8-6jL" id="gFJ-he-CCs"/>
                         <outlet property="passwordField" destination="rcq-vR-RaG" id="clE-TC-LGx"/>
                     </connections>
                 </viewController>
