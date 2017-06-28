@@ -49,6 +49,8 @@ class PostsController: UITableViewController {
         }
         
         // Layout settings
+        // TODO place these rules in storyboard
+        //
         // Set the layout of the view
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
 
