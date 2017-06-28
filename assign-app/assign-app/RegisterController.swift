@@ -15,38 +15,45 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var codeField: UITextField!
     
-    //The Auth service
+    // The Auth service
     var authService: AuthService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hides the keyboard when tapping on the screen
         self.hideKeyboardWhenTappedAround()
         
         //Init of the services
         authService = AuthService()
+        
+        // Sets the delegate on the textField and creates a custom returnType
         self.codeField.delegate = self as UITextFieldDelegate
         self.codeField.returnKeyType = UIReturnKeyType.go
     }
     
+    /// On the last return triggers the register method.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         register(email: emailField.text!, password: passwordField.text!, code: codeField.text!)
         return true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
+    /// The register button in the view.
     @IBAction func register(_ sender: Any) {
         register(email: emailField.text!, password: passwordField.text!, code: codeField.text!)
     }
 
+    /// The register call to the backend.
     func register(email: String, password: String, code: String) {
+        
+        // Empty check on the fields
         if email != "" && password != "" && code != "" {
+            
+            // Register API call
             authService?.register(email: emailField.text!, password: passwordField.text!, code: codeField.text!) { success in
                 if(success == true) {
                     
+                    // Redirects the view to login
                     self.redirectViewController(identifier: "LoginController")
                     
                 } else {
@@ -56,6 +63,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /// Redirects the view to login.
     @IBAction func loginRedirect(_ sender: Any) {
         self.redirectViewController(identifier: "LoginController")
     }

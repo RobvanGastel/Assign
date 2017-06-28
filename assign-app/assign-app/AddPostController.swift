@@ -9,29 +9,51 @@
 import UIKit
 
 /// Controller to create new Posts
-class AddPostController: UIViewController {
+class AddPostController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var counterField: UITitle!
 
     // API service
     var apiService: ApiService?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hides the keyboard when tapping on the screen
+        self.hideKeyboardWhenTappedAround()
 
         // Init API service
         apiService = ApiService()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        
+        // description delegate
+        descriptionText.delegate = self
     }
     
-    /// Set StatusBartStyle
+    /// Set StatusBartStyle to default
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+    }
+    
+    /// TextView Delegates manages the character limit and the counter
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        // Max character for the textView
+        let maxCharacter: Int = 140
+        
+        // Counter calculations
+        let counter = (textView.text.utf16.count) + text.utf16.count - range.length
+        let amount = maxCharacter - counter
+        
+        // Makes sure the counter doesnt drop below 0
+        if(amount >= 0) {
+            counterField.text = String(maxCharacter - counter)
+        } else {
+            counterField.text = "0"
+        }
+        
+        return (textView.text?.utf16.count ?? 0) + text.utf16.count - range.length <= maxCharacter
     }
 
     /// Add post function
@@ -52,4 +74,6 @@ class AddPostController: UIViewController {
             // TODO Add fill in the fields message
         }
     }
+    
+    
 }

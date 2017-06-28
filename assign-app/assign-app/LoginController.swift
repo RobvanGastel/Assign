@@ -20,16 +20,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hides the keyboard when tapping on the screen
         self.hideKeyboardWhenTappedAround()
 
         // Init of the services
         apiService = ApiService()
         authService = AuthService()
         
+        // Initializes the delegate and returnKeyType
         self.password.delegate = self
         self.password.returnKeyType = UIReturnKeyType.go
     }
 
+    /// On the last return triggers the authenticate method.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         authenticate(email: email.text!, password: password.text!)
@@ -41,6 +44,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         authenticate(email: email.text!, password: password.text!)
     }
     
+    /// Redirect to the register view.
     @IBAction func registerRedirect(_ sender: Any) {
         self.redirectViewController(identifier: "RegisterController")
     }
@@ -50,9 +54,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     /// TODO Add getter/setter for the User data.
     func authenticate(email: String, password : String) {
         
-        // Check if the fields are filled
+        // Empty check on the fields
         if email == "" && password == "" {
             
+            // Authenticate API call
             authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
                 if(success == true) {
                     

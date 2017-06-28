@@ -13,19 +13,19 @@ class PostDetailController: UIViewController {
 
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UIName!
+    @IBOutlet weak var nameLabel: UITitle!
     
+    // Provided data from the segue
     var currentPost:Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the data to the labels in the view
         self.userLabel.text = currentPost?.title
         self.titleLabel.text = currentPost?.text
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.nameLabel.text = currentPost?.user?.firstName
+        self.dateLabel.text = currentPost?.dateCreated?.timeAgo
     }
 }

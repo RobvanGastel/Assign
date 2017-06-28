@@ -11,8 +11,6 @@ import UIKit
 /// Controller to view all the relevant posts.
 class PostsController: UITableViewController {
 
-    var customRefreshControl:UIRefreshControl!
-    
     // Posts array for tableview
     var posts = [Post]()
 
@@ -45,6 +43,7 @@ class PostsController: UITableViewController {
                 print("Post: title: \(String(describing: post.title))")
             }
 
+            // Sets the posts and refreshes the table
             self.posts = posts!
             self.tableView.reloadData()
         }
@@ -58,7 +57,7 @@ class PostsController: UITableViewController {
 
     }
     
-    /// Set StatusBartStyle
+    /// Set StatusBartStyle to default.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
@@ -84,7 +83,7 @@ class PostsController: UITableViewController {
         }
 
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = post.user?.email
+            nameLabel.text = post.user?.firstName
         }
 
         if let dateLabel = cell.viewWithTag(103) as? UILabel {
@@ -98,7 +97,9 @@ class PostsController: UITableViewController {
         return cell
     }
     
-    // TODO Modify so it works with push and pop
+    /// Add data to the segue before triggering.
+    ///
+    /// TODO Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostDetailSegue" ,
             let nextView = segue.destination as? PostDetailController,
@@ -108,7 +109,7 @@ class PostsController: UITableViewController {
         }
     }
     
-    // Pull and refesh function
+    /// Pull and refesh function on the tableView.
     @IBAction func refreshAction(_ sender: Any) {
         self.apiService?.getPosts() { posts in
             
@@ -117,6 +118,7 @@ class PostsController: UITableViewController {
                 print("Post: title: \(String(describing: post.title))")
             }
             
+            // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
