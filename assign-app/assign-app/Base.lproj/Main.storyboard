@@ -75,63 +75,6 @@
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="232.33695652173915"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="0oj-xF-day">
-            <objects>
-                <viewController id="rEC-V3-RdI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rbx-bW-a6K"/>
-                        <viewControllerLayoutGuide type="bottom" id="vef-b7-nw3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="d7e-ef-23S">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="bAM-uI-P0j">
-                                <rect key="frame" x="0.0" y="63" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="rEC-V3-RdI" id="odY-cF-YrA"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Search" id="n63-K1-Hej">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="rgX-J5-34J"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="8Oq-IU-gNQ" id="2Eu-Mo-q7n"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0gq-MS-vSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="ueP-WF-3QG">
-                    <connections>
-                        <outlet property="delegate" destination="rEC-V3-RdI" id="1nh-L5-b9p"/>
-                        <outlet property="searchContentsController" destination="rEC-V3-RdI" id="xLG-n3-h6j"/>
-                        <outlet property="searchResultsDataSource" destination="rEC-V3-RdI" id="ypi-SB-I8Q"/>
-                        <outlet property="searchResultsDelegate" destination="rEC-V3-RdI" id="kt9-gY-WS7"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="8Oq-IU-gNQ">
-                    <connections>
-                        <outlet property="delegate" destination="rEC-V3-RdI" id="EBA-60-8fb"/>
-                        <outlet property="searchBar" destination="bAM-uI-P0j" id="WIb-pR-QWD"/>
-                        <outlet property="searchContentsController" destination="rEC-V3-RdI" id="lSd-in-eXs"/>
-                        <outlet property="searchResultsDataSource" destination="rEC-V3-RdI" id="EXK-4e-wUf"/>
-                        <outlet property="searchResultsDelegate" destination="rEC-V3-RdI" id="8aO-B8-YYq"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="2051" y="-545"/>
-        </scene>
         <!--Overzicht-->
         <scene sceneID="2sL-c4-1mf">
             <objects>
@@ -201,7 +144,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="viY-dN-mNm">
                             <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="rEC-V3-RdI" kind="show" id="XYw-lA-eeU"/>
+                                <segue destination="7er-XU-eYK" kind="show" id="KuD-7q-xag"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="M2c-KH-RwY">
@@ -228,6 +171,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VjU-XU-Xwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="-568.20652173913049"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="9JQ-xn-Mba">
+            <objects>
+                <viewController title="Search" id="7er-XU-eYK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5SM-bX-Y12"/>
+                        <viewControllerLayoutGuide type="bottom" id="fWf-eC-tT2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9qL-rU-jXU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-If-sV8">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="016-RM-dRN">
+                                <rect key="frame" x="0.0" y="108" width="414" height="628"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="Cell" id="qfo-lk-lYQ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="77"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" contentMode="center" tableViewCell="qfo-lk-lYQ" id="BSO-48-C7Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Be6-eu-pE1" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="9" width="394" height="68"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9K-R0-JeZ" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="15" width="38" height="38"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcZ-qG-uPZ" customClass="UIName" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="67" y="12" width="180" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="21" translatesAutoresizingMaskIntoConstraints="NO" id="L32-Ri-SdS" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="67" y="33" width="284" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOM-id-etV" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="238" y="12" width="148" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="3Be-dZ-lOC" id="vFo-sZ-gPV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpp-SS-43K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="3Be-dZ-lOC">
+                    <connections>
+                        <outlet property="delegate" destination="7er-XU-eYK" id="SLx-4D-6Kq"/>
+                        <outlet property="searchContentsController" destination="7er-XU-eYK" id="1hi-VC-AXA"/>
+                        <outlet property="searchResultsDataSource" destination="7er-XU-eYK" id="AWO-hc-8Ur"/>
+                        <outlet property="searchResultsDelegate" destination="7er-XU-eYK" id="rV4-zV-750"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2066.666666666667" y="-568.20652173913049"/>
         </scene>
         <!--Start Controller-->
         <scene sceneID="9Ob-Oi-aJ5">
