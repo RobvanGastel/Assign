@@ -11,12 +11,14 @@ import UIKit
 /// Controller to view all the relevant posts.
 class PostsController: UITableViewController {
 
+    var customRefreshControl:UIRefreshControl!
+    
     // Posts array for tableview
     var posts = [Post]()
 
     // API service
     var apiService: ApiService?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +39,7 @@ class PostsController: UITableViewController {
 
         // On viewLoad get the posts from the API
         self.apiService?.getPosts() { posts in
+            
             // TODO add Data to Core Data as cache
             for post in posts! {
                 print("Post: title: \(String(describing: post.title))")
@@ -45,7 +48,10 @@ class PostsController: UITableViewController {
             self.posts = posts!
             self.tableView.reloadData()
         }
+        
+        
 
+        // Layout settings
         // Set the layout of the view
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
 
@@ -80,7 +86,7 @@ class PostsController: UITableViewController {
         }
 
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = "Kees" // post.user?.email
+            nameLabel.text = post.user?.email
         }
 
         if let dateLabel = cell.viewWithTag(103) as? UILabel {
@@ -94,12 +100,28 @@ class PostsController: UITableViewController {
         return cell
     }
     
+    // TODO Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostDetailSegue" ,
             let nextView = segue.destination as? PostDetailController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let post = posts[indexPath.row]
             nextView.currentPost = post
+        }
+    }
+    
+    // Pull and refesh function
+    @IBAction func refreshAction(_ sender: Any) {
+        self.apiService?.getPosts() { posts in
+            
+            // TODO add Data to Core Data as cache
+            for post in posts! {
+                print("Post: title: \(String(describing: post.title))")
+            }
+            
+            self.posts = posts!
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }
     }
 }
