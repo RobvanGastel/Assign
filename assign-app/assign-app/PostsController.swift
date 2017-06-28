@@ -83,7 +83,7 @@ class PostsController: UITableViewController {
         }
 
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = post.user?.firstName
+            nameLabel.text = post.user?.name
         }
 
         if let dateLabel = cell.viewWithTag(103) as? UILabel {

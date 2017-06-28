@@ -25,7 +25,7 @@ class PostDetailController: UIViewController {
         // Set the data to the labels in the view
         self.userLabel.text = currentPost?.title
         self.titleLabel.text = currentPost?.text
-        self.nameLabel.text = currentPost?.user?.firstName
+        self.nameLabel.text = currentPost?.user?.name
         self.dateLabel.text = currentPost?.dateCreated?.timeAgo
     }
 }
