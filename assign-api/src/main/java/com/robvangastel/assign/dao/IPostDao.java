@@ -28,6 +28,14 @@ public interface IPostDao {
      */
     List<Post> findByDescription(String description);
 
+     /***
+     * Find Post(s) by description
+     * @param title
+     * @return Found Post(s) or Null when
+     * the Post(s) isn't found
+     */
+    List<Post> findByTitle(String title);
+
     /***
      * Find Post(s) by User
      * @param email User email

@@ -48,8 +48,8 @@ public class User implements Serializable {
     @Column(nullable = false, unique = true)
     private String email;
 
-    private String firstName;
-    private String education;
+    private String name;
+    private String schoolCode;
     private String profileImage;
 
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
@@ -64,13 +64,13 @@ public class User implements Serializable {
      *
      * @param email
      * @param password
-     * @param firstName
+     * @param name
      */
-    public User(String email, String password, String firstName) {
+    public User(String email, String password, String name) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
-        this.firstName = firstName;
+        this.name = name;
         this.profileImage = "default.png";
 
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
@@ -80,14 +80,14 @@ public class User implements Serializable {
      * Complete User constructor
      * @param email
      * @param password
-     * @param firstName
+     * @param schoolCode
      */
-    public User(String email, String password, String firstName, String education) {
+    public User(String email, String password, String name, String schoolCode) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
-        this.firstName = firstName;
-        this.education = education;
+        this.name = name;
+        this.schoolCode = schoolCode;
         this.profileImage = "default.png";
 
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());

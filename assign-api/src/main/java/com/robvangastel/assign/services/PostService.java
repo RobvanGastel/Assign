@@ -31,12 +31,16 @@ public class PostService implements Serializable {
         postDao.deleteById(id);
     }
 
+    public Post create(Post entity) throws Exception {
+        return postDao.create(entity);
+    }
+
     public List<Post> findByEmail(String email) {
         return postDao.findByEmail(email);
     }
 
-    public Post create(Post entity) throws Exception {
-        return postDao.create(entity);
+    public List<Post> findByTitle(String title) {
+        return postDao.findByTitle(title);
     }
 
     public List<Post> findByDescription(String description) {

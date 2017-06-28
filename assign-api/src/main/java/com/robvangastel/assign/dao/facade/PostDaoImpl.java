@@ -33,7 +33,16 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Post p WHERE p.description like :description ORDER BY p.dateCreated DESC")
                 .setParameter("description", description);
-        return query.getResultList();
+        return query.setMaxResults(50).getResultList();
+    }
+
+    @Override
+    public List<Post> findByTitle(String title) {
+        title = "%" + title + "%";
+        Query query = entityManager.createQuery(
+                "SELECT p FROM Post p WHERE p.title like :title ORDER BY p.dateCreated DESC")
+                .setParameter("title", title);
+        return query.setMaxResults(50).getResultList();
     }
 
     @Override
@@ -41,7 +50,12 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Post p, User u WHERE p.user_id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
                 .setParameter("email", email);
-        return query.getResultList();
+        return query.setMaxResults(50).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Post> findAll() {
+        return entityManager.createQuery("from Post ORDER BY dateCreated DESC").setMaxResults(50).getResultList();
     }
 
     @Override

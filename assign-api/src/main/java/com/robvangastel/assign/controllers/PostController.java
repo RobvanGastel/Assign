@@ -28,6 +28,8 @@ import java.util.List;
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
 
+    // TODO Add get posts for users
+
     @Inject
     private PostService postService;
 
@@ -62,29 +64,17 @@ public class PostController {
     }
 
     /***
-     * Get post(s) by email
-     * @param email of the user
-     * @return An array of posts matching the email
+     * Get post(s) by a query
+     * @param query
+     * @return An array of posts matching the query
      */
     @GET
-    @Path("/email")
-    public Response getByEmail(@QueryParam("email") String email) {
-        List<Post> posts = postService.findByEmail(email);
-        if(posts == null) {
-            throw new WebApplicationException(Response.Status.NOT_FOUND);
-        }
-        return Response.ok(posts).build();
-    }
+    @Path("/query")
+    public Response getByQuery(@QueryParam("query") String query) {
+        List<Post> posts = postService.findByDescription(query);
+        posts.addAll(postService.findByTitle(query));
+        posts.addAll(postService.findByEmail(query));
 
-    /***
-     * Get post(s) by a description query
-     * @param description
-     * @return An array of posts matching the description
-     */
-    @GET
-    @Path("/description")
-    public Response getByDescription(@QueryParam("description") String description) {
-        List<Post> posts = postService.findByDescription(description);
         if(posts == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }

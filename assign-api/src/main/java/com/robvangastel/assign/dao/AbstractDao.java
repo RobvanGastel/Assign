@@ -3,7 +3,6 @@ package com.robvangastel.assign.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *
@@ -24,11 +23,6 @@ public abstract class AbstractDao<T extends Serializable> {
 
     public T findById(final long id) {
         return entityManager.find(classObj, id);
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<T> findAll() {
-        return entityManager.createQuery("from " + classObj.getName()).getResultList();
     }
 
     public T update(final T entity) {

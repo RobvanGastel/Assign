@@ -75,15 +75,17 @@ public class UserController {
 	 * Register a user
 	 * @param email
 	 * @param password
-	 * @param firstName
+	 * @param name
+	 * @param code
 	 * @return the created user
 	 * @throws Exception
 	 */
 	@POST
 	public Response create(@QueryParam("email") String email,
 					 @QueryParam("password") String password,
-					 @QueryParam("firstName") String firstName) throws Exception {
-		User user = userService.create(new User(email, password, firstName));
+					 @QueryParam("name") String name,
+					 @QueryParam("code") String code) throws Exception {
+		User user = userService.create(new User(email, password, name, code));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		}
