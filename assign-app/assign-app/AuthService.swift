@@ -49,16 +49,16 @@ class AuthService {
     /// This function registers the User against the API.
     ///
     /// TODO Add implementation
-    func register(email: String, password: String, code: String,
+    func register(email: String, password: String, code: String, name: String,
                   completionHandler: @escaping (Bool) -> ()) {
         
         let URL = Storage.getURL() + "/users"
         
-        // TODO change firstName to code in the API
         let parameters: Parameters = [
             "email": email,
             "password": password,
-            "firstName": code
+            "name": name,
+            "code": code
         ]
         
         Alamofire.request(URL, method: .post, parameters: parameters, encoding: URLEncoding.queryString).validate().responseJSON { response in

@@ -48,12 +48,28 @@ class AddPostController: UIViewController, UITextViewDelegate {
         
         // Makes sure the counter doesnt drop below 0
         if(amount >= 0) {
+            counterField.textColor = UIColor.lightGray
             counterField.text = String(maxCharacter - counter)
         } else {
+            counterField.textColor = UIColor.red
             counterField.text = "0"
         }
         
         return (textView.text?.utf16.count ?? 0) + text.utf16.count - range.length <= maxCharacter
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Geef een beschrijving"
+            textView.textColor = UIColor.lightGray
+        }
     }
 
     /// Add post function

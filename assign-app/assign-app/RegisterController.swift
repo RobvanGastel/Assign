@@ -14,6 +14,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var codeField: UITextField!
+    @IBOutlet weak var nameField: UITextField!
     
     // The Auth service
     var authService: AuthService?
@@ -34,23 +35,24 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     /// On the last return triggers the register method.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        register(email: emailField.text!, password: passwordField.text!, code: codeField.text!)
+        register(email: emailField.text!, password: passwordField.text!, code: codeField.text!, name: nameField.text!)
         return true
     }
     
     /// The register button in the view.
     @IBAction func register(_ sender: Any) {
-        register(email: emailField.text!, password: passwordField.text!, code: codeField.text!)
+        register(email: emailField.text!, password: passwordField.text!, code: codeField.text!, name: nameField.text!)
     }
 
     /// The register call to the backend.
-    func register(email: String, password: String, code: String) {
+    func register(email: String, password: String, code: String, name: String) {
         
         // Empty check on the fields
-        if email != "" && password != "" && code != "" {
+        if email != "" && password != "" && code != "" && name != "" {
             
             // Register API call
-            authService?.register(email: emailField.text!, password: passwordField.text!, code: codeField.text!) { success in
+            authService?.register(email: email, password: password, code: code, name: name)
+            { success in
                 if(success == true) {
                     
                     // Redirects the view to login
