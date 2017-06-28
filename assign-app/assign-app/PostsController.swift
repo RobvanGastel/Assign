@@ -49,8 +49,6 @@ class PostsController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        
-
         // Layout settings
         // Set the layout of the view
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)

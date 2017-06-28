@@ -6,11 +6,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post Detail Controller-->
+        <!--Post-->
         <scene sceneID="uxe-3U-2Hg">
             <objects>
                 <viewController id="yny-p8-2xX" customClass="PostDetailController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,24 +21,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx5-Z7-wSj">
-                                <rect key="frame" x="51" y="104" width="242" height="21"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwD-Xe-yBU" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="77" width="374" height="321"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-4G-f4Q">
-                                <rect key="frame" x="51" y="141" width="282" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx5-Z7-wSj" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="102" y="22" width="242" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-PV-Y9S" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="22" width="62" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmV-Wc-Ial">
+                                        <rect key="frame" x="102" y="51" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-4G-f4Q" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="116" width="282" height="114"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CzT-p8-pD3"/>
+                    <navigationItem key="navigationItem" title="Post" id="CzT-p8-pD3"/>
                     <connections>
                         <outlet property="titleLabel" destination="WfE-4G-f4Q" id="4ic-W3-zoo"/>
                         <outlet property="userLabel" destination="gx5-Z7-wSj" id="F3a-Kb-Qfd"/>
@@ -47,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dz-yN-cLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="232.53373313343329"/>
+            <point key="canvasLocation" x="955.07246376811599" y="232.33695652173915"/>
         </scene>
         <!--Search-->
         <scene sceneID="0oj-xF-day">
@@ -61,8 +78,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" barStyle="black" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="bAM-uI-P0j">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="bAM-uI-P0j">
+                                <rect key="frame" x="0.0" y="63" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +93,7 @@
                                 </connections>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="n63-K1-Hej">
                         <barButtonItem key="backBarButtonItem" title="Back" id="rgX-J5-34J"/>
@@ -104,7 +121,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2047" y="-546"/>
+            <point key="canvasLocation" x="2051" y="-545"/>
         </scene>
         <!--Overzicht-->
         <scene sceneID="2sL-c4-1mf">
@@ -161,10 +178,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="yny-p8-2xX" kind="showDetail" identifier="PostDetailSegue" id="VoK-Ao-WHp">
-                                        <segue key="commit" inheritsFrom="parent" id="NMY-EK-Wwa"/>
-                                        <segue key="preview" inheritsFrom="commit" id="u6V-wQ-8lf"/>
-                                    </segue>
+                                    <segue destination="yny-p8-2xX" kind="show" identifier="PostDetailSegue" id="HVH-jN-rTZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -178,13 +192,13 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="viY-dN-mNm">
                             <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="rEC-V3-RdI" kind="presentation" id="XYw-lA-eeU"/>
+                                <segue destination="rEC-V3-RdI" kind="show" id="XYw-lA-eeU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="M2c-KH-RwY">
                             <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="rs9-AB-hgu" kind="presentation" id="31a-r6-JWu"/>
+                                <segue destination="nqU-Wi-bqa" kind="show" id="9Ij-Ur-Uk7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -551,33 +565,33 @@
                         <viewControllerLayoutGuide type="bottom" id="Uab-9e-uuS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KNc-1Y-YEG">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Waar heb je hulp mee nodig?" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-QL-mVh">
-                                <rect key="frame" x="40" y="60" width="295" height="30"/>
+                                <rect key="frame" x="35" y="108" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Geef een beschrijving" translatesAutoresizingMaskIntoConstraints="NO" id="JvU-E0-4Lu" customClass="UIAddDesc" customModule="assign_app" customModuleProvider="target">
-                                <rect key="frame" x="35" y="108" width="305" height="327"/>
+                                <rect key="frame" x="35" y="155" width="305" height="327"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qzd-bv-tUj">
                         <barButtonItem key="leftBarButtonItem" image="icon-cross.png" id="WcK-fe-Tkn">
                             <color key="tintColor" red="1" green="0.56114366319999998" blue="0.1389160156" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="ob9-ut-Dgz" kind="show" id="fcl-63-hgH"/>
+                                <segue destination="ob9-ut-Dgz" kind="showDetail" id="Uh6-e7-LlR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="IoR-v9-Hk5">
@@ -595,34 +609,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6b-mB-xw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="-1336"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="kz4-WJ-cpx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rs9-AB-hgu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="M0y-b9-TMc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="nqU-Wi-bqa" kind="relationship" relationship="rootViewController" id="8EN-n6-LWk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rz-VL-fxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1738" y="-1336"/>
+            <point key="canvasLocation" x="2051" y="-1322"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon-cross.png" width="18" height="18"/>
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="VoK-Ao-WHp"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
