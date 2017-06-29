@@ -195,7 +195,7 @@
                                 <color key="backgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="Cell" id="qfo-lk-lYQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="SearchCell" id="qfo-lk-lYQ">
                                         <rect key="frame" x="0.0" y="28" width="414" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" contentMode="center" tableViewCell="qfo-lk-lYQ" id="BSO-48-C7Q">
@@ -239,6 +239,9 @@
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="yny-p8-2xX" kind="show" identifier="PostDetailSegueSearch" id="E9m-bu-7yT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -249,6 +252,7 @@
                     <connections>
                         <outlet property="searchBar" destination="gXk-If-sV8" id="O46-z3-bqe"/>
                         <outlet property="searchDisplayController" destination="3Be-dZ-lOC" id="vFo-sZ-gPV"/>
+                        <outlet property="tableView" destination="016-RM-dRN" id="3G3-QN-OjM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpp-SS-43K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -689,5 +693,8 @@
         <image name="icon-cross.png" width="18" height="18"/>
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="E9m-bu-7yT"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -11,46 +11,39 @@ import UIKit
 class PostSearchController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
     // Posts array for tableview
     var posts = [Post]()
-    
-    var searchActive : Bool = false
     
     // API service
     var apiService: ApiService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hides the keyboard when tapping on the screen
+        self.hideKeyboardWhenTappedAround()
 
         // Init API service
         apiService = ApiService()
         
-        // Declare searchBar delegate
+        // Declare delegates
         searchBar.delegate = self
-    }
-
-    /// On the last return triggers the register method.
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        self.apiService?.saerchPosts(query: searchBar.text!) { posts in
+            
+            // TODO add Data to Core Data as cache
+            // Sets the posts and refreshes the table
+            self.posts = posts!
+            self.tableView.reloadData()
+        }
+        
+        self.searchBar.endEditing(true)
+        
     }
     
     // MARK: - Table view data source
@@ -64,7 +57,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
         
         let post = posts[indexPath.row] as Post
         
@@ -85,5 +78,17 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         }
         
         return cell
+    }
+    
+    /// Add data to the segue before triggering.
+    ///
+    /// TODO Modify so it works with push and pop
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostDetailSegueSearch" ,
+            let nextView = segue.destination as? PostDetailController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            let post = posts[indexPath.row]
+            nextView.currentPost = post
+        }
     }
 }

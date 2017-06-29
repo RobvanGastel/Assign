@@ -39,10 +39,6 @@ class PostsController: UITableViewController {
         self.apiService?.getPosts() { posts in
             
             // TODO add Data to Core Data as cache
-            for post in posts! {
-                print("Post: title: \(String(describing: post.title))")
-            }
-
             // Sets the posts and refreshes the table
             self.posts = posts!
             self.tableView.reloadData()
@@ -116,10 +112,6 @@ class PostsController: UITableViewController {
         self.apiService?.getPosts() { posts in
             
             // TODO add Data to Core Data as cache
-            for post in posts! {
-                print("Post: title: \(String(describing: post.title))")
-            }
-            
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
