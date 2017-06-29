@@ -66,7 +66,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
                     
-                    self.redirectViewController(identifier: "PostsNavigationController")
+                    self.redirectViewController(identifier: "PostsTabBarController")
                     
                 } else {
                     
