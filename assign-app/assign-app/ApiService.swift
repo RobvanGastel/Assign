@@ -30,7 +30,7 @@ class ApiService {
         switch response.result {
             case .success:
                 let user = User(JSON: response.value as! [String : Any])
-
+                
                 print("API: Retrieve user successful")
                 completionHandler(user)
 
