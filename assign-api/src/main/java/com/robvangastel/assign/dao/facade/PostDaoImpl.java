@@ -48,7 +48,7 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     public List<Post> findByEmail(String email) {
         Query query = entityManager.createQuery(
-                "SELECT p FROM Post p, User u WHERE p.user_id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
+                "SELECT p FROM Post p, User u WHERE p.user.id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
                 .setParameter("email", email);
         return query.setMaxResults(50).getResultList();
     }
