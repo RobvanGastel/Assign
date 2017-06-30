@@ -870,7 +870,7 @@
             </objects>
             <point key="canvasLocation" x="121" y="-1326"/>
         </scene>
-        <!--Profile Controller-->
+        <!--Profiel-->
         <scene sceneID="sT3-Wr-iNB">
             <objects>
                 <viewController id="Cb4-VC-HQV" customClass="ProfileController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -925,9 +925,9 @@
                             <constraint firstAttribute="trailing" secondItem="E5e-f0-Jv5" secondAttribute="trailing" id="xsK-Ak-NYT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lQV-Dr-fNH">
+                    <navigationItem key="navigationItem" title="Profiel" id="lQV-Dr-fNH">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="D6X-wq-VdS">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="bN4-Y5-A7b" kind="show" id="vm5-WH-q2s"/>
                             </connections>
