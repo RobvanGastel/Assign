@@ -89,7 +89,7 @@ class PostsController: UITableViewController {
         }
 
         if let profileLabel = cell.viewWithTag(104) as? UILabel {
-            profileLabel.text = post.profile
+            profileLabel.text = " dsdsdsdsds"
         }
 
         return cell

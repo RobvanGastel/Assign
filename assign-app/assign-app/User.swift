@@ -14,21 +14,30 @@ class User:NSObject, JSONDecodable {
     var id:Int?
     var name:String?
     var email:String?
-    var user: User?
+    var profileImage: String?
+    
     var posts:[Post]?
+    
     var dateCreated:Date?
-
+    
     init(id: Int, name:String, email:String) {
-        self.id = id;
-        self.name = name;
-        self.email = email;
+        self.id = id
+        self.name = name
+        self.email = email
+        self.profileImage = "default.png"
     }
 
-    init(id: Int, name:String, user: User, email:String, dateCreated:Date) {
-        self.id = id;
-        self.name = name;
-        self.email = email;
-        self.user = user;
+    init(id: Int, name:String, email:String, dateCreated:Date, profileImage: String) {
+        self.id = id
+        self.name = name
+        self.email = email
+        
+        if profileImage.isEmpty {
+            self.profileImage = "default.png";
+        }else {
+            self.profileImage = profileImage;
+        }
+        
         self.dateCreated = dateCreated;
     }
 
@@ -36,9 +45,11 @@ class User:NSObject, JSONDecodable {
         guard let id = JSON["id"] as? Int else { return nil }
         guard let name = JSON["name"] as? String else { return nil }
         guard let email = JSON["email"] as? String else { return nil }
-        //TODO add serializer for Date
-        //guard let dateCreated = JSON["dateCreated"] as? Double else { return nil }
-
-        self.init(id: id, name: name, email: email)
+        guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
+        guard let profileImage = JSON["profileImage"] as? String else { return nil }
+        
+        let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
+        
+        self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImage)
     }
 }

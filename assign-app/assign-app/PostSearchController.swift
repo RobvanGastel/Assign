@@ -74,7 +74,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         }
         
         if let profileLabel = cell.viewWithTag(204) as? UILabel {
-            profileLabel.text = post.profile
+            profileLabel.text = "dasdas" // post.profile
         }
         
         return cell

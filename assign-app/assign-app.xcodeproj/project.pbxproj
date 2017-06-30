@@ -36,6 +36,8 @@
 		D4C828781F0445B800A87D40 /* PostSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828771F0445B800A87D40 /* PostSearchController.swift */; };
 		D4C8287A1F0501F000A87D40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828791F0501F000A87D40 /* TabBarController.swift */; };
 		D4C8287C1F05240800A87D40 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8287B1F05240800A87D40 /* ProfileController.swift */; };
+		D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8287D1F069A0B00A87D40 /* JSONParser.swift */; };
+		D4C828801F06D4B500A87D40 /* ProfileDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8287F1F06D4B500A87D40 /* ProfileDetailController.swift */; };
 		D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9064E1ECE4A370065B5A5 /* LoginController.swift */; };
 		D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D906521ECE541A0065B5A5 /* ApiService.swift */; };
 		D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */; };
@@ -77,6 +79,8 @@
 		D4C828771F0445B800A87D40 /* PostSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSearchController.swift; sourceTree = "<group>"; };
 		D4C828791F0501F000A87D40 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D4C8287B1F05240800A87D40 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		D4C8287D1F069A0B00A87D40 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		D4C8287F1F06D4B500A87D40 /* ProfileDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailController.swift; sourceTree = "<group>"; };
 		D4D9064E1ECE4A370065B5A5 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				D4C828771F0445B800A87D40 /* PostSearchController.swift */,
 				D4C828791F0501F000A87D40 /* TabBarController.swift */,
 				D4C8287B1F05240800A87D40 /* ProfileController.swift */,
+				D4C8287F1F06D4B500A87D40 /* ProfileDetailController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 		201F96EB1E31547C0082702E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D4C8287D1F069A0B00A87D40 /* JSONParser.swift */,
 				201F96EC1E3154BB0082702E /* User.swift */,
 				201F96EE1E3154F10082702E /* Post.swift */,
 				201F96F01E3156400082702E /* Tag.swift */,
@@ -361,10 +367,12 @@
 				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
 				D4C8287C1F05240800A87D40 /* ProfileController.swift in Sources */,
 				D4C828781F0445B800A87D40 /* PostSearchController.swift in Sources */,
+				D4C828801F06D4B500A87D40 /* ProfileDetailController.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
 				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
 				D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */,
 				D45D2FEB1F01AD8E002FEBE7 /* RegisterController.swift in Sources */,
+				D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,

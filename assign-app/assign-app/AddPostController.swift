@@ -58,6 +58,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
         return (textView.text?.utf16.count ?? 0) + text.utf16.count - range.length <= maxCharacter
     }
     
+    // When the user starts editing will empty the textView
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -65,6 +66,8 @@ class AddPostController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // Whent he user stops editing and the textView is still empty adds
+    // the text again
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Geef een beschrijving"

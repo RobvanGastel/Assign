@@ -50,8 +50,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
 
     /// Authenticates the user against the API.
-    ///
-    /// TODO Add getter/setter for the User data.
     func authenticate(email: String, password : String) {
         
         // Empty check on the fields
@@ -62,7 +60,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 if(success == true) {
                     
                     self.apiService?.getCurrentUser() { response in
-                        // TODO add Data to Core Data
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
                     
