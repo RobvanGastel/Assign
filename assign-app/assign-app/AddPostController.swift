@@ -30,25 +30,28 @@ class AddPostController: UIViewController, UITextViewDelegate {
         descriptionText.delegate = self
     }
     
-    /// Set StatusBartStyle to default
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
-    }
-    
     /// TextView Delegates manages the character limit and the counter
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         // Max character for the textView
-        let maxCharacter: Int = 140
+        let maxCharacter: Int = 255
         
         // Counter calculations
         let counter = (textView.text.utf16.count) + text.utf16.count - range.length
         let amount = maxCharacter - counter
         
         // Makes sure the counter doesnt drop below 0
-        if(amount >= 0) {
-            counterField.textColor = UIColor.lightGray
+        if(amount >= 12) {
+            counterField.textColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 1)
+            counterField.text = String(maxCharacter - counter)
+        } else if(amount >= 6) {
+            counterField.textColor = UIColor.orange
+            counterField.text = String(maxCharacter - counter)
+        } else if(amount >= 3) {
+            counterField.textColor = UIColor.red
+            counterField.text = String(maxCharacter - counter)
+        } else if(amount >= 0) {
+            counterField.textColor = UIColor.red
             counterField.text = String(maxCharacter - counter)
         } else {
             counterField.textColor = UIColor.red
@@ -58,17 +61,20 @@ class AddPostController: UIViewController, UITextViewDelegate {
         return (textView.text?.utf16.count ?? 0) + text.utf16.count - range.length <= maxCharacter
     }
     
+    // When the user starts editing will empty the textView
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
+        if textView.textColor == UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1) {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1)
         }
     }
     
+    // Whent he user stops editing and the textView is still empty adds
+    // the text again
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Geef een beschrijving"
-            textView.textColor = UIColor.lightGray
+            textView.textColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         }
     }
 
@@ -80,7 +86,9 @@ class AddPostController: UIViewController, UITextViewDelegate {
             // Add post API call with the API Service
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
                 if(success == true) {
-                    // TODO On succes navigate back to the previous view
+                    // Navigate back to the previous view
+                    self.navigationController?.popViewController(animated: true)
+                    
                     // TODO Add SUCCESS message
                 } else {
                     // TODO Add ERROR message

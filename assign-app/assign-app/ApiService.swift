@@ -30,7 +30,8 @@ class ApiService {
         switch response.result {
             case .success:
                 let user = User(JSON: response.value as! [String : Any])
-
+                Storage.setUser(user: user!)
+                
                 print("API: Retrieve user successful")
                 completionHandler(user)
 
@@ -87,10 +88,10 @@ class ApiService {
                  completionHandler: @escaping (Bool) -> ()) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
 
-            let parameters: Parameters = [
-                "title": title,
-                "description": description
-            ]
+        let parameters: Parameters = [
+            "title": title,
+            "description": description
+        ]
 
         let URL = Storage.getURL() + "/posts"
 
@@ -112,6 +113,46 @@ class ApiService {
         }
     }
 
+    /// This function searches through the posts and returns the matching 
+    /// posts.
+    ///
+    /// TODO Add implementation
+    @discardableResult
+    func saerchPosts(query: String,
+                     completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let parameters: Parameters = [
+            "query": query
+        ]
+        
+        let URL = Storage.getURL() + "/posts/query"
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString)
+            .validate().responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    var postsArray = [Post]()
+                    
+                    if let posts = response.value as? [[String:Any]] {
+                        for post in posts {
+                            postsArray.append(Post(JSON: post)!)
+                        }
+                    }
+                    
+                    print("API: Retrieve search posts successful")
+                    completionHandler(postsArray)
+                    
+                case .failure(let error):
+                    print("API: Retrieve search posts error")
+                    print(error)
+                }
+        }
+    }
+    
+    
     /// This function deletes a *Post* for the authenticated user.
     ///
     /// TODO Add implementation

@@ -37,10 +37,8 @@ class StartController: UIViewController {
                 if(success == true) {
                     self.redirectViewController(identifier: "PostsNavigationController")
 
-                   // TODO Add retrieve user
-                   // self.apiService?.getCurrentUser() { response in
-                   //      print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
-                   //}
+                    self.apiService?.getCurrentUser() { response in
+                   }
 
                 // Redirect to login view
                 } else {

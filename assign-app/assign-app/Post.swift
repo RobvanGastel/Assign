@@ -19,24 +19,25 @@ class Post:NSObject, JSONDecodable {
     var tags:[Tag]?
     var done:Bool?
 
-    var profile: String?
     var dateCreated:Date?
     var dateDone:Date?
 
     init(id:Int, title:String, text:String, dateCreated:Date, user: User) {
         self.id = id
         self.title = title
+        self.user = user
         self.text = text
         self.dateCreated = dateCreated
         self.user = user
     }
 
-    init(id:Int, title:String, user: String, dateCreated:Date, text:String, profile: String) {
+    init(id:Int, title:String,  text:String, dateCreated:Date, user: User, done: Bool) {
         self.id = id
         self.title = title
         self.text = text
-        self.profile = profile
+        self.user = user
         self.dateCreated = dateCreated
+        self.done = done
     }
 
     convenience required init?(JSON: [String: Any]) {
@@ -45,19 +46,16 @@ class Post:NSObject, JSONDecodable {
         guard let title = JSON["title"] as? String else { return nil }
         guard let text = JSON["description"] as? String else { return nil }
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
+        guard let done = JSON["done"] as? Bool else { return nil }
+        
+        let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
         // User
         let userString = JSON["user"] as! [String: Any]
         let user = User(JSON: userString)
-        
-        // Format the Java date 
-        // TODO add as extension to Date
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd-HH-mm"
-        let dateCreated = formatter.date(from: dateCreatedString)
-        
+
         // Init the Post
-        self.init(id: id, title: title, text: text, dateCreated: dateCreated!, user: user!)
+        self.init(id: id, title: title, text: text, dateCreated: dateCreated, user: user!, done: done)
     }
 }
 

@@ -18,11 +18,14 @@ class Storage {
     }
 
     /// This function returns the *User* object of this authenticated user.
-    ///
-    /// TODO Change implementation to get object from Core.
     class func getUser() -> User {
         let defaults = UserDefaults.standard
-        return defaults.object(forKey: "currentUser")! as! User
+        let user = User(id: defaults.integer(forKey: "user_id"),
+                        name: defaults.string(forKey: "user_name")!,
+                        email: defaults.string(forKey: "user_email")!,
+                        dateCreated: defaults.object(forKey: "user_dateCreated") as! Date,
+                        profileImage: defaults.string(forKey: "user_profileImage")!)
+        return user
     }
 
     /// This function returns this *Credentials* object of this authenticated user.
@@ -52,11 +55,13 @@ class Storage {
     }
 
     /// This function sets the *User* object of this authenticated user.
-    ///
-    /// TODO Change implementation to get object from Core.
     class func setUser(user: User) {
         let defaults = UserDefaults.standard
-        defaults.set(user, forKey: "currentUser")
+        defaults.set(user.id, forKey:"user_id")
+        defaults.set(user.email, forKey:"user_email")
+        defaults.set(user.name, forKey:"user_name")
+        defaults.set(user.profileImage, forKey:"user_profileImage")
+        defaults.set(user.dateCreated, forKey:"user_dateCreated")
     }
 
     /// This function sets this *Credentials* object of this authenticated user.
