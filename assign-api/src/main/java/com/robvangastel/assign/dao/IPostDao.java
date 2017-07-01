@@ -45,6 +45,14 @@ public interface IPostDao {
     List<Post> findByEmail(String email);
 
     /***
+     * Find Post(s) by query
+     * @param query
+     * @return Found Post(s) or Null when
+     * the Post(s) isn't found
+     */
+    List<Post> findByQuery(String query);
+
+    /***
      *
      * @return return all Posts
      */

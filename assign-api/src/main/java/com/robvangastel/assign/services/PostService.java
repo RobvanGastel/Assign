@@ -46,4 +46,8 @@ public class PostService implements Serializable {
     public List<Post> findByDescription(String description) {
         return postDao.findByDescription(description);
     }
+
+    public List<Post> findByQuery(String query) {
+        return postDao.findByQuery(query);
+    }
 }
