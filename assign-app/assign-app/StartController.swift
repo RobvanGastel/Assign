@@ -37,6 +37,7 @@ class StartController: UIViewController {
                 if(success == true) {
                     self.redirectViewController(identifier: "PostsNavigationController")
 
+                    // Retrieve the logged user info
                     self.apiService?.getCurrentUser() { response in
                    }
 

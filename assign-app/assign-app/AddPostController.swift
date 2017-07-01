@@ -26,17 +26,15 @@ class AddPostController: UIViewController, UITextViewDelegate {
         // Init API service
         apiService = ApiService()
         
-        // description delegate
+        // Initializes the delegate
         descriptionText.delegate = self
     }
     
     /// TextView Delegates manages the character limit and the counter
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        // Max character for the textView
-        let maxCharacter: Int = 255
+        let maxCharacter: Int = 255 // Max character for the textView
         
-        // Counter calculations
         let counter = (textView.text.utf16.count) + text.utf16.count - range.length
         let amount = maxCharacter - counter
         

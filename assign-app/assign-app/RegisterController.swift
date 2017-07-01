@@ -27,9 +27,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         //Init of the services
         authService = AuthService()
         
-        // Sets the delegate on the textField and creates a custom returnType
-        self.nameField.delegate = self as UITextFieldDelegate
-        self.nameField.returnKeyType = UIReturnKeyType.go
+        // Initializes the delegate
+        self.nameField.delegate = self
     }
     
     /// On the last return triggers the register method.
@@ -66,6 +65,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     /// Redirects the view to login.
+    ///
+    /// TODO add matching animation
     @IBAction func loginRedirect(_ sender: Any) {
         self.redirectViewController(identifier: "LoginController")
     }

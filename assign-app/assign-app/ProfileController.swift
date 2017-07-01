@@ -19,13 +19,15 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // The API service
     var apiService: ApiService?
     
-    var size = 21
-    var assignmentsStart = 1
-    var isLoading = false
+    // Pagination variables
+    let size = 21 // Amount of Posts to load next
+    var assignmentsStart = 1 // Starting index of the assignments
+    var isLoading = false // Is currently loading posts boolean
     
     // The provided data from the segue 
     var currentUser: User?
     
+    // TableView arrays
     var overviewArray: [Post] = []
     var assignmentsArray: [Post] = []
     var activityArray: [Post] = []
@@ -36,54 +38,129 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         // Init API service
         apiService = ApiService()
         
-        // Retrieve User
-        currentUser = Storage.getUser()
-        
-        // TODO set multiple fields
-        self.nameLabel.text = currentUser?.name
-        
-        let url = URL(string: "http://84.26.134.115:8080/assign/api/img/1498394173830.png")
-        profileImage.contentMode = .scaleAspectFit
-        profileImage.af_setImage(withURL: url!)
-        
         // Set delegates
         tableView.delegate = self
         tableView.dataSource = self
         
-        // TODO make API call to fill the assignments table
+        
+        self.setProfile() // Set profile values
+        self.fillTables() // Set table values
+
+        // TODO improve gesture for settings
+        let tapRec = UITapGestureRecognizer()
+        tapRec.addTarget(self, action: #selector(ProfileController.settingsTap))
+        settingsImage.addGestureRecognizer(tapRec)
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+    }
+    
+    /// Set StatusBartStyle to .lightContent.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    /// Set profile of the User.
+    func setProfile() {
+        // Retrieve User
+        currentUser = Storage.getUser()
+        
+        // TODO add more fields
+        self.nameLabel.text = currentUser?.name
+        
+        // TODO improve scaling
+        let url = URL(string: "http://84.26.134.115:8080/assign/api/img/1498394173830.png")
+        profileImage.contentMode = .scaleAspectFit
+        profileImage.af_setImage(withURL: url!)
+    }
+    
+    /// API call to fill all the profile tables.
+    ///
+    /// TODO Add calls for all tables
+    func fillTables() {
         self.apiService?.getPostsByUser(size: 21, start: 1, id: currentUser!.id!) { posts in
             
             self.assignmentsArray = posts!
             self.tableView.reloadData()
         }
-        
-        let tapRec = UITapGestureRecognizer()
-        tapRec.addTarget(self, action: #selector(ProfileController.settingsTap))
-        settingsImage.addGestureRecognizer(tapRec)
-
-        
-        // Set the layout of the view
-        // Get rid of the nasty nav border
-        // TODO add to storyboard
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
+    /// Redirect to settings view.
     func settingsTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
         self.present(vc, animated: false, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
+    
+    /// When changed to another tableView.
+    @IBAction func segmentedControlActionChanged(_ sender: Any) {
+        self.tableView.reloadData()
     }
+    
+    /// ScrollView for infinite scroll.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // calculate scrollView size
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        // If the scrollView is at the bottom load new posts
+        if deltaOffset <= 0 {
+            self.loadPosts()
+        }
+    }
+    
+    /// Load next posts and add to the tableView
+    func loadPosts() {
+        if !isLoading { // Checks if the table is currently loading
+            switch(segmentedControl.selectedSegmentIndex) // Check for different tables
+            {
+            case 0:
+                break
+            case 1:
+                
+                break
+                
+            case 2:
+                if assignmentsArray.count >= 21 { // Need atleast 21 posts
+                    
+                    self.isLoading = true
+                    self.tableView.tableFooterView?.isHidden = false
+                    
+                    // Add 20 to load the next posts
+                    self.assignmentsStart += 20
+                    apiService?.getPostsByUser(size: size, start: assignmentsStart,
+                                               id: currentUser!.id!) { p in
+                                                
+                        self.assignmentsArray += p!
+                        self.tableView.reloadData()
+                                                
+                        self.isLoading = false
+                        self.tableView.tableFooterView?.isHidden = true
+                    }
+                }
+                break
+                
+            default:
+                break
+                
+            }
+        }
+    }
+
+
+    
+    // MARK: - Table view with Posts
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var returnValue = 0
         
+        // Check for different tables
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
@@ -108,6 +185,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
         
+        // Check for different tables
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
@@ -140,70 +218,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         
         return cell
     }
-    
-    /// When changed to another tableView.
-    @IBAction func segmentedControlActionChanged(_ sender: Any) {
-        self.tableView.reloadData()
-    }
-    
-    /// ScrollView infinite scroll.
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        // calculate scrollView size
-        let currentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        let deltaOffset = maximumOffset - currentOffset
-        
-        // If the scrollView is at the bottom load new posts
-        if deltaOffset <= 0 {
-            self.loadPosts()
-        }
-    }
-    
-    /// Load next posts and add to the tableView
-    func loadPosts() {
-        
-        // Checks if the table is currently loading
-        if !isLoading {
-            
-            switch(segmentedControl.selectedSegmentIndex)
-            {
-            case 0:
-                break
-            case 1:
-
-                break
-                
-            case 2:
-                // Need atleast 20 posts to try and load the next posts
-                if assignmentsArray.count >= 21 {
-                    
-                    // Sets variables to indicate loading
-                    self.isLoading = true
-                    self.tableView.tableFooterView?.isHidden = false
-                    
-                    // Add 20 to try and load the next posts
-                    self.assignmentsStart += 20
-                    apiService?.getPostsByUser(size: size, start: assignmentsStart,
-                                               id: currentUser!.id!) { p in
-                        // Add posts
-                        self.assignmentsArray += p!
-                        self.tableView.reloadData()
-                                                
-                        // Sets variables to indicate loading
-                        self.isLoading = false
-                        self.tableView.tableFooterView?.isHidden = true
-                    }
-                }
-                break
-                
-            default:
-                break
-                
-            }
-        }
-    }
-    
 }
 
 

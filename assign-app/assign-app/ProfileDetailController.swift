@@ -17,10 +17,8 @@ class ProfileDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if currentUser != nil {
-            // TODO set multiple fields
-            self.nameLabel.text = currentUser?.name
-        }
+
+        // TODO set multiple fields
+        self.nameLabel.text = currentUser?.name
     }
 }

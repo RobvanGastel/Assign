@@ -17,12 +17,9 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     var posts = [Post]()
     
     // Pagination variables
-    // Amount of Posts to load next
-    let size = 21
-    // Starting index of the posts
-    var start = 1
-    // Is currently loading posts boolean
-    var isLoading = false
+    let size = 21 // Amount of Posts to load next
+    var start = 1 // Starting index of the posts
+    var isLoading = false // Is currently loading posts boolean
     
     // API service
     var apiService: ApiService?
@@ -35,27 +32,25 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         // Init API service
         apiService = ApiService()
         
-        // Declare delegates
+        // Initializes the delegate
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        self.start = 1
-        
-        self.apiService?.searchPosts(size: size, start: start, query: searchBar.text!)
+        self.start = 1 // Set start array back to 1
+        self.apiService?.searchPosts(size: size, start: start,
+                                     query: searchBar.text!)
         { posts in
-            
             // Sets the posts and refreshes the table
             self.posts = posts!
             self.tableView.reloadData()
         }
         
         self.searchBar.endEditing(true)
-        
     }
+    
     
     // MARK: - Table view data source
 
@@ -85,6 +80,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         }
         
         if let profileLabel = cell.viewWithTag(204) as? UILabel {
+            // TODO Add image load
             profileLabel.text = "dasdas" // post.profile
         }
         
@@ -119,27 +115,20 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     /// Load next posts and add to the tableView
     func loadPosts() {
-        
-        // Checks if the table is currently loading
-        if !isLoading {
-            
-            // Need atleast 20 posts to try and load the next posts
-            if posts.count >= 21 {
+        if !isLoading { // Checks if the table is currently loading
+            if posts.count >= 21 { // Need atleast 21 posts
                 
-                // Sets variables to indicate loading
                 self.isLoading = true
                 self.tableView.tableFooterView?.isHidden = false
                 
-                // Add 20 to try and load the next posts
+                // Add 20 to load the next posts
                 self.start += 20
                 apiService?.searchPosts(size: size, start: start, query: searchBar.text!)
                 { p in
                     
-                    // Add posts
                     self.posts += p!
                     self.tableView.reloadData()
                     
-                    // Sets variables to indicate loading
                     self.isLoading = false
                     self.tableView.tableFooterView?.isHidden = true
                 }

@@ -16,12 +16,9 @@ class PostsController: UITableViewController {
     var posts = [Post]()
     
     // Pagination variables
-    // Amount of Posts to load next
-    let size = 21
-    // Starting index of the posts
-    var start = 1
-    // Is currently loading posts boolean
-    var isLoading = false
+    let size = 21 // Amount of Posts to load next
+    var start = 1 // Starting index of the posts
+    var isLoading = false // Is currently loading posts
 
     // API service
     var apiService: ApiService?
@@ -43,12 +40,7 @@ class PostsController: UITableViewController {
         }
         
         // Layout settings
-        // TODO place these rules in storyboard
-        //
-        // Set the layout of the view
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-
-        // Get rid of the nasty nav border
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
     }
@@ -137,25 +129,19 @@ class PostsController: UITableViewController {
     
     /// Load next posts and add to the tableView
     func loadPosts() {
-        
-        // Checks if the table is currently loading
-        if !isLoading {
-            
-            // Need atleast 20 posts to try and load the next posts
-            if posts.count >= 21 {
+        if !isLoading { // Checks if the table is currently loading
+            if posts.count >= 21 { // Need atleast 21 posts
                 
-                // Sets variables to indicate loading
                 self.isLoading = true
                 self.tableView.tableFooterView?.isHidden = false
                 
-                // Add 20 to try and load the next posts
+                // Add 20 to load the next posts
                 self.start += 20
                 apiService?.getPosts(size: size, start: start) { p in
-                    // Add posts
+                    
                     self.posts += p!
                     self.tableView.reloadData()
                     
-                    // Sets variables to indicate loading
                     self.isLoading = false
                     self.tableView.tableFooterView?.isHidden = true
                 }

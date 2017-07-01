@@ -27,9 +27,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         apiService = ApiService()
         authService = AuthService()
         
-        // Initializes the delegate and returnKeyType
+        // Initializes the delegate
         self.password.delegate = self
-        self.password.returnKeyType = UIReturnKeyType.go
     }
 
     /// On the last return triggers the authenticate method.
@@ -45,6 +44,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     /// Redirect to the register view.
+    ///
+    /// TODO add matching animation
     @IBAction func registerRedirect(_ sender: Any) {
         self.redirectViewController(identifier: "RegisterController")
     }
@@ -59,10 +60,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
             authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
                 if(success == true) {
                     
+                    // Get the logged in user
                     self.apiService?.getCurrentUser() { response in
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
                     
+                    // Redirect to overview
                     self.redirectViewController(identifier: "PostsTabBarController")
                     
                 } else {
