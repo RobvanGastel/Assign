@@ -51,3 +51,22 @@ class UIDate: UILabel {
         self.textColor = UIColor(red: 0.69, green: 0.69, blue: 0.69, alpha: 1)
     }
 }
+
+
+class UIProfileDetail: UIImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer.cornerRadius = 16
+        self.layer.masksToBounds = true
+        self.image = #imageLiteral(resourceName: "profile.jpg")
+    }
+}
+
+class UIDescriptionDetail: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.textColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+    }
+}

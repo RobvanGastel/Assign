@@ -31,5 +31,11 @@ class ProfileController: UIViewController {
             // TODO set multiple fields
             self.nameLabel.text = currentUser?.name
         }
+        
+        // Set the layout of the view
+        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        
+        // Get rid of the nasty nav border
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 }
