@@ -25,8 +25,16 @@ public class PostService implements Serializable {
         return postDao.findById(id);
     }
 
-    public List<Post> findAll() {
-        return postDao.findAll();
+    public List<Post> findAll(int start, int size) {
+        return postDao.findAll(start, size);
+    }
+
+    public List<Post> findByQuery(String query, int start, int size) {
+        return postDao.findByQuery(query, start, size);
+    }
+
+    public List<Post> findByUser(long id, int start, int size) {
+        return postDao.findByUser(id, start, size);
     }
 
     public void delete(long id) throws Exception  {
@@ -37,24 +45,9 @@ public class PostService implements Serializable {
         return postDao.create(entity);
     }
 
-    public List<Post> findByEmail(String email) {
-        return postDao.findByEmail(email);
-    }
-
-    public List<Post> findByTitle(String title) {
-        return postDao.findByTitle(title);
-    }
-
-    public List<Post> findByDescription(String description) {
-        return postDao.findByDescription(description);
-    }
-
     public Post setDone(Post entity, boolean done) {
         entity.setDone(done);
         return postDao.update(entity);
     }
 
-    public List<Post> findByQuery(String query) {
-        return postDao.findByQuery(query);
-    }
 }

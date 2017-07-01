@@ -40,8 +40,11 @@ public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
     }
 
     @SuppressWarnings("unchecked")
-    public List<User> findAll() {
-        return entityManager.createQuery("from User").getResultList();
+    public List<User> findAll(int start, int size) {
+        return entityManager.createQuery("from User")
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .getResultList();
     }
 
     @Override

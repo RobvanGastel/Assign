@@ -1,8 +1,10 @@
 package com.robvangastel.assign.controllers;
 
+import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
+import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.UserService;
 import io.swagger.annotations.Api;
 
@@ -29,6 +31,9 @@ public class UserController {
 	@Inject
 	private UserService userService;
 
+	@Inject
+	private PostService postService;
+
 	@Context
 	private SecurityContext securityContext;
 
@@ -37,8 +42,10 @@ public class UserController {
 	 * @return An array of Users
 	 */
 	@GET
-	public List<User> get() {
-		return userService.findAll();
+	public List<User> get(
+			@DefaultValue("1") @QueryParam("start") int start,
+			@DefaultValue("20") @QueryParam("size") int size) {
+		return userService.findAll(start, size);
 	}
 
 	/***
@@ -54,6 +61,20 @@ public class UserController {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
 		return Response.ok(user).build();
+	}
+
+	/***
+	 * get the posts by User id
+	 * @param id of the user
+	 * @return the Posts of the users
+	 */
+	@GET
+	@Path("/{id}/posts")
+	public Response getPostsByUser(@PathParam("id") long id,
+								   @DefaultValue("1") @QueryParam("start") int start,
+								   @DefaultValue("20") @QueryParam("size") int size) {
+		List<Post> posts = postService.findByUser(id, start, size);
+		return Response.ok(posts).build();
 	}
 
 	/***

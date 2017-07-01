@@ -44,8 +44,10 @@ public class PostController {
      * @return An array with the posts
      */
     @GET
-    public List<Post> get() {
-        return postService.findAll();
+    public List<Post> get(
+            @DefaultValue("1") @QueryParam("start") int start,
+            @DefaultValue("20") @QueryParam("size") int size) {
+        return postService.findAll(start, size);
     }
 
     /***
@@ -66,14 +68,18 @@ public class PostController {
     /***
      * Get post(s) by a query
      * @param query
+     * @param start of the size
+     * @param size length of the list
      * @return An array of posts matching the query
      * the fields being searched are description, title, email
      * and name
      */
     @GET
     @Path("/query")
-    public Response getByQuery(@QueryParam("query") String query) {
-        List<Post> posts = postService.findByQuery(query);
+    public Response getByQuery(@QueryParam("query") String query,
+                               @DefaultValue("1") @QueryParam("start") int start,
+                               @DefaultValue("20") @QueryParam("size") int size) {
+        List<Post> posts = postService.findByQuery(query, start, size);
 
         if(posts == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);

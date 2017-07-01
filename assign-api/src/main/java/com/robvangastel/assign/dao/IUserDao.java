@@ -29,10 +29,12 @@ public interface IUserDao {
     User findByEmail(String email);
 
     /***
-     * Find all Users
-     * @return All Users
+     * Find all user(s)
+     * @param start of the list
+     * @param size of the list
+     * @return all the user(s) within the start and size
      */
-    List<User> findAll();
+    List<User> findAll(int start, int size);
 
     /***
      * Create User

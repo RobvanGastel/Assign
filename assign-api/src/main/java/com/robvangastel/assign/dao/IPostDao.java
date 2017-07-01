@@ -21,42 +21,32 @@ public interface IPostDao {
     Post findById(long id);
 
     /***
-     * Find Post(s) by description
-     * @param description
-     * @return Found Post(s) or Null when
-     * the Post(s) isn't found
-     */
-    List<Post> findByDescription(String description);
-
-     /***
-     * Find Post(s) by description
-     * @param title
-     * @return Found Post(s) or Null when
-     * the Post(s) isn't found
-     */
-    List<Post> findByTitle(String title);
-
-    /***
-     * Find Post(s) by User
-     * @param email User email
-     * @return Found Post(s) or Null when
-     * the Post(s) isn't found
-     */
-    List<Post> findByEmail(String email);
-
-    /***
      * Find Post(s) by query
      * @param query
+     * @param start of the list
+     * @param size of the list
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    List<Post> findByQuery(String query);
+    List<Post> findByQuery(String query, int start, int size);
 
     /***
-     *
-     * @return return all Posts
+     * Find Post(s) by user
+     * @param id
+     * @param start of the list
+     * @param size of the list
+     * @return Found Post(s) limited by 20 or Null when
+     * the Post(s) isn't found
      */
-    List<Post> findAll();
+    List<Post> findByUser(long id, int start, int size);
+
+    /***
+     * Find all post(s)
+     * @param start of the list
+     * @param size of the list
+     * @return all the Post(s) within the start and size
+     */
+    List<Post> findAll(int start, int size);
 
     /***
      * Create a Post

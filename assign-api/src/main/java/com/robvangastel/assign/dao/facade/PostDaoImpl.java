@@ -28,45 +28,34 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> findByDescription(String description) {
-        description = "%" + description + "%";
-        Query query = entityManager.createQuery(
-                "SELECT p FROM Post p WHERE p.description like :description ORDER BY p.dateCreated DESC")
-                .setParameter("description", description);
-        return query.setMaxResults(50).getResultList();
-    }
-
-    @Override
-    public List<Post> findByTitle(String title) {
-        title = "%" + title + "%";
-        Query query = entityManager.createQuery(
-                "SELECT p FROM Post p WHERE p.title like :title ORDER BY p.dateCreated DESC")
-                .setParameter("title", title);
-        return query.setMaxResults(50).getResultList();
-    }
-
-    @Override
-    public List<Post> findByEmail(String email) {
-        Query query = entityManager.createQuery(
-                "SELECT p FROM Post p, User u WHERE p.user.id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
-                .setParameter("email", email);
-        return query.setMaxResults(50).getResultList();
-    }
-
-    @Override
-    public List<Post> findByQuery(String query) {
+    public List<Post> findByQuery(String query, int start, int size) {
         query = "%" + query + "%";
         Query q = entityManager.createQuery(
                 "SELECT p FROM Post p, User u \n" +
                         "WHERE u.id = p.user.id \n" +
                         "AND p.title like :query OR p.description like :query OR u.name like :query ORDER BY p.dateCreated DESC")
+                .setFirstResult(start)
+                .setMaxResults(size)
                 .setParameter("query", query);
-        return q.setMaxResults(50).getResultList();
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Post> findByUser(long id, int start, int size) {
+        Query q = entityManager.createQuery(
+                "SELECT p FROM Post p, User u WHERE u.id = p.user.id AND u.id = :id ORDER BY p.dateCreated DESC")
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .setParameter("id", id);
+        return q.getResultList();
     }
 
     @SuppressWarnings("unchecked")
-    public List<Post> findAll() {
-        return entityManager.createQuery("from Post ORDER BY dateCreated DESC").setMaxResults(50).getResultList();
+    public List<Post> findAll(int start, int size) {
+        return entityManager.createQuery("from Post ORDER BY dateCreated DESC")
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .getResultList();
     }
 
     @Override

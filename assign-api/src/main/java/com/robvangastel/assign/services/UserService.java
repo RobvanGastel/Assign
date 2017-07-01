@@ -44,8 +44,8 @@ public class UserService implements Serializable {
 		return dao.findByEmail(email);
 	}
 
-	public List<User> findAll() {
-		return dao.findAll();
+	public List<User> findAll(int start, int size) {
+		return dao.findAll(start, size);
 	}
 
 	public User create(User entity) throws Exception {
