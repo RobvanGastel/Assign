@@ -20,9 +20,9 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // The provided data from the segue 
     var currentUser: User?
     
-    let overviewArray: [Post] = []
-    let assignmentsArray: [Post] = []
-    let activityArray: [Post] = []
+    var overviewArray: [Post] = []
+    var assignmentsArray: [Post] = []
+    var activityArray: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,16 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         self.nameLabel.text = currentUser?.name
         
         // TODO make API call to fill the tables
+        self.apiService?.getPosts() { posts in
+            
+            self.overviewArray = posts!
+            self.assignmentsArray = posts!.reversed()
+            self.activityArray = posts!
+            self.activityArray.removeFirst()
+            
+            self.tableView.reloadData()
+            
+        }
         
         // Set delegates
         tableView.delegate = self
