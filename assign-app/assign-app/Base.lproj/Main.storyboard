@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -238,13 +238,13 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Overzicht" id="P2w-tc-tfZ" userLabel="Overview">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="viY-dN-mNm">
+                        <barButtonItem key="leftBarButtonItem" image="icon-search.png" id="viY-dN-mNm">
                             <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="7er-XU-eYK" kind="show" id="KuD-7q-xag"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M2c-KH-RwY">
+                        <barButtonItem key="rightBarButtonItem" image="icon-add.png" id="M2c-KH-RwY">
                             <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="nqU-Wi-bqa" kind="show" id="9Ij-Ur-Uk7"/>
@@ -1221,7 +1221,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-add.png" width="20" height="20"/>
         <image name="icon-cross.png" width="18" height="18"/>
+        <image name="icon-search.png" width="20" height="20"/>
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>

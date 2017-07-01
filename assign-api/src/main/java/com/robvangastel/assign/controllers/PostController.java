@@ -67,13 +67,13 @@ public class PostController {
      * Get post(s) by a query
      * @param query
      * @return An array of posts matching the query
+     * the fields being searched are description, title, email
+     * and name
      */
     @GET
     @Path("/query")
     public Response getByQuery(@QueryParam("query") String query) {
-        List<Post> posts = postService.findByDescription(query);
-        posts.addAll(postService.findByTitle(query));
-        posts.addAll(postService.findByEmail(query));
+        List<Post> posts = postService.findByQuery(query);
 
         if(posts == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -100,6 +100,21 @@ public class PostController {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
         return Response.ok(post).build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Secured({Role.USER})
+    public Response setDone(@PathParam("id") long id) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        if(user.getId() == post.getUser().getId()) {
+            postService.setDone(post, true);
+            return Response.noContent().build();
+        }
+
+        return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
     /***

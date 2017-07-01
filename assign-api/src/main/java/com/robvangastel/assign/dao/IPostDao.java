@@ -45,6 +45,14 @@ public interface IPostDao {
     List<Post> findByEmail(String email);
 
     /***
+     * Find Post(s) by query
+     * @param query
+     * @return Found Post(s) or Null when
+     * the Post(s) isn't found
+     */
+    List<Post> findByQuery(String query);
+
+    /***
      *
      * @return return all Posts
      */
@@ -56,6 +64,14 @@ public interface IPostDao {
      * @return Created Post
      */
     Post create(Post entity) throws PostException;
+
+    /***
+     * Update Post with the same id
+     * @param entity User to update
+     * @return Post updated or Null when
+     * the user wasn't found
+     */
+    Post update(Post entity);
 
     /***
      * Delete Post
