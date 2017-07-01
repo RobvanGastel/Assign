@@ -79,7 +79,7 @@ public class Post implements Serializable {
         Pattern HASHTAG_PATTERN = Pattern.compile(HASHTAG_REGEX);
         Matcher matcher = HASHTAG_PATTERN.matcher(description);
         while (matcher.find()) {
-            hashtags.add(matcher.group().replace(" ", ""));
+            hashtags.add(matcher.group().replace(" ", "").replace("#", ""));
         }
         this.tags = hashtags;
     }
