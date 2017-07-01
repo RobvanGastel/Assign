@@ -54,13 +54,19 @@ class ApiService {
     ///
     /// TODO Retrieve custom Posts of Call
     @discardableResult
-    func getPosts(completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
+    func getPosts(size: Int, start: Int,
+                  completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
 
         let URL = Storage.getURL() + "/posts"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
 
-        return sessionManager.request(URL, method: .get, encoding: URLEncoding.queryString)
-                                    .validate().responseJSON{ response in
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate().responseJSON{ response in
 
             switch response.result {
             case .success:

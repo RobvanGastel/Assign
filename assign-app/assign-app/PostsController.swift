@@ -10,9 +10,18 @@ import UIKit
 
 /// Controller to view all the relevant posts.
 class PostsController: UITableViewController {
-
+    
     // Posts array for tableview
     var posts = [Post]()
+    
+    // Pagination variables
+    // Amount of Posts to load next
+    let size = 21
+    // Starting index of the posts
+    var start = 1
+    
+    // Is currently loading posts boolean
+    var isLoading = false
 
     // API service
     var apiService: ApiService?
@@ -20,23 +29,12 @@ class PostsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-
-        // Uncomment to use default Posts
-        // posts = [
-        //    Post(id: 1, title: "What Makes Flyers Unrivaled", user: "Landon Gordon", dateCreated: Date(), text: "asdsadasd", profile: "profile@2x.jpg"),
-        //    Post(id: 2, title: "5 Reasons To Purchase Desktop ComputersDirectory Add Url Free", user: "Stanley Henderson", dateCreated: Date(), text: "asdsadasd", profile: "https://assets.entrepreneur.com/content/16x9/822/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg")]
-
         // Init API service
         apiService = ApiService()
 
         // On viewLoad get the posts from the API
-        self.apiService?.getPosts() { posts in
+        // Starting values of size is 20 and start 1
+        self.apiService?.getPosts(size: 21, start: 1) { posts in
             
             // TODO add Data to Core Data as cache
             // Sets the posts and refreshes the table
@@ -108,14 +106,59 @@ class PostsController: UITableViewController {
     }
     
     /// Pull and refesh function on the tableView.
+    /// Starting values of size is 20 and start 1
     @IBAction func refreshAction(_ sender: Any) {
-        self.apiService?.getPosts() { posts in
+        self.apiService?.getPosts(size: 21, start: 1) { posts in
             
             // TODO add Data to Core Data as cache
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            self.start = 1
+        }
+    }
+    
+    /// ScrollView infinite scroll.
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // calculate scrollView size
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        // If the scrollView is at the bottom load new posts
+        if deltaOffset <= 0 {
+            self.loadPosts()
+        }
+    }
+    
+    /// Load next posts and add to the tableView
+    func loadPosts() {
+        
+        // Checks if the table is currently loading
+        if !isLoading {
+            
+            // Need atleast 20 posts to try and load the next posts
+            if posts.count >= 21 {
+                
+                // Sets variables to indicate loading
+                self.isLoading = true
+                self.tableView.tableFooterView?.isHidden = false
+                
+                // Add 20 to try and load the next posts
+                self.start += 20
+                apiService?.getPosts(size: size, start: start) { p in
+                
+                    // Add posts
+                    self.posts += p!
+                    self.tableView.reloadData()
+                    
+                    // Sets variables to indicate loading
+                    self.isLoading = false
+                    self.tableView.tableFooterView?.isHidden = true
+                }
+            }
         }
     }
 }

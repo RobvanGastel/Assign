@@ -37,7 +37,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         self.nameLabel.text = currentUser?.name
         
         // TODO make API call to fill the tables
-        self.apiService?.getPosts() { posts in
+        self.apiService?.getPosts(size: 20, start: 1) { posts in
             
             self.overviewArray = posts!
             self.assignmentsArray = posts!.reversed()
