@@ -20,10 +20,9 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // The provided data from the segue 
     var currentUser: User?
     
-    // DEMO dummy data
-    let privateList:[String] = ["Private item 1","Private item 2"]
-    let friendsAndFamily:[String] = ["Friend item 1","Friend item 2", "Friends item 3"]
-    let publicList:[String] = ["Public item 1", "Public item 2", "Public item 3", "Public item 4"]
+    let overviewArray: [Post] = []
+    let assignmentsArray: [Post] = []
+    let activityArray: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +33,19 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         // Retrieve User
         currentUser = Storage.getUser()
         
-        if currentUser != nil {
-            // TODO set multiple fields
-            self.nameLabel.text = currentUser?.name
-        }
+        // TODO set multiple fields
+        self.nameLabel.text = currentUser?.name
         
+        // TODO make API call to fill the tables
+        
+        // Set delegates
         tableView.delegate = self
         tableView.dataSource = self
         
         // Set the layout of the view
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        
         // Get rid of the nasty nav border
+        // TODO add to storyboard
+        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
@@ -62,14 +62,14 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
-            returnValue = privateList.count
+            returnValue = overviewArray.count
             break
         case 1:
-            returnValue = friendsAndFamily.count
+            returnValue = activityArray.count
             break
             
         case 2:
-            returnValue = publicList.count
+            returnValue = assignmentsArray.count
             break
             
         default:
@@ -78,9 +78,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
         return returnValue
-        
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
@@ -89,19 +87,25 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
+            let post = overviewArray[indexPath.row] as Post
+            
             if let nameLabel = cell.viewWithTag(501) as? UILabel {
-            nameLabel.text = privateList[indexPath.row]
+            nameLabel.text = post.title
             }
             break
         case 1:
+            let post = activityArray[indexPath.row] as Post
+            
             if let nameLabel = cell.viewWithTag(501) as? UILabel {
-                nameLabel.text = friendsAndFamily[indexPath.row]
+                nameLabel.text = post.title
             }
             break
             
         case 2:
+            let post = assignmentsArray[indexPath.row] as Post
+            
             if let nameLabel = cell.viewWithTag(501) as? UILabel {
-                nameLabel.text = publicList[indexPath.row]
+                nameLabel.text = post.title
             }
             break
             
