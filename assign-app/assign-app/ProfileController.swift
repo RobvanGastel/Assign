@@ -36,21 +36,16 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         // TODO set multiple fields
         self.nameLabel.text = currentUser?.name
         
-        // TODO make API call to fill the tables
-        self.apiService?.getPosts(size: 20, start: 1) { posts in
-            
-            self.overviewArray = posts!
-            self.assignmentsArray = posts!.reversed()
-            self.activityArray = posts!
-            self.activityArray.removeFirst()
-            
-            self.tableView.reloadData()
-            
-        }
-        
         // Set delegates
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // TODO make API call to fill the tables
+        self.apiService?.getPostsByUser(size: 20, start: 1, id: currentUser!.id!) { posts in
+            
+            self.overviewArray = posts!
+            self.tableView.reloadData()
+        }
         
         // Set the layout of the view
         // Get rid of the nasty nav border
@@ -77,7 +72,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         case 1:
             returnValue = activityArray.count
             break
-            
         case 2:
             returnValue = assignmentsArray.count
             break

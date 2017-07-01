@@ -19,7 +19,6 @@ class PostsController: UITableViewController {
     let size = 21
     // Starting index of the posts
     var start = 1
-    
     // Is currently loading posts boolean
     var isLoading = false
 
@@ -149,7 +148,6 @@ class PostsController: UITableViewController {
                 // Add 20 to try and load the next posts
                 self.start += 20
                 apiService?.getPosts(size: size, start: start) { p in
-                
                     // Add posts
                     self.posts += p!
                     self.tableView.reloadData()

@@ -121,15 +121,15 @@ class ApiService {
 
     /// This function searches through the posts and returns the matching 
     /// posts.
-    ///
-    /// TODO Add implementation
     @discardableResult
-    func saerchPosts(query: String,
+    func searchPosts(size: Int, start: Int, query: String,
                      completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
         let parameters: Parameters = [
-            "query": query
+            "query": query,
+            "size" : size,
+            "start" : start
         ]
         
         let URL = Storage.getURL() + "/posts/query"
@@ -158,12 +158,42 @@ class ApiService {
         }
     }
     
-    
-    /// This function deletes a *Post* for the authenticated user.
+    /// This function returns a list of *Post* objects for the authenticated user.
     ///
-    /// TODO Add implementation
-    /// Param: id
-    func deletePost() {
-
+    /// TODO Retrieve custom Posts of Call
+    @discardableResult
+    func getPostsByUser(size: Int, start: Int, id: Int,
+                  completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let idString = "\(id)"
+        let URL = Storage.getURL() + "/users/" + idString + "/posts"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+            encoding: URLEncoding.queryString).validate().responseJSON{ response in
+                                        
+            switch response.result {
+                case .success:
+                    var postsArray = [Post]()
+                                            
+                    if let posts = response.value as? [[String:Any]] {
+                       for post in posts {
+                          postsArray.append(Post(JSON: post)!)
+                        }
+                     }
+                                            
+                    print("API: Retrieve posts successful")
+                    completionHandler(postsArray)
+                                            
+                case .failure(let error):
+                    print("API: Retrieve posts error")
+                    print(error)
+            }
+        }
     }
 }

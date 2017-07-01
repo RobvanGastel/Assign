@@ -16,6 +16,14 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     // Posts array for tableview
     var posts = [Post]()
     
+    // Pagination variables
+    // Amount of Posts to load next
+    let size = 21
+    // Starting index of the posts
+    var start = 1
+    // Is currently loading posts boolean
+    var isLoading = false
+    
     // API service
     var apiService: ApiService?
     
@@ -34,9 +42,12 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.apiService?.saerchPosts(query: searchBar.text!) { posts in
+        
+        self.start = 1
+        
+        self.apiService?.searchPosts(size: size, start: start, query: searchBar.text!)
+        { posts in
             
-            // TODO add Data to Core Data as cache
             // Sets the posts and refreshes the table
             self.posts = posts!
             self.tableView.reloadData()
@@ -89,6 +100,50 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
             let indexPath = self.tableView.indexPathForSelectedRow {
             let post = posts[indexPath.row]
             nextView.currentPost = post
+        }
+    }
+    
+    /// ScrollView infinite scroll.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // calculate scrollView size
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        // If the scrollView is at the bottom load new posts
+        if deltaOffset <= 0 {
+            self.loadPosts()
+        }
+    }
+    
+    /// Load next posts and add to the tableView
+    func loadPosts() {
+        
+        // Checks if the table is currently loading
+        if !isLoading {
+            
+            // Need atleast 20 posts to try and load the next posts
+            if posts.count >= 21 {
+                
+                // Sets variables to indicate loading
+                self.isLoading = true
+                self.tableView.tableFooterView?.isHidden = false
+                
+                // Add 20 to try and load the next posts
+                self.start += 20
+                apiService?.searchPosts(size: size, start: start, query: searchBar.text!)
+                { p in
+                    
+                    // Add posts
+                    self.posts += p!
+                    self.tableView.reloadData()
+                    
+                    // Sets variables to indicate loading
+                    self.isLoading = false
+                    self.tableView.tableFooterView?.isHidden = true
+                }
+            }
         }
     }
 }
