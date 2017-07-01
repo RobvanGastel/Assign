@@ -17,6 +17,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // The API service
     var apiService: ApiService?
     
+    var size = 21
+    var assignmentsStart = 1
+    var isLoading = false
+    
     // The provided data from the segue 
     var currentUser: User?
     
@@ -40,10 +44,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.delegate = self
         tableView.dataSource = self
         
-        // TODO make API call to fill the tables
-        self.apiService?.getPostsByUser(size: 20, start: 1, id: currentUser!.id!) { posts in
+        // TODO make API call to fill the assignments table
+        self.apiService?.getPostsByUser(size: 21, start: 1, id: currentUser!.id!) { posts in
             
-            self.overviewArray = posts!
+            self.assignmentsArray = posts!
             self.tableView.reloadData()
         }
         
@@ -121,8 +125,69 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    /// When changed to another tableView.
     @IBAction func segmentedControlActionChanged(_ sender: Any) {
         self.tableView.reloadData()
     }
     
+    /// ScrollView infinite scroll.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // calculate scrollView size
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        // If the scrollView is at the bottom load new posts
+        if deltaOffset <= 0 {
+            self.loadPosts()
+        }
+    }
+    
+    /// Load next posts and add to the tableView
+    func loadPosts() {
+        
+        // Checks if the table is currently loading
+        if !isLoading {
+            
+            switch(segmentedControl.selectedSegmentIndex)
+            {
+            case 0:
+                break
+            case 1:
+
+                break
+                
+            case 2:
+                // Need atleast 20 posts to try and load the next posts
+                if assignmentsArray.count >= 21 {
+                    
+                    // Sets variables to indicate loading
+                    self.isLoading = true
+                    self.tableView.tableFooterView?.isHidden = false
+                    
+                    // Add 20 to try and load the next posts
+                    self.assignmentsStart += 20
+                    apiService?.getPostsByUser(size: size, start: assignmentsStart,
+                                               id: currentUser!.id!) { p in
+                        // Add posts
+                        self.assignmentsArray += p!
+                        self.tableView.reloadData()
+                                                
+                        // Sets variables to indicate loading
+                        self.isLoading = false
+                        self.tableView.tableFooterView?.isHidden = true
+                    }
+                }
+                break
+                
+            default:
+                break
+                
+            }
+        }
+    }
+    
 }
+
+
