@@ -30,12 +30,6 @@ class AddPostController: UIViewController, UITextViewDelegate {
         descriptionText.delegate = self
     }
     
-    /// Set StatusBartStyle to default
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
-    }
-    
     /// TextView Delegates manages the character limit and the counter
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
@@ -92,7 +86,9 @@ class AddPostController: UIViewController, UITextViewDelegate {
             // Add post API call with the API Service
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
                 if(success == true) {
-                    // TODO On succes navigate back to the previous view
+                    // Navigate back to the previous view
+                    self.navigationController?.popViewController(animated: true)
+                    
                     // TODO Add SUCCESS message
                 } else {
                     // TODO Add ERROR message

@@ -38,4 +38,10 @@ class ProfileController: UIViewController {
         // Get rid of the nasty nav border
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
+    
+    /// Set StatusBartStyle to .lightContent
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
 }
