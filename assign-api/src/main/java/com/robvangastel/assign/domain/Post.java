@@ -15,6 +15,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -25,10 +27,14 @@ import java.util.List;
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
-@AllArgsConstructor
 public class Post implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    /**
+     * Hashtag regex
+     */
+    private static final String HASHTAG_REGEX = "^#\\w+([.]?\\w+)*|\\s#\\w+([.]?\\w+)*";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,11 +44,10 @@ public class Post implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 
-    @JsonManagedReference
+
+    @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
-    private List<Tag> tags = new ArrayList<Tag>();
+    private List<String> tags = new ArrayList<>();
 
     @Column(nullable = false)
     private String title;
@@ -69,21 +74,14 @@ public class Post implements Serializable {
         this.title = title;
         this.description = description;
         this.done = false;
-    }
 
-    /***
-     *
-     * @param user
-     * @param title
-     * @param description
-     * @param tags
-     */
-    public Post(User user, String title, String description, List<Tag> tags) {
-        this.user = user;
-        this.title = title;
-        this.description = description;
-        this.tags = tags;
-        this.done = false;
+        List<String> hashtags = new ArrayList<>();
+        Pattern HASHTAG_PATTERN = Pattern.compile(HASHTAG_REGEX);
+        Matcher matcher = HASHTAG_PATTERN.matcher(description);
+        while (matcher.find()) {
+            hashtags.add(matcher.group().replace(" ", ""));
+        }
+        this.tags = hashtags;
     }
 
     @PrePersist
