@@ -102,6 +102,21 @@ public class PostController {
         return Response.ok(post).build();
     }
 
+    @PUT
+    @Path("/{id}")
+    @Secured({Role.USER})
+    public Response setDone(@PathParam("id") long id) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        if(user.getId() == post.getUser().getId()) {
+            postService.setDone(post, true);
+            return Response.noContent().build();
+        }
+
+        return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+
     /***
      * Delete a post if the user created the post
      * @param id

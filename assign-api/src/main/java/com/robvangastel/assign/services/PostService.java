@@ -2,10 +2,12 @@ package com.robvangastel.assign.services;
 
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -45,6 +47,11 @@ public class PostService implements Serializable {
 
     public List<Post> findByDescription(String description) {
         return postDao.findByDescription(description);
+    }
+
+    public Post setDone(Post entity, boolean done) {
+        entity.setDone(done);
+        return postDao.update(entity);
     }
 
     public List<Post> findByQuery(String query) {

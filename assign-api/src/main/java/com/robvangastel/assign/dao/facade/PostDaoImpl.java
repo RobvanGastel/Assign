@@ -72,7 +72,6 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     public Post create(Post entity) throws PostException {
         entityManager.merge(entity);
-        entityManager.flush();
         return entity;
     }
 }

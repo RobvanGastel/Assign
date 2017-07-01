@@ -88,4 +88,14 @@ public class Post implements Serializable {
     public void beforePersist(){
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
+
+    public void setDone(boolean done) {
+        if(done) {
+            this.done = true;
+            this.dateDone = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+        } else {
+            this.done = false;
+            this.dateDone = null;
+        }
+    }
 }
