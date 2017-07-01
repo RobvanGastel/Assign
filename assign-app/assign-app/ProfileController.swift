@@ -13,6 +13,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var settingsImage: UIImageView!
     
     // The API service
     var apiService: ApiService?
@@ -51,13 +52,27 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             self.tableView.reloadData()
         }
         
+        let tapRec = UITapGestureRecognizer()
+        tapRec.addTarget(self, action: #selector(ProfileController.settingsTap))
+        settingsImage.addGestureRecognizer(tapRec)
+
+        
         // Set the layout of the view
         // Get rid of the nasty nav border
         // TODO add to storyboard
-
-        
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+    }
+    
+    func settingsTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
+        self.present(vc, animated: false, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

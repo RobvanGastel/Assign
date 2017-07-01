@@ -49,7 +49,6 @@
 		D4EEFB001ED1EA610085571B /* PostsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEFAFF1ED1EA610085571B /* PostsController.swift */; };
 		D4EF900E1F083CA300211F04 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF900D1F083CA300211F04 /* NotificationsController.swift */; };
 		D4EF90101F083D0600211F04 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF900F1F083D0600211F04 /* SettingsController.swift */; };
-		D4EF90121F08405300211F04 /* ProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF90111F08405300211F04 /* ProfileNavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,7 +99,6 @@
 		D4EEFAFF1ED1EA610085571B /* PostsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsController.swift; sourceTree = "<group>"; };
 		D4EF900D1F083CA300211F04 /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		D4EF900F1F083D0600211F04 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		D4EF90111F08405300211F04 /* ProfileNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +128,6 @@
 				D4C8287F1F06D4B500A87D40 /* ProfileDetailController.swift */,
 				D4EF900D1F083CA300211F04 /* NotificationsController.swift */,
 				D4EF900F1F083D0600211F04 /* SettingsController.swift */,
-				D4EF90111F08405300211F04 /* ProfileNavController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -406,7 +403,6 @@
 				D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
-				D4EF90121F08405300211F04 /* ProfileNavController.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
 				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,

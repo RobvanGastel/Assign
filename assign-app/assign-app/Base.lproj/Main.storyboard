@@ -150,7 +150,7 @@
                     <connections>
                         <segue destination="cWg-b4-Gw7" kind="relationship" relationship="viewControllers" id="PpZ-qO-B47"/>
                         <segue destination="pTW-oA-jgA" kind="relationship" relationship="viewControllers" id="MEf-gm-miX"/>
-                        <segue destination="cax-pW-F2U" kind="relationship" relationship="viewControllers" id="zhV-N0-JIc"/>
+                        <segue destination="Cb4-VC-HQV" kind="relationship" relationship="viewControllers" id="qkx-b0-qhd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyP-8t-vnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -784,7 +784,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6b-mB-xw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3005.5" y="-1326.5"/>
+            <point key="canvasLocation" x="3911.594202898551" y="-1327.1739130434783"/>
         </scene>
         <!--Overzicht-->
         <scene sceneID="qG3-mU-JlH">
@@ -892,31 +892,7 @@
             </objects>
             <point key="canvasLocation" x="121" y="961"/>
         </scene>
-        <!--Profiel-->
-        <scene sceneID="Ezs-wL-ZY5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cax-pW-F2U" customClass="ProfileNavController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profiel" image="icon-cross.png" id="eIa-eA-lDg"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqL-Qj-Hxw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="AhQ-e0-S4Z">
-                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="Cb4-VC-HQV" kind="relationship" relationship="rootViewController" id="eJM-cI-aaB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qb0-zv-J3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="121" y="-1326"/>
-        </scene>
-        <!--Profile Controller-->
+        <!--Profile-->
         <scene sceneID="sT3-Wr-iNB">
             <objects>
                 <viewController id="Cb4-VC-HQV" customClass="ProfileController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -925,23 +901,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Oyw-wX-PVI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WHj-Kh-APL">
-                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4uJ-pg-0aC">
-                                <rect key="frame" x="0.0" y="290" width="414" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Overview"/>
-                                    <segment title="Activity"/>
-                                    <segment title="Assignments"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlActionChanged:" destination="Cb4-VC-HQV" eventType="valueChanged" id="TbP-Bw-0Nt"/>
-                                </connections>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-f0-Jv5">
-                                <rect key="frame" x="0.0" y="-64" width="414" height="354"/>
+                                <rect key="frame" x="0.0" y="-44" width="414" height="354"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxP-eO-EBB">
                                         <rect key="frame" x="40" y="213" width="334" height="21"/>
@@ -963,6 +927,10 @@
                                         <color key="textColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-settings.png" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-qg-Nj7">
+                                        <rect key="frame" x="352" y="67" width="54" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -976,7 +944,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-Ah-3D5">
-                                <rect key="frame" x="0.0" y="318" width="414" height="349"/>
+                                <rect key="frame" x="0.0" y="344" width="414" height="349"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1039,6 +1007,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4uJ-pg-0aC">
+                                <rect key="frame" x="0.0" y="308" width="414" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Overview"/>
+                                    <segment title="Activity"/>
+                                    <segment title="Assignments"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlActionChanged:" destination="Cb4-VC-HQV" eventType="valueChanged" id="TbP-Bw-0Nt"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1047,30 +1027,25 @@
                             <constraint firstAttribute="trailing" secondItem="E5e-f0-Jv5" secondAttribute="trailing" id="xsK-Ak-NYT"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="lQV-Dr-fNH">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="D6X-wq-VdS">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="bN4-Y5-A7b" kind="show" id="vm5-WH-q2s"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Profile" id="VXl-L3-fgo"/>
+                    <navigationItem key="navigationItem" id="lQV-Dr-fNH"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="nameLabel" destination="PxP-eO-EBB" id="grK-oA-3uh"/>
                         <outlet property="segmentedControl" destination="4uJ-pg-0aC" id="B7e-U7-Dyj"/>
+                        <outlet property="settingsImage" destination="zMZ-qg-Nj7" id="5VR-Bj-175"/>
                         <outlet property="tableView" destination="XkK-Ah-3D5" id="1IR-Xj-blR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBr-kN-4eL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952.17391304347836" y="-1327.1739130434783"/>
+            <point key="canvasLocation" x="954" y="-1326"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Yla-9I-g3O">
             <objects>
-                <tableViewController title="Settings" id="bN4-Y5-A7b" customClass="SettingsController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsController" title="Settings" id="bN4-Y5-A7b" customClass="SettingsController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="qa9-VB-OBs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1079,7 +1054,7 @@
                             <tableViewSection headerTitle="Tags" footerTitle="Starred tags will be recognised by the orange labels in the overview." id="HuS-Jb-e7K">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="gbg-5A-v9q">
-                                        <rect key="frame" x="0.0" y="55" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333336" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbg-5A-v9q" id="gq8-vd-WOO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1100,7 +1075,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="HUc-Zr-ChH" style="IBUITableViewCellStyleDefault" id="Rvh-Nn-nKD">
-                                        <rect key="frame" x="0.0" y="99" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rvh-Nn-nKD" id="4eU-SI-E4J">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1117,7 +1092,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="Muq-Jv-ESn" style="IBUITableViewCellStyleDefault" id="f6X-96-CNA">
-                                        <rect key="frame" x="0.0" y="143" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f6X-96-CNA" id="Ayc-85-YK8">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1138,7 +1113,7 @@
                             <tableViewSection headerTitle="Contact" footerTitle="This information will be shown to everybody who visits your profile." id="iBB-Hu-SbX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="nl0-bV-Wbs" style="IBUITableViewCellStyleDefault" id="rMY-n4-3Hj">
-                                        <rect key="frame" x="0.0" y="279" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="278.66666666666669" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rMY-n4-3Hj" id="7Iw-a6-flp">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -1155,7 +1130,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="T6r-pG-bsw" style="IBUITableViewCellStyleDefault" id="yqi-7U-09w">
-                                        <rect key="frame" x="0.0" y="323" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="322.66666666666669" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yqi-7U-09w" id="80s-zq-UnI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -1172,7 +1147,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="6ij-U5-Tto" style="IBUITableViewCellStyleDefault" id="ab5-dV-4sh">
-                                        <rect key="frame" x="0.0" y="367" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="366.66666666666669" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ab5-dV-4sh" id="16o-lo-GJU">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1189,7 +1164,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="O8J-Qa-Pmp" style="IBUITableViewCellStyleDefault" id="j9e-ZW-ACQ">
-                                        <rect key="frame" x="0.0" y="411" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="410.66666666666669" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j9e-ZW-ACQ" id="gLC-ZO-51O">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1213,22 +1188,49 @@
                             <outlet property="delegate" destination="bN4-Y5-A7b" id="vHQ-1b-RRT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="nWp-vl-4y3"/>
+                    <navigationItem key="navigationItem" title="Settings" id="nWp-vl-4y3">
+                        <barButtonItem key="leftBarButtonItem" image="icon-back.png" id="NX4-g6-ucQ">
+                            <connections>
+                                <segue destination="Cb4-VC-HQV" kind="show" id="hqN-Jg-nSo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBf-vL-4uU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1894" y="-1326"/>
+            <point key="canvasLocation" x="2580" y="-1327"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vtq-yP-utR">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="b7m-2e-RTw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rfm-2B-qDc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bN4-Y5-A7b" kind="relationship" relationship="rootViewController" id="gUh-Mf-8DC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oF-ZO-o5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="-1327"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon-add.png" width="20" height="20"/>
+        <image name="icon-back.png" width="11" height="18"/>
         <image name="icon-cross.png" width="18" height="18"/>
         <image name="icon-search.png" width="20" height="20"/>
+        <image name="icon-settings.png" width="22" height="22"/>
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rKw-S1-4VD"/>
+        <segue reference="hqN-Jg-nSo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
