@@ -12,6 +12,7 @@ func NSDateTimeAgoLocalizedStrings(_ key: String) -> String {
     return key
 }
 
+/// Date extension to get the time ago string.
 extension Date {
     
     // shows 1 or two letter abbreviation for units.

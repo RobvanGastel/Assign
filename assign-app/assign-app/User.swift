@@ -15,17 +15,9 @@ class User:NSObject, JSONDecodable {
     var name:String?
     var email:String?
     var profileImage: String?
-    
     var posts:[Post]?
-    
     var dateCreated:Date?
-    
-    init(id: Int, name:String, email:String) {
-        self.id = id
-        self.name = name
-        self.email = email
-        self.profileImage = "default.png"
-    }
+
 
     init(id: Int, name:String, email:String, dateCreated:Date, profileImage: String) {
         self.id = id

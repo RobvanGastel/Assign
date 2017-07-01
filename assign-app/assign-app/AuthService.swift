@@ -47,8 +47,6 @@ class AuthService {
     }
 
     /// This function registers the User against the API.
-    ///
-    /// TODO Add implementation
     func register(email: String, password: String, code: String, name: String,
                   completionHandler: @escaping (Bool) -> ()) {
         

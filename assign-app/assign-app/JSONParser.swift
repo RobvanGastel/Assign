@@ -11,6 +11,7 @@ import Foundation
 
 class JSONParser {
     
+    /// Format the SimpleDateFormat to Swift Date.
     class func dateFromString(dateString: String) -> Date {
         
         let formatter = DateFormatter()

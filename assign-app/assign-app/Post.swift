@@ -14,22 +14,11 @@ class Post:NSObject, JSONDecodable {
     var id:Int?
     var title:String?
     var text:String?
-    
     var user:User?
     var tags:[Tag]?
     var done:Bool?
-
     var dateCreated:Date?
     var dateDone:Date?
-
-    init(id:Int, title:String, text:String, dateCreated:Date, user: User) {
-        self.id = id
-        self.title = title
-        self.user = user
-        self.text = text
-        self.dateCreated = dateCreated
-        self.user = user
-    }
 
     init(id:Int, title:String,  text:String, dateCreated:Date, user: User, done: Bool) {
         self.id = id
