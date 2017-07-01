@@ -14,7 +14,7 @@
         <!--Post Detail Controller-->
         <scene sceneID="uxe-3U-2Hg">
             <objects>
-                <viewController storyboardIdentifier="ProfileController" id="yny-p8-2xX" customClass="PostDetailController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileController" hidesBottomBarWhenPushed="YES" id="yny-p8-2xX" customClass="PostDetailController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tcs-Gf-PlK"/>
                         <viewControllerLayoutGuide type="bottom" id="qH2-ss-IiA"/>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwD-Xe-yBU" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
-                                <rect key="frame" x="24" y="64" width="366" height="424"/>
+                                <rect key="frame" x="24" y="20" width="366" height="424"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx5-Z7-wSj" customClass="UITitleDetail" customModule="assign_app" customModuleProvider="target">
                                         <rect key="frame" x="18" y="85" width="330" height="24"/>
@@ -270,7 +270,7 @@
         <!--Post Search Controller-->
         <scene sceneID="9JQ-xn-Mba">
             <objects>
-                <viewController id="7er-XU-eYK" customClass="PostSearchController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="7er-XU-eYK" customClass="PostSearchController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5SM-bX-Y12"/>
                         <viewControllerLayoutGuide type="bottom" id="fWf-eC-tT2"/>
@@ -286,7 +286,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="016-RM-dRN">
-                                <rect key="frame" x="4" y="64" width="406" height="623"/>
+                                <rect key="frame" x="4" y="108" width="406" height="579"/>
                                 <color key="backgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -361,7 +361,6 @@
                             <constraint firstItem="016-RM-dRN" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leadingMargin" constant="-16" id="Nf2-D5-Ki3"/>
                         </constraints>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="gXk-If-sV8" id="O46-z3-bqe"/>
                         <outlet property="searchDisplayController" destination="3Be-dZ-lOC" id="vFo-sZ-gPV"/>
@@ -722,7 +721,7 @@
         <!--Add Post Controller-->
         <scene sceneID="UsV-FD-Hmf">
             <objects>
-                <viewController restorationIdentifier="  " id="nqU-Wi-bqa" customClass="AddPostController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="  " hidesBottomBarWhenPushed="YES" id="nqU-Wi-bqa" customClass="AddPostController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JN7-yi-N1W"/>
                         <viewControllerLayoutGuide type="bottom" id="Uab-9e-uuS"/>
@@ -750,7 +749,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frJ-4Q-knz">
-                                <rect key="frame" x="368.66666666666674" y="488" width="25.333333333333314" height="17"/>
+                                <rect key="frame" x="368.66666666666674" y="483" width="25.333333333333314" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -777,7 +776,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="counterField" destination="frJ-4Q-knz" id="3Yg-pF-SL5"/>
                         <outlet property="descriptionText" destination="JvU-E0-4Lu" id="oz8-m8-G57"/>
@@ -829,7 +827,7 @@
         <!--Notificaties-->
         <scene sceneID="NG6-jq-wmo">
             <objects>
-                <tableViewController title="Notificaties" id="JGm-uX-Mvj" sceneMemberID="viewController">
+                <tableViewController title="Notificaties" id="JGm-uX-Mvj" customClass="NotificationsController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="0UW-G8-Olm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -897,17 +895,19 @@
         <!--Profiel-->
         <scene sceneID="Ezs-wL-ZY5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="cax-pW-F2U" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cax-pW-F2U" customClass="ProfileNavController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profiel" image="icon-cross.png" id="eIa-eA-lDg"/>
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hqL-Qj-Hxw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqL-Qj-Hxw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="AhQ-e0-S4Z">
+                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Cb4-VC-HQV" kind="relationship" relationship="rootViewController" id="eJM-cI-aaB"/>
                     </connections>
@@ -925,11 +925,23 @@
                         <viewControllerLayoutGuide type="bottom" id="Oyw-wX-PVI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WHj-Kh-APL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4uJ-pg-0aC">
+                                <rect key="frame" x="0.0" y="290" width="414" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Overview"/>
+                                    <segment title="Activity"/>
+                                    <segment title="Assignments"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlActionChanged:" destination="Cb4-VC-HQV" eventType="valueChanged" id="TbP-Bw-0Nt"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-f0-Jv5">
-                                <rect key="frame" x="0.0" y="-44" width="414" height="354"/>
+                                <rect key="frame" x="0.0" y="-64" width="414" height="354"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxP-eO-EBB">
                                         <rect key="frame" x="40" y="213" width="334" height="21"/>
@@ -964,7 +976,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-Ah-3D5">
-                                <rect key="frame" x="0.0" y="338" width="414" height="349"/>
+                                <rect key="frame" x="0.0" y="318" width="414" height="349"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1027,18 +1039,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4uJ-pg-0aC">
-                                <rect key="frame" x="0.0" y="310" width="414" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Overview"/>
-                                    <segment title="Activity"/>
-                                    <segment title="Assignments"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlActionChanged:" destination="Cb4-VC-HQV" eventType="valueChanged" id="TbP-Bw-0Nt"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1047,9 +1047,10 @@
                             <constraint firstAttribute="trailing" secondItem="E5e-f0-Jv5" secondAttribute="trailing" id="xsK-Ak-NYT"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="lQV-Dr-fNH">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="D6X-wq-VdS">
-                            <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="bN4-Y5-A7b" kind="show" id="vm5-WH-q2s"/>
                             </connections>
@@ -1069,7 +1070,7 @@
         <!--Settings-->
         <scene sceneID="Yla-9I-g3O">
             <objects>
-                <tableViewController title="Settings" id="bN4-Y5-A7b" sceneMemberID="viewController">
+                <tableViewController title="Settings" id="bN4-Y5-A7b" customClass="SettingsController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="qa9-VB-OBs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -47,6 +47,9 @@
 		D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D906521ECE541A0065B5A5 /* ApiService.swift */; };
 		D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */; };
 		D4EEFB001ED1EA610085571B /* PostsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEFAFF1ED1EA610085571B /* PostsController.swift */; };
+		D4EF900E1F083CA300211F04 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF900D1F083CA300211F04 /* NotificationsController.swift */; };
+		D4EF90101F083D0600211F04 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF900F1F083D0600211F04 /* SettingsController.swift */; };
+		D4EF90121F08405300211F04 /* ProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF90111F08405300211F04 /* ProfileNavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +98,9 @@
 		D4D906521ECE541A0065B5A5 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D4EB70AD1ED1D3A4003895C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D4EEFAFF1ED1EA610085571B /* PostsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsController.swift; sourceTree = "<group>"; };
+		D4EF900D1F083CA300211F04 /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		D4EF900F1F083D0600211F04 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		D4EF90111F08405300211F04 /* ProfileNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,9 @@
 				D4C828791F0501F000A87D40 /* TabBarController.swift */,
 				D4C8287B1F05240800A87D40 /* ProfileController.swift */,
 				D4C8287F1F06D4B500A87D40 /* ProfileDetailController.swift */,
+				D4EF900D1F083CA300211F04 /* NotificationsController.swift */,
+				D4EF900F1F083D0600211F04 /* SettingsController.swift */,
+				D4EF90111F08405300211F04 /* ProfileNavController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -386,15 +395,18 @@
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
 				D4C8287C1F05240800A87D40 /* ProfileController.swift in Sources */,
+				D4EF90101F083D0600211F04 /* SettingsController.swift in Sources */,
 				D4C828781F0445B800A87D40 /* PostSearchController.swift in Sources */,
 				D4C828801F06D4B500A87D40 /* ProfileDetailController.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
 				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
 				D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */,
+				D4EF900E1F083CA300211F04 /* NotificationsController.swift in Sources */,
 				D45D2FEB1F01AD8E002FEBE7 /* RegisterController.swift in Sources */,
 				D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
+				D4EF90121F08405300211F04 /* ProfileNavController.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				201F96F11E3156400082702E /* Tag.swift in Sources */,
 				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,

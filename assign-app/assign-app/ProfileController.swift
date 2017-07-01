@@ -54,14 +54,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         // Set the layout of the view
         // Get rid of the nasty nav border
         // TODO add to storyboard
+
+        
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-    }
-    
-    /// Set StatusBartStyle to .lightContent
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
