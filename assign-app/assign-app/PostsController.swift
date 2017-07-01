@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 /// Controller to view all the relevant posts.
 class PostsController: UITableViewController {
@@ -85,8 +86,10 @@ class PostsController: UITableViewController {
             dateLabel.text = post.dateCreated?.timeAgoSimple
         }
 
-        if let profileLabel = cell.viewWithTag(104) as? UILabel {
-            profileLabel.text = " dsdsdsdsds"
+        if let profileImage = cell.viewWithTag(104) as? UIImageView {
+            let url = URL(string: (post.user?.profileImage)!)!
+            profileImage.contentMode = .scaleAspectFit
+            profileImage.af_setImage(withURL: url)
         }
 
         return cell

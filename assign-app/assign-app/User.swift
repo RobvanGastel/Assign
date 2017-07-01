@@ -49,7 +49,8 @@ class User:NSObject, JSONDecodable {
         guard let profileImage = JSON["profileImage"] as? String else { return nil }
         
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
+        let profileImageString = Storage.getURL() + "/img/" + profileImage;
         
-        self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImage)
+        self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString)
     }
 }

@@ -14,6 +14,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var settingsImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
     
     // The API service
     var apiService: ApiService?
@@ -40,6 +41,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         
         // TODO set multiple fields
         self.nameLabel.text = currentUser?.name
+        
+        let url = URL(string: "http://84.26.134.115:8080/assign/api/img/1498394173830.png")
+        profileImage.contentMode = .scaleAspectFit
+        profileImage.af_setImage(withURL: url!)
         
         // Set delegates
         tableView.delegate = self
