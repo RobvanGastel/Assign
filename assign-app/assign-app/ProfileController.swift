@@ -22,7 +22,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // Pagination variables
     let size = 21 // Amount of Posts to load next
     var assignmentsStart = 1 // Starting index of the assignments
-    var isLoading = false // Is currently loading posts boolean
+    var assignmentsReachedEnd = false // Check if there a no new posts
+    var isLoading = false // Is currently loading posts
     
     // The provided data from the segue 
     var currentUser: User?
@@ -71,7 +72,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         self.nameLabel.text = currentUser?.name
         
         // TODO improve scaling
-        let url = URL(string: "http://84.26.134.115:8080/assign/api/img/1498394173830.png")
+        let url = URL(string: (currentUser?.profileImage)!)
         profileImage.contentMode = .scaleAspectFit
         profileImage.af_setImage(withURL: url!)
     }
@@ -80,7 +81,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     ///
     /// TODO Add calls for all tables
     func fillTables() {
-        self.apiService?.getPostsByUser(size: 21, start: 1, id: currentUser!.id!) { posts in
+        self.apiService?.getPostsByUser(size: size, start: 1, id: currentUser!.id!) { posts in
             
             self.assignmentsArray = posts!
             self.tableView.reloadData()
@@ -126,7 +127,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                 break
                 
             case 2:
-                if assignmentsArray.count >= 21 { // Need atleast 21 posts
+                if assignmentsArray.count >= 21
+                    && assignmentsReachedEnd == false { // Need atleast 21 posts
                     
                     self.isLoading = true
                     self.tableView.tableFooterView?.isHidden = false
@@ -135,10 +137,15 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                     self.assignmentsStart += 20
                     apiService?.getPostsByUser(size: size, start: assignmentsStart,
                                                id: currentUser!.id!) { p in
+                               
+                        if (p?.count)! < 20 { // Check if all posts found
+                            print("API: No new posts")
+                            self.assignmentsReachedEnd = true
+                        }
                                                 
                         self.assignmentsArray += p!
-                        self.tableView.reloadData()
                                                 
+                        self.tableView.reloadData()
                         self.isLoading = false
                         self.tableView.tableFooterView?.isHidden = true
                     }

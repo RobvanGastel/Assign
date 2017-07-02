@@ -15,6 +15,7 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
     
     // Provided data from the segue
     var currentPost:Post?
@@ -28,6 +29,11 @@ class PostDetailController: UIViewController {
         self.dateLabel.text = currentPost?.dateCreated?.timeAgo
         
         self.nameButton.setTitle(currentPost?.user?.name, for: .normal)
+        
+        let url = URL(string: (currentPost?.user?.profileImage)!)!
+        profileImage.contentMode = .scaleAspectFit
+        profileImage.af_setImage(withURL: url)
+        
     }
     
     /// Add data to the segue before triggering.

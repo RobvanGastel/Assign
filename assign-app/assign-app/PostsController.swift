@@ -110,7 +110,10 @@ class PostsController: UITableViewController {
             self.posts = posts!
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            
+            // Reset infinite loading variables
             self.start = 1
+            self.reachedEnd = false
         }
     }
     
@@ -143,13 +146,13 @@ class PostsController: UITableViewController {
                     if (p?.count)! < 20 { // Check if all posts found
                         print("API: No new posts")
                         self.reachedEnd = true
-                    } else {
-                        self.posts += p!
-                        self.tableView.reloadData()
-                    
-                        self.isLoading = false
-                        self.tableView.tableFooterView?.isHidden = true
                     }
+                    
+                    self.posts += p!
+                    
+                    self.tableView.reloadData()
+                    self.isLoading = false
+                    self.tableView.tableFooterView?.isHidden = true
                 }
             }
         }

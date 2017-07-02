@@ -23,13 +23,7 @@ class User:NSObject, JSONDecodable {
         self.id = id
         self.name = name
         self.email = email
-        
-        if profileImage.isEmpty {
-            self.profileImage = "default.png";
-        }else {
-            self.profileImage = profileImage;
-        }
-        
+        self.profileImage = profileImage;
         self.dateCreated = dateCreated;
     }
 

@@ -19,7 +19,8 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     // Pagination variables
     let size = 21 // Amount of Posts to load next
     var start = 1 // Starting index of the posts
-    var isLoading = false // Is currently loading posts boolean
+    var isLoading = false // Is currently loading posts
+    var reachedEnd = false // Check if there a no new posts
     
     // API service
     var apiService: ApiService?
@@ -36,10 +37,18 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.start = 1 // Set start array back to 1
+        
+        // Reset infinite loading variables
+        self.start = 1
+        self.reachedEnd = false
+        
         self.apiService?.searchPosts(size: size, start: start,
                                      query: searchBar.text!)
         { posts in
@@ -79,9 +88,10 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
             dateLabel.text = post.dateCreated?.timeAgoSimple
         }
         
-        if let profileLabel = cell.viewWithTag(204) as? UILabel {
-            // TODO Add image load
-            profileLabel.text = "dasdas" // post.profile
+        if let profileImage = cell.viewWithTag(204) as? UIImageView {
+            let url = URL(string: (post.user?.profileImage)!)!
+            profileImage.contentMode = .scaleAspectFit
+            profileImage.af_setImage(withURL: url)
         }
         
         return cell
@@ -116,7 +126,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     /// Load next posts and add to the tableView
     func loadPosts() {
         if !isLoading { // Checks if the table is currently loading
-            if posts.count >= 21 { // Need atleast 21 posts
+            if posts.count >= 21 && reachedEnd == false { // Need atleast 21 posts
                 
                 self.isLoading = true
                 self.tableView.tableFooterView?.isHidden = false
@@ -126,9 +136,14 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
                 apiService?.searchPosts(size: size, start: start, query: searchBar.text!)
                 { p in
                     
-                    self.posts += p!
-                    self.tableView.reloadData()
+                    if (p?.count)! < 20 { // Check if all posts found
+                        print("API: No new posts")
+                        self.reachedEnd = true
+                    }
                     
+                    self.posts += p!
+                    
+                    self.tableView.reloadData()
                     self.isLoading = false
                     self.tableView.tableFooterView?.isHidden = true
                 }

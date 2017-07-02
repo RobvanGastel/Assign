@@ -100,6 +100,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="jmV-Wc-Ial" id="7ce-KM-Jj8"/>
                         <outlet property="nameButton" destination="I8I-3h-yRH" id="L73-8V-IqN"/>
+                        <outlet property="profileImage" destination="CL4-PV-Y9S" id="CNu-yB-bHn"/>
                         <outlet property="titleLabel" destination="WfE-4G-f4Q" id="4ic-W3-zoo"/>
                         <outlet property="userLabel" destination="gx5-Z7-wSj" id="F3a-Kb-Qfd"/>
                     </connections>
@@ -267,10 +268,10 @@
             </objects>
             <point key="canvasLocation" x="1893.5999999999999" y="-568.9655172413793"/>
         </scene>
-        <!--Post Search Controller-->
+        <!--Zoeken-->
         <scene sceneID="9JQ-xn-Mba">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="7er-XU-eYK" customClass="PostSearchController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Zoeken" hidesBottomBarWhenPushed="YES" id="7er-XU-eYK" customClass="PostSearchController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5SM-bX-Y12"/>
                         <viewControllerLayoutGuide type="bottom" id="fWf-eC-tT2"/>
@@ -892,7 +893,7 @@
             </objects>
             <point key="canvasLocation" x="121" y="961"/>
         </scene>
-        <!--Profile-->
+        <!--Profiel-->
         <scene sceneID="sT3-Wr-iNB">
             <objects>
                 <viewController id="Cb4-VC-HQV" customClass="ProfileController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -1031,7 +1032,7 @@
                             <constraint firstAttribute="trailing" secondItem="E5e-f0-Jv5" secondAttribute="trailing" id="xsK-Ak-NYT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="VXl-L3-fgo"/>
+                    <tabBarItem key="tabBarItem" title="Profiel" id="VXl-L3-fgo"/>
                     <navigationItem key="navigationItem" id="lQV-Dr-fNH"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -1227,7 +1228,7 @@
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rKw-S1-4VD"/>
+        <segue reference="E9m-bu-7yT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
