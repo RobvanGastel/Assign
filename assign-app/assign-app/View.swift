@@ -24,7 +24,7 @@ class UIProfile: UIImageView {
         
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        self.image = #imageLiteral(resourceName: "profile.jpg")
+        // self.image = #imageLiteral(resourceName: "profile.jpg")
     }
 }
 

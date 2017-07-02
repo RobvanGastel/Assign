@@ -11,19 +11,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oZ4-xE-3zZ">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="77" id="oZ4-xE-3zZ" customClass="PostCell" customModule="assign_app" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oZ4-xE-3zZ" id="Uh4-le-ezd">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oZ4-xE-3zZ" id="Uh4-le-ezd" customClass="PostCell" customModule="assign_app" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kog-Mi-qmH">
-                        <rect key="frame" x="8" y="14" width="49" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePT-jp-lWt" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="365" height="66.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjM-Pr-2Nq" customClass="UIName" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="65" y="10" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kog-Mi-qmH" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="49" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrb-54-b0m" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="315" y="6" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cu-tR-2xj" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="65" y="32" width="286" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ePT-jp-lWt" secondAttribute="bottom" constant="5" id="FtY-hK-LUZ"/>
+                    <constraint firstAttribute="trailing" secondItem="ePT-jp-lWt" secondAttribute="trailing" constant="5" id="HDr-0X-mPw"/>
+                    <constraint firstItem="ePT-jp-lWt" firstAttribute="leading" secondItem="Uh4-le-ezd" secondAttribute="leading" constant="5" id="l6m-u0-TAu"/>
+                    <constraint firstItem="ePT-jp-lWt" firstAttribute="top" secondItem="Uh4-le-ezd" secondAttribute="top" constant="5" id="ldZ-oZ-EN9"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="rrb-54-b0m" id="XZB-N4-xEc"/>
+                <outlet property="nameLabel" destination="CjM-Pr-2Nq" id="Rtq-LJ-Epd"/>
+                <outlet property="profileImage" destination="Kog-Mi-qmH" id="em0-Vx-lNo"/>
+                <outlet property="titleLabel" destination="4Cu-tR-2xj" id="KyO-vX-N9h"/>
+            </connections>
             <point key="canvasLocation" x="38.5" y="-218.5"/>
         </tableViewCell>
     </objects>

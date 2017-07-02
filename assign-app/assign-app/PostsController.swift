@@ -41,6 +41,8 @@ class PostsController: UITableViewController {
         }
         
         // Layout settings
+        let nib = UINib(nibName: "PostCellNib", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "PostCell") // For NIB Cell
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
@@ -63,27 +65,18 @@ class PostsController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        // let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        
         let post = posts[indexPath.row] as Post
-
-        if let titleLabel = cell.viewWithTag(101) as? UILabel {
-            titleLabel.text = post.title
-        }
-
-        if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = post.user?.name
-        }
-
-        if let dateLabel = cell.viewWithTag(103) as? UILabel {
-            dateLabel.text = post.dateCreated?.timeAgoSimple
-        }
-
-        if let profileImage = cell.viewWithTag(104) as? UIImageView {
-            let url = URL(string: (post.user?.profileImage)!)!
-            profileImage.contentMode = .scaleAspectFit
-            profileImage.af_setImage(withURL: url)
-        }
+        
+        cell.titleLabel.text = post.title
+        cell.nameLabel.text = post.user?.name
+        cell.dateLabel.text = post.dateCreated?.timeAgoSimple
+        let url = URL(string: (post.user?.profileImage)!)!
+        cell.profileImage.contentMode = .scaleAspectFit
+        cell.profileImage.af_setImage(withURL: url)
 
         return cell
     }
