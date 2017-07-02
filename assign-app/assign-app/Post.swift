@@ -20,13 +20,15 @@ class Post:NSObject, JSONDecodable {
     var dateCreated:Date?
     var dateDone:Date?
 
-    init(id:Int, title:String,  text:String, dateCreated:Date, user: User, done: Bool) {
+    init(id:Int, title:String,  text:String, dateCreated:Date,
+         user: User, done: Bool, tags: [String]) {
         self.id = id
         self.title = title
         self.text = text
         self.user = user
         self.dateCreated = dateCreated
         self.done = done
+        self.tags = tags
     }
 
     convenience required init?(JSON: [String: Any]) {
@@ -36,6 +38,8 @@ class Post:NSObject, JSONDecodable {
         guard let text = JSON["description"] as? String else { return nil }
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
         guard let done = JSON["done"] as? Bool else { return nil }
+        let tags = JSON["tags"] as! [String]
+        
         
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
@@ -44,7 +48,7 @@ class Post:NSObject, JSONDecodable {
         let user = User(JSON: userString)
 
         // Init the Post
-        self.init(id: id, title: title, text: text, dateCreated: dateCreated, user: user!, done: done)
+        self.init(id: id, title: title, text: text, dateCreated: dateCreated, user: user!, done: done, tags: tags)
     }
 }
 
