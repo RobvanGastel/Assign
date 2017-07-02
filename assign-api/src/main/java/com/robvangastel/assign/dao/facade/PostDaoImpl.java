@@ -33,7 +33,7 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         Query q = entityManager.createQuery(
                 "SELECT p FROM Post p, User u \n" +
                         "WHERE u.id = p.user.id \n" +
-                        "AND p.title like :query OR p.description like :query OR u.name like :query ORDER BY p.dateCreated DESC")
+                        "AND p.title like :query OR p.description like :query OR u.name like :query GROUP BY p.id ORDER BY p.dateCreated DESC")
                 .setFirstResult(start)
                 .setMaxResults(size)
                 .setParameter("query", query);
