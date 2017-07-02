@@ -15,7 +15,7 @@ class Post:NSObject, JSONDecodable {
     var title:String?
     var text:String?
     var user:User?
-    var tags:[Tag]?
+    var tags:[String]?
     var done:Bool?
     var dateCreated:Date?
     var dateDone:Date?

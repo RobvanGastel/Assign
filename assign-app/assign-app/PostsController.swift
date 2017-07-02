@@ -19,6 +19,7 @@ class PostsController: UITableViewController {
     let size = 21 // Amount of Posts to load next
     var start = 1 // Starting index of the posts
     var isLoading = false // Is currently loading posts
+    var reachedEnd = false // Check if there a no new posts
 
     // API service
     var apiService: ApiService?
@@ -130,7 +131,7 @@ class PostsController: UITableViewController {
     /// Load next posts and add to the tableView
     func loadPosts() {
         if !isLoading { // Checks if the table is currently loading
-            if posts.count >= 21 { // Need atleast 21 posts
+            if posts.count >= 21 && reachedEnd == false { // Need atleast 21 posts
                 
                 self.isLoading = true
                 self.tableView.tableFooterView?.isHidden = false
@@ -139,11 +140,16 @@ class PostsController: UITableViewController {
                 self.start += 20
                 apiService?.getPosts(size: size, start: start) { p in
                     
-                    self.posts += p!
-                    self.tableView.reloadData()
+                    if (p?.count)! < 20 { // Check if all posts found
+                        print("API: No new posts")
+                        self.reachedEnd = true
+                    } else {
+                        self.posts += p!
+                        self.tableView.reloadData()
                     
-                    self.isLoading = false
-                    self.tableView.tableFooterView?.isHidden = true
+                        self.isLoading = false
+                        self.tableView.tableFooterView?.isHidden = true
+                    }
                 }
             }
         }
