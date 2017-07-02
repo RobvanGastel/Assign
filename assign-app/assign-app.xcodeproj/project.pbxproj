@@ -48,8 +48,6 @@
 		D4EEFB001ED1EA610085571B /* PostsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEFAFF1ED1EA610085571B /* PostsController.swift */; };
 		D4EF900E1F083CA300211F04 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF900D1F083CA300211F04 /* NotificationsController.swift */; };
 		D4EF90101F083D0600211F04 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF900F1F083D0600211F04 /* SettingsController.swift */; };
-		D4EF90141F08FB3D00211F04 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF90131F08FB3D00211F04 /* PostCell.swift */; };
-		D4EF90191F08FD1800211F04 /* PostCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EF90181F08FD1800211F04 /* PostCellNib.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,8 +97,6 @@
 		D4EEFAFF1ED1EA610085571B /* PostsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsController.swift; sourceTree = "<group>"; };
 		D4EF900D1F083CA300211F04 /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		D4EF900F1F083D0600211F04 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		D4EF90131F08FB3D00211F04 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		D4EF90181F08FD1800211F04 /* PostCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCellNib.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				D4EB70B01ED1E57B003895C4 /* img */,
-				D4EF90131F08FB3D00211F04 /* PostCell.swift */,
-				D4EF90151F08FCAF00211F04 /* nib */,
 				D45D2FF61F02E8FF002FEBE7 /* View.swift */,
 				D45D2FF21F02D485002FEBE7 /* Add.swift */,
 				D45D2FF31F02D485002FEBE7 /* Input.swift */,
@@ -242,14 +236,6 @@
 				B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */,
 			);
 			name = img;
-			sourceTree = "<group>";
-		};
-		D4EF90151F08FCAF00211F04 /* nib */ = {
-			isa = PBXGroup;
-			children = (
-				D4EF90181F08FD1800211F04 /* PostCellNib.xib */,
-			);
-			name = nib;
 			sourceTree = "<group>";
 		};
 		D4EF901A1F08FD9A00211F04 /* Posts */ = {
@@ -355,7 +341,6 @@
 				B2D37C621F07DDFA00C3A0BA /* icon-settings@2x.png in Resources */,
 				B23E560B1F0027D90026B05C /* logo-trans@2x.png in Resources */,
 				B27711201EC8F7CD001D2382 /* profile@2x.jpg in Resources */,
-				D4EF90191F08FD1800211F04 /* PostCellNib.xib in Resources */,
 				20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */,
 				B2D37C631F07DDFA00C3A0BA /* icon-back@2x.png in Resources */,
 				B2D37C641F07DDFA00C3A0BA /* icon-share@2x.png in Resources */,
@@ -451,7 +436,6 @@
 				201F96ED1E3154BB0082702E /* User.swift in Sources */,
 				D45D2FF71F02E8FF002FEBE7 /* View.swift in Sources */,
 				20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */,
-				D4EF90141F08FB3D00211F04 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
