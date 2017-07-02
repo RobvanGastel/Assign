@@ -17,7 +17,7 @@ class PostsController: UITableViewController {
     
     // Pagination variables
     let size = 21 // Amount of Posts to load next
-    var start = 1 // Starting index of the posts
+    var start = 0 // Starting index of the posts
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
 
@@ -32,7 +32,7 @@ class PostsController: UITableViewController {
 
         // On viewLoad get the posts from the API
         // Starting values of size is 20 and start 1
-        self.apiService?.getPosts(size: 21, start: 1) { posts in
+        self.apiService?.getPosts(size: 21, start: 0) { posts in
             
             // TODO add Data to Core Data as cache
             // Sets the posts and refreshes the table

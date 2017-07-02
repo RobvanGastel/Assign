@@ -41,6 +41,7 @@ class UITitle: UILabel {
         super.awakeFromNib()
         
         self.textColor = UIColor(red: 0.38, green: 0.38, blue: 0.38, alpha: 1)
+        
     }
 }
 

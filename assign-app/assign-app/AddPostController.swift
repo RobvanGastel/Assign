@@ -61,7 +61,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
     
     // When the user starts editing will empty the textView
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1) {
+        if textView.textColor == UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1) {
             textView.text = nil
             textView.textColor = UIColor(red: 0.44, green: 0.44, blue: 0.44, alpha: 1)
         }
@@ -72,7 +72,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Geef een beschrijving"
-            textView.textColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+            textView.textColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1)
         }
     }
 
