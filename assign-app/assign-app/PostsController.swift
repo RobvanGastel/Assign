@@ -32,7 +32,7 @@ class PostsController: UITableViewController {
 
         // On viewLoad get the posts from the API
         // Starting values of size is 20 and start 1
-        self.apiService?.getPosts(size: 21, start: 0) { posts in
+        self.apiService?.getPosts(size: 21, start: start) { posts in
             
             // TODO add Data to Core Data as cache
             // Sets the posts and refreshes the table
@@ -114,7 +114,7 @@ class PostsController: UITableViewController {
             self.refreshControl?.endRefreshing()
             
             // Reset infinite loading variables
-            self.start = 1
+            self.start = 0
             self.reachedEnd = false
         }
     }

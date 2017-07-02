@@ -21,7 +21,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     
     // Pagination variables
     let size = 21 // Amount of Posts to load next
-    var assignmentsStart = 1 // Starting index of the assignments
+    var assignmentsStart = 0 // Starting index of the assignments
     var assignmentsReachedEnd = false // Check if there a no new posts
     var isLoading = false // Is currently loading posts
     
@@ -81,7 +81,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     ///
     /// TODO Add calls for all tables
     func fillTables() {
-        self.apiService?.getPostsByUser(size: size, start: 1, id: currentUser!.id!) { posts in
+        self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) { posts in
             
             self.assignmentsArray = posts!
             self.tableView.reloadData()
@@ -199,7 +199,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             let post = overviewArray[indexPath.row] as Post
             
             if let nameLabel = cell.viewWithTag(501) as? UILabel {
-            nameLabel.text = post.title
+                nameLabel.text = post.title
             }
             break
         case 1:

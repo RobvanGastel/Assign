@@ -1,5 +1,5 @@
 //
-//  ProfileController.swift
+//  ProfileDetailController.swift
 //  assign-app
 //
 //  Created by Rob Van Gastel on 30/06/2017.
