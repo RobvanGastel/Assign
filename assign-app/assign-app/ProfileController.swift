@@ -92,7 +92,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     func settingsTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
-        self.present(vc, animated: false, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     

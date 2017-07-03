@@ -45,5 +45,46 @@ class PostDetailController: UIViewController {
             nextView?.currentUser = currentPost?.user
         }
     }
+    
+    /// To share a post with Facebook, Twitter etc.
+    ///
+    /// TODO Add full functionality :
+    /// An image, text, Logo and URL.
+    @IBAction func shareAction(_ sender: Any) {
+        
+        // TODO add custom text to share
+        let postText = "Share your post on Assign!"
+        // TODO Add custom url to match the post
+        let postUrl : NSURL = NSURL(string: "http://84.26.134.115:8080/api/posts/\(currentPost!.id ?? 0)")!
+        // TODO Add the assign logo
+        let image : UIImage = UIImage(named: "logo-trans.png")!
+        
+        // Fills in the Image, text and url
+        let activityViewController : UIActivityViewController = UIActivityViewController(
+            activityItems: [postText, postUrl, image], applicationActivities: nil)
+        
+        // This lines is for the popover
+        activityViewController.popoverPresentationController?.barButtonItem = (sender as! UIBarButtonItem)
+        
+        // This line remove the arrow of the popover
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+        
+        // All activities to exclude of the share
+        activityViewController.excludedActivityTypes = [
+            UIActivityType.assignToContact,
+            UIActivityType.postToFlickr,
+            UIActivityType.postToVimeo,
+            UIActivityType.openInIBooks,
+            UIActivityType.copyToPasteboard,
+            UIActivityType.postToTencentWeibo,
+            UIActivityType.postToWeibo,
+            UIActivityType.print,
+            UIActivityType.airDrop,
+            UIActivityType.saveToCameraRoll,
+        ]
+        
+        // Present the share options
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
 

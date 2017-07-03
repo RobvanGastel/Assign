@@ -28,6 +28,10 @@ class AddPostController: UIViewController, UITextViewDelegate {
         
         // Initializes the delegate
         descriptionText.delegate = self
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// TextView Delegates manages the character limit and the counter

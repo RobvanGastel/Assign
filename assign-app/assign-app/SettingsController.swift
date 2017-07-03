@@ -19,4 +19,13 @@ class SettingsController: UITableViewController {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
     }
+    
+    @IBAction func backAction(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PostsTabBarController") as! UITabBarController
+        vc.selectedIndex = 2
+        self.present(vc, animated: true, completion: nil)
+        
+    }
 }
