@@ -41,7 +41,8 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         }
         
         // Layout settings
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        view.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
     }
@@ -50,6 +51,7 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
     }
 
     // MARK: - Table view with Posts

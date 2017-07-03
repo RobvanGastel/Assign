@@ -33,7 +33,8 @@ class AddPostController: UIViewController, UITextViewDelegate {
         descriptionText.delegate = self
         
         // Layout settings
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     

@@ -30,6 +30,7 @@
 		B2E010D61F097B18008AF890 /* icon-settings-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E010D51F097B18008AF890 /* icon-settings-white@2x.png */; };
 		B2E8010D1F0AEAFF0005980B /* icon-profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8010B1F0AEAFF0005980B /* icon-profile@2x.png */; };
 		B2E8010E1F0AEAFF0005980B /* icon-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8010C1F0AEAFF0005980B /* icon-home@2x.png */; };
+		B2E801101F0AF8B70005980B /* icon-cross-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8010F1F0AF8B70005980B /* icon-cross-white@2x.png */; };
 		D41955791ECF023C009575DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955781ECF023C009575DE /* AuthService.swift */; };
 		D419557B1ECF0367009575DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557A1ECF0367009575DE /* Storage.swift */; };
 		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
@@ -86,6 +87,7 @@
 		B2E010D51F097B18008AF890 /* icon-settings-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings-white@2x.png"; sourceTree = "<group>"; };
 		B2E8010B1F0AEAFF0005980B /* icon-profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-profile@2x.png"; sourceTree = "<group>"; };
 		B2E8010C1F0AEAFF0005980B /* icon-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home@2x.png"; sourceTree = "<group>"; };
+		B2E8010F1F0AF8B70005980B /* icon-cross-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross-white@2x.png"; sourceTree = "<group>"; };
 		CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.debug.xcconfig"; sourceTree = "<group>"; };
 		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				B23E560A1F0027D90026B05C /* logo-trans@2x.png */,
 				B277111F1EC8F7CD001D2382 /* profile@2x.jpg */,
 				B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */,
+				B2E8010F1F0AF8B70005980B /* icon-cross-white@2x.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */,
 				B2D37C631F07DDFA00C3A0BA /* icon-back@2x.png in Resources */,
 				B2D37C641F07DDFA00C3A0BA /* icon-share@2x.png in Resources */,
+				B2E801101F0AF8B70005980B /* icon-cross-white@2x.png in Resources */,
 				B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */,
 				B2D37C6D1F09391900C3A0BA /* icon-twitter@2x.png in Resources */,
 				B2D37C661F07DDFA00C3A0BA /* icon-search@2x.png in Resources */,
