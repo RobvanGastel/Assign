@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ProfileController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -73,9 +74,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         
         // TODO improve scaling
         let url = URL(string: (currentUser?.profileImage)!)
-        profileImage.contentMode = .scaleAspectFit
-        profileImage.af_setImage(withURL: url!)
+        let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+        profileImage.af_setImage(withURL: url!, filter: filter)
     }
+    
     
     /// API call to fill all the profile tables.
     ///

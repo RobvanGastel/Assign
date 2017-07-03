@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PostSearchController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -90,8 +91,8 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         
         if let profileImage = cell.viewWithTag(204) as? UIImageView {
             let url = URL(string: (post.user?.profileImage)!)!
-            profileImage.contentMode = .scaleAspectFit
-            profileImage.af_setImage(withURL: url)
+            let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+            profileImage.af_setImage(withURL: url, filter: filter)
         }
         
         return cell

@@ -1017,7 +1017,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-Rn-vHT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-Rn-vHT" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
                                         <rect key="frame" x="155.66666666666669" y="74" width="103.00000000000006" height="103"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="103" id="ZjI-rO-PTv"/>

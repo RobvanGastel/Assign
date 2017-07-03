@@ -6,7 +6,9 @@
 //  Copyright © 2017 Assign. All rights reserved.
 //
 
+ 
 import UIKit
+import AlamofireImage
 
 /// Controller to view the details of a post.
 class PostDetailController: UIViewController {
@@ -31,8 +33,8 @@ class PostDetailController: UIViewController {
         self.nameButton.setTitle(currentPost?.user?.name, for: .normal)
         
         let url = URL(string: (currentPost?.user?.profileImage)!)!
-        profileImage.contentMode = .scaleAspectFit
-        profileImage.af_setImage(withURL: url)
+        let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+        profileImage.af_setImage(withURL: url, filter: filter)
         
     }
     
