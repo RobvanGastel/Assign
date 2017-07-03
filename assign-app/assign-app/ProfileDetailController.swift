@@ -53,9 +53,9 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         tapRec.addTarget(self, action: #selector(ProfileDetailController.backTap))
         backImage.addGestureRecognizer(tapRec)
         
-        
         // Layout settings
-        self.navigationController?.navigationBar.isHidden = true
+        // Set navigationbar hidden with animation
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     /// Set profile of the User.
@@ -82,11 +82,14 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     
     /// Redirect to settings view.
     func backTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
-        self.present(vc, animated: true, completion: nil)
+        // Does a back check
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-    
+
     /// When changed to another tableView.
     @IBAction func segmentedControlActionChanged(_ sender: Any) {
         self.tableView.reloadData()
@@ -96,13 +99,6 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Show navigation bar again on returning to other views
-        self.navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Table view with Posts
@@ -137,6 +133,21 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
         
         // Check for different tables
+        switch(segmentedControl.selectedSegmentIndex)
+        {
+        case 0:
+            break
+            
+        case 1:
+            break
+            
+        case 2:
+            break
+            
+        default:
+            break
+        }
+        
         
         return cell
     }
