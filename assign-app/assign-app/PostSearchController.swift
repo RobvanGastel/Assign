@@ -18,7 +18,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     // Pagination variables
     let size = 21 // Amount of Posts to load next
-    var start = 1 // Starting index of the posts
+    var start = 0 // Starting index of the posts
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
     
@@ -46,7 +46,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         // Reset infinite loading variables
-        self.start = 1
+        self.start = 0
         self.reachedEnd = false
         
         self.apiService?.searchPosts(size: size, start: start,

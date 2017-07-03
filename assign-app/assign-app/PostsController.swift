@@ -41,8 +41,6 @@ class PostsController: UITableViewController {
         }
         
         // Layout settings
-        let nib = UINib(nibName: "PostCellNib", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PostCell") // For NIB Cell
         view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
@@ -105,17 +103,17 @@ class PostsController: UITableViewController {
     /// Pull and refesh function on the tableView.
     /// Starting values of size is 20 and start 1
     @IBAction func refreshAction(_ sender: Any) {
-        self.apiService?.getPosts(size: 21, start: 1) { posts in
+        // Reset infinite loading variables
+        self.start = 0
+        self.reachedEnd = false
+        
+        self.apiService?.getPosts(size: 21, start: start) { posts in
             
             // TODO add Data to Core Data as cache
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
-            
-            // Reset infinite loading variables
-            self.start = 0
-            self.reachedEnd = false
         }
     }
     
