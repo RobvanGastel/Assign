@@ -43,7 +43,7 @@ public class UserController {
 	 */
 	@GET
 	public List<User> get(
-			@DefaultValue("1") @QueryParam("start") int start,
+			@DefaultValue("0") @QueryParam("start") int start,
 			@DefaultValue("20") @QueryParam("size") int size) {
 		return userService.findAll(start, size);
 	}

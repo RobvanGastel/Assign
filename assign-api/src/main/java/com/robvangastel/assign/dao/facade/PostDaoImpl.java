@@ -30,10 +30,8 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     public List<Post> findByQuery(String query, int start, int size) {
         query = "%" + query + "%";
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Post p, User u \n" +
-                        "WHERE u.id = p.user.id \n" +
-                        "AND p.title like :query OR p.description like :query OR u.name like :query GROUP BY p.id ORDER BY p.dateCreated DESC")
+        String queryString = "SELECT * FROM Post p JOIN user u ON p.user_id = u.id WHERE p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";
+        Query q = entityManager.createNativeQuery(queryString, Post.class)
                 .setFirstResult(start)
                 .setMaxResults(size)
                 .setParameter("query", query);

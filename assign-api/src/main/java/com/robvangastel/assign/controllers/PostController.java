@@ -45,7 +45,7 @@ public class PostController {
      */
     @GET
     public List<Post> get(
-            @DefaultValue("1") @QueryParam("start") int start,
+            @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
         return postService.findAll(start, size);
     }
@@ -77,7 +77,7 @@ public class PostController {
     @GET
     @Path("/query")
     public Response getByQuery(@QueryParam("query") String query,
-                               @DefaultValue("1") @QueryParam("start") int start,
+                               @DefaultValue("0") @QueryParam("start") int start,
                                @DefaultValue("20") @QueryParam("size") int size) {
         List<Post> posts = postService.findByQuery(query, start, size);
 
