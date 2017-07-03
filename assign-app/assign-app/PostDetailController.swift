@@ -38,6 +38,12 @@ class PostDetailController: UIViewController {
         
     }
     
+    /// Set StatusBartStyle to .default.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     /// Add data to the segue before triggering.
     ///
     /// TODO Modify so it works with push and pop
@@ -82,7 +88,7 @@ class PostDetailController: UIViewController {
             UIActivityType.postToWeibo,
             UIActivityType.print,
             UIActivityType.airDrop,
-            UIActivityType.saveToCameraRoll,
+            UIActivityType.saveToCameraRoll
         ]
         
         // Present the share options

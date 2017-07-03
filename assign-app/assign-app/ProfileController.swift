@@ -12,10 +12,11 @@ import AlamofireImage
 class ProfileController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var settingsImage: UIImageView!
-    @IBOutlet weak var profileImage: UIImageView!
     
     // The API service
     var apiService: ApiService?
@@ -43,7 +44,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         // Set delegates
         tableView.delegate = self
         tableView.dataSource = self
-        
         
         self.setProfile() // Set profile values
         self.fillTables() // Set table values
@@ -161,8 +161,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
 
-
-    
     // MARK: - Table view with Posts
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -200,23 +198,32 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         case 0:
             let post = overviewArray[indexPath.row] as Post
             
-            if let nameLabel = cell.viewWithTag(501) as? UILabel {
-                nameLabel.text = post.title
+            if let titleLabel = cell.viewWithTag(401) as? UILabel {
+                titleLabel.text = post.title
             }
             break
         case 1:
             let post = activityArray[indexPath.row] as Post
             
-            if let nameLabel = cell.viewWithTag(501) as? UILabel {
-                nameLabel.text = post.title
+            if let titleLabel = cell.viewWithTag(401) as? UILabel {
+                titleLabel.text = post.title
             }
+            
             break
             
         case 2:
             let post = assignmentsArray[indexPath.row] as Post
             
-            if let nameLabel = cell.viewWithTag(501) as? UILabel {
-                nameLabel.text = post.title
+            if let titleLabel = cell.viewWithTag(401) as? UILabel {
+                titleLabel.text = post.title
+            }
+            
+            if let textLabel = cell.viewWithTag(402) as? UILabel {
+                textLabel.text = post.text
+            }
+            
+            if let dateLabel = cell.viewWithTag(403) as? UILabel {
+                dateLabel.text = post.dateCreated?.timeAgoSimple
             }
             break
             
