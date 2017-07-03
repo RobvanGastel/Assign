@@ -35,13 +35,14 @@ class PostDetailController: UIViewController {
         let url = URL(string: (currentPost?.user?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
-        
     }
     
-    /// Set StatusBartStyle to .default.
+    /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     /// Add data to the segue before triggering.

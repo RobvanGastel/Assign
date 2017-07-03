@@ -13,17 +13,17 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let color = UIColor.darkGray // Color for the tab bar
+        let color = UIColor.gray // Color for the tab bar
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.gray], for:.normal)
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for:.selected)
         
         for item in self.tabBar.items! { // Set the color of the text and the icon
             item.image = item.selectedImage?.imageWithColor(color1: color).withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     
             let attributes = [NSForegroundColorAttributeName: color]
-            //let attributesDark = [NSForegroundColorAttributeName: colorDark]
             item.setTitleTextAttributes(attributes, for: UIControlState.normal)
-    
-            //To change the selected TabBar ItemText
-            //item.setTitleTextAttributes(attributesDark, forState: UIControlState.Selected)
         }
     }
 }
