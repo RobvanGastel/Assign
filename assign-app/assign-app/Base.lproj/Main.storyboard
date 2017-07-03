@@ -271,7 +271,7 @@
                         <barButtonItem key="rightBarButtonItem" image="icon-add.png" id="M2c-KH-RwY">
                             <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="nqU-Wi-bqa" kind="show" id="9Ij-Ur-Uk7"/>
+                                <segue destination="nqU-Wi-bqa" kind="show" identifier="PostAddSegue" id="9Ij-Ur-Uk7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -17,7 +17,10 @@ class AddPostController: UIViewController, UITextViewDelegate {
 
     // API service
     var apiService: ApiService?
-
+    
+    // Refreshing Posts delegate
+    weak var delegate: PostsRefreshDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Hides the keyboard when tapping on the screen
@@ -89,6 +92,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
                 if(success == true) {
                     // Navigate back to the previous view
+                    self.delegate?.refreshPosts()
                     self.navigationController?.popViewController(animated: true)
                     
                     // TODO Add SUCCESS message

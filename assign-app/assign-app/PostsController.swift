@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view all the relevant posts.
-class PostsController: UITableViewController {
+class PostsController: UITableViewController, PostsRefreshDelegate {
     
     // Posts array for tableview
     var posts = [Post]()
@@ -20,7 +20,7 @@ class PostsController: UITableViewController {
     var start = 0 // Starting index of the posts
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
-
+    
     // API service
     var apiService: ApiService?
     
@@ -92,17 +92,28 @@ class PostsController: UITableViewController {
     ///
     /// TODO Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PostDetailSegue" ,
+        if segue.identifier == "PostDetailSegue",
             let nextView = segue.destination as? PostDetailController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let post = posts[indexPath.row]
             nextView.currentPost = post
         }
+        
+        // If Add post segue add delegate
+        if segue.identifier == "PostAddSegue",
+            let nextView = segue.destination as? AddPostController {
+                nextView.delegate = self
+        }
     }
     
     /// Pull and refesh function on the tableView.
-    /// Starting values of size is 20 and start 1
     @IBAction func refreshAction(_ sender: Any) {
+        self.refreshPosts()
+    }
+    
+    /// Refreshes the posts in the view.
+    /// Starting values of size is 20 and start 1.
+    func refreshPosts() {
         // Reset infinite loading variables
         self.start = 0
         self.reachedEnd = false
