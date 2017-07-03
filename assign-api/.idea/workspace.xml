@@ -17,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -26,11 +26,10 @@
       <file leaf-file-name="PostDaoImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+            <state relative-caret-position="309">
               <folding>
-                <marker date="1499080259573" expanded="true" signature="408:414" ph="/**...*/" />
-                <marker date="1499080259573" expanded="true" signature="853:1010" ph="SELECT * FRO... Post" />
+                <marker date="1499082377916" expanded="true" signature="408:414" ph="/**...*/" />
+                <marker date="1499082377916" expanded="true" signature="853:1010" ph="SELECT * FRO... Post" />
               </folding>
             </state>
           </provider>
@@ -62,7 +61,7 @@
             <state relative-caret-position="2006">
               <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
               <folding>
-                <marker date="1499080079783" expanded="true" signature="633:639" ph="/**...*/" />
+                <marker date="1499080285822" expanded="true" signature="633:639" ph="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -1079,12 +1078,10 @@
       <workItem from="1498574634352" duration="77000" />
       <workItem from="1498671998659" duration="2690000" />
       <workItem from="1498858359408" duration="30367000" />
-      <workItem from="1499075639108" duration="3210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164149000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1467,7 +1464,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1485,7 +1482,7 @@
         <state relative-caret-position="2006">
           <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
           <folding>
-            <marker date="1499080079783" expanded="true" signature="633:639" ph="/**...*/" />
+            <marker date="1499080285822" expanded="true" signature="633:639" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -1500,11 +1497,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        <state relative-caret-position="309">
           <folding>
-            <marker date="1499080259573" expanded="true" signature="408:414" ph="/**...*/" />
-            <marker date="1499080259573" expanded="true" signature="853:1010" ph="SELECT * FRO... Post" />
+            <marker date="1499082377916" expanded="true" signature="408:414" ph="/**...*/" />
+            <marker date="1499082377916" expanded="true" signature="853:1010" ph="SELECT * FRO... Post" />
           </folding>
         </state>
       </provider>
