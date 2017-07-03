@@ -55,7 +55,7 @@ class PostDetailController: UIViewController {
         // TODO add custom text to share
         let postText = "Share your post on Assign!"
         // TODO Add custom url to match the post
-        let postUrl : NSURL = NSURL(string: "http://84.26.134.115:8080/api/posts/\(currentPost!.id ?? 0)")!
+        let postUrl : NSURL = NSURL(string: "http://84.26.134.115:8080/api/posts/\(currentPost!.id)")!
         // TODO Add the assign logo
         let image : UIImage = UIImage(named: "logo-trans.png")!
         

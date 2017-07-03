@@ -11,7 +11,7 @@ import Foundation
 /// The Post class for the posts of users.
 class Post:NSObject, JSONDecodable {
 
-    var id:Int?
+    var id:Int!
     var title:String?
     var text:String?
     var user:User?

@@ -81,8 +81,8 @@ class PostsController: UITableViewController {
         
         if let profileImage = cell.viewWithTag(104) as? UIImageView {
             let url = URL(string: (post.user?.profileImage)!)!
-            profileImage.contentMode = .scaleAspectFit
-            profileImage.af_setImage(withURL: url)
+            let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+            profileImage.af_setImage(withURL: url, filter: filter)
         }
         
         return cell

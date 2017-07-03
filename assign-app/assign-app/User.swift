@@ -11,7 +11,7 @@ import Foundation
 /// The User class
 class User:NSObject, JSONDecodable {
 
-    var id:Int?
+    var id:Int!
     var name:String?
     var email:String?
     var profileImage: String?
