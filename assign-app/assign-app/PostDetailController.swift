@@ -62,11 +62,11 @@ class PostDetailController: UIViewController {
     @IBAction func shareAction(_ sender: Any) {
         
         // TODO add custom text to share
-        let postText = "Share your post on Assign!"
+        let postText = "USER vraagt om hulp met TITLE, kan jij helpen?"
         // TODO Add custom url to match the post
         let postUrl : NSURL = NSURL(string: "http://84.26.134.115:8080/api/posts/\(currentPost!.id)")!
         // TODO Add the assign logo
-        let image : UIImage = UIImage(named: "logo-trans.png")!
+        let image : UIImage = UIImage(named: "app-logo.png")!
         
         // Fills in the Image, text and url
         let activityViewController : UIActivityViewController = UIActivityViewController(
