@@ -977,7 +977,7 @@
         <scene sceneID="qG3-mU-JlH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cWg-b4-Gw7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overzicht" image="icon-home.png" id="w5u-H7-nWL"/>
+                    <tabBarItem key="tabBarItem" title="Overzicht" image="icon-bar-overview.png" id="w5u-H7-nWL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gYC-VZ-dPK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -996,7 +996,7 @@
         <scene sceneID="mQa-CI-PCU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pTW-oA-jgA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notificaties" image="icon-cross.png" id="NXO-wI-EeC"/>
+                    <tabBarItem key="tabBarItem" title="Notificaties" image="icon-bar-notifications.png" id="NXO-wI-EeC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="402-PT-MxL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1239,7 +1239,7 @@
                             <constraint firstAttribute="trailing" secondItem="E5e-f0-Jv5" secondAttribute="trailing" id="xsK-Ak-NYT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profiel" image="icon-profile.png" id="VXl-L3-fgo"/>
+                    <tabBarItem key="tabBarItem" title="Profiel" image="icon-bar-profile.png" id="VXl-L3-fgo"/>
                     <navigationItem key="navigationItem" id="lQV-Dr-fNH"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -1270,7 +1270,7 @@
                                         <rect key="frame" x="0.0" y="55" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbg-5A-v9q" id="gq8-vd-WOO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show starred" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSK-Ka-Wpk">
@@ -1435,10 +1435,11 @@
     </scenes>
     <resources>
         <image name="icon-add.png" width="20" height="20"/>
+        <image name="icon-bar-notifications.png" width="16" height="20"/>
+        <image name="icon-bar-overview.png" width="22" height="20"/>
+        <image name="icon-bar-profile.png" width="19" height="20"/>
         <image name="icon-cross-white.png" width="16" height="16"/>
         <image name="icon-cross.png" width="18" height="18"/>
-        <image name="icon-home.png" width="23" height="20"/>
-        <image name="icon-profile.png" width="19" height="20"/>
         <image name="icon-search.png" width="20" height="20"/>
         <image name="icon-settings-white.png" width="22" height="22"/>
         <image name="icon-share.png" width="18" height="20"/>
