@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PostSearchController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -18,7 +19,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     // Pagination variables
     let size = 21 // Amount of Posts to load next
-    var start = 1 // Starting index of the posts
+    var start = 0 // Starting index of the posts
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
     
@@ -46,7 +47,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         // Reset infinite loading variables
-        self.start = 1
+        self.start = 0
         self.reachedEnd = false
         
         self.apiService?.searchPosts(size: size, start: start,
@@ -90,8 +91,8 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         
         if let profileImage = cell.viewWithTag(204) as? UIImageView {
             let url = URL(string: (post.user?.profileImage)!)!
-            profileImage.contentMode = .scaleAspectFit
-            profileImage.af_setImage(withURL: url)
+            let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+            profileImage.af_setImage(withURL: url, filter: filter)
         }
         
         return cell

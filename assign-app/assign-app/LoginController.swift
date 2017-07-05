@@ -66,7 +66,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     }
                     
                     // Redirect to overview
-                    self.redirectViewController(identifier: "PostsTabBarController")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PostsTabBarController") as! UITabBarController
+                    vc.selectedIndex = 1
+                    self.present(vc, animated: true, completion: nil)
                     
                 } else {
                     

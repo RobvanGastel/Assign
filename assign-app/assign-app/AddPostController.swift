@@ -17,7 +17,10 @@ class AddPostController: UIViewController, UITextViewDelegate {
 
     // API service
     var apiService: ApiService?
-
+    
+    // Refreshing Posts delegate
+    weak var delegate: PostsRefreshDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Hides the keyboard when tapping on the screen
@@ -28,6 +31,11 @@ class AddPostController: UIViewController, UITextViewDelegate {
         
         // Initializes the delegate
         descriptionText.delegate = self
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// TextView Delegates manages the character limit and the counter
@@ -85,6 +93,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
                 if(success == true) {
                     // Navigate back to the previous view
+                    self.delegate?.refreshPosts()
                     self.navigationController?.popViewController(animated: true)
                     
                     // TODO Add SUCCESS message

@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view all the relevant posts.
-class PostsController: UITableViewController {
+class PostsController: UITableViewController, PostsRefreshDelegate {
     
     // Posts array for tableview
     var posts = [Post]()
@@ -20,7 +20,7 @@ class PostsController: UITableViewController {
     var start = 0 // Starting index of the posts
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
-
+    
     // API service
     var apiService: ApiService?
     
@@ -41,9 +41,9 @@ class PostsController: UITableViewController {
         }
         
         // Layout settings
-        let nib = UINib(nibName: "PostCellNib", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PostCell") // For NIB Cell
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        view.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
     }
@@ -52,6 +52,7 @@ class PostsController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
     }
 
     // MARK: - Table view with Posts
@@ -83,8 +84,8 @@ class PostsController: UITableViewController {
         
         if let profileImage = cell.viewWithTag(104) as? UIImageView {
             let url = URL(string: (post.user?.profileImage)!)!
-            profileImage.contentMode = .scaleAspectFit
-            profileImage.af_setImage(withURL: url)
+            let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+            profileImage.af_setImage(withURL: url, filter: filter)
         }
         
         return cell
@@ -94,28 +95,39 @@ class PostsController: UITableViewController {
     ///
     /// TODO Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PostDetailSegue" ,
+        if segue.identifier == "PostDetailSegue",
             let nextView = segue.destination as? PostDetailController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let post = posts[indexPath.row]
             nextView.currentPost = post
         }
+        
+        // If Add post segue add delegate
+        if segue.identifier == "PostAddSegue",
+            let nextView = segue.destination as? AddPostController {
+                nextView.delegate = self
+        }
     }
     
     /// Pull and refesh function on the tableView.
-    /// Starting values of size is 20 and start 1
     @IBAction func refreshAction(_ sender: Any) {
-        self.apiService?.getPosts(size: 21, start: 1) { posts in
+        self.refreshPosts()
+    }
+    
+    /// Refreshes the posts in the view.
+    /// Starting values of size is 20 and start 1.
+    func refreshPosts() {
+        // Reset infinite loading variables
+        self.start = 0
+        self.reachedEnd = false
+        
+        self.apiService?.getPosts(size: 21, start: start) { posts in
             
             // TODO add Data to Core Data as cache
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
-            
-            // Reset infinite loading variables
-            self.start = 0
-            self.reachedEnd = false
         }
     }
     

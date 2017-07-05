@@ -28,6 +28,18 @@
 		B2D37C6D1F09391900C3A0BA /* icon-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C691F09391900C3A0BA /* icon-twitter@2x.png */; };
 		B2D37C6E1F09391900C3A0BA /* icon-phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C6A1F09391900C3A0BA /* icon-phone@2x.png */; };
 		B2E010D61F097B18008AF890 /* icon-settings-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E010D51F097B18008AF890 /* icon-settings-white@2x.png */; };
+		B2E801101F0AF8B70005980B /* icon-cross-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8010F1F0AF8B70005980B /* icon-cross-white@2x.png */; };
+		B2E801161F0B7E800005980B /* app-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E801151F0B7E800005980B /* app-logo@2x.png */; };
+		B2E801211F0C1D780005980B /* icon-bar-profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E801171F0C1D780005980B /* icon-bar-profile@2x.png */; };
+		B2E801221F0C1D780005980B /* icon-bar-notifications@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E801181F0C1D780005980B /* icon-bar-notifications@2x.png */; };
+		B2E801231F0C1D780005980B /* icon-bar-add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E801191F0C1D780005980B /* icon-bar-add@2x.png */; };
+		B2E801241F0C1D780005980B /* icon-bar-search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011A1F0C1D780005980B /* icon-bar-search@2x.png */; };
+		B2E801251F0C1D780005980B /* icon-bar-add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011B1F0C1D780005980B /* icon-bar-add@3x.png */; };
+		B2E801261F0C1D780005980B /* icon-bar-notifications@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011C1F0C1D780005980B /* icon-bar-notifications@3x.png */; };
+		B2E801271F0C1D780005980B /* icon-bar-profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011D1F0C1D780005980B /* icon-bar-profile@3x.png */; };
+		B2E801281F0C1D780005980B /* icon-bar-search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011E1F0C1D780005980B /* icon-bar-search@3x.png */; };
+		B2E801291F0C1D780005980B /* icon-bar-overview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011F1F0C1D780005980B /* icon-bar-overview@2x.png */; };
+		B2E8012A1F0C1D780005980B /* icon-bar-overview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E801201F0C1D780005980B /* icon-bar-overview@3x.png */; };
 		D41955791ECF023C009575DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955781ECF023C009575DE /* AuthService.swift */; };
 		D419557B1ECF0367009575DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557A1ECF0367009575DE /* Storage.swift */; };
 		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
@@ -41,6 +53,9 @@
 		D45D2FF41F02D485002FEBE7 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FF21F02D485002FEBE7 /* Add.swift */; };
 		D45D2FF51F02D485002FEBE7 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FF31F02D485002FEBE7 /* Input.swift */; };
 		D45D2FF71F02E8FF002FEBE7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FF61F02E8FF002FEBE7 /* View.swift */; };
+		D4C55DEB1F0A8FF00029E285 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEA1F0A8FF00029E285 /* UIImage.swift */; };
+		D4C55DED1F0AC3F10029E285 /* PostsRefreshDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */; };
+		D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DF01F0AFFBB0029E285 /* UIButton.swift */; };
 		D4C828761F03A59200A87D40 /* DateAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828751F03A59200A87D40 /* DateAgo.swift */; };
 		D4C828781F0445B800A87D40 /* PostSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828771F0445B800A87D40 /* PostSearchController.swift */; };
 		D4C8287A1F0501F000A87D40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828791F0501F000A87D40 /* TabBarController.swift */; };
@@ -80,6 +95,18 @@
 		B2D37C691F09391900C3A0BA /* icon-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter@2x.png"; sourceTree = "<group>"; };
 		B2D37C6A1F09391900C3A0BA /* icon-phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone@2x.png"; sourceTree = "<group>"; };
 		B2E010D51F097B18008AF890 /* icon-settings-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings-white@2x.png"; sourceTree = "<group>"; };
+		B2E8010F1F0AF8B70005980B /* icon-cross-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross-white@2x.png"; sourceTree = "<group>"; };
+		B2E801151F0B7E800005980B /* app-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-logo@2x.png"; sourceTree = "<group>"; };
+		B2E801171F0C1D780005980B /* icon-bar-profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-profile@2x.png"; sourceTree = "<group>"; };
+		B2E801181F0C1D780005980B /* icon-bar-notifications@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-notifications@2x.png"; sourceTree = "<group>"; };
+		B2E801191F0C1D780005980B /* icon-bar-add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-add@2x.png"; sourceTree = "<group>"; };
+		B2E8011A1F0C1D780005980B /* icon-bar-search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-search@2x.png"; sourceTree = "<group>"; };
+		B2E8011B1F0C1D780005980B /* icon-bar-add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-add@3x.png"; sourceTree = "<group>"; };
+		B2E8011C1F0C1D780005980B /* icon-bar-notifications@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-notifications@3x.png"; sourceTree = "<group>"; };
+		B2E8011D1F0C1D780005980B /* icon-bar-profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-profile@3x.png"; sourceTree = "<group>"; };
+		B2E8011E1F0C1D780005980B /* icon-bar-search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-search@3x.png"; sourceTree = "<group>"; };
+		B2E8011F1F0C1D780005980B /* icon-bar-overview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-overview@2x.png"; sourceTree = "<group>"; };
+		B2E801201F0C1D780005980B /* icon-bar-overview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-overview@3x.png"; sourceTree = "<group>"; };
 		CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.debug.xcconfig"; sourceTree = "<group>"; };
 		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -95,6 +122,9 @@
 		D45D2FF21F02D485002FEBE7 /* Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
 		D45D2FF31F02D485002FEBE7 /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		D45D2FF61F02E8FF002FEBE7 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		D4C55DEA1F0A8FF00029E285 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsRefreshDelegate.swift; sourceTree = "<group>"; };
+		D4C55DF01F0AFFBB0029E285 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		D4C828751F03A59200A87D40 /* DateAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAgo.swift; sourceTree = "<group>"; };
 		D4C828771F0445B800A87D40 /* PostSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSearchController.swift; sourceTree = "<group>"; };
 		D4C828791F0501F000A87D40 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -206,6 +236,9 @@
 			children = (
 				D45D2FF01F02CBA0002FEBE7 /* UIController.swift */,
 				D4C828751F03A59200A87D40 /* DateAgo.swift */,
+				D4C55DEA1F0A8FF00029E285 /* UIImage.swift */,
+				D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */,
+				D4C55DF01F0AFFBB0029E285 /* UIButton.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -236,6 +269,18 @@
 		D4EB70B01ED1E57B003895C4 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B2E801151F0B7E800005980B /* app-logo@2x.png */,
+				B23E560A1F0027D90026B05C /* logo-trans@2x.png */,
+				B2E8011D1F0C1D780005980B /* icon-bar-profile@3x.png */,
+				B2E801171F0C1D780005980B /* icon-bar-profile@2x.png */,
+				B2E8011C1F0C1D780005980B /* icon-bar-notifications@3x.png */,
+				B2E801181F0C1D780005980B /* icon-bar-notifications@2x.png */,
+				B2E8011B1F0C1D780005980B /* icon-bar-add@3x.png */,
+				B2E801191F0C1D780005980B /* icon-bar-add@2x.png */,
+				B2E8011E1F0C1D780005980B /* icon-bar-search@3x.png */,
+				B2E8011A1F0C1D780005980B /* icon-bar-search@2x.png */,
+				B2E801201F0C1D780005980B /* icon-bar-overview@3x.png */,
+				B2E8011F1F0C1D780005980B /* icon-bar-overview@2x.png */,
 				B2D37C671F09391900C3A0BA /* icon-facebook@2x.png */,
 				B2D37C681F09391900C3A0BA /* icon-mail@2x.png */,
 				B2D37C691F09391900C3A0BA /* icon-twitter@2x.png */,
@@ -246,9 +291,9 @@
 				B2D37C5F1F07DDFA00C3A0BA /* icon-share@2x.png */,
 				B2D37C601F07DDFA00C3A0BA /* icon-add@2x.png */,
 				B2D37C611F07DDFA00C3A0BA /* icon-search@2x.png */,
-				B23E560A1F0027D90026B05C /* logo-trans@2x.png */,
 				B277111F1EC8F7CD001D2382 /* profile@2x.jpg */,
 				B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */,
+				B2E8010F1F0AF8B70005980B /* icon-cross-white@2x.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -359,16 +404,28 @@
 				20CC17D41E17E1DB006D5A13 /* LaunchScreen.storyboard in Resources */,
 				B2D37C631F07DDFA00C3A0BA /* icon-back@2x.png in Resources */,
 				B2D37C641F07DDFA00C3A0BA /* icon-share@2x.png in Resources */,
+				B2E801101F0AF8B70005980B /* icon-cross-white@2x.png in Resources */,
+				B2E801271F0C1D780005980B /* icon-bar-profile@3x.png in Resources */,
 				B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */,
+				B2E801241F0C1D780005980B /* icon-bar-search@2x.png in Resources */,
 				B2D37C6D1F09391900C3A0BA /* icon-twitter@2x.png in Resources */,
+				B2E801251F0C1D780005980B /* icon-bar-add@3x.png in Resources */,
 				B2D37C661F07DDFA00C3A0BA /* icon-search@2x.png in Resources */,
 				B2D37C6C1F09391900C3A0BA /* icon-mail@2x.png in Resources */,
+				B2E801221F0C1D780005980B /* icon-bar-notifications@2x.png in Resources */,
+				B2E801261F0C1D780005980B /* icon-bar-notifications@3x.png in Resources */,
 				B2D37C651F07DDFA00C3A0BA /* icon-add@2x.png in Resources */,
 				B2D37C6E1F09391900C3A0BA /* icon-phone@2x.png in Resources */,
 				B2E010D61F097B18008AF890 /* icon-settings-white@2x.png in Resources */,
+				B2E801231F0C1D780005980B /* icon-bar-add@2x.png in Resources */,
+				B2E801291F0C1D780005980B /* icon-bar-overview@2x.png in Resources */,
 				B2D37C6B1F09391900C3A0BA /* icon-facebook@2x.png in Resources */,
 				20CC17D11E17E1DB006D5A13 /* Assets.xcassets in Resources */,
+				B2E8012A1F0C1D780005980B /* icon-bar-overview@3x.png in Resources */,
+				B2E801211F0C1D780005980B /* icon-bar-profile@2x.png in Resources */,
 				20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */,
+				B2E801281F0C1D780005980B /* icon-bar-search@3x.png in Resources */,
+				B2E801161F0B7E800005980B /* app-logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +486,8 @@
 			files = (
 				D45D2FF51F02D485002FEBE7 /* Input.swift in Sources */,
 				D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */,
+				D4C55DED1F0AC3F10029E285 /* PostsRefreshDelegate.swift in Sources */,
+				D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */,
 				D45D2FEF1F01ADD1002FEBE7 /* AddPostController.swift in Sources */,
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
@@ -448,6 +507,7 @@
 				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,
 				D45D2FF41F02D485002FEBE7 /* Add.swift in Sources */,
 				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
+				D4C55DEB1F0A8FF00029E285 /* UIImage.swift in Sources */,
 				D4C828761F03A59200A87D40 /* DateAgo.swift in Sources */,
 				D4C8287A1F0501F000A87D40 /* TabBarController.swift in Sources */,
 				D4EEFB001ED1EA610085571B /* PostsController.swift in Sources */,
@@ -585,7 +645,7 @@
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.apple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
@@ -605,7 +665,7 @@
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.apple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
