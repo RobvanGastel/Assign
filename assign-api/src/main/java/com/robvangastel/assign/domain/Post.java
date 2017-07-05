@@ -2,7 +2,7 @@ package com.robvangastel.assign.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -27,12 +27,13 @@ import java.util.regex.Pattern;
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
+@JsonSerialize(using = PostSerializer.class)
 public class Post implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Hashtag regex
+     * Hashtag parse regex
      */
     private static final String HASHTAG_REGEX = "^#\\w+([.]?\\w+)*|\\s#\\w+([.]?\\w+)*";
 
@@ -44,6 +45,8 @@ public class Post implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Reply> replies;
 
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -76,6 +79,8 @@ public class Post implements Serializable {
         this.done = false;
 
         List<String> hashtags = new ArrayList<>();
+
+
         Pattern HASHTAG_PATTERN = Pattern.compile(HASHTAG_REGEX);
         Matcher matcher = HASHTAG_PATTERN.matcher(description);
         while (matcher.find()) {

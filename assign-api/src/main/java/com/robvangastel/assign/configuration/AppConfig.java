@@ -1,9 +1,6 @@
 package com.robvangastel.assign.configuration;
 
-import com.robvangastel.assign.controllers.AuthController;
-import com.robvangastel.assign.controllers.ImageController;
-import com.robvangastel.assign.controllers.PostController;
-import com.robvangastel.assign.controllers.UserController;
+import com.robvangastel.assign.controllers.*;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
@@ -47,5 +44,6 @@ public class AppConfig extends Application {
         resources.add(ImageController.class);
         resources.add(PostController.class);
         resources.add(UserController.class);
+        resources.add(ReplyController.class);
     }
 }

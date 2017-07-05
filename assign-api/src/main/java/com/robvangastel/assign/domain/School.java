@@ -12,23 +12,18 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- *
- * @author Rob van Gastel
+ * Created by Rob on 4-7-2017.
  */
-
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class SocialChannels implements Serializable {
+public class School implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String TwitterId;
-    private String FacebookId;
 }
