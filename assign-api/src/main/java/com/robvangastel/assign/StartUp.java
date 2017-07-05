@@ -31,9 +31,9 @@ public class StartUp {
 	@PostConstruct
 	public void initData() {
 		try {
-			User admin = userService.create(new User("admin@mail.nl", "admin", "Jan Pieter", "20"));
-			User max = userService.create(new User("max@mail.nl", "max", "Max Wammels", "20"));
-			User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", "20"));
+			User admin = userService.create(new User("admin@mail.nl", "admin", "Jan Pieter"));
+			User max = userService.create(new User("max@mail.nl", "max", "Max Wammels"));
+			User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger"));
 
 			postService.create(new Post(max, "Hoe werkt centreren in CSS?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec #eleifend ligula enim, #in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));
 			postService.create(new Post(admin, "Hoe zet ik Java EE7 op?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula enim, in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));

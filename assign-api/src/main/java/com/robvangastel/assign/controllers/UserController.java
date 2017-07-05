@@ -106,7 +106,7 @@ public class UserController {
 					 @QueryParam("password") String password,
 					 @QueryParam("name") String name,
 					 @QueryParam("code") String code) throws Exception {
-		User user = userService.create(new User(email, password, name, code));
+		User user = userService.create(new User(email, password, name));
 		if(user == null) {
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		}

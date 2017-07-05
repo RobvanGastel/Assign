@@ -1,18 +1,21 @@
 package com.robvangastel.assign.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.List;
 
 /**
- * Created by Rob on 4-7-2017.
+ *
+ * @author Rob van Gastel
  */
 @Entity
 @Data
@@ -26,4 +29,27 @@ public class School implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Study> studies;
+
+    private String name;
+    private String schoolCode;
+
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    @Column(nullable = false)
+    private Timestamp dateCreated;
+
+    public School(String schoolCode, String name) {
+        this.schoolCode = schoolCode;
+        this.name = name;
+    }
+    /***
+     * Before presist creates the date created of the response.
+     */
+    @PrePersist
+    public void beforePersist(){
+        this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+    }
 }

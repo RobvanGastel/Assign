@@ -1,7 +1,7 @@
 package com.robvangastel.assign.dao;
 
 import com.robvangastel.assign.domain.Reply;
-import com.robvangastel.assign.exception.ResponseException;
+import com.robvangastel.assign.exception.ReplyException;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public interface IReplyDao {
      * @param entity Reply to create
      * @return Created Reply
      */
-    Reply create(Reply entity) throws ResponseException;
+    Reply create(Reply entity) throws ReplyException;
 
     /***
      * Update Reply with the id
@@ -58,11 +58,11 @@ public interface IReplyDao {
      * Delete Reply
      * @param entity Reply to delete
      */
-    void delete(Reply entity) throws ResponseException;
+    void delete(Reply entity) throws ReplyException;
 
     /***
      * Delete Reply by id
      * @param id id of the Reply
      */
-    void deleteById(long id) throws ResponseException;
+    void deleteById(long id) throws ReplyException;
 }

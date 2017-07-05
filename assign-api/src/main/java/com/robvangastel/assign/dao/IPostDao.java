@@ -59,7 +59,7 @@ public interface IPostDao {
      * Update Post with the same id
      * @param entity User to update
      * @return Post updated or Null when
-     * the user wasn't found
+     * the Post wasn't found
      */
     Post update(Post entity);
 

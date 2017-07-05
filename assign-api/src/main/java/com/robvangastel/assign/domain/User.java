@@ -42,9 +42,12 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String role;
 
-    @JsonIgnore
     @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Post> posts = new ArrayList<>();
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Study study;
+    private String studyName;
 
     @LazyCollection(LazyCollectionOption.TRUE)
     @OneToMany(cascade = CascadeType.PERSIST)
@@ -64,8 +67,6 @@ public class User implements Serializable {
     private String password;
     private String name;
     private String profileImage;
-    private String schoolCode;
-    private String study;
 
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
     @Column(nullable = false)
@@ -80,19 +81,19 @@ public class User implements Serializable {
      * @param email
      * @param password
      * @param name
-     * @param schoolCode
      * @param study
+     * @param studyName
      * @param tags
      * @param socialLink
      */
-    public User(String email, String password, String name, String schoolCode,
-                String study, List<String> tags, SocialLink socialLink) {
+    public User(String email, String password, String name, Study study,
+                String studyName, List<String> tags, SocialLink socialLink) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.name = name;
-        this.schoolCode = schoolCode;
         this.study = study;
+        this.studyName = studyName;
         this.tags = tags;
         this.socialLink = socialLink;
         this.profileImage = "default.png";
@@ -105,14 +106,12 @@ public class User implements Serializable {
      * @param email
      * @param password
      * @param name
-     * @param schoolCode
      */
-    public User(String email, String password, String name, String schoolCode) {
+    public User(String email, String password, String name) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.name = name;
-        this.schoolCode = schoolCode;
         this.profileImage = "default.png";
 
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
@@ -138,24 +137,5 @@ public class User implements Serializable {
      */
     public void setRole(Role role) {
         this.role = role.toString();
-    }
-
-    /***
-     * these methods have the @JsonIgnore so it doesnt return this hash in
-     * the controllers.
-     */
-    @JsonIgnore
-    public String getPassword() {
-        return this.password;
-    }
-
-    @JsonIgnore
-    public List<Reply> getReplies() {
-        return this.replies;
-    }
-
-    @JsonIgnore
-    public List<Post> getPosts() {
-        return this.posts;
     }
 }

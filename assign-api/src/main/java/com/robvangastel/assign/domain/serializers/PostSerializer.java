@@ -1,8 +1,9 @@
-package com.robvangastel.assign.domain;
+package com.robvangastel.assign.domain.serializers;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.robvangastel.assign.domain.Post;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

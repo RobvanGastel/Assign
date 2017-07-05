@@ -3,6 +3,7 @@ package com.robvangastel.assign.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.robvangastel.assign.domain.serializers.PostSerializer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -79,7 +80,6 @@ public class Post implements Serializable {
         this.done = false;
 
         List<String> hashtags = new ArrayList<>();
-
 
         Pattern HASHTAG_PATTERN = Pattern.compile(HASHTAG_REGEX);
         Matcher matcher = HASHTAG_PATTERN.matcher(description);

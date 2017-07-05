@@ -1,18 +1,16 @@
 package com.robvangastel.assign.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -21,7 +19,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class SocialLink implements Serializable {
+public class Study implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,8 +27,14 @@ public class SocialLink implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String twitterId;
-    private String facebook;
-    private String phonenumber;
-    private String email;
+    @Column(unique = true)
+    private String name;
+
+    @JsonManagedReference
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private School school;
+
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<User> studenten;
 }

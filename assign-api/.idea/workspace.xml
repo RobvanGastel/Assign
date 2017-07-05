@@ -13,55 +13,93 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <file leaf-file-name="ISchoolDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/ISchoolDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="1190">
+              <caret line="70" column="20" lean-forward="false" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
               <folding>
-                <marker date="1499082377916" expanded="true" signature="408:414" ph="/**...*/" />
-                <marker date="1499082377916" expanded="true" signature="853:1010" ph="SELECT * FRO... Post" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java">
+      <file leaf-file-name="SchoolDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/SchoolDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="51" column="46" lean-forward="true" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2371#2372#0" expanded="true" />
+                <element signature="e#2398#2399#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Study.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Study.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostSerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/PostSerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SchoolService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/SchoolService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
-              <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+              <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
               <folding>
-                <marker date="1499080285822" expanded="true" signature="633:639" ph="/**...*/" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserSerializer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/UserSerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+                <element signature="e#442#443#0" expanded="true" />
+                <element signature="e#489#490#0" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IReplyDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IReplyDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,6 +127,7 @@
       <find>context</find>
       <find>uriInfo</find>
       <find>securityContext</find>
+      <find>post</find>
     </findStrings>
     <replaceStrings>
       <replace>Post</replace>
@@ -102,57 +141,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/crypto/bcrypt/BCryptPasswordEncoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/crypto/plain/PlainPasswordEncoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/crypto/PasswordEncoderProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/UserPrincipal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/jwt/JwtUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/jwt/JwtHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/IdToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/AuthenticationException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/AuthService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Tag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/SwaggerJaxrsConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/CorsFeature.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/JAXRSApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/CORSFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/JAXRSApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/jaxrsConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/JaxrsConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/bean.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/SwaggerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/Key.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/filter/KeyFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Role.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/Secured.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/filter/AuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/filter/AuthorizationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/PostException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/UserException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/GenericExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/SocialChannels.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ErrorMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/Credentials.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/ImageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/AuthController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/AbstractDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IPostDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/SocialLinks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Response.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/UserException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ResponseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IResponseDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/ResponseDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/ResponseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Reply.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/xdsadas.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/AppConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ReplyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/ReplyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/PostSerializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ResponseException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ReplyException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IPostDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/SchoolException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/ReplyDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/PostSerializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/SocialLink.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/SchoolCodeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/SCodeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/CodeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/ISchoolDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/School.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/SchoolDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Study.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IReplyDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/SchoolService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/UserSerializer.java" />
       </list>
     </option>
   </component>
@@ -170,8 +209,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
+    <option name="x" value="-10" />
+    <option name="width" value="1226" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -220,8 +259,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -405,6 +442,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="serializers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -473,15 +544,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configuration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1078,10 +1181,13 @@
       <workItem from="1498574634352" duration="77000" />
       <workItem from="1498671998659" duration="2690000" />
       <workItem from="1498858359408" duration="30367000" />
+      <workItem from="1499075639108" duration="33199000" />
+      <workItem from="1499251185020" duration="16548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="210686000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1093,7 +1199,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-10" y="0" width="1226" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1121,7 +1227,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27427962" sideWeight="0.6565762" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32045928" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.253719" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1151,114 +1257,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/assign-api-1.0-SNAPSHOT/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/assign-api-1.0-SNAPSHOT/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/crypto/bcrypt/BCrypt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="60" column="13" lean-forward="false" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/swagger-oauth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/underscore-min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/swagger-ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40528">
-          <caret line="2108" column="39" lean-forward="false" selection-start-line="2108" selection-start-column="39" selection-end-line="2108" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/o2c.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/Key.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/filter/KeyFilter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/jwt/JwtUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/IdToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/jwt/JwtHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/UserPrincipal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1315,20 +1313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/UserException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/SocialChannels.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/GenericExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1336,31 +1320,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/PostException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/AuthenticationException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ErrorMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1394,14 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/AbstractDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/CORSFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1409,54 +1364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="43" lean-forward="false" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="47" column="39" lean-forward="false" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IPostDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="79" column="32" lean-forward="true" selection-start-line="79" selection-start-column="32" selection-end-line="81" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="91" column="39" lean-forward="false" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1469,38 +1380,294 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ErrorMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+        <state relative-caret-position="204">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/UserException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/PostException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar!/javax/ws/rs/WebApplicationException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/AbstractDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/xdsadas.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+        <state relative-caret-position="441">
+          <caret line="78" column="65" lean-forward="true" selection-start-line="78" selection-start-column="65" selection-end-line="80" selection-end-column="79" />
           <folding>
-            <marker date="1499080285822" expanded="true" signature="633:639" ph="/**...*/" />
+            <marker date="1499196534644" expanded="true" signature="633:639" ph="/**...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ReplyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#466#467#0" expanded="false" />
+            <element signature="e#533#534#0" expanded="false" />
+            <element signature="e#592#593#0" expanded="false" />
+            <element signature="e#659#660#0" expanded="false" />
+            <element signature="e#718#719#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/ReplyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/configuration/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ReplyException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="13" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/SchoolException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="22" />
+          <folding>
+            <marker date="1498923820105" expanded="true" signature="352:358" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/ReplyDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/SocialLink.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Reply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="37" column="34" lean-forward="true" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+        <state relative-caret-position="83">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/ISchoolDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="20" lean-forward="false" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/CodeGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/School.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="36" column="24" lean-forward="false" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IPostDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="54" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/SchoolDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="51" column="46" lean-forward="true" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2371#2372#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Study.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="101" column="24" lean-forward="true" selection-start-line="101" selection-start-column="24" selection-end-line="101" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="204">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="47" selection-end-column="33" />
           <folding>
             <marker date="1499082377916" expanded="true" signature="408:414" ph="/**...*/" />
             <marker date="1499082377916" expanded="true" signature="853:1010" ph="SELECT * FRO... Post" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="93" lean-forward="false" selection-start-line="35" selection-start-column="93" selection-end-line="35" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IReplyDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/SchoolService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/PostSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/UserSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
           </folding>
         </state>
       </provider>

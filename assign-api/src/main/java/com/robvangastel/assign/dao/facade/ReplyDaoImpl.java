@@ -3,7 +3,7 @@ package com.robvangastel.assign.dao.facade;
 import com.robvangastel.assign.dao.AbstractDao;
 import com.robvangastel.assign.dao.IReplyDao;
 import com.robvangastel.assign.domain.Reply;
-import com.robvangastel.assign.exception.ResponseException;
+import com.robvangastel.assign.exception.ReplyException;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -47,7 +47,7 @@ public class ReplyDaoImpl extends AbstractDao<Reply> implements IReplyDao {
     }
 
     @Override
-    public Reply create(Reply entity) throws ResponseException {
+    public Reply create(Reply entity) throws ReplyException {
         entityManager.merge(entity);
         return entity;
 
