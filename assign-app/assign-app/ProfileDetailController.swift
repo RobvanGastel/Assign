@@ -14,7 +14,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIProfile!
     
-    @IBOutlet weak var backImage: UIImageView!
+    @IBOutlet weak var backImage: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     

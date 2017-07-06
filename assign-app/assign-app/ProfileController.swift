@@ -16,7 +16,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var settingsImage: UIImageView!
+    @IBOutlet weak var settingsImage: UIButton!
     
     // The API service
     var apiService: ApiService?

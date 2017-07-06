@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// Standard classes
 class UIOverview: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,6 +56,17 @@ class UIDate: UILabel {
 }
 
 
+// Detail page classes
+class UIOverviewDetail: UIView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.borderWidth = 1
+        layer.cornerRadius = 12
+        layer.borderColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+}
+
 class UIProfileDetail: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -69,5 +82,17 @@ class UIDescriptionDetail: UILabel {
         super.awakeFromNib()
         
         self.textColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+    }
+}
+
+
+// Profile page classes
+class UIProfilePage: UIImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer.cornerRadius = 32
+        self.layer.masksToBounds = true
+        self.image = #imageLiteral(resourceName: "profile.jpg")
     }
 }
