@@ -86,7 +86,6 @@ public class User implements Serializable {
      * @param name
      * @param study
      * @param studyName
-     * @param tags
      * @param socialLink
      */
     public User(String email, String password, String name, Study study,

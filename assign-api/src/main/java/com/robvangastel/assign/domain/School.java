@@ -2,6 +2,9 @@ package com.robvangastel.assign.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.robvangastel.assign.domain.serializers.SchoolSerializer;
+import com.robvangastel.assign.domain.serializers.SchoolSerializerextends;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,6 +25,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonSerialize( using = SchoolSerializer.class)
 public class School implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,7 +38,10 @@ public class School implements Serializable {
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Study> studies;
 
+    @Column(unique = true)
     private String name;
+
+    @Column(unique = true)
     private String schoolCode;
 
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
@@ -50,9 +57,5 @@ public class School implements Serializable {
     @PrePersist
     public void beforePersist(){
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
-    }
-
-    public void addStudy(Study study) {
-        studies.add(study);
     }
 }

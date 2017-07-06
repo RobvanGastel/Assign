@@ -13,7 +13,7 @@ import java.util.List;
 public interface ISchoolDao {
 
     /***
-     * Find Post by id
+     * Find School by id
      * @param id
      * @return Found School or Null when
      * the School isn't found
@@ -39,6 +39,15 @@ public interface ISchoolDao {
     List<User> findUsersBySchool(long id, int start, int size);
 
     /***
+     * Find Studies by school
+     * @param id
+     * @param start of the list
+     * @param size of the list
+     * @return Found Studies
+     */
+    List<Study> findStudiesBySchool(long id, int start, int size);
+
+    /***
      * Users by school and study
      * @param id
      * @param start of the list
@@ -54,6 +63,14 @@ public interface ISchoolDao {
      * @return boolean indicating true or false
      */
     boolean isCodeUsed(String code);
+
+    /***
+     * Check if the study already exists in that school
+     * @param id of the school
+     * @param study name of the study
+     * @return boolean indicating true or false
+     */
+    boolean doesStudyAlreadyExist(Long id, String study);
 
     /***
      * Create a School

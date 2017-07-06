@@ -55,7 +55,6 @@ public class UserSerializer extends StdSerializer<User> {
 
         if(user.getSocialLink() != null) {
             jgen.writeObjectFieldStart("socialLink");
-            jgen.writeNumberField("id", user.getSocialLink().getId());
             jgen.writeStringField("twitter", user.getSocialLink().getTwitter());
             jgen.writeStringField("facebook", user.getSocialLink().getFacebook());
             jgen.writeStringField("phonenumber", user.getSocialLink().getPhonenumber());

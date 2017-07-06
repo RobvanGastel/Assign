@@ -39,7 +39,11 @@ public class StartUp {
 
 			User admin = userService.create(new User("admin@mail.nl", "admin", "Jan Pieter", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
 			User max = userService.create(new User("max@mail.nl", "max", "Max Wammels", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
-			User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", new SocialLink("TwetenKoningRob", "FacebookJoepie", "06123123")));
+
+			SocialLink social = new SocialLink();
+			social.setTwitter("TwitterKoning");
+
+			User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", social));
 
 			postService.create(new Post(max, "Hoe werkt centreren in CSS?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec #eleifend ligula enim, #in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));
 			postService.create(new Post(admin, "Hoe zet ik Java EE7 op?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula enim, in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));
