@@ -65,10 +65,9 @@ public interface ISchoolDao {
     /***
      * Create a study for a school
      * @param entity
-     * @param study
      * @return created Study
      */
-    Study createStudy(School entity, Study study);
+    Study createStudy(Study entity);
 
     /***
      * Update School with the same id

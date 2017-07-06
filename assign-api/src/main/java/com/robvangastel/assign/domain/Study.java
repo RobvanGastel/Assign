@@ -37,4 +37,9 @@ public class Study implements Serializable {
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<User> studenten;
+
+    public Study(School school, String name) {
+        this.school = school;
+        this.name = name;
+    }
 }

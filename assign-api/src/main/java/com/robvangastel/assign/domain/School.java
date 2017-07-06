@@ -41,8 +41,7 @@ public class School implements Serializable {
     @Column(nullable = false)
     private Timestamp dateCreated;
 
-    public School(String schoolCode, String name) {
-        this.schoolCode = schoolCode;
+    public School(String name) {
         this.name = name;
     }
     /***
@@ -51,5 +50,9 @@ public class School implements Serializable {
     @PrePersist
     public void beforePersist(){
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
+    }
+
+    public void addStudy(Study study) {
+        studies.add(study);
     }
 }

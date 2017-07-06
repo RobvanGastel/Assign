@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.robvangastel.assign.domain.serializers.UserSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,6 +33,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonSerialize(using = UserSerializer.class)
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -87,14 +90,13 @@ public class User implements Serializable {
      * @param socialLink
      */
     public User(String email, String password, String name, Study study,
-                String studyName, List<String> tags, SocialLink socialLink) {
+                String studyName, SocialLink socialLink) {
         this.role = Role.USER.toString();
         this.email = email;
         this.password = password;
         this.name = name;
         this.study = study;
         this.studyName = studyName;
-        this.tags = tags;
         this.socialLink = socialLink;
         this.profileImage = "default.png";
 

@@ -1,8 +1,8 @@
 package com.robvangastel.assign;
 
-import com.robvangastel.assign.domain.Post;
-import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.domain.*;
 import com.robvangastel.assign.services.PostService;
+import com.robvangastel.assign.services.SchoolService;
 import com.robvangastel.assign.services.UserService;
 import org.jboss.logging.Logger;
 
@@ -28,12 +28,18 @@ public class StartUp {
 	@Inject
 	private PostService postService;
 
+	@Inject
+	private SchoolService schoolService;
+
 	@PostConstruct
 	public void initData() {
 		try {
-			User admin = userService.create(new User("admin@mail.nl", "admin", "Jan Pieter"));
-			User max = userService.create(new User("max@mail.nl", "max", "Max Wammels"));
-			User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger"));
+			School fontys = schoolService.create(new School("Fontys Tilburg"));
+			Study ict = schoolService.addStudy(fontys, "ICT");
+
+			User admin = userService.create(new User("admin@mail.nl", "admin", "Jan Pieter", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
+			User max = userService.create(new User("max@mail.nl", "max", "Max Wammels", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
+			User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", new SocialLink("TwetenKoningRob", "FacebookJoepie", "06123123")));
 
 			postService.create(new Post(max, "Hoe werkt centreren in CSS?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec #eleifend ligula enim, #in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));
 			postService.create(new Post(admin, "Hoe zet ik Java EE7 op?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula enim, in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));

@@ -29,8 +29,13 @@ public class SocialLink implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String twitterId;
+    private String twitter;
     private String facebook;
     private String phonenumber;
-    private String email;
+
+    public SocialLink(String twitter, String facebook, String phonenumber) {
+        this.twitter = twitter;
+        this.facebook = facebook;
+        this.phonenumber = phonenumber;
+    }
 }

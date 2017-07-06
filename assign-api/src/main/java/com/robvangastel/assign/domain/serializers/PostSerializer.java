@@ -55,8 +55,8 @@ public class PostSerializer extends StdSerializer<Post> {
         jgen.writeNumberField("id", post.getUser().getId());
         jgen.writeStringField("name", post.getUser().getName());
         jgen.writeStringField("email", post.getUser().getEmail());
-        jgen.writeStringField("dateCreated", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(post.getUser().getDateCreated()));
         jgen.writeStringField("profileImage", post.getUser().getProfileImage());
+        jgen.writeStringField("dateCreated", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(post.getUser().getDateCreated()));
         jgen.writeEndObject();
 
         jgen.writeBooleanField("done", post.isDone());
