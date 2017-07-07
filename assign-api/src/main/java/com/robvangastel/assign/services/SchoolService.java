@@ -45,12 +45,13 @@ public class SchoolService implements Serializable {
         if(!schoolDao.doesStudyAlreadyExist(entity.getId(), study)) {
 
             Study s = schoolDao.createStudy(new Study(entity, study));
-            entity.setStudies(s);
             schoolDao.update(entity);
 
         } else {
             throw new SchoolException("Study already exists");
         }
+
+        return null;
     }
 
     public School create(School entity) {

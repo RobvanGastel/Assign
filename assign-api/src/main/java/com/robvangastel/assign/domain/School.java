@@ -34,7 +34,7 @@ public class School implements Serializable {
     private Long id;
 
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "school", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Study> studies;
 
     @Column(unique = true)
