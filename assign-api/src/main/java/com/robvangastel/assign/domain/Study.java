@@ -30,7 +30,6 @@ public class Study implements Serializable {
     @Column(unique = true)
     private String name;
 
-    @JsonManagedReference
     @ManyToOne(cascade = CascadeType.PERSIST)
     private School school;
 

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.robvangastel.assign.domain.serializers.SchoolSerializer;
-import com.robvangastel.assign.domain.serializers.SchoolSerializerextends;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,7 +34,7 @@ public class School implements Serializable {
     private Long id;
 
     @JsonManagedReference
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Study> studies;
 
     @Column(unique = true)
