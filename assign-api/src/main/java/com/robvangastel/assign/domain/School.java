@@ -33,7 +33,6 @@ public class School implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "school", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Study> studies;
 

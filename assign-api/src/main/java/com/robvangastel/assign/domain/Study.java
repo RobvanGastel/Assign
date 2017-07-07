@@ -1,5 +1,6 @@
 package com.robvangastel.assign.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,9 +34,8 @@ public class Study implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private School school;
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<User> studenten;
+    @OneToMany(mappedBy = "study", cascade = CascadeType.PERSIST)
+    private List<User> students;
 
     public Study(School school, String name) {
         this.school = school;

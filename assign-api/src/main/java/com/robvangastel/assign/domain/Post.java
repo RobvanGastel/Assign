@@ -42,7 +42,6 @@ public class Post implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 

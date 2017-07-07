@@ -1,5 +1,6 @@
 package com.robvangastel.assign.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -45,15 +46,16 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String role;
 
-    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Post> posts = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Study study;
+
     private String studyName;
 
-    @LazyCollection(LazyCollectionOption.TRUE)
     @OneToMany(cascade = CascadeType.PERSIST)
+    @LazyCollection(LazyCollectionOption.TRUE)
     private List<Reply> replies = new ArrayList<>();
 
     @JsonManagedReference
