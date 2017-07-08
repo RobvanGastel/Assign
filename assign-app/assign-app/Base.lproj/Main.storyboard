@@ -474,7 +474,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="016-RM-dRN">
-                                <rect key="frame" x="4" y="44" width="406" height="579"/>
+                                <rect key="frame" x="4" y="49" width="406" height="574"/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -551,20 +551,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Zoeken..." translatesAutoresizingMaskIntoConstraints="NO" id="gXk-If-sV8">
-                                <rect key="frame" x="4" y="0.0" width="406" height="44"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Zoeken..." translatesAutoresizingMaskIntoConstraints="NO" id="gXk-If-sV8" customClass="UISearch" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="3" y="0.0" width="408" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="gXk-If-sV8" secondAttribute="trailing" constant="-16" id="8dy-BT-EwG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gXk-If-sV8" secondAttribute="trailing" constant="-17" id="8dy-BT-EwG"/>
                             <constraint firstItem="fWf-eC-tT2" firstAttribute="top" secondItem="016-RM-dRN" secondAttribute="bottom" id="9wS-JQ-Cxs"/>
                             <constraint firstItem="016-RM-dRN" firstAttribute="centerX" secondItem="9qL-rU-jXU" secondAttribute="centerX" id="B5j-wp-Bjv"/>
-                            <constraint firstItem="gXk-If-sV8" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leadingMargin" constant="-16" id="GZk-BP-MIz"/>
-                            <constraint firstItem="016-RM-dRN" firstAttribute="top" secondItem="gXk-If-sV8" secondAttribute="bottom" id="J3F-O8-HM5"/>
-                            <constraint firstItem="016-RM-dRN" firstAttribute="top" secondItem="5SM-bX-Y12" secondAttribute="bottom" constant="44" id="J7l-rt-GHd"/>
+                            <constraint firstItem="gXk-If-sV8" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leadingMargin" constant="-17" id="GZk-BP-MIz"/>
+                            <constraint firstItem="016-RM-dRN" firstAttribute="top" secondItem="gXk-If-sV8" secondAttribute="bottom" constant="5" id="J3F-O8-HM5"/>
                             <constraint firstItem="016-RM-dRN" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leadingMargin" constant="-16" id="Nf2-D5-Ki3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="016-RM-dRN" secondAttribute="trailing" constant="-16" id="Vur-c0-CzH"/>
                             <constraint firstItem="gXk-If-sV8" firstAttribute="top" secondItem="5SM-bX-Y12" secondAttribute="bottom" id="rJB-9q-cUw"/>
