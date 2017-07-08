@@ -19,6 +19,7 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     
+    
     // Provided data from the segue
     var currentPost:Post?
     
