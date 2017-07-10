@@ -676,7 +676,10 @@
                                 <rect key="frame" x="163" y="100" width="88" height="88"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53i-u4-Nce">
-                                <rect key="frame" x="44" y="682" width="326" height="29"/>
+                                <rect key="frame" x="44" y="688" width="326" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="qxa-8g-tbr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Nog geen account? Maak er een aan"/>
                                 <connections>
@@ -704,7 +707,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-BR-SIc">
-                                <rect key="frame" x="44" y="477" width="326" height="29"/>
+                                <rect key="frame" x="44" y="483" width="326" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="ffc-NM-OyG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Wachtwoord vergeten?"/>
                             </button>
@@ -718,11 +724,11 @@
                             <constraint firstItem="Qxf-gD-y79" firstAttribute="leading" secondItem="cy9-Tg-lhZ" secondAttribute="leadingMargin" constant="24" id="6qz-hB-NtY"/>
                             <constraint firstItem="gja-Qg-GvH" firstAttribute="centerY" secondItem="cy9-Tg-lhZ" secondAttribute="centerY" id="7b3-Vh-B4A"/>
                             <constraint firstItem="53i-u4-Nce" firstAttribute="leading" secondItem="cy9-Tg-lhZ" secondAttribute="leadingMargin" constant="24" id="8D7-3a-uJ1"/>
-                            <constraint firstItem="W9a-BR-SIc" firstAttribute="top" secondItem="Qxf-gD-y79" secondAttribute="bottom" constant="10" id="CQu-6U-H8Y"/>
+                            <constraint firstItem="W9a-BR-SIc" firstAttribute="top" secondItem="Qxf-gD-y79" secondAttribute="bottom" constant="16" id="CQu-6U-H8Y"/>
                             <constraint firstItem="53i-u4-Nce" firstAttribute="centerX" secondItem="cy9-Tg-lhZ" secondAttribute="centerX" id="JXN-0Y-p7X"/>
                             <constraint firstItem="W9a-BR-SIc" firstAttribute="leading" secondItem="cy9-Tg-lhZ" secondAttribute="leadingMargin" constant="24" id="Lyq-wt-FtR"/>
                             <constraint firstItem="xh9-3D-aSx" firstAttribute="centerX" secondItem="cy9-Tg-lhZ" secondAttribute="centerX" id="MVo-Xl-pAS"/>
-                            <constraint firstItem="53i-u4-Nce" firstAttribute="top" secondItem="DyZ-e1-3E0" secondAttribute="bottom" constant="10" id="PR2-BU-YsT"/>
+                            <constraint firstItem="53i-u4-Nce" firstAttribute="top" secondItem="DyZ-e1-3E0" secondAttribute="bottom" constant="16" id="PR2-BU-YsT"/>
                             <constraint firstItem="Qxf-gD-y79" firstAttribute="top" secondItem="pdI-A9-ifK" secondAttribute="bottom" constant="8" id="RR6-Eo-tZN"/>
                             <constraint firstItem="JHn-XL-XAM" firstAttribute="leading" secondItem="cy9-Tg-lhZ" secondAttribute="leadingMargin" constant="24" id="TIZ-Ub-dac"/>
                             <constraint firstItem="JHn-XL-XAM" firstAttribute="centerX" secondItem="cy9-Tg-lhZ" secondAttribute="centerX" id="VVh-pu-BxO"/>
@@ -806,7 +812,7 @@
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-0d-rSu">
-                                <rect key="frame" x="44" y="682" width="326" height="29"/>
+                                <rect key="frame" x="44" y="688" width="326" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Heb jij al een acount? Log in">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -886,7 +892,7 @@
                         <constraints>
                             <constraint firstItem="AK1-0d-rSu" firstAttribute="centerX" secondItem="6tX-ba-piB" secondAttribute="centerX" id="3Mp-jI-YjL"/>
                             <constraint firstItem="ctc-rh-Uxp" firstAttribute="top" secondItem="JCP-7b-5sE" secondAttribute="bottom" constant="8" id="5K0-sm-Lzv"/>
-                            <constraint firstItem="AK1-0d-rSu" firstAttribute="top" secondItem="p3g-Jv-acx" secondAttribute="bottom" constant="10" id="6ao-dt-F1J"/>
+                            <constraint firstItem="AK1-0d-rSu" firstAttribute="top" secondItem="p3g-Jv-acx" secondAttribute="bottom" constant="16" id="6ao-dt-F1J"/>
                             <constraint firstItem="Eyx-gB-HNi" firstAttribute="leading" secondItem="6tX-ba-piB" secondAttribute="leadingMargin" constant="24" id="9KX-x9-3TF"/>
                             <constraint firstItem="zi7-XQ-cK1" firstAttribute="centerX" secondItem="6tX-ba-piB" secondAttribute="centerX" id="FL5-IR-Trr"/>
                             <constraint firstItem="p3g-Jv-acx" firstAttribute="leading" secondItem="6tX-ba-piB" secondAttribute="leadingMargin" constant="24" id="Pgj-Hm-78m"/>
@@ -1295,10 +1301,10 @@
                             <tableViewSection headerTitle="Tags" footerTitle="Starred tags will be recognised by the orange labels in the overview." id="HuS-Jb-e7K">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="gbg-5A-v9q">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbg-5A-v9q" id="gq8-vd-WOO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show starred" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSK-Ka-Wpk">
@@ -1316,7 +1322,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="HUc-Zr-ChH" style="IBUITableViewCellStyleDefault" id="Rvh-Nn-nKD">
-                                        <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rvh-Nn-nKD" id="4eU-SI-E4J">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1333,7 +1339,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="Muq-Jv-ESn" style="IBUITableViewCellStyleDefault" id="f6X-96-CNA">
-                                        <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f6X-96-CNA" id="Ayc-85-YK8">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1354,7 +1360,7 @@
                             <tableViewSection headerTitle="Contact" footerTitle="This information will be shown to everybody who visits your profile." id="iBB-Hu-SbX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="nl0-bV-Wbs" style="IBUITableViewCellStyleDefault" id="rMY-n4-3Hj">
-                                        <rect key="frame" x="0.0" y="278.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="279" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rMY-n4-3Hj" id="7Iw-a6-flp">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -1371,7 +1377,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="T6r-pG-bsw" style="IBUITableViewCellStyleDefault" id="yqi-7U-09w">
-                                        <rect key="frame" x="0.0" y="322.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="323" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yqi-7U-09w" id="80s-zq-UnI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -1388,7 +1394,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="6ij-U5-Tto" style="IBUITableViewCellStyleDefault" id="ab5-dV-4sh">
-                                        <rect key="frame" x="0.0" y="366.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="367" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ab5-dV-4sh" id="16o-lo-GJU">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1405,7 +1411,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="O8J-Qa-Pmp" style="IBUITableViewCellStyleDefault" id="j9e-ZW-ACQ">
-                                        <rect key="frame" x="0.0" y="410.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="411" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j9e-ZW-ACQ" id="gLC-ZO-51O">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
@@ -1474,7 +1480,7 @@
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E9m-bu-7yT"/>
+        <segue reference="HVH-jN-rTZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
