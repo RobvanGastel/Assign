@@ -25,12 +25,12 @@ public class PostService implements Serializable {
         return postDao.findById(id);
     }
 
-    public List<Post> findAll(int start, int size) {
-        return postDao.findAll(start, size);
+    public List<Post> findAll(User user, int start, int size) {
+        return postDao.findAll(user, start, size);
     }
 
-    public List<Post> findByQuery(String query, int start, int size) {
-        return postDao.findByQuery(query, start, size);
+    public List<Post> findByQuery(User user, String query, int start, int size) {
+        return postDao.findByQuery(user, query, start, size);
     }
 
     public List<Post> findByUser(long id, int start, int size) {

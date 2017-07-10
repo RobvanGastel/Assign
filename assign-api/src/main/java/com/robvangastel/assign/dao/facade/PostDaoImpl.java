@@ -3,6 +3,7 @@ package com.robvangastel.assign.dao.facade;
 import com.robvangastel.assign.dao.AbstractDao;
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.PostException;
 
 import javax.ejb.Stateless;
@@ -28,13 +29,14 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> findByQuery(String query, int start, int size) {
+    public List<Post> findByQuery(User user, String query, int start, int size) {
         query = "%" + query + "%";
-        String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id WHERE p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";
+        String queryString = "SELECT * FROM Post p, Study s, School sc JOIN User u ON p.user_id = u.id WHERE u.study_id = s.id AND s.school_id = sc.id AND sc.id = :school AND p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";
         Query q = entityManager.createNativeQuery(queryString, Post.class)
                 .setFirstResult(start)
                 .setMaxResults(size)
-                .setParameter("query", query);
+                .setParameter("query", query)
+                .setParameter("school", user.getStudy().getSchool().getId());
         return q.getResultList();
     }
 
@@ -48,8 +50,9 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         return q.getResultList();
     }
 
+    @Override
     @SuppressWarnings("unchecked")
-    public List<Post> findAll(int start, int size) {
+    public List<Post> findAll(User user, int start, int size) {
         return entityManager.createQuery("from Post ORDER BY dateCreated DESC")
                 .setFirstResult(start)
                 .setMaxResults(size)

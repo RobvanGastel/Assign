@@ -1,6 +1,7 @@
 package com.robvangastel.assign.dao;
 
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.PostException;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface IPostDao {
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    List<Post> findByQuery(String query, int start, int size);
+    List<Post> findByQuery(User user, String query, int start, int size);
 
     /***
      * Find Post(s) by user
@@ -46,7 +47,7 @@ public interface IPostDao {
      * @param size of the list
      * @return all the Post(s) within the start and size
      */
-    List<Post> findAll(int start, int size);
+    List<Post> findAll(User user, int start, int size);
 
     /***
      * Create a Post

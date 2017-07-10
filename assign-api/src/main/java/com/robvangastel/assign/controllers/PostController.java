@@ -24,6 +24,7 @@ import java.util.List;
 
 @RequestScoped
 @Path("/posts")
+@Secured({Role.USER})
 @Api(tags = {"posts"}, value = "/posts", description = "Operations about posts")
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
@@ -47,7 +48,10 @@ public class PostController {
     public List<Post> get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return postService.findAll(start, size);
+
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        return postService.findAll(user, start, size);
     }
 
     /***
@@ -79,7 +83,10 @@ public class PostController {
     public Response getByQuery(@QueryParam("query") String query,
                                @DefaultValue("0") @QueryParam("start") int start,
                                @DefaultValue("20") @QueryParam("size") int size) {
-        List<Post> posts = postService.findByQuery(query, start, size);
+
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        List<Post> posts = postService.findByQuery(user, query, start, size);
 
         if(posts == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -95,7 +102,6 @@ public class PostController {
      * @throws Exception
      */
     @POST
-    @Secured({Role.USER})
     public Response create(@QueryParam("title") String title,
                            @QueryParam("description") String description) throws Exception {
 
@@ -110,7 +116,6 @@ public class PostController {
 
     @PUT
     @Path("/{id}")
-    @Secured({Role.USER})
     public Response setDone(@PathParam("id") long id) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
@@ -131,7 +136,6 @@ public class PostController {
      */
     @DELETE
     @Path("/{id}")
-    @Secured({Role.USER})
     public Response delete(@PathParam("id") long id) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);

@@ -28,7 +28,6 @@ public class Study implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
     private String name;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
