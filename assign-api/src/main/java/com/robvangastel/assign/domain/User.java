@@ -54,7 +54,7 @@ public class User implements Serializable {
 
     private String studyName;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     @LazyCollection(LazyCollectionOption.TRUE)
     private List<Reply> replies = new ArrayList<>();
 
