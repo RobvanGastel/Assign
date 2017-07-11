@@ -31,13 +31,13 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     public List<Post> findByQuery(User user, String query, int start, int size) {
         query = "%" + query + "%";
-        String queryString = "SELECT * FROM Post p, Study s, School sc JOIN User u ON p.user_id = u.id WHERE u.study_id = s.id AND s.school_id = sc.id AND sc.id = :school AND p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";
-        Query q = entityManager.createNativeQuery(queryString, Post.class)
+        String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN study s ON u.study_id = s.id JOIN school sc ON sc.id = s.school_id WHERE sc.id = :school AND p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";
+        return entityManager.createNativeQuery(queryString, Post.class)
                 .setFirstResult(start)
                 .setMaxResults(size)
                 .setParameter("query", query)
-                .setParameter("school", user.getStudy().getSchool().getId());
-        return q.getResultList();
+                .setParameter("school", user.getStudy().getSchool().getId())
+                .getResultList();
     }
 
     @Override
@@ -53,10 +53,12 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     @SuppressWarnings("unchecked")
     public List<Post> findAll(User user, int start, int size) {
-        return entityManager.createQuery("from Post ORDER BY dateCreated DESC")
-                .setFirstResult(start)
-                .setMaxResults(size)
-                .getResultList();
+        String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN study s ON u.study_id = s.id JOIN school sc ON sc.id = s.school_id WHERE s.id = :study ORDER BY p.dateCreated DESC";
+        return entityManager.createNativeQuery(queryString, Post.class)
+            .setFirstResult(start)
+            .setMaxResults(size)
+            .setParameter("study", user.getStudy().getId())
+            .getResultList();
     }
 
     @Override

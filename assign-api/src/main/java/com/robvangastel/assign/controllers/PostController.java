@@ -85,7 +85,6 @@ public class PostController {
                                @DefaultValue("20") @QueryParam("size") int size) {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-
         List<Post> posts = postService.findByQuery(user, query, start, size);
 
         if(posts == null) {
