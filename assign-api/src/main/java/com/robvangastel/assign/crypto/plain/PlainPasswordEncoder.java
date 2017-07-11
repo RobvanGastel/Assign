@@ -3,10 +3,9 @@ package com.robvangastel.assign.crypto.plain;
 import com.robvangastel.assign.crypto.PasswordEncoder;
 
 /**
- *
  * @author Rob van Gastel
  */
- 
+
 public class PlainPasswordEncoder implements PasswordEncoder {
 
     @Override

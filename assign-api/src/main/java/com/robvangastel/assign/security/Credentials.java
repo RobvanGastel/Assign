@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- *
  * @author Rob van Gastel
  */
 

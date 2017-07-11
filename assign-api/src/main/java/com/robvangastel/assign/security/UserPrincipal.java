@@ -6,7 +6,6 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 

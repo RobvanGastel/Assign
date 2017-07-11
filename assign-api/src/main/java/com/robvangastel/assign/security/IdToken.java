@@ -8,7 +8,6 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -21,7 +20,7 @@ public class IdToken implements Serializable {
 
     @JsonProperty("id_token")
     private String token;
-    
+
     public IdToken(String token) {
         this.token = token;
     }

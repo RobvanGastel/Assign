@@ -1,19 +1,13 @@
 package com.robvangastel.assign.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.robvangastel.assign.domain.serializers.UserSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -25,7 +19,6 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -73,11 +66,11 @@ public class User implements Serializable {
     private String name;
     private String profileImage;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     @Column(nullable = false)
     private Timestamp lastLoggedIn;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     @Column(nullable = false)
     private Timestamp dateCreated;
 
@@ -124,7 +117,7 @@ public class User implements Serializable {
      * Before presist creates the date the user is created.
      */
     @PrePersist
-    public void beforePersist(){
+    public void beforePersist() {
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 

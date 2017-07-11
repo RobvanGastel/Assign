@@ -5,17 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
  * @author Rob van Gastel
  */
 
- @Data
- @NoArgsConstructor
- @AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ErrorMessage {
 
     private int status;
     private String message;
     private String stacktrace;
-    
+
 }

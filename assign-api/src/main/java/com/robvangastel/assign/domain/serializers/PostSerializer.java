@@ -7,7 +7,6 @@ import com.robvangastel.assign.domain.Post;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,11 +33,11 @@ public class PostSerializer extends StdSerializer<Post> {
         jgen.writeStringField("description", post.getDescription());
         jgen.writeStringField("dateCreated", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(post.getDateCreated()));
 
-        if(!post.getTags().isEmpty()) {
+        if (!post.getTags().isEmpty()) {
             jgen.writeFieldName("tags");
             jgen.writeStartArray();
 
-            for(String tag : tags) {
+            for (String tag : tags) {
                 jgen.writeString(tag);
             }
 

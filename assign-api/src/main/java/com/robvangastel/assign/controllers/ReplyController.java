@@ -50,7 +50,7 @@ public class ReplyController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         Reply reply = replyService.findById(id);
-        if(reply == null) {
+        if (reply == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         return Response.ok(reply).build();
@@ -102,9 +102,9 @@ public class ReplyController {
         Post post = postService.findById(id);
         Reply reply;
 
-        if(user.getId() != post.getUser().getId() && post != null) {
+        if (user.getId() != post.getUser().getId() && post != null) {
             // Check if the user creating reply isnt replying to his own post
-            reply = replyService.create(new Reply( user, post));
+            reply = replyService.create(new Reply(user, post));
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
@@ -127,7 +127,7 @@ public class ReplyController {
         Reply reply = replyService.findById(id);
 
         // The user can only set replies of his own post to helped
-        if(user.getId() == reply.getPost().getUser().getId()) {
+        if (user.getId() == reply.getPost().getUser().getId()) {
             replyService.setHelped(reply, true);
             return Response.noContent().build();
         }

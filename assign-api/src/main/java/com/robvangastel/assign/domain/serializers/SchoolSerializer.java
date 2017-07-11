@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -36,11 +35,11 @@ public class SchoolSerializer extends StdSerializer<School> {
         jgen.writeStringField("schoolCode", school.getSchoolCode());
         jgen.writeStringField("DateCreated", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(school.getDateCreated()));
 
-        if(!school.getStudies().isEmpty()) {
+        if (!school.getStudies().isEmpty()) {
             jgen.writeFieldName("studies");
             jgen.writeStartArray();
 
-            for(Study s : studies) {
+            for (Study s : studies) {
                 jgen.writeString(s.getName());
             }
 

@@ -1,7 +1,6 @@
 package com.robvangastel.assign.crypto;
 
 /**
- *
  * @author Rob van Gastel
  */
 

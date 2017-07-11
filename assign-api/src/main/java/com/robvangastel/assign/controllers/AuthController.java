@@ -15,7 +15,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -37,7 +36,7 @@ public class AuthController {
      */
     @POST
     public Response authenticate(@QueryParam("email") String username,
-                         @QueryParam("password") String password) throws Exception {
+                                 @QueryParam("password") String password) throws Exception {
         IdToken token = service.authenticate(new Credentials(username, password));
         return Response.ok(token).build();
     }

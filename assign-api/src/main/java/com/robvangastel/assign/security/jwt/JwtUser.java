@@ -6,7 +6,6 @@ import com.robvangastel.assign.security.UserPrincipal;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 

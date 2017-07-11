@@ -1,7 +1,6 @@
 package com.robvangastel.assign.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -33,7 +32,7 @@ public class Reply implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Post post;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     @Column(nullable = false)
     private Timestamp dateCreated;
 
@@ -49,7 +48,7 @@ public class Reply implements Serializable {
      * Before presist creates the date created of the response.
      */
     @PrePersist
-    public void beforePersist(){
+    public void beforePersist() {
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 

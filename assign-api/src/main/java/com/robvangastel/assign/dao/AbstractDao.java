@@ -5,16 +5,15 @@ import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 
 /**
- *
- * @author Rob van Gastel
  * @param <T>
+ * @author Rob van Gastel
  */
 
 public abstract class AbstractDao<T extends Serializable> {
 
     private Class<T> classObj;
 
-    @PersistenceContext(unitName ="assignPU")
+    @PersistenceContext(unitName = "assignPU")
     private EntityManager entityManager;
 
     public final void setClassObj(final Class<T> classObjToSet) {

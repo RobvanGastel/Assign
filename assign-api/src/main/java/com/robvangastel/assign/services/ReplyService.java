@@ -38,7 +38,7 @@ public class ReplyService implements Serializable {
         return replyDao.update(entity);
     }
 
-    public void delete(long id) throws Exception  {
+    public void delete(long id) throws Exception {
         replyDao.deleteById(id);
     }
 }

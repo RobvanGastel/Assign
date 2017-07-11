@@ -11,14 +11,13 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
 @Stateless
 public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
 
-    @PersistenceContext(unitName ="assignPU")
+    @PersistenceContext(unitName = "assignPU")
     private EntityManager entityManager;
 
     public UserDaoImpl() {
@@ -32,7 +31,7 @@ public class UserDaoImpl extends AbstractDao<User> implements IUserDao {
                 "SELECT u FROM User u WHERE u.email = :email")
                 .setParameter("email", email);
 
-        if(query.getResultList().isEmpty()) {
+        if (query.getResultList().isEmpty()) {
             return null;
         } else {
             return (User) query.getSingleResult();

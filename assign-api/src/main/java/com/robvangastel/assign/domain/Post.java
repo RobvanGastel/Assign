@@ -1,7 +1,6 @@
 package com.robvangastel.assign.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.robvangastel.assign.domain.serializers.PostSerializer;
 import lombok.Data;
@@ -20,7 +19,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -58,12 +56,12 @@ public class Post implements Serializable {
     @Column(nullable = false)
     private String description;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Timestamp dateCreated;
 
     private boolean done;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Timestamp dateDone;
 
     /***
@@ -89,12 +87,12 @@ public class Post implements Serializable {
     }
 
     @PrePersist
-    public void beforePersist(){
+    public void beforePersist() {
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 
     public void setDone(boolean done) {
-        if(done) {
+        if (done) {
             this.done = true;
             this.dateDone = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
         } else {

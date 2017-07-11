@@ -38,11 +38,11 @@ public class UserSerializer extends StdSerializer<User> {
         jgen.writeStringField("profileImage", user.getProfileImage());
         jgen.writeStringField("dateCreated", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(user.getDateCreated()));
 
-        if(!user.getTags().isEmpty()) {
+        if (!user.getTags().isEmpty()) {
             jgen.writeFieldName("tags");
             jgen.writeStartArray();
 
-            for(String tag : tags) {
+            for (String tag : tags) {
                 jgen.writeString(tag);
             }
 
@@ -53,7 +53,7 @@ public class UserSerializer extends StdSerializer<User> {
             jgen.writeEndArray();
         }
 
-        if(user.getSocialLink() != null) {
+        if (user.getSocialLink() != null) {
             jgen.writeObjectFieldStart("socialLink");
             jgen.writeStringField("twitter", user.getSocialLink().getTwitter());
             jgen.writeStringField("facebook", user.getSocialLink().getFacebook());

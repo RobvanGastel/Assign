@@ -18,7 +18,6 @@ import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -57,7 +56,7 @@ public class SchoolController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         School school = schoolService.findById(id);
-        if(school == null) {
+        if (school == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         return Response.ok(school).build();
@@ -65,7 +64,8 @@ public class SchoolController {
 
     /**
      * Get studies by school
-     * @param id of the school
+     *
+     * @param id    of the school
      * @param start
      * @param size
      * @return
@@ -122,7 +122,7 @@ public class SchoolController {
     @POST
     public Response create(@QueryParam("name") String name) throws Exception {
 
-        if(!name.equals(null)) {
+        if (!name.equals(null)) {
             School school = schoolService.create(new School(name));
             return Response.ok(school).build();
 
@@ -142,7 +142,7 @@ public class SchoolController {
     public Response addStudy(@PathParam("id") long id, @QueryParam("name") String name) {
         School school = schoolService.findById(id);
 
-        if(school == null) {
+        if (school == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         Study study = schoolService.addStudy(school, name);

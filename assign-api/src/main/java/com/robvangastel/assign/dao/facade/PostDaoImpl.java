@@ -13,14 +13,13 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
 @Stateless
 public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
 
-    @PersistenceContext(unitName ="assignPU")
+    @PersistenceContext(unitName = "assignPU")
     private EntityManager entityManager;
 
     public PostDaoImpl() {
@@ -55,10 +54,10 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     public List<Post> findAll(User user, int start, int size) {
         String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN study s ON u.study_id = s.id JOIN school sc ON sc.id = s.school_id WHERE s.id = :study ORDER BY p.dateCreated DESC";
         return entityManager.createNativeQuery(queryString, Post.class)
-            .setFirstResult(start)
-            .setMaxResults(size)
-            .setParameter("study", user.getStudy().getId())
-            .getResultList();
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .setParameter("study", user.getStudy().getId())
+                .getResultList();
     }
 
     @Override

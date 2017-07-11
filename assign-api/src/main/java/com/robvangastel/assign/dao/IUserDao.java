@@ -6,7 +6,6 @@ import com.robvangastel.assign.exception.UserException;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -22,6 +21,7 @@ public interface IUserDao {
 
     /**
      * Find User by email
+     *
      * @param email
      * @return Found User or Null when
      * The User isn't found

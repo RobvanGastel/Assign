@@ -18,7 +18,6 @@ import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -63,7 +62,7 @@ public class PostController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         Post post = postService.findById(id);
-        if(post == null) {
+        if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         return Response.ok(post).build();
@@ -87,7 +86,7 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         List<Post> posts = postService.findByQuery(user, query, start, size);
 
-        if(posts == null) {
+        if (posts == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         return Response.ok(posts).build();
@@ -107,7 +106,7 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.create(new Post(user, title, description));
 
-        if(post == null) {
+        if (post == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
         return Response.ok(post).build();
@@ -119,7 +118,7 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
 
-        if(user.getId() == post.getUser().getId()) {
+        if (user.getId() == post.getUser().getId()) {
             postService.setDone(post, true);
             return Response.noContent().build();
         }
@@ -139,7 +138,7 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
 
-        if(user.getId() == post.getUser().getId()) {
+        if (user.getId() == post.getUser().getId()) {
             postService.delete(id);
             return Response.noContent().build();
         }

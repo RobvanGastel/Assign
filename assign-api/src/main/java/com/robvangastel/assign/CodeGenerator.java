@@ -8,9 +8,9 @@ import java.security.SecureRandom;
 
 public class CodeGenerator {
 
-    private static CodeGenerator instance;
     static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     static SecureRandom rnd = new SecureRandom();
+    private static CodeGenerator instance;
 
     public static CodeGenerator getInstance() {
         if (instance == null) {
@@ -20,9 +20,9 @@ public class CodeGenerator {
     }
 
     public String getCode(int length) {
-        StringBuilder sb = new StringBuilder( length );
-        for( int i = 0; i < length; i++ )
-            sb.append( AB.charAt( rnd.nextInt(AB.length()) ));
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++)
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
     }
 

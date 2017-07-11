@@ -7,11 +7,9 @@ import com.robvangastel.assign.domain.User;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -37,7 +35,7 @@ public class PostService implements Serializable {
         return postDao.findByUser(id, start, size);
     }
 
-    public void delete(long id) throws Exception  {
+    public void delete(long id) throws Exception {
         postDao.deleteById(id);
     }
 

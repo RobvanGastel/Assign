@@ -18,7 +18,7 @@ import java.util.List;
 @Stateless
 public class ReplyDaoImpl extends AbstractDao<Reply> implements IReplyDao {
 
-    @PersistenceContext(unitName ="assignPU")
+    @PersistenceContext(unitName = "assignPU")
     private EntityManager entityManager;
 
     public ReplyDaoImpl() {

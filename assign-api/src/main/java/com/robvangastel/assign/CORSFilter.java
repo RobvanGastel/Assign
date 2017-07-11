@@ -8,7 +8,6 @@ import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 
 /**
- *
  * @author Rob van Gastel
  */
 

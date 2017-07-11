@@ -24,10 +24,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
  * @author Rob van Gastel
  */
- 
+
 @Secured
 @Provider
 @Priority(Priorities.AUTHORIZATION)
@@ -105,7 +104,7 @@ public class AuthorizationFilter implements ContainerRequestFilter {
             }
 
             if (!allowed) {
-                throw new ForbiddenException("roles:"+userRoles.toString()+" is not allowed");
+                throw new ForbiddenException("roles:" + userRoles.toString() + " is not allowed");
             }
         }
 

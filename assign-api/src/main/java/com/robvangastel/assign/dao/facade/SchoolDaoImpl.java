@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
 
-    @PersistenceContext(unitName ="assignPU")
+    @PersistenceContext(unitName = "assignPU")
     private EntityManager entityManager;
 
     public SchoolDaoImpl() {
@@ -68,7 +68,7 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
         Query q = entityManager.createQuery(
                 "SELECT s FROM School s WHERE s.schoolCode = :code")
                 .setParameter("code", code);
-        if(q.getResultList().isEmpty()) {
+        if (q.getResultList().isEmpty()) {
             return false;
         } else {
             return true;
@@ -81,7 +81,7 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
                 "SELECT st.studenten FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
                 .setParameter("id", id)
                 .setParameter("study", study);
-        if(q.getResultList().isEmpty()) {
+        if (q.getResultList().isEmpty()) {
             return false;
         } else {
             return true;

@@ -10,7 +10,6 @@ import javax.ws.rs.core.Application;
 import java.util.Set;
 
 /**
- *
  * @author Rob van Gastel
  */
 

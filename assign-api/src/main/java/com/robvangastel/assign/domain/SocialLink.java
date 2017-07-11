@@ -9,10 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
- *
  * @author Rob van Gastel
  */
 
@@ -31,6 +31,8 @@ public class SocialLink implements Serializable {
 
     private String twitter;
     private String facebook;
+
+    @Size(min = 8, max = 15)
     private String phonenumber;
 
     public SocialLink(String twitter, String facebook, String phonenumber) {
