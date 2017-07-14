@@ -4,13 +4,13 @@ import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
 
-import java.io.Serializable;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.io.Serializable;
+import java.util.List;
 
 /**
- * Created by Rob on 23-4-2017.
+ * @author Rob van Gastel
  */
 
 @Stateless
@@ -23,23 +23,29 @@ public class PostService implements Serializable {
         return postDao.findById(id);
     }
 
-    public List<Post> findAll() {
-        return postDao.findAll();
+    public List<Post> findAll(User user, int start, int size) {
+        return postDao.findAll(user, start, size);
     }
 
-    public void delete(long id) throws Exception  {
+    public List<Post> findByQuery(User user, String query, int start, int size) {
+        return postDao.findByQuery(user, query, start, size);
+    }
+
+    public List<Post> findByUser(long id, int start, int size) {
+        return postDao.findByUser(id, start, size);
+    }
+
+    public void delete(long id) throws Exception {
         postDao.deleteById(id);
-    }
-
-    public Post findByEmail(String email) {
-        return postDao.findByEmail(email);
     }
 
     public Post create(Post entity) throws Exception {
         return postDao.create(entity);
     }
 
-    public List<Post> findByDescription(String description) {
-        return postDao.findByDescription(description);
+    public Post setDone(Post entity, boolean done) {
+        entity.setDone(done);
+        return postDao.update(entity);
     }
+
 }

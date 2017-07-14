@@ -5,22 +5,21 @@ import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.security.UserPrincipal;
 import com.robvangastel.assign.security.jwt.JwtHelper;
 
-import java.io.IOException;
-import java.security.Principal;
 import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
-import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
+import java.io.IOException;
+import java.security.Principal;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ * @author Rob van Gastel
  */
 
 @Secured
@@ -40,6 +39,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             // Validate the token
             UserPrincipal claims = jwtHelper.parseToken(token);
 
+            // Set the SecurityContext with the CustomContext
             requestContext.setSecurityContext(new AuthorizerContext(claims, originalContext.isSecure()));
 
         } catch (Exception e) {
@@ -57,10 +57,11 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             throw new NotAuthorizedException("Authorization header must be provided");
         }
         // Extract the token from the HTTP Authorization header
-        String token = authorizationHeader.substring("Bearer".length()).trim();
+        String token = authorizationHeader.substring("Bearer" .length()).trim();
         return token;
     }
 
+    // Custom SecurityContext class
     static class AuthorizerContext implements SecurityContext {
 
         private UserPrincipal principal;

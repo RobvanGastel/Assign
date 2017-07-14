@@ -8,19 +8,20 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
- * Created by robvangastel on 15/03/2017.
+ * @author Rob van Gastel
  */
 
 @Provider
-public class GenericExceptionHandler implements ExceptionMapper<Throwable>
-{
+public class GenericExceptionHandler implements ExceptionMapper<Throwable> {
     @Override
     public Response toResponse(Throwable throwable) {
         ErrorMessage errorMessage = new ErrorMessage();
         setHttpStatus(throwable, errorMessage);
+
         errorMessage.setMessage(throwable.getMessage());
         StringWriter errorStackTrace = new StringWriter();
         throwable.printStackTrace(new PrintWriter(errorStackTrace));
+
         errorMessage.setStacktrace(errorStackTrace.toString());
 
         return Response.status(errorMessage.getStatus())
@@ -29,8 +30,11 @@ public class GenericExceptionHandler implements ExceptionMapper<Throwable>
                 .build();
     }
 
+    /***
+     * Sets the status of an error response.
+     */
     private void setHttpStatus(Throwable throwable, ErrorMessage errorMessage) {
-        if(throwable instanceof UserException ) {
+        if (throwable instanceof UserException) {
             errorMessage.setStatus(Response.Status.BAD_REQUEST.getStatusCode());
         } else {
             errorMessage.setStatus(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode());

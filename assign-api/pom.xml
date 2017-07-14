@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.robvangastel</groupId>
@@ -10,20 +11,30 @@
     <name>assign-api</name>
 
     <properties>
-        <junit.version>4.11</junit.version>
+        <!-- Persistence versions -->
         <hibernate.version>4.3.1.Final</hibernate.version>
         <mysql-connector.version>5.1.40</mysql-connector.version>
+        <!-- END: Persistence versions -->
+
+        <!-- Unit testing versions -->
+        <junit.version>4.11</junit.version>
+        <jersey.version>2.22.1</jersey.version>
+        <!-- END: Unit testing versions -->
+
+        <!-- Project setup versions -->
         <jackson.version>2.7.5</jackson.version>
         <jsonwebtoken.version>0.6.0</jsonwebtoken.version>
+        <swagger.version>1.5.4</swagger.version>
         <projectlombok.version>1.16.8</projectlombok.version>
         <javaee-web.version>7.0</javaee-web.version>
-        <swagger.version>1.5.4</swagger.version>
+        <!-- END: Project setup versions -->
 
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <!-- JAX-RS -->
         <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -42,7 +53,9 @@
             <artifactId>jboss-annotations-api_1.2_spec</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- END: JAX-RS -->
 
+        <!-- unit tests -->
         <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -51,6 +64,34 @@
             <scope>test</scope>
         </dependency>
         <!-- END: junit -->
+
+        <!-- Jersey -->
+        <dependency>
+            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+            <artifactId>jersey-test-framework-provider-jdk-http</artifactId>
+            <version>${jersey.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>${jersey.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-processing</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <!-- END: Jersey -->
+        <!-- END: unit tests -->
 
         <!-- Hibernate -->
         <dependency>
@@ -86,13 +127,13 @@
         </dependency>
         <!-- END: Jackson -->
 
+        <!-- Swagger -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-core</artifactId>
             <version>${swagger.version}</version>
         </dependency>
 
-        <!-- Swagger -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jaxrs</artifactId>
@@ -106,7 +147,7 @@
         </dependency>
         <!-- END: Swagger -->
 
-        <!-- Tokens -->
+        <!-- JWT -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -118,7 +159,7 @@
             <artifactId>lombok</artifactId>
             <version>${projectlombok.version}</version>
         </dependency>
-        <!-- END: Tokens -->
+        <!-- END: JWT -->
 
         <!-- Javax -->
         <dependency>

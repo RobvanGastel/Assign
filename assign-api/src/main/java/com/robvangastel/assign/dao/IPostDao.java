@@ -7,7 +7,7 @@ import com.robvangastel.assign.exception.PostException;
 import java.util.List;
 
 /**
- * Created by Rob on 23-4-2017.
+ * @author Rob van Gastel
  */
 
 public interface IPostDao {
@@ -21,26 +21,32 @@ public interface IPostDao {
     Post findById(long id);
 
     /***
-     * Find Post(s) by description
-     * @param description
+     * Find Post(s) by query
+     * @param query
+     * @param start of the list
+     * @param size of the list
      * @return Found Post(s) or Null when
      * the Post(s) isn't found
      */
-    List<Post> findByDescription(String description);
+    List<Post> findByQuery(User user, String query, int start, int size);
 
     /***
-     * Find Post(s) by User
-     * @param email User email
-     * @return Found Post(s) or Null when
+     * Find Post(s) by user
+     * @param id
+     * @param start of the list
+     * @param size of the list
+     * @return Found Post(s) limited by 20 or Null when
      * the Post(s) isn't found
      */
-    Post findByEmail(String email);
+    List<Post> findByUser(long id, int start, int size);
 
     /***
-     *
-     * @return return all Posts
+     * Find all post(s)
+     * @param start of the list
+     * @param size of the list
+     * @return all the Post(s) within the start and size
      */
-    List<Post> findAll();
+    List<Post> findAll(User user, int start, int size);
 
     /***
      * Create a Post
@@ -48,6 +54,14 @@ public interface IPostDao {
      * @return Created Post
      */
     Post create(Post entity) throws PostException;
+
+    /***
+     * Update Post with the same id
+     * @param entity User to update
+     * @return Post updated or Null when
+     * the Post wasn't found
+     */
+    Post update(Post entity);
 
     /***
      * Delete Post

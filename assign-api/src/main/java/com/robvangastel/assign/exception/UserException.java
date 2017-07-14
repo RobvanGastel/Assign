@@ -1,12 +1,14 @@
 package com.robvangastel.assign.exception;
 
 /**
- * Created by robvangastel on 08/03/2017.
+ * @author Rob van Gastel
  */
 
-public class UserException extends Exception {
+public class UserException extends RuntimeException {
 
-	public UserException(String message) {
-		super(message);
-	}
+    private static final long serialVersionUID = 1L;
+
+    public UserException(String message) {
+        super(message);
+    }
 }

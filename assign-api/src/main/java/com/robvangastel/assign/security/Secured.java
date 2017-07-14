@@ -9,12 +9,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created by Rob on 23-3-2017.
+ * @author Rob van Gastel
  */
 
 @NameBinding
 @Retention(value = RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@Target({ElementType.TYPE, ElementType.METHOD})
 public @interface Secured {
     Role[] value() default {};
 }

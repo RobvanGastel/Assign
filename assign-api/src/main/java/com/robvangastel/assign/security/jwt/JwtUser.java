@@ -6,7 +6,7 @@ import com.robvangastel.assign.security.UserPrincipal;
 import java.util.List;
 
 /**
- * Created by robvangastel on 04/04/2017.
+ * @author Rob van Gastel
  */
 
 public class JwtUser implements UserPrincipal {

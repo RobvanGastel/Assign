@@ -1,24 +1,25 @@
 package com.robvangastel.assign.dao.facade;
 
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
 import com.robvangastel.assign.dao.AbstractDao;
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.PostException;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 /**
- * Created by Rob on 23-4-2017.
+ * @author Rob van Gastel
  */
 
 @Stateless
 public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
 
-    @PersistenceContext(unitName ="assignPU")
+    @PersistenceContext(unitName = "assignPU")
     private EntityManager entityManager;
 
     public PostDaoImpl() {
@@ -27,24 +28,41 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
-    public List<Post> findByDescription(String description) {
-        description = "%" + description + "%";
-        Query query = entityManager.createQuery(
-                "SELECT p FROM Post p WHERE p.description like :description ORDER BY p.dateCreated DESC")
-                .setParameter("description", description);
-        return query.getResultList();
+    public List<Post> findByQuery(User user, String query, int start, int size) {
+        query = "%" + query + "%";
+        String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN study s ON u.study_id = s.id JOIN school sc ON sc.id = s.school_id WHERE sc.id = :school AND p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";
+        return entityManager.createNativeQuery(queryString, Post.class)
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .setParameter("query", query)
+                .setParameter("school", user.getStudy().getSchool().getId())
+                .getResultList();
     }
 
     @Override
-    public Post findByEmail(String email) {
-        Query query = entityManager.createQuery(
-                "SELECT p FROM Post p, User u WHERE p.user_id = u.id AND u.email = :email ORDER BY p.dateCreated DESC")
-                .setParameter("email", email);
+    public List<Post> findByUser(long id, int start, int size) {
+        Query q = entityManager.createQuery(
+                "SELECT p FROM Post p, User u WHERE u.id = p.user.id AND u.id = :id ORDER BY p.dateCreated DESC")
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .setParameter("id", id);
+        return q.getResultList();
+    }
 
-        if(query.getResultList().isEmpty()) {
-            return null;
-        } else {
-            return (Post) query.getSingleResult();
-        }
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Post> findAll(User user, int start, int size) {
+        String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN study s ON u.study_id = s.id JOIN school sc ON sc.id = s.school_id WHERE s.id = :study ORDER BY p.dateCreated DESC";
+        return entityManager.createNativeQuery(queryString, Post.class)
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .setParameter("study", user.getStudy().getId())
+                .getResultList();
+    }
+
+    @Override
+    public Post create(Post entity) throws PostException {
+        entityManager.merge(entity);
+        return entity;
     }
 }
