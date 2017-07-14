@@ -28,8 +28,6 @@ import java.util.List;
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
 
-    // TODO Add get posts for users
-
     @Inject
     private PostService postService;
 
