@@ -28,11 +28,11 @@ public class AuthController {
     private UserService service;
 
     /***
-     * Authenticate the user
+     * Authenticate the user by creating a JWT token.
      * @param username
      * @param password
      * @return Response with the JWT token
-     * @throws Exception
+     * @throws Exception when invalid credentials are given.
      */
     @POST
     public Response authenticate(@QueryParam("email") String username,

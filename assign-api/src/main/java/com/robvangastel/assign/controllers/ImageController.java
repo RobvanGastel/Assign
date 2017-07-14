@@ -51,8 +51,8 @@ public class ImageController {
 
     /***
      * Download a list of all image file names
-     * @return An array of filenames
-     * @throws IOException
+     * @return A list of filenames
+     * @throws IOException when an error occures reading the filesystem.
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -74,13 +74,13 @@ public class ImageController {
     }
 
     /***
-     * Upload a profile picture for an user
+     * Update a profile picture for an user
      * @param in the inputstream
      * @param fileType type of the file
      * @param fileSize length of the file
      * @param uriInfo
-     * @return A response with statuscode indicating success or failure
-     * @throws Exception
+     * @return A response with statuscode indicating success or failure.
+     * @throws Exception when a file larger then the max size in mb is given.
      */
     @POST
     @Path("/user")
@@ -124,7 +124,7 @@ public class ImageController {
      * Download a JPEG file with matching name
      * @param fileName
      * @return An inputstream with the image
-     * @throws IOException
+     * @throws IOException when an error occures reading the filesystem.
      */
     @GET
     @Path("{name}.jpg")
@@ -145,7 +145,7 @@ public class ImageController {
      * Download a PNG file with matching name
      * @param fileName
      * @return An inputstream with the image
-     * @throws IOException
+     * @throws IOException when an error occures reading the filesystem.
      */
     @GET
     @Path("{name}.png")

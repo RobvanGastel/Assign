@@ -38,7 +38,10 @@ public class UserController {
 
     /***
      * get all the users
-     * @return An array of Users
+     * @param start of the list
+     * @param size of the list
+     * @return A list of the User objects or statuscode 404
+     * when no users are found.
      */
     @GET
     public List<User> get(
@@ -50,7 +53,8 @@ public class UserController {
     /***
      * Get user by id
      * @param id of the user
-     * @return the User object with matching id
+     * @return the User object with matching id or statuscode 404
+     * when no user is found.
      */
     @GET
     @Path("/{id}")
@@ -65,12 +69,15 @@ public class UserController {
     /***
      * get the posts by User id
      * @param id of the user
-     * @return the Posts of the users
+     * @param start of the list
+     * @param size of the list
+     * @return A list of Post objects of the users or statuscode 404
+     * when no user is found.
      */
     @GET
     @Path("/{id}/posts")
     public Response getPostsByUser(@PathParam("id") long id,
-                                   @DefaultValue("1") @QueryParam("start") int start,
+                                   @DefaultValue("0") @QueryParam("start") int start,
                                    @DefaultValue("20") @QueryParam("size") int size) {
         List<Post> posts = postService.findByUser(id, start, size);
         return Response.ok(posts).build();
@@ -79,7 +86,8 @@ public class UserController {
     /***
      * get user by email
      * @param email of the user
-     * @return the User object with matching email
+     * @return the User object with matching email or statuscode 404
+     * when no user is found.
      */
     @GET
     @Path("/email")
@@ -98,7 +106,8 @@ public class UserController {
      * @param name
      * @param code
      * @return the created user
-     * @throws Exception
+     * @throws Exception when used or invalid information is given for
+     * creating the user.
      */
     @POST
     public Response create(@QueryParam("email") String email,
@@ -113,12 +122,13 @@ public class UserController {
     }
 
     /***
-     * Update a user
+     * Update the authenticated user
      * @param location
      * @param websiteURL
      * @param bio
-     * @return A matching status code to indicate success or failure
-     * @throws Exception
+     * @return A matching status code to indicate success or failure.
+     * @throws Exception when used or invalid information is given for
+     * updating the user.
      */
     @PUT
     @Secured({Role.USER})
@@ -134,10 +144,10 @@ public class UserController {
     }
 
     /***
-     * Delete a user by id
+     * Delete a user by id as administrator
      * @param id of the user
-     * @return A matching status code to indicate success or failure
-     * @throws Exception
+     * @return A matching status code to indicate success or failure.
+     * @throws Exception when the user object failed to get deleted.
      */
     @DELETE
     @Path("/{id}")

@@ -40,8 +40,11 @@ public class PostController {
     private SecurityContext securityContext;
 
     /***
-     * Get all the posts
-     * @return An array with the posts
+     * Get all the posts for the authenticated user
+     * @param start of the list
+     * @param size of the list
+     * @return A list of the Post objects or statuscode 404
+     * when no posts are found.
      */
     @GET
     public List<Post> get(
@@ -49,14 +52,14 @@ public class PostController {
             @DefaultValue("20") @QueryParam("size") int size) {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-
         return postService.findAll(user, start, size);
     }
 
     /***
      * Get a post by id
      * @param id of the post
-     * @return A post object with matching id
+     * @return A post object with matching id or a statuscode 404
+     * when no post is found.
      */
     @GET
     @Path("/{id}")
@@ -69,13 +72,13 @@ public class PostController {
     }
 
     /***
-     * Get post(s) by a query
-     * @param query
-     * @param start of the size
-     * @param size length of the list
-     * @return An array of posts matching the query
+     * Get post(s) by query
+     * @param query string to search the posts by
+     * @param start of the list
+     * @param size lof the list
+     * @return A list of posts matching the query,
      * the fields being searched are description, title, email
-     * and name
+     * and name.
      */
     @GET
     @Path("/query")
@@ -97,7 +100,8 @@ public class PostController {
      * @param title
      * @param description
      * @return The created post
-     * @throws Exception
+     * @throws Exception when invalid parameters are given for the
+     * post.
      */
     @POST
     public Response create(@QueryParam("title") String title,
@@ -112,6 +116,12 @@ public class PostController {
         return Response.ok(post).build();
     }
 
+    /***
+     * Set a post of the authenticated user to done
+     * @param id of the post
+     * @return a statuscode indicating success or failure.
+     * @throws Exception when an invalid user makes the request.
+     */
     @PUT
     @Path("/{id}")
     public Response setDone(@PathParam("id") long id) throws Exception {
@@ -128,9 +138,9 @@ public class PostController {
 
     /***
      * Delete a post if the user created the post
-     * @param id
+     * @param id of the post
      * @return A response with statuscode indicating success or failure
-     * @throws Exception
+     * @throws Exception when the post object failed to get deleted.
      */
     @DELETE
     @Path("/{id}")

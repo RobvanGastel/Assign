@@ -38,7 +38,7 @@ public class SchoolController {
      * Get all schools
      * @param start of the list
      * @param size of the list
-     * @return all the schools
+     * @return a list of all the school objects
      */
     @GET
     public List<School> get(
@@ -50,7 +50,8 @@ public class SchoolController {
     /***
      * Get a post by id
      * @param id of the post
-     * @return A School object with matching id
+     * @return A School object with matching id or statuscode 404
+     * when no schools are found.
      */
     @GET
     @Path("/{id}")
@@ -65,10 +66,11 @@ public class SchoolController {
     /**
      * Get studies by school
      *
-     * @param id    of the school
-     * @param start
-     * @param size
-     * @return
+     * @param id of the school
+     * @param start of the list
+     * @param size of the list
+     * @return a list of Study objects or or statuscode 404
+     * when no studies are found.
      */
     @GET
     @Path("/{id}/studies")
@@ -81,10 +83,11 @@ public class SchoolController {
 
     /***
      * Get users by school
-     * @param id
-     * @param start
-     * @param size
-     * @return
+     * @param id of the school
+     * @param start of the list
+     * @param size of the list
+     * @return A list of User objects or statuscode 404
+     * when no users are found.
      */
     @GET
     @Path("/{id}/users")
@@ -96,12 +99,13 @@ public class SchoolController {
     }
 
     /***
-     * get users By school and study
-     * @param id
-     * @param study
-     * @param start
-     * @param size
-     * @return
+     * get users by school and study
+     * @param id of the school
+     * @param study name of the study
+     * @param start of the list
+     * @param size of the list
+     * @return A list of the User objects or statuscode 404
+     * when no users are found.
      */
     @GET
     @Path("/{id}/users/study")
@@ -114,10 +118,10 @@ public class SchoolController {
     }
 
     /***
-     * Create a new School reccord
+     * Create a School
      * @param name of the school
      * @return the created school
-     * @throws Exception
+     * @throws Exception when a invalid name parameter is given.
      */
     @POST
     public Response create(@QueryParam("name") String name) throws Exception {
@@ -135,7 +139,8 @@ public class SchoolController {
      * Add a study to a school
      * @param id of the school
      * @param name of the study
-     * @return the created study
+     * @return the created study or a statuscode 404 when a invalid
+     * school is given.
      */
     @PUT
     @Path("/{id}")
@@ -149,6 +154,12 @@ public class SchoolController {
         return Response.ok(study).build();
     }
 
+    /***
+     * delete school by id
+     * @param id of the school
+     * @return a statuscode indicating success or failure
+     * @throws Exception when the School object failed to get deleted.
+     */
     @DELETE
     @Path("/{id}")
     public Response delete(@PathParam("id") long id) throws Exception {

@@ -42,9 +42,9 @@ public class ReplyController {
     private SecurityContext securityContext;
 
     /***
-     * Get user by id
-     * @param id of the user
-     * @return the User object with matching id
+     * Get reply by id
+     * @param id of the reply
+     * @return the Reply object with matching id
      */
     @GET
     @Path("/{id}")
@@ -58,10 +58,10 @@ public class ReplyController {
 
     /***
      * Get all the replies of a user
-     * @param id
-     * @param start
-     * @param size
-     * @return
+     * @param id of the user
+     * @param start of the list
+     * @param size of the list
+     * @return A list of all the replies of the User.
      */
     @GET
     @Path("/users/{id}")
@@ -74,10 +74,10 @@ public class ReplyController {
 
     /***
      * Get all the replies of a post
-     * @param id
-     * @param start
-     * @param size
-     * @return
+     * @param id of the Post
+     * @param start of the list
+     * @param size of the list
+     * @return A list of all the replies of the Post.
      */
     @GET
     @Path("/posts/{id}")
@@ -89,10 +89,10 @@ public class ReplyController {
     }
 
     /***
-     * Create a new Reply
+     * Create a Reply
      * @param id of the post
-     * @return the new reply
-     * @throws Exception
+     * @return the created reply.
+     * @throws Exception when invalid information for the reply is given.
      */
     @POST
     @Path("/posts/{id}")
@@ -114,10 +114,10 @@ public class ReplyController {
 
 
     /***
-     * Set helped out on a User
+     * Set the boolean helped on a reply of the user.
      * @param id of the reply
-     * @return A matching response code
-     * @throws Exception
+     * @return A matching statuscode indicating success or failure
+     * @throws Exception when a unauthorized User makes the request.
      */
     @PUT
     @Path("{id}")
