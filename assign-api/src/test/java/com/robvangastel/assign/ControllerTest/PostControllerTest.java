@@ -1,13 +1,15 @@
-package ControllerTest;
+package com.robvangastel.assign.ControllerTest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.robvangastel.assign.TestConfig;
 import com.robvangastel.assign.security.IdToken;
-import org.glassfish.jersey.jsonp.JsonProcessingFeature;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
@@ -29,32 +31,34 @@ public class PostControllerTest {
      * STATE METHOD DESCRIPTION
      */
 
-    private static String baseUrl = "http://localhost:9080/assign/api";
+    private static String baseUrl = new TestConfig().getBaseUrl();
+    private static String jsonString = "{}";
     private static String authorizationHeader = "Bearer ";
 
     /***
      * The beforeClass handles the authentication token to make
      * requests to the PostController.
-     *
-     * TODO add valid implementation to retrieve auth header
-     * TODO Add valid implementation to create a post request
      */
     @BeforeClass
     public static void beforeClass() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.register(JsonProcessingFeature.class)
+        ObjectMapper mapper = new ObjectMapper();
+
+        WebTarget target = client
                 .target(baseUrl + "/auth")
                 .queryParam("email", "admin@mail.nl")
                 .queryParam("password", "admin");
-        Response response = target.request().get();
+        Response response = target.request().post(Entity.json(jsonString));
 
-        try
-        {
-            IdToken token = (IdToken) response.getEntity();
+        try {
+            String tokenString = response.readEntity(String.class);
+            IdToken token = mapper.readValue(tokenString, IdToken.class);
             authorizationHeader += token.getToken();
         }
-        finally
-        {
+        catch(Exception e) {
+
+        }
+        finally {
             response.close();
             client.close();
         }
@@ -82,15 +86,12 @@ public class PostControllerTest {
                 .queryParam("size", 10);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-//                .buildPost();
                 .get();
 
-        try
-        {
+        try {
             Assert.assertEquals(200, response.getStatus());
         }
-        finally
-        {
+        finally {
             response.close();
             client.close();
         }
@@ -118,15 +119,12 @@ public class PostControllerTest {
                 .queryParam("size", 10);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-//                .buildPost();
-        .get();
+                .get();
 
-        try
-        {
+        try {
             Assert.assertEquals(200, response.getStatus());
         }
-        finally
-        {
+        finally {
             response.close();
             client.close();
         }
@@ -146,18 +144,15 @@ public class PostControllerTest {
     @Test
     public void getByIdTest1() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/" + 1);
+        WebTarget target = client.target(baseUrl + "/posts/" + 16);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-//                .buildPost();
                 .get();
 
-        try
-        {
+        try {
             Assert.assertEquals(200, response.getStatus());
         }
-        finally
-        {
+        finally {
             response.close();
             client.close();
         }
@@ -182,12 +177,10 @@ public class PostControllerTest {
                 .header("Authorization", authorizationHeader)
                 .get();
 
-        try
-        {
+        try {
             Assert.assertEquals(404, response.getStatus());
         }
-        finally
-        {
+        finally {
             response.close();
             client.close();
         }
@@ -227,17 +220,17 @@ public class PostControllerTest {
     @Test
     public void createTest1() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/");
+        WebTarget target = client.target(baseUrl + "/posts/")
+                .queryParam("title", "Werkt het aanmaken van een post?")
+                .queryParam("description", "Lorem ipsum blaa blaa en meer tekst");
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-                .get();
+                .post(Entity.json(jsonString));
 
-        try
-        {
-            Assert.assertEquals(404, response.getStatus());
+        try {
+            Assert.assertEquals(200, response.getStatus());
         }
-        finally
-        {
+        finally {
             response.close();
             client.close();
         }
@@ -260,17 +253,16 @@ public class PostControllerTest {
     @Test
     public void createTest2() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/");
+        WebTarget target = client.target(baseUrl + "/posts/")
+                .queryParam("title", "Werkt het aanmaken van een post zonder description?");
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-                .get();
+                .post(Entity.json(jsonString));
 
-        try
-        {
-            Assert.assertEquals(404, response.getStatus());
+        try {
+            Assert.assertEquals(500, response.getStatus());
         }
-        finally
-        {
+        finally {
             response.close();
             client.close();
         }

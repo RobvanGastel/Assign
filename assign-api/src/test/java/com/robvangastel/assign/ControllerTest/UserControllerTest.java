@@ -1,5 +1,6 @@
-package ControllerTest;
+package com.robvangastel.assign.ControllerTest;
 
+import com.robvangastel.assign.TestConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +27,7 @@ public class UserControllerTest {
 	 * STATE METHOD DESCRIPTION
 	 */
 
-	private static String baseUrl = "http://localhost:9080/assign/api";
+	private static String baseUrl = new TestConfig().getBaseUrl();
 
 	/***
 	 * get(@DefaultValue("0") @QueryParam("start") int start,
