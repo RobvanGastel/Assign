@@ -78,7 +78,7 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
     @Override
     public boolean doesStudyAlreadyExist(Long id, String study) {
         Query q = entityManager.createQuery(
-                "SELECT st.studenten FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
+                "SELECT st.students FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
                 .setParameter("id", id)
                 .setParameter("study", study);
         if (q.getResultList().isEmpty()) {
