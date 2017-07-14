@@ -1,6 +1,7 @@
 package ControllerTest;
 
 import com.robvangastel.assign.security.IdToken;
+import org.glassfish.jersey.jsonp.JsonProcessingFeature;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -41,7 +42,8 @@ public class PostControllerTest {
     @BeforeClass
     public static void beforeClass() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/auth")
+        WebTarget target = client.register(JsonProcessingFeature.class)
+                .target(baseUrl + "/auth")
                 .queryParam("email", "admin@mail.nl")
                 .queryParam("password", "admin");
         Response response = target.request().get();
@@ -80,7 +82,8 @@ public class PostControllerTest {
                 .queryParam("size", 10);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-                .buildPost();
+//                .buildPost();
+                .get();
 
         try
         {
@@ -115,7 +118,8 @@ public class PostControllerTest {
                 .queryParam("size", 10);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
-                .buildPost();
+//                .buildPost();
+        .get();
 
         try
         {
@@ -145,6 +149,7 @@ public class PostControllerTest {
         WebTarget target = client.target(baseUrl + "/posts/" + 1);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
+//                .buildPost();
                 .get();
 
         try
