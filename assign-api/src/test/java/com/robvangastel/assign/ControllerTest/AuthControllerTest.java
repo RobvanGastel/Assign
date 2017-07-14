@@ -62,11 +62,9 @@ public class AuthControllerTest {
             mapper.readValue(tokenString, IdToken.class);
 
             Assert.assertEquals(200, response.getStatus());
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
 
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -102,11 +100,9 @@ public class AuthControllerTest {
             mapper.readValue(tokenString, IdToken.class);
 
             Assert.assertEquals(500, response.getStatus());
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
 
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }

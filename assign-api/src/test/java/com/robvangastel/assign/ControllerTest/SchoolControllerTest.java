@@ -8,5 +8,13 @@ package com.robvangastel.assign.ControllerTest;
  */
 public class SchoolControllerTest {
 
-
+    // EXAMPLE DESCRIPTION
+    /***
+     * TEST CASE METHOD
+     *
+     * Case: STATE TEST CASE
+     *
+     * Method:
+     * STATE METHOD DESCRIPTION
+     */
 }

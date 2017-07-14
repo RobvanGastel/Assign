@@ -54,11 +54,9 @@ public class PostControllerTest {
             String tokenString = response.readEntity(String.class);
             IdToken token = mapper.readValue(tokenString, IdToken.class);
             authorizationHeader += token.getToken();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
 
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -90,8 +88,7 @@ public class PostControllerTest {
 
         try {
             Assert.assertEquals(200, response.getStatus());
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -123,8 +120,7 @@ public class PostControllerTest {
 
         try {
             Assert.assertEquals(200, response.getStatus());
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -151,8 +147,7 @@ public class PostControllerTest {
 
         try {
             Assert.assertEquals(200, response.getStatus());
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -179,8 +174,7 @@ public class PostControllerTest {
 
         try {
             Assert.assertEquals(404, response.getStatus());
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -188,14 +182,14 @@ public class PostControllerTest {
 
     /***
      * getByQuery(@QueryParam("query") String query,
-                  @DefaultValue("0") @QueryParam("start") int start,
-                  @DefaultValue("20") @QueryParam("size") int size)
-     *
-     * Case:
-     *
-     * Method:
-     * Get post(s) by query
-     * @param query string to search the posts by
+     @DefaultValue("0") @QueryParam("start") int start,
+     @DefaultValue("20") @QueryParam("size") int size)
+      *
+      * Case:
+      *
+      * Method:
+      * Get post(s) by query
+      * @param query string to search the posts by
      * @param start of the list
      * @param size lof the list
      * @return A list of posts matching the query,
@@ -229,8 +223,7 @@ public class PostControllerTest {
 
         try {
             Assert.assertEquals(200, response.getStatus());
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
@@ -261,10 +254,27 @@ public class PostControllerTest {
 
         try {
             Assert.assertEquals(500, response.getStatus());
-        }
-        finally {
+        } finally {
             response.close();
             client.close();
         }
     }
+
+    /***
+     * setDone(@PathParam("id") long id)
+     *
+     * Case:
+     *
+     * Method:
+     *
+     */
+
+    /***
+     * delete(@PathParam("id") long id)
+     *
+     * Case:
+     *
+     * Method:
+     *
+     */
 }
