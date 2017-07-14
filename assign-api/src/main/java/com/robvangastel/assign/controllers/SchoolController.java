@@ -65,7 +65,6 @@ public class SchoolController {
 
     /**
      * Get studies by school
-     *
      * @param id of the school
      * @param start of the list
      * @param size of the list

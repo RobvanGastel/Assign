@@ -92,7 +92,7 @@ public class UserControllerTest {
     /***
      * getById(@PathParam("id") long id)
      *
-     * Case: Get by a existing id
+     * Case: Get by a valid id
      *
      * Method:
      * Get user by id
@@ -117,7 +117,7 @@ public class UserControllerTest {
     /***
      * getById(@PathParam("id") long id)
      *
-     * Case: Get by a non existing id
+     * Case: Get by a invalid id
      *
      * Method:
      * Get user by id

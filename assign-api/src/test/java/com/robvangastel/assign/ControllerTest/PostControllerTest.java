@@ -44,8 +44,7 @@ public class PostControllerTest {
         Client client = ClientBuilder.newClient();
         ObjectMapper mapper = new ObjectMapper();
 
-        WebTarget target = client
-                .target(baseUrl + "/auth")
+        WebTarget target = client.target(baseUrl + "/auth")
                 .queryParam("email", "admin@mail.nl")
                 .queryParam("password", "admin");
         Response response = target.request().post(Entity.json(jsonString));
@@ -98,8 +97,8 @@ public class PostControllerTest {
      * get(@DefaultValue("0") @QueryParam("start") int start,
      *     @DefaultValue("20") @QueryParam("size") int size)
      *
-     * Case: Get posts for user with a start parameter of 0
-     * and a size parameter of 10.
+     * Case: Get all existing users with start as a invalid
+     * parameter and a size of 10.
      *
      * Method:
      * Get all the posts for the authenticated user
@@ -112,14 +111,14 @@ public class PostControllerTest {
     public void getTest2() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(baseUrl + "/posts/")
-                .queryParam("start", 0)
+                .queryParam("start", "a")
                 .queryParam("size", 10);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
                 .get();
 
         try {
-            Assert.assertEquals(200, response.getStatus());
+            Assert.assertEquals(404, response.getStatus());
         } finally {
             response.close();
             client.close();
