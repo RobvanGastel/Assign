@@ -19,6 +19,11 @@ public class CodeGenerator {
         return instance;
     }
 
+    /***
+     * Generates a random string of characters
+     * @param length of the string
+     * @return the random string
+     */
     public String getCode(int length) {
         StringBuilder sb = new StringBuilder(length);
         for (int i = 0; i < length; i++)
