@@ -1,17 +1,15 @@
 <template>
-	<nav class="navbar navbar-default m-t-10">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
-	        <img alt="Brand">
-	      </a>
-	    </div>
-	  </div>
-	</nav>
+	<div class="row">
+		<section class="brand-nav">
+				<div class="col-xs-12">
+				<img class="logo" src="#">
+				<h4>Assign</h4>
+				<h5>Help jouw medestudenten</h5>
+				<a href="#" class="button-install">Install</a>
+			</div>
+		</section>
+	</div>
 </template>
 
 <style scoped>
-.m-t-10 {
-	margin-top: 10px;
-}
 </style>
