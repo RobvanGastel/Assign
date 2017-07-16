@@ -43,6 +43,7 @@ public class PostService implements Serializable {
     }
 
     public void create(Post entity) throws Exception {
+        LOG.debug(entity);
         postDao.create(entity);
     }
 

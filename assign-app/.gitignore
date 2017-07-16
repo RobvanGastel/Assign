@@ -1,0 +1,69 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Cocoapods
+*.swp
+*.swo
+*.rbo
+*.gem
+.DS_Store
+.rbenv-version
+.rbx/
+xcuserdata
+project.xcworkspace
+DerivedData
+/concatenated.*
+
+# Yardoc
+.yardoc
+/doc
+
+# Specs
+spec/fixtures/banana-lib
+spec/fixtures/cache
+spec/fixtures/chameleon
+spec/fixtures/integration/Headers/
+spec/fixtures/snake
+spec/fixtures/vcr
+tmp
+
+# Examples
+assign-app/**/Podfile.lock
+assign-app/Pods
+assign-app/**/Pods
+assign-app/RelativePathProject/RelativePathProject/RelativePathProject.xcodeproj
+coverage/
+.coveralls.yml
+
+# IDEs
+*.xccheckout
+.idea/
+
+# RVM files
+/.rvmrc
+/.ruby-version
+/.ruby-gemset
+
+# Bundler files
+/.bundle

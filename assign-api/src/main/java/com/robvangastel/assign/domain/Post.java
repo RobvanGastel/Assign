@@ -56,6 +56,9 @@ public class Post implements Serializable {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private String url;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Timestamp dateCreated;
 
@@ -100,4 +103,6 @@ public class Post implements Serializable {
             this.dateDone = null;
         }
     }
+
+    
 }
