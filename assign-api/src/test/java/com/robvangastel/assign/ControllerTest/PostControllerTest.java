@@ -78,7 +78,7 @@ public class PostControllerTest {
     @Test
     public void getTest1() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/")
+        WebTarget target = client.target(baseUrl + "/posts")
                 .queryParam("start", 0)
                 .queryParam("size", 10);
         Response response = target.request()
@@ -110,7 +110,7 @@ public class PostControllerTest {
     @Test
     public void getTest2() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/")
+        WebTarget target = client.target(baseUrl + "/posts")
                 .queryParam("start", "a")
                 .queryParam("size", 10);
         Response response = target.request()

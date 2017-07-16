@@ -5,6 +5,7 @@ import com.robvangastel.assign.dao.ISchoolDao;
 import com.robvangastel.assign.domain.School;
 import com.robvangastel.assign.domain.Study;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.SchoolException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -41,15 +42,13 @@ public class SchoolService implements Serializable {
     }
 
     public Study addStudy(School entity, String study) {
-//        if(!schoolDao.doesStudyAlreadyExist(entity.getId(), study)) {
-
-        Study s = schoolDao.createStudy(new Study(entity, study));
-        schoolDao.update(entity);
-        return s;
-
-//        } else {
-//            throw new SchoolException("Study already exists");
-//        }
+        if(!schoolDao.doesStudyAlreadyExist(entity.getId(), study)) {
+            Study s = schoolDao.createStudy(new Study(entity, study));
+            schoolDao.update(entity);
+            return s;
+        } else {
+            throw new SchoolException("Study already exists");
+        }
     }
 
     public School create(School entity) {
@@ -59,15 +58,8 @@ public class SchoolService implements Serializable {
             entity.setSchoolCode(code);
             return schoolDao.create(entity);
         } else {
-            code = CodeGenerator.getInstance().getCode(5);
-
-            if (!schoolDao.isCodeUsed(code)) {
-                entity.setSchoolCode(code);
-                return schoolDao.create(entity);
-            }
+            throw new SchoolException("Generated code already exists");
         }
-
-        return null;
     }
 
     public void delete(long id) {
