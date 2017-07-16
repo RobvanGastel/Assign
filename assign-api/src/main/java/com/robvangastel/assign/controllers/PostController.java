@@ -45,12 +45,12 @@ public class PostController {
      * when no posts are found.
      */
     @GET
-    public List<Post> get(
+    public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-        return postService.findAll(user, start, size);
+        return Response.ok(postService.findAll(user, start, size)).build();
     }
 
     /***
