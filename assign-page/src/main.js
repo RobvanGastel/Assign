@@ -9,6 +9,9 @@ import './assets/css/style.css'
 
 Vue.config.productionTip = false
 
+// API URL
+Vue.prototype.$apiurl = process.env.API_URL
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
