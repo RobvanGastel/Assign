@@ -21,6 +21,14 @@ public interface IPostDao {
     Post findById(long id);
 
     /***
+     * Find Post by url
+     * @param url
+     * @return Found Post or Null when
+     * the Post isn't found
+     */
+    Post findByUrl(String url);
+
+    /***
      * Find Post(s) by query
      * @param query
      * @param start of the list

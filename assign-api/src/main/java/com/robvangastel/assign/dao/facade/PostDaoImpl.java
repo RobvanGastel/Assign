@@ -28,6 +28,14 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
+    public Post findByUrl(String url) {
+        Query q = entityManager.createQuery(
+                "FROM Post p WHERE p.url = :url ORDER BY p.dateCreated DESC")
+                .setParameter("url", url);
+        return (Post) q.getSingleResult();
+    }
+
+    @Override
     public List<Post> findByQuery(User user, String query, int start, int size) {
         query = "%" + query + "%";
         String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN study s ON u.study_id = s.id JOIN school sc ON sc.id = s.school_id WHERE sc.id = :school AND p.title like :query OR p.description like :query OR u.name LIKE :query ORDER BY p.dateCreated DESC";

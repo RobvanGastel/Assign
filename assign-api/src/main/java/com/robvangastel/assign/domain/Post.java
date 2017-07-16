@@ -103,6 +103,4 @@ public class Post implements Serializable {
             this.dateDone = null;
         }
     }
-
-    
 }

@@ -52,6 +52,8 @@ public class SchoolService implements Serializable {
     }
 
     public void create(School entity) {
+        // This generates the URL which has the total number of possiblities of
+        // 916.132.832 different strings.
         String code = CodeGenerator.getInstance().getCode(5);
 
         if (!schoolDao.isCodeUsed(code)) {

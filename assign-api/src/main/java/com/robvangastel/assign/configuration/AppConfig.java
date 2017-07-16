@@ -45,5 +45,6 @@ public class AppConfig extends Application {
         resources.add(UserController.class);
         resources.add(ReplyController.class);
         resources.add(SchoolController.class);
+        resources.add(PageController.class);
     }
 }

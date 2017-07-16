@@ -8,7 +8,8 @@ import java.security.SecureRandom;
 
 public class CodeGenerator {
 
-    static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // Length of 62 characters
+    static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     static SecureRandom rnd = new SecureRandom();
     private static CodeGenerator instance;
 
@@ -21,6 +22,8 @@ public class CodeGenerator {
 
     /***
      * Generates a random string of characters
+     *
+     * Generate the number of possible strings by 62*length.
      * @param length of the string
      * @return the random string
      */
@@ -30,5 +33,4 @@ public class CodeGenerator {
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
     }
-
 }

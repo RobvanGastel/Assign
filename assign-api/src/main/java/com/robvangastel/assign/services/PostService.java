@@ -1,5 +1,6 @@
 package com.robvangastel.assign.services;
 
+import com.robvangastel.assign.CodeGenerator;
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
@@ -26,6 +27,10 @@ public class PostService implements Serializable {
         return postDao.findById(id);
     }
 
+    public Post findByUrl(String url) {
+        return postDao.findByUrl(url);
+    }
+
     public List<Post> findAll(User user, int start, int size) {
         return postDao.findAll(user, start, size);
     }
@@ -43,7 +48,10 @@ public class PostService implements Serializable {
     }
 
     public void create(Post entity) throws Exception {
-        LOG.debug(entity);
+        // This generates the URL which has the total number of possiblities of
+        // 218.340.105.584.896 different strings.
+        String code = CodeGenerator.getInstance().getCode(8);
+        entity.setUrl(code);
         postDao.create(entity);
     }
 
