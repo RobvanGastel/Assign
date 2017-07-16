@@ -44,7 +44,7 @@ public interface IReplyDao {
      * @param entity Reply to create
      * @return Created Reply
      */
-    Reply create(Reply entity) throws ReplyException;
+    void create(Reply entity) throws ReplyException;
 
     /***
      * Update Reply with the id

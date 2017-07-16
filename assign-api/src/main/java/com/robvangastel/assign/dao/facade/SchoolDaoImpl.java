@@ -89,9 +89,8 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
     }
 
     @Override
-    public School create(School entity) {
+    public void create(School entity) {
         entityManager.persist(entity);
-        return entity;
     }
 
     @Override

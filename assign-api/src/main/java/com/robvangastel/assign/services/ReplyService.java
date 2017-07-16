@@ -29,8 +29,8 @@ public class ReplyService implements Serializable {
         return replyDao.findByPost(id, start, size);
     }
 
-    public Reply create(Reply entity) throws Exception {
-        return replyDao.create(entity);
+    public void create(Reply entity) throws Exception {
+        replyDao.create(entity);
     }
 
     public Reply setHelped(Reply entity, boolean done) {

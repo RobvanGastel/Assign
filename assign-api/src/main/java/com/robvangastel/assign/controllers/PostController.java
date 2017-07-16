@@ -97,7 +97,6 @@ public class PostController {
      * Create a post for the authenticated user
      * @param title
      * @param description
-     * @return The created post
      * @throws Exception when invalid parameters are given for the
      * post.
      */
@@ -106,12 +105,8 @@ public class PostController {
                            @QueryParam("description") String description) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-        Post post = postService.create(new Post(user, title, description));
-
-        if (post == null) {
-            throw new WebApplicationException(Response.Status.BAD_REQUEST);
-        }
-        return Response.ok(post).build();
+        postService.create(new Post(user, title, description));
+        return Response.ok().build();
     }
 
     /***

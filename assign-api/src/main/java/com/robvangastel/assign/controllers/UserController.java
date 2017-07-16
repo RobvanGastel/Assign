@@ -105,7 +105,6 @@ public class UserController {
      * @param password
      * @param name
      * @param code
-     * @return the created user
      * @throws Exception when used or invalid information is given for
      * creating the user.
      */
@@ -114,11 +113,8 @@ public class UserController {
                            @QueryParam("password") String password,
                            @QueryParam("name") String name,
                            @QueryParam("code") String code) throws Exception {
-        User user = userService.create(new User(email, password, name));
-        if (user == null) {
-            throw new WebApplicationException(Response.Status.BAD_REQUEST);
-        }
-        return Response.ok(user).build();
+        userService.create(new User(email, password, name));
+        return Response.ok().build();
     }
 
     /***

@@ -51,12 +51,12 @@ public class SchoolService implements Serializable {
         }
     }
 
-    public School create(School entity) {
+    public void create(School entity) {
         String code = CodeGenerator.getInstance().getCode(5);
 
         if (!schoolDao.isCodeUsed(code)) {
             entity.setSchoolCode(code);
-            return schoolDao.create(entity);
+            schoolDao.create(entity);
         } else {
             throw new SchoolException("Generated code already exists");
         }

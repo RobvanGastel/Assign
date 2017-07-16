@@ -126,8 +126,8 @@ public class SchoolController {
     public Response create(@QueryParam("name") String name) throws Exception {
 
         if (!name.equals(null)) {
-            School school = schoolService.create(new School(name));
-            return Response.ok(school).build();
+            schoolService.create(new School(name));
+            return Response.ok().build();
 
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
@@ -138,8 +138,6 @@ public class SchoolController {
      * Add a study to a school
      * @param id of the school
      * @param name of the study
-     * @return the created study or a statuscode 404 when a invalid
-     * school is given.
      */
     @PUT
     @Path("/{id}")

@@ -51,9 +51,8 @@ public interface IPostDao {
     /***
      * Create a Post
      * @param entity Post to create
-     * @return Created Post
      */
-    Post create(Post entity) throws PostException;
+    void create(Post entity) throws PostException;
 
     /***
      * Update Post with the same id

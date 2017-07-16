@@ -3,6 +3,7 @@ package com.robvangastel.assign.services;
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
+import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -15,6 +16,8 @@ import java.util.List;
 
 @Stateless
 public class PostService implements Serializable {
+
+    private static final Logger LOG = Logger.getLogger(PostService.class.getName());
 
     @Inject
     private IPostDao postDao;
@@ -39,8 +42,8 @@ public class PostService implements Serializable {
         postDao.deleteById(id);
     }
 
-    public Post create(Post entity) throws Exception {
-        return postDao.create(entity);
+    public void create(Post entity) throws Exception {
+        postDao.create(entity);
     }
 
     public Post setDone(Post entity, boolean done) {

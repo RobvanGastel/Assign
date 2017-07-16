@@ -38,27 +38,35 @@ public class StartUp {
     public void initData() {
         try {
             // Creating schools
-            School fontys = schoolService.create(new School("Fontys Tilburg"));
+            schoolService.create(new School("Fontys Tilburg"));
+            School fontys = schoolService.findById(1L);
             Study ict = schoolService.addStudy(fontys, "ICT");
             Study pabo = schoolService.addStudy(fontys, "PABO");
 
-            School avans = schoolService.create(new School("Avans Hogeschool Breda"));
+            schoolService.create(new School("Avans Hogeschool Breda"));
+            School avans = schoolService.findById(4L);
             Study informatica = schoolService.addStudy(avans, "ICT");
 
             // Fontys ICT studie
-            User admin = userService.create(new User("admin@mail.nl", "admin", "Jan Pieter", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
-            User max = userService.create(new User("max@mail.nl", "max", "Max Wammels", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
+            userService.create(new User("admin@mail.nl", "admin", "Jan Pieter", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
+            userService.create(new User("max@mail.nl", "max", "Max Wammels", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
 
             // Fontys PABO studie
-            User kees = userService.create(new User("kees@mail.nl", "kees", "Kees Chinees", pabo, "Geschiedenis opleiding", new SocialLink("Keeskee", "Seesjeee", "0612312351")));
+            userService.create(new User("kees@mail.nl", "kees", "Kees Chinees", pabo, "Geschiedenis opleiding", new SocialLink("Keeskee", "Seesjeee", "0612312351")));
 
             // Avans ICT studie
-            User pieter = userService.create(new User("pieter@mail.nl", "pieter", "Pieter de Zwart", informatica, "BIM", new SocialLink("Pietertjee", "Pietertjee", "06123511")));
+            userService.create(new User("pieter@mail.nl", "pieter", "Pieter de Zwart", informatica, "BIM", new SocialLink("Pietertjee", "Pietertjee", "06123511")));
 
             // Social network without facebook and phonenumber
             SocialLink social = new SocialLink();
             social.setTwitter("TwitterKoning");
-            User rob = userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", social));
+            userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", social));
+
+            User admin = userService.findById(6L);
+            User max = userService.findById(8L);
+            User kees = userService.findById(10L);
+            User pieter = userService.findById(12L);
+            User rob = userService.findById(14L);
 
             // Creating posts
             postService.create(new Post(max, "Hoe werkt centreren in CSS?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec #eleifend ligula enim, #in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));

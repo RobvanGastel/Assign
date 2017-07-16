@@ -91,7 +91,6 @@ public class ReplyController {
     /***
      * Create a Reply
      * @param id of the post
-     * @return the created reply.
      * @throws Exception when invalid information for the reply is given.
      */
     @POST
@@ -100,16 +99,15 @@ public class ReplyController {
     public Response create(@PathParam("id") long id) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
-        Reply reply;
 
         if (user.getId() != post.getUser().getId() && post != null) {
             // Check if the user creating reply isnt replying to his own post
-            reply = replyService.create(new Reply(user, post));
+            replyService.create(new Reply(user, post));
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
 
-        return Response.ok(reply).build();
+        return Response.ok().build();
     }
 
 
