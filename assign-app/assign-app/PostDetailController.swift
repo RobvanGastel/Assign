@@ -92,11 +92,9 @@ class PostDetailController: UIViewController {
             UIActivityType.postToFlickr,
             UIActivityType.postToVimeo,
             UIActivityType.openInIBooks,
-            UIActivityType.copyToPasteboard,
             UIActivityType.postToTencentWeibo,
             UIActivityType.postToWeibo,
             UIActivityType.print,
-            UIActivityType.airDrop,
             UIActivityType.saveToCameraRoll
         ]
         
