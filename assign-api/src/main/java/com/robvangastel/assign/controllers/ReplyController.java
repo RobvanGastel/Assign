@@ -52,7 +52,6 @@ public class ReplyController {
         return Response.ok(reply).build();
     }
 
-
     /***
      * Set the boolean helped on a reply of the user.
      * @param id of the reply
