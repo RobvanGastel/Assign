@@ -14,6 +14,11 @@ export default {
   data () {
     return {
     }
+  },
+  metaInfo: {
+    title: 'My Awesome Webapp',
+    // override the parent template and just use the above title only
+    titleTemplate: null
   }
 }
 </script>
