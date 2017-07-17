@@ -49,8 +49,8 @@ spec/fixtures/vcr
 tmp
 
 # Examples
-assign-app/**/Podfile.lock
-assign-app/Pods
+/Podfile.lock
+/Pods
 assign-app/**/Pods
 assign-app/RelativePathProject/RelativePathProject/RelativePathProject.xcodeproj
 coverage/
