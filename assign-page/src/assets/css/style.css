@@ -67,6 +67,10 @@ p{
 /*
  * basic layout
  */
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body{
   background-color: #FAFAFA;
@@ -86,7 +90,7 @@ body{
   height: 56px;
 }
 
-.button-install{
+.button-install, .button-install:hover, .button-install:active, .button-install:focus{
   position: absolute;
   right: 15px;
   float: right;
@@ -97,19 +101,36 @@ body{
   border-radius: 32px;
   font-weight: 400;
   letter-spacing: 0.5px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-.button-open{
-  position: fixed;
-  bottom: 10px;
-  margin: 0 auto;
+.footer{
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.button-open, .button-open:hover, .button-open:active, .button-open:focus{
   background-color: #FF7F28;
   color: #fff;
   padding: 8px 21px;
-  font-size: 16px;
   border-radius: 32px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.5px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.button-open:hover, .button-open:active, .button-open:focus, .button-install:hover, .button-install:active, .button-install:focus{
+  opacity: 0.7;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .profile{
