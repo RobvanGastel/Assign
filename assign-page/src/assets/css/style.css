@@ -106,6 +106,10 @@ body{
   width: 48px;
   border-radius: 16px;
   background-color: #fff;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .logo{

@@ -1,13 +1,10 @@
 <template>
   <section class="post">
-    <img class="profile" src="#">
-    <h2>Jan Pieter</h2>
-    <h3>2 days ago</h3>
-    <h1>Aanpasbaar menukaart voor een restaurant</h1>
-    <p>Ik ben bezig met een website waar de klant een menukaart regelmatig iets aanpast. Om de klant tevreden te houden wil ik dit voor hunzelf aanpasbaar maken met iets als Custom Fields. Zo kunnen ze dit in een categorie zetten, bijvoorbeeld; wijn. Is dit goed</p>
-    <p>
-      {{response}}
-    </p>
+    <img class="profile" :src="profileImage">
+    <h2>{{ post.user.name }}</h2>
+    <h3>{{ post.dateCreated }}</h3>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.description }}</p>
     <h3 class="text-center">3 aanbiedingen  •  Nog 3 uur beschikbaar</h3>
   </section>
 </template>
@@ -19,7 +16,9 @@ export default {
   data () {
     return {
       param: '',
-      response: ''
+      post: '',
+      profileImage: '',
+      error: ''
     }
   },
   created () {
@@ -33,10 +32,11 @@ export default {
           url: url
         }})
         .then(function (response) {
-          self.response = response.data
+          self.post = response.data
+          self.profileImage = self.$apiurl + "/img/" + self.post.user.profileImage
         })
         .catch(function (error) {
-          self.response = error
+          self.error = error
       });
     }
   }
