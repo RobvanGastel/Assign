@@ -20,7 +20,7 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/schools")
 @Secured({Role.ADMIN})
 @Produces({MediaType.APPLICATION_JSON})

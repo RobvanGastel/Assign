@@ -1,10 +1,12 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
+import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
 
 import javax.enterprise.context.RequestScoped;
@@ -20,7 +22,7 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/posts")
 @Secured({Role.USER})
 @Produces({MediaType.APPLICATION_JSON})
@@ -31,6 +33,9 @@ public class PostController {
 
     @Inject
     private UserService userService;
+
+    @Inject
+    private ReplyService replyService;
 
     @Context
     private SecurityContext securityContext;
@@ -49,6 +54,44 @@ public class PostController {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         return Response.ok(postService.findAll(user, start, size)).build();
+    }
+
+
+    /***
+     * Get all the replies of a post
+     * @param id of the Post
+     * @param start of the list
+     * @param size of the list
+     * @return A list of all the replies of the Post.
+     */
+    @GET
+    @Path("/{id}/replies")
+    public Response getByPost(@PathParam("id") long id,
+                              @DefaultValue("0") @QueryParam("start") int start,
+                              @DefaultValue("20") @QueryParam("size") int size) {
+        List<Reply> replies = replyService.findByPost(id, start, size);
+        return Response.ok(replies).build();
+    }
+
+    /***
+     * Create a Reply
+     * @param id of the post
+     * @throws Exception when invalid information for the reply is given.
+     */
+    @POST
+    @Path("/{id}/replies")
+    public Response create(@PathParam("id") long id) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        if (user.getId() != post.getUser().getId() && post != null) {
+            // Check if the user creating reply isnt replying to his own post
+            replyService.create(new Reply(user, post));
+        } else {
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
+        }
+
+        return Response.ok().build();
     }
 
     /***

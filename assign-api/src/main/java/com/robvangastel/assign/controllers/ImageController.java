@@ -25,8 +25,8 @@ import java.nio.file.StandardCopyOption;
  * @author Rob van Gastel
  */
 
+@RequestScoped // Request scoped for the Filters
 @Path("/img")
-@RequestScoped
 public class ImageController {
 
     /*

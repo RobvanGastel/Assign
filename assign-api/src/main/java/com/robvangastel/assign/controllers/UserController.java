@@ -1,10 +1,12 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
+import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
 
 import javax.enterprise.context.RequestScoped;
@@ -20,7 +22,7 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/users")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserController {
@@ -30,6 +32,9 @@ public class UserController {
 
     @Inject
     private PostService postService;
+
+    @Inject
+    private ReplyService replyService;
 
     @Context
     private SecurityContext securityContext;
@@ -82,6 +87,22 @@ public class UserController {
                                    @DefaultValue("20") @QueryParam("size") int size) {
         List<Post> posts = postService.findByUser(id, start, size);
         return Response.ok(posts).build();
+    }
+
+    /***
+     * Get all the replies of a user
+     * @param id of the user
+     * @param start of the list
+     * @param size of the list
+     * @return A list of all the replies of the User.
+     */
+    @GET
+    @Path("/{id}/replies")
+    public Response getRepliesByUser(@PathParam("id") long id,
+                              @DefaultValue("0") @QueryParam("start") int start,
+                              @DefaultValue("20") @QueryParam("size") int size) {
+        List<Reply> replies = replyService.findByUser(id, start, size);
+        return Response.ok(replies).build();
     }
 
     /***
