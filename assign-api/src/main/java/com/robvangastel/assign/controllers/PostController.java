@@ -56,12 +56,21 @@ public class PostController {
         return Response.ok(postService.findAll(user, start, size)).build();
     }
 
-//    @GET
-//    @Path("/{id}/replied")
-//    public Response getRepliedByPost(@PathParam("id") long id) {
-//        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-//
-//    }
+    /***
+     * Check if User replied to post
+     * @param id of the Post
+     * @return Boolean indicating true or false
+     */
+    @GET
+    @Path("/{id}/replied")
+    public Response getRepliedByPost(@PathParam("id") long id) {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        boolean replied = replyService.DidUserReply(user, post);
+
+        return Response.ok(replied).build();
+    }
 
     /***
      * Get all the replies of a post
@@ -92,7 +101,14 @@ public class PostController {
 
         if (user.getId() != post.getUser().getId() && post != null) {
             // Check if the user creating reply isnt replying to his own post
-            replyService.create(new Reply(user, post));
+
+            if(!replyService.DidUserReply(user, post)) {
+                // Check if he already replied to the post
+                
+                replyService.create(new Reply(user, post));
+            } else {
+                throw new WebApplicationException(Response.Status.BAD_REQUEST);
+            }
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
