@@ -40,7 +40,7 @@ public class UserControllerTest {
      * get all the users
      * @param start of the list
      * @param size of the list
-     * @return A list of the User objects or statuscode 404
+     * @return A list of the User objects or statuscode 500
      * when no users are found.
      */
     @Test
@@ -70,7 +70,7 @@ public class UserControllerTest {
      * get all the users
      * @param start of the list
      * @param size of the list
-     * @return A list of the User objects or statuscode 404
+     * @return A list of the User objects or statuscode 500
      * when no users are found.
      */
     @Test
@@ -82,7 +82,7 @@ public class UserControllerTest {
         Response response = target.request().get();
         System.out.println(response.toString());
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -97,7 +97,7 @@ public class UserControllerTest {
      * Method:
      * Get user by id
      * @param id of the user
-     * @return the User object with matching id or statuscode 404
+     * @return the User object with matching id or statuscode 500
      * when no user is found.
      */
     @Test
@@ -122,7 +122,7 @@ public class UserControllerTest {
      * Method:
      * Get user by id
      * @param id of the user
-     * @return the User object with matching id or statuscode 404
+     * @return the User object with matching id or statuscode 500
      * when no user is found.
      */
     @Test
@@ -132,7 +132,7 @@ public class UserControllerTest {
         Response response = target.request().get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -147,7 +147,7 @@ public class UserControllerTest {
      * Method:
      * Get user by id
      * @param id of the user
-     * @return the User object with matching id or statuscode 404
+     * @return the User object with matching id or statuscode 500
      * when no user is found.
      */
     @Test
@@ -157,7 +157,7 @@ public class UserControllerTest {
         Response response = target.request().get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -176,7 +176,7 @@ public class UserControllerTest {
      * @param id of the user
      * @param start of the list
      * @param size of the list
-     * @return A list of Post objects of the users or statuscode 404
+     * @return A list of Post objects of the users or statuscode 500
      * when no user is found.
      */
     @Test
@@ -205,7 +205,7 @@ public class UserControllerTest {
      * @param id of the user
      * @param start of the list
      * @param size of the list
-     * @return A list of Post objects of the users or statuscode 404
+     * @return A list of Post objects of the users or statuscode 500
      * when no user is found.
      */
     @Test
@@ -215,7 +215,7 @@ public class UserControllerTest {
         Response response = target.request().get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -230,7 +230,7 @@ public class UserControllerTest {
      * Method:
      * get user by email
      * @param email of the user
-     * @return the User object with matching email or statuscode 404
+     * @return the User object with matching email or statuscode 500
      * when no user is found.
      */
     @Test
@@ -256,7 +256,7 @@ public class UserControllerTest {
      * Method:
      * get user by email
      * @param email of the user
-     * @return the User object with matching email or statuscode 404
+     * @return the User object with matching email or statuscode 500
      * when no user is found.
      */
     @Test
@@ -267,7 +267,7 @@ public class UserControllerTest {
         Response response = target.request().get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();

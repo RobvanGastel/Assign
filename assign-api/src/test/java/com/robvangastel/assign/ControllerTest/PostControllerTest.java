@@ -118,7 +118,7 @@ public class PostControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -172,7 +172,7 @@ public class PostControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();

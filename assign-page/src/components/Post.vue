@@ -1,6 +1,6 @@
 <template>
   <section class="post">
-    <img class="profile" :src="profileImage">
+    <div class="profile" :style="{ 'background-image': 'url(' + profileImage + ')' }" ></div>
     <h2>{{ post.user.name }}</h2>
     <h3>{{ post.dateCreated }}</h3>
     <h1>{{ post.title }}</h1>
