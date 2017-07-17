@@ -56,13 +56,12 @@ public class PostController {
         return Response.ok(postService.findAll(user, start, size)).build();
     }
 
-
-    @GET
-    @Path("/{id}/replied")
-    public Response getRepliedByPost(@PathParam("id") long id) {
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-
-    }
+//    @GET
+//    @Path("/{id}/replied")
+//    public Response getRepliedByPost(@PathParam("id") long id) {
+//        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+//
+//    }
 
     /***
      * Get all the replies of a post

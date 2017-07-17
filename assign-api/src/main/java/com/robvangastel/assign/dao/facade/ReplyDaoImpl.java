@@ -49,6 +49,5 @@ public class ReplyDaoImpl extends AbstractDao<Reply> implements IReplyDao {
     @Override
     public void create(Reply entity) throws ReplyException {
         entityManager.merge(entity);
-
     }
 }
