@@ -10,6 +10,7 @@
 
 <script>
 import Navigation from './main/navigation.vue'
+import axios from 'axios'
 
 export default {
   components: {
@@ -17,12 +18,9 @@ export default {
   },
   metaInfo: {
     // if no subcomponents specify a metaInfo.title, this title will be used
-    title: 'Default Title',
+    title: post.user.name,
     // all titles will be injected into this template
     titleTemplate: '%s | My Awesome Webapp'
   }
 }
 </script>
-
-<style scoped>
-</style>
