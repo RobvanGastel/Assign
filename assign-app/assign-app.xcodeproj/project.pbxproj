@@ -365,7 +365,7 @@
 				TargetAttributes = {
 					20CC17C21E17E1DA006D5A13 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 4FN25YZHXJ;
+						DevelopmentTeam = 3YHSFD6C25;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -641,11 +641,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4FN25YZHXJ;
+				DEVELOPMENT_TEAM = 3YHSFD6C25;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.apple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.applepen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
@@ -661,11 +661,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: maxx-we@hotmail.com (AKDZX26SY8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4FN25YZHXJ;
+				DEVELOPMENT_TEAM = 3YHSFD6C25;
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.apple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.applepen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
