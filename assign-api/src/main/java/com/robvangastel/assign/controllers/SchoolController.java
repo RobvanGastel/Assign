@@ -39,10 +39,10 @@ public class SchoolController {
      * @return a list of all the school objects
      */
     @GET
-    public List<School> get(
+    public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return schoolService.findAll(start, size);
+        return Response.ok(schoolService.findAll(start, size)).build();
     }
 
     /***

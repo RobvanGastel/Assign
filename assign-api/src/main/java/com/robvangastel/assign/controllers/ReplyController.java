@@ -24,6 +24,7 @@ import java.util.List;
 
 @RequestScoped
 @Path("/replies")
+@Secured({Role.USER})
 @Produces({MediaType.APPLICATION_JSON})
 public class ReplyController {
 
@@ -93,7 +94,6 @@ public class ReplyController {
      */
     @POST
     @Path("/posts/{id}")
-    @Secured({Role.USER})
     public Response create(@PathParam("id") long id) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
@@ -117,7 +117,6 @@ public class ReplyController {
      */
     @PUT
     @Path("{id}")
-    @Secured({Role.USER})
     public Response setHelped(@PathParam("id") long id) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Reply reply = replyService.findById(id);

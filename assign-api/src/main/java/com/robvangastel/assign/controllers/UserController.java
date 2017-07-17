@@ -42,10 +42,11 @@ public class UserController {
      * when no users are found.
      */
     @GET
-    public List<User> get(
+    @Secured({Role.USER})
+    public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return userService.findAll(start, size);
+        return Response.ok(userService.findAll(start, size)).build();
     }
 
     /***
@@ -56,6 +57,7 @@ public class UserController {
      */
     @GET
     @Path("/{id}")
+    @Secured({Role.USER})
     public Response getById(@PathParam("id") long id) {
         User user = userService.findById(id);
         if (user == null) {
@@ -74,6 +76,7 @@ public class UserController {
      */
     @GET
     @Path("/{id}/posts")
+    @Secured({Role.USER})
     public Response getPostsByUser(@PathParam("id") long id,
                                    @DefaultValue("0") @QueryParam("start") int start,
                                    @DefaultValue("20") @QueryParam("size") int size) {
@@ -89,6 +92,7 @@ public class UserController {
      */
     @GET
     @Path("/email")
+    @Secured({Role.USER})
     public Response getByEmail(@QueryParam("email") String email) {
         User user = userService.findByEmail(email);
         if (user == null) {
