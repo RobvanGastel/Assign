@@ -2,7 +2,6 @@ package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.services.PostService;
-import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -16,7 +15,6 @@ import javax.ws.rs.core.Response;
 
 @Stateless
 @Path("/page")
-@Api(tags = {"page"}, value = "/page", description = "Operations about posts")
 @Produces({MediaType.APPLICATION_JSON})
 public class PageController {
 

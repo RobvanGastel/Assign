@@ -4,7 +4,6 @@ import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -26,9 +25,8 @@ import java.nio.file.StandardCopyOption;
  * @author Rob van Gastel
  */
 
-@RequestScoped
 @Path("/img")
-@Api(tags = {"img"}, value = "/img", description = "Manages the profile pictures of the users")
+@RequestScoped
 public class ImageController {
 
     /*

@@ -6,7 +6,6 @@ import com.robvangastel.assign.domain.Study;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.SchoolService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -22,9 +21,8 @@ import java.util.List;
  */
 
 @RequestScoped
-@Secured({Role.ADMIN})
 @Path("/schools")
-@Api(tags = {"schools"}, value = "/schools", description = "Operations about schools")
+@Secured({Role.ADMIN})
 @Produces({MediaType.APPLICATION_JSON})
 public class SchoolController {
 
@@ -65,9 +63,10 @@ public class SchoolController {
 
     /**
      * Get studies by school
-     * @param id of the school
+     *
+     * @param id    of the school
      * @param start of the list
-     * @param size of the list
+     * @param size  of the list
      * @return a list of Study objects or or statuscode 404
      * when no studies are found.
      */

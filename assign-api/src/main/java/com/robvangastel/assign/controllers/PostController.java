@@ -6,7 +6,6 @@ import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -24,7 +23,6 @@ import java.util.List;
 @RequestScoped
 @Path("/posts")
 @Secured({Role.USER})
-@Api(tags = {"posts"}, value = "/posts", description = "Operations about posts")
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
 

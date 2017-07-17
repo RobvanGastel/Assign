@@ -8,7 +8,6 @@ import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -25,7 +24,6 @@ import java.util.List;
 
 @RequestScoped
 @Path("/replies")
-@Api(tags = {"replies"}, value = "/replies", description = "Operations about replies")
 @Produces({MediaType.APPLICATION_JSON})
 public class ReplyController {
 
