@@ -57,7 +57,7 @@ p{
   line-height: 24px;
   color: #4C4C4C;
   margin-top: 4px;
-  margin-bottom: 44px;
+  margin-bottom: 4px;
 }
 
 
@@ -99,17 +99,38 @@ body{
   letter-spacing: 0.5px;
 }
 
+.button-open{
+  position: fixed;
+  bottom: 10px;
+  margin: 0 auto;
+  background-color: #FF7F28;
+  color: #fff;
+  padding: 8px 21px;
+  font-size: 16px;
+  border-radius: 32px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
 .profile{
-  margin-right: 14px;
-  float: left;
   height: 48px;
   width: 48px;
   border-radius: 16px;
-  background-color: #fff;
+  position: relative;
+  margin-right: 14px;
+  float: left;
 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.faceholder{
+  height: 48px;
+  width: 48px;
+  border-radius: 16px;
+  position: absolute;
+  left: 36px;
 }
 
 .logo{

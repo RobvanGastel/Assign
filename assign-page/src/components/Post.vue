@@ -1,11 +1,12 @@
 <template>
   <section class="post">
+    <img class="faceholder" src="../assets/img/faceholder.jpg">
     <div class="profile" :style="{ 'background-image': 'url(' + profileImage + ')' }" ></div>
     <h2>{{ post.user.name }}</h2>
     <h3>{{ post.dateCreated }}</h3>
     <h1>{{ post.title }}</h1>
     <p>{{ post.description }}</p>
-    <h3 class="text-center">3 aanbiedingen  •  Nog 3 uur beschikbaar</h3>
+    <!-- <h3 class="text-center">3 aanbiedingen  •  Nog 3 uur beschikbaar</h3> -->
   </section>
 </template>
 
