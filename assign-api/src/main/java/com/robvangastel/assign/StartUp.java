@@ -63,6 +63,9 @@ public class StartUp {
             userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", social));
 
             User admin = userService.findById(6L);
+            admin.setRole(Role.ADMIN);
+            userService.update(admin);
+
             User max = userService.findById(8L);
             User kees = userService.findById(10L);
             User pieter = userService.findById(12L);
