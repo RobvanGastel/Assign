@@ -18,6 +18,8 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var helpAboveButton: UIButton!
     
     
     // Provided data from the segue
@@ -30,8 +32,12 @@ class PostDetailController: UIViewController {
         self.userLabel.text = currentPost?.title
         self.titleLabel.text = currentPost?.text
         self.dateLabel.text = currentPost?.dateCreated?.timeAgo
-        
         self.nameButton.setTitle(currentPost?.user?.name, for: .normal)
+        
+        if(currentPost?.user?.id == Storage.getUser().id) {
+            self.helpButton.isHidden = true
+            self.helpAboveButton.isHidden = true
+        }
         
         let url = URL(string: (currentPost?.user?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
@@ -96,6 +102,9 @@ class PostDetailController: UIViewController {
         
         // Present the share options
         self.present(activityViewController, animated: true, completion: nil)
+    }
+    @IBAction func helpAction(_ sender: Any) {
+        
     }
 }
 
