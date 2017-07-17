@@ -16,9 +16,16 @@
       <file leaf-file-name="PostController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1198">
-              <caret line="106" column="16" lean-forward="false" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="467">
+              <caret line="75" column="47" lean-forward="false" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+              <folding>
+                <element signature="e#7227#7228#0" expanded="true" />
+                <element signature="e#7273#7274#0" expanded="true" />
+                <element signature="e#7311#7312#0" expanded="true" />
+                <element signature="e#7349#7350#0" expanded="true" />
+                <element signature="e#7400#7401#0" expanded="true" />
+                <element signature="e#7446#7447#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1305,15 +1312,15 @@
     <history-entry file="Unit_tests - 2017.07.18 at 00h 21m 07s.xml">
       <configuration name="Unit tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_robvangastel_assign_ControllerTest_in_assign-api - 2017.07.17 at 11h 20m 26s.xml">
-      <configuration name="com.robvangastel.assign.ControllerTest in assign-api" configurationId="JUnit" />
+    <history-entry file="Unit_tests - 2017.07.18 at 00h 34m 38s.xml">
+      <configuration name="Unit tests" configurationId="JUnit" />
     </history-entry>
     <history-entry file="com_robvangastel_assign_ControllerTest_in_assign-api - 2017.07.17 at 11h 21m 31s.xml">
       <configuration name="com.robvangastel.assign.ControllerTest in assign-api" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166551000" />
+    <option name="totallyTimeSpent" value="167107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1824,9 +1831,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1198">
-          <caret line="106" column="16" lean-forward="false" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="467">
+          <caret line="75" column="47" lean-forward="false" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+          <folding>
+            <element signature="e#7227#7228#0" expanded="true" />
+            <element signature="e#7273#7274#0" expanded="true" />
+            <element signature="e#7311#7312#0" expanded="true" />
+            <element signature="e#7349#7350#0" expanded="true" />
+            <element signature="e#7400#7401#0" expanded="true" />
+            <element signature="e#7446#7447#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

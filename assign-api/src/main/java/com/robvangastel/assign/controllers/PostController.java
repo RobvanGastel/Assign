@@ -67,9 +67,13 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
 
-        boolean replied = replyService.DidUserReply(user, post);
+        if(post == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
 
-        return Response.ok(replied).build();
+        Boolean replied = replyService.DidUserReply(user, post);
+
+        return Response.ok(new DidReply(replied)).build();
     }
 
     /***
@@ -104,7 +108,7 @@ public class PostController {
 
             if(!replyService.DidUserReply(user, post)) {
                 // Check if he already replied to the post
-                
+
                 replyService.create(new Reply(user, post));
             } else {
                 throw new WebApplicationException(Response.Status.BAD_REQUEST);
@@ -210,5 +214,21 @@ public class PostController {
         }
 
         return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+
+    class DidReply {
+        private boolean replied;
+
+        public DidReply(boolean replied) {
+            this.replied = replied;
+        }
+
+        public boolean isReplied() {
+            return replied;
+        }
+
+        public void setReplied(boolean replied) {
+            this.replied = replied;
+        }
     }
 }
