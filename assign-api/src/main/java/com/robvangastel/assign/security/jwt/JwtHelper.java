@@ -20,7 +20,7 @@ import java.util.Map;
 @ApplicationScoped
 public class JwtHelper {
 
-    private final String secret = "overheid";
+    private final String secret = "assign";
 
     // Current experation date is 1 day
     private final long expirationInSeconds = 3600 * 24;

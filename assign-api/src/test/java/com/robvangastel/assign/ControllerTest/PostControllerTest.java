@@ -45,8 +45,8 @@ public class PostControllerTest {
         ObjectMapper mapper = new ObjectMapper();
 
         WebTarget target = client.target(baseUrl + "/auth")
-                .queryParam("email", "admin@mail.nl")
-                .queryParam("password", "admin");
+                .queryParam("email", "max@mail.nl")
+                .queryParam("password", "max");
         Response response = target.request().post(Entity.json(jsonString));
 
         try {
