@@ -67,6 +67,10 @@ p{
 /*
  * basic layout
  */
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body{
   background-color: #FAFAFA;
@@ -99,15 +103,20 @@ body{
   letter-spacing: 0.5px;
 }
 
+.footer{
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
 .button-open{
-  position: fixed;
-  bottom: 10px;
-  margin: 0 auto;
   background-color: #FF7F28;
   color: #fff;
   padding: 8px 21px;
-  font-size: 16px;
   border-radius: 32px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
