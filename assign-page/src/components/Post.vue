@@ -1,7 +1,7 @@
 <template>
   <section class="post">
     <img class="faceholder" src="../assets/img/faceholder.jpg">
-    <div class="profile" :style="{ 'background-image': 'url(' + profileImage + ')' }" ></div>
+    <div class="profile" :style="{ 'background-image': 'url(' + this.post.user.profileImage + ')' }" ></div>
     <h2>{{ post.user.name }}</h2>
     <h3>{{ post.dateCreated }}</h3>
     <h1>{{ post.title }}</h1>
@@ -11,34 +11,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
-  data () {
+  props: ['post'],
+  metaInfo () {
     return {
-      param: '',
-      post: '',
-      profileImage: '',
-      error: ''
-    }
-  },
-  created () {
-    this.getPost(this.$route.params.url)
-  },
-  methods: {
-    getPost (url) {
-      let self = this
-
-      axios.get(this.$apiurl + '/page/post', { params: {
-          url: url
-        }})
-        .then(function (response) {
-          self.post = response.data
-          self.profileImage = self.$apiurl + "/img/" + self.post.user.profileImage
-        })
-        .catch(function (error) {
-          self.error = error
-      });
+      title: this.post.user.name,
     }
   }
 }

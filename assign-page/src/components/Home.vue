@@ -1,27 +1,47 @@
 <template>
-  <section class="post">
-    <img class="profile" src="#">
-    <h2>Jan Pieter</h2>
-    <h3>2 days ago</h3>
-    <h1>Aanpasbaar menukaart voor een restaurant</h1>
-    <p>Ik ben bezig met een website waar de klant een menukaart regelmatig iets aanpast. Om de klant tevreden te houden wil ik dit voor hunzelf aanpasbaar maken met iets als Custom Fields. Zo kunnen ze dit in een categorie zetten, bijvoorbeeld; wijn. Is dit goed</p>
-    <!-- <h3 class="text-center">3 aanbiedingen  •  Nog 3 uur beschikbaar</h3> -->
-  </section>
+    <post :post="post"></post>
 </template>
 
 <script>
+import Post from './Post'
+import axios from 'axios'
+
 export default {
+  components: {
+    Post
+  },
   data () {
     return {
+      post: {
+        user: {
+          name: 'Name'
+        }
+      }
+    }
+  },
+  created () {
+    this.getPost(this.$route.params.url)
+  },
+  methods: {
+    getPost (url) {
+      let self = this
+
+      axios.get(this.$apiurl + '/page/post', { params: {
+          url: url
+        }})
+        .then(function (response) {
+          self.post = response.data
+          self.profileImage = self.$apiurl + "/img/" + self.post.user.profileImage
+        })
+        .catch(function (error) {
+          self.error = error
+      });
     }
   },
   metaInfo: {
-    title: 'My Awesome Webapp',
+    title: 'Post title | Assign',
     // override the parent template and just use the above title only
     titleTemplate: null
   }
 }
 </script>
-
-<style scoped>
-</style>
