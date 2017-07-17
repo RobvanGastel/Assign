@@ -90,7 +90,7 @@ body{
   height: 56px;
 }
 
-.button-install{
+.button-install, .button-install:hover, .button-install:active, .button-install:focus{
   position: absolute;
   right: 15px;
   float: right;
@@ -101,6 +101,9 @@ body{
   border-radius: 32px;
   font-weight: 400;
   letter-spacing: 0.5px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .footer{
@@ -111,7 +114,7 @@ body{
   text-align: center;
 }
 
-.button-open{
+.button-open, .button-open:hover, .button-open:active, .button-open:focus{
   background-color: #FF7F28;
   color: #fff;
   padding: 8px 21px;
@@ -119,6 +122,15 @@ body{
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.5px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.button-open:hover, .button-open:active, .button-open:focus, .button-install:hover, .button-install:active, .button-install:focus{
+  opacity: 0.7;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .profile{
