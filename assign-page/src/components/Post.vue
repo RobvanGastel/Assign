@@ -17,6 +17,9 @@ export default {
   metaInfo () {
     return {
       title: this.post.user.name,
+      titleTemplate: '%s — Assign',
+      description: this.post.user.name + ' vraagt om hulp bij ' + this.post.description,
+      favicon: "../assets/img/favicon.png"
     }
   }
 }
