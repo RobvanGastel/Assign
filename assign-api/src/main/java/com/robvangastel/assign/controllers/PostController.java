@@ -72,7 +72,6 @@ public class PostController {
         }
 
         Boolean replied = replyService.DidUserReply(user, post);
-
         return Response.ok(new DidReply(replied)).build();
     }
 
