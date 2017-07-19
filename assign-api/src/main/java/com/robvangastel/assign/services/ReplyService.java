@@ -36,10 +36,12 @@ public class ReplyService implements Serializable {
     }
 
     public void create(Reply entity) throws Exception {
+        // TODO Add notification
         replyDao.create(entity);
     }
 
     public Reply setHelped(Reply entity, boolean done) {
+        // TODO Add notification
         entity.setHelped(done);
         return replyDao.update(entity);
     }

@@ -55,8 +55,21 @@ public class PostSerializer extends StdSerializer<Post> {
         jgen.writeNumberField("id", post.getUser().getId());
         jgen.writeStringField("name", post.getUser().getName());
         jgen.writeStringField("email", post.getUser().getEmail());
+        jgen.writeStringField("specialisation", post.getUser().getStudyName());
         jgen.writeStringField("profileImage", post.getUser().getProfileImage());
         jgen.writeStringField("dateCreated", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(post.getUser().getDateCreated()));
+
+        if (post.getUser().getSocialLink() != null) {
+            jgen.writeObjectFieldStart("socialLink");
+            jgen.writeStringField("twitter", post.getUser().getSocialLink().getTwitter());
+            jgen.writeStringField("facebook", post.getUser().getSocialLink().getFacebook());
+            jgen.writeStringField("phonenumber", post.getUser().getSocialLink().getPhonenumber());
+            jgen.writeEndObject();
+        } else {
+            jgen.writeObjectFieldStart("socialLink");
+            jgen.writeEndObject();
+        }
+
         jgen.writeEndObject();
 
         jgen.writeBooleanField("done", post.isDone());
