@@ -55,9 +55,9 @@ class User:NSObject, JSONDecodable {
             
             let socialString = JSON["socialLink"] as? [String: Any]
             let socialLink = Social(JSON: socialString!)
-            guard let specilisationString = JSON["specialisation"] as? String else { return nil }
+            guard let specilisation = JSON["specialisation"] as? String else { return nil }
             
-            self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString, social: socialLink!, specialisation: specilisationString)
+            self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString, social: socialLink!, specialisation: specilisation)
             
         } else {
             self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString)

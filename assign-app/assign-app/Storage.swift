@@ -24,7 +24,9 @@ class Storage {
                         name: defaults.string(forKey: "user_name")!,
                         email: defaults.string(forKey: "user_email")!,
                         dateCreated: defaults.object(forKey: "user_dateCreated") as! Date,
-                        profileImage: defaults.string(forKey: "user_profileImage")!)
+                        profileImage: defaults.string(forKey: "user_profileImage")!,
+                        social: Social(phonenumber: "3123123", twitter: "dsaasdasd", facebook: "dasdasdasd"),
+                        specialisation: defaults.string(forKey: "user_specilisation")!)
         return user
     }
 
@@ -62,6 +64,7 @@ class Storage {
         defaults.set(user.name, forKey:"user_name")
         defaults.set(user.profileImage, forKey:"user_profileImage")
         defaults.set(user.dateCreated, forKey:"user_dateCreated")
+        defaults.set(user.specialisation, forKey:"user_specilisation")
     }
 
     /// This function sets this *Credentials* object of this authenticated user.

@@ -13,6 +13,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIProfile!
+    @IBOutlet weak var specialisationLabel: UILabel!
     
     @IBOutlet weak var backImage: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -24,6 +25,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     // Pagination variables
     let size = 21 // Amount of Posts to load next
     var assignmentsStart = 0 // Starting index of the assignments
+    var activityStart = 0 // Starting index of the activity
     var assignmentsReachedEnd = false // Check if there a no new posts
     var isLoading = false // Is currently loading posts
     
@@ -33,7 +35,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     // TableView arrays
     var overviewArray: [Post] = []
     var assignmentsArray: [Post] = []
-    var activityArray: [Post] = []
+    var activityArray: [Reply] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         
         // TODO set multiple fields
         self.nameLabel.text = currentUser?.name
+        self.specialisationLabel.text = currentUser?.specialisation
         
         let url = URL(string: (currentUser?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
@@ -74,9 +77,12 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     /// TODO Add calls for all tables
     func fillTables() {
         self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) { posts in
-            
             self.assignmentsArray = posts!
-            self.tableView.reloadData()
+        }
+        
+        self.apiService?.getRepliesByUser(size: size, start: activityStart, id: currentUser!.id!) {
+            replies in
+            self.activityArray = replies!
         }
     }
     

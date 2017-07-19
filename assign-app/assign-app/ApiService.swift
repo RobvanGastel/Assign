@@ -196,7 +196,7 @@ class ApiService {
     /// This function returns a list of *Reply* objects for the user by id.
     @discardableResult
     func getRepliesByUser(size: Int, start: Int, id: Int,
-                        completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
+                        completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
         let idString = "\(id)"
@@ -213,19 +213,19 @@ class ApiService {
                                         
             switch response.result {
             case .success:
-                var postsArray = [Post]()
+                var replyArray = [Reply]()
                 
-                if let posts = response.value as? [[String:Any]] {
-                    for post in posts {
-                        postsArray.append(Post(JSON: post)!)
+                if let replies = response.value as? [[String:Any]] {
+                    for reply in replies {
+                        replyArray.append(Reply(JSON: reply)!)
                     }
                 }
                 
-                print("API: Retrieve posts successful")
-                completionHandler(postsArray)
+                print("API: Retrieve replies successful")
+                completionHandler(replyArray)
                 
             case .failure(let error):
-                print("API: Retrieve posts error")
+                print("API: Retrieve replies error")
                 print(error)
             }
         }
