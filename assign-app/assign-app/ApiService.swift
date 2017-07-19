@@ -42,14 +42,6 @@ class ApiService {
        }
     }
 
-    /// This function returns *User* for given id.
-    ///
-    /// TODO Add implementation
-    /// Param: id
-    func getUser() {
-
-    }
-
     /// This function returns a list of *Post* objects for the authenticated user.
     @discardableResult
     func getPosts(size: Int, start: Int,
@@ -230,4 +222,42 @@ class ApiService {
             }
         }
     }
+    
+    /// This function creates a Reply for given Post and User.
+//    @discardableResult
+//    func addReply(postId: Int, userId: Int,
+//                          completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
+//        let sessionManager = NetworkManager.shared()
+//        
+//        let idString = "\(id)"
+//        let URL = Storage.getURL() + "/users/" + idString + "/replies"
+//        
+//        let parameters: Parameters = [
+//            "size" : size,
+//            "start" : start
+//        ]
+//        
+//        return sessionManager.request(URL, method: .get, parameters: parameters,
+//                                      encoding: URLEncoding.queryString).validate()
+//            .responseJSON{ response in
+//                
+//                switch response.result {
+//                case .success:
+//                    var replyArray = [Reply]()
+//                    
+//                    if let replies = response.value as? [[String:Any]] {
+//                        for reply in replies {
+//                            replyArray.append(Reply(JSON: reply)!)
+//                        }
+//                    }
+//                    
+//                    print("API: Retrieve replies successful")
+//                    completionHandler(replyArray)
+//                    
+//                case .failure(let error):
+//                    print("API: Retrieve replies error")
+//                    print(error)
+//                }
+//        }
+//    }
 }

@@ -21,12 +21,17 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var helpAboveButton: UIButton!
     
+    // The API service
+    var apiService: ApiService?
     
     // Provided data from the segue
     var currentPost:Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Init API service
+        apiService = ApiService()
         
         // Set the data to the labels in the view
         self.userLabel.text = currentPost?.title
@@ -102,7 +107,7 @@ class PostDetailController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     @IBAction func helpAction(_ sender: Any) {
-        
+//        apiService.
     }
 }
 
