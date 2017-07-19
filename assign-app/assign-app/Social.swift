@@ -21,10 +21,23 @@ class Social:NSObject, JSONDecodable {
     }
     
     convenience required init?(JSON: [String: Any]) {
-        guard let phonenumber = JSON["phonenumber"] as? String else { return nil }
-        guard let twitter = JSON["twitter"] as? String else { return nil }
-        guard let facebook = JSON["facebook"] as? String else { return nil }
         
-        self.init(phonenumber: phonenumber, twitter: twitter, facebook: facebook)
+        var phonenumberString: String = ""
+        var twitterString: String = ""
+        var facebookString: String = ""
+        
+        if let phonenumber = JSON["phonenumber"] as? String {
+            phonenumberString = phonenumber
+        }
+        
+        if let twitter = JSON["twitter"] as? String {
+            twitterString = twitter
+        }
+        
+        if let facebook = JSON["facebook"] as? String {
+            facebookString = facebook
+        }
+        
+        self.init(phonenumber: phonenumberString, twitter: twitterString, facebook: facebookString)
     }
 }

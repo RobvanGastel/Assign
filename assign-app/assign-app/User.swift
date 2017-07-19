@@ -50,17 +50,11 @@ class User:NSObject, JSONDecodable {
         
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         let profileImageString = Storage.getURL() + "/img/" + profileImage;
+            
+        let socialString = JSON["socialLink"] as? [String: Any]
+        let socialLink = Social(JSON: socialString!)
+        guard let specilisation = JSON["specialisation"] as? String else { return nil }
         
-        if JSON["socialLink"] != nil  {
-            
-            let socialString = JSON["socialLink"] as? [String: Any]
-            let socialLink = Social(JSON: socialString!)
-            guard let specilisation = JSON["specialisation"] as? String else { return nil }
-            
-            self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString, social: socialLink!, specialisation: specilisation)
-            
-        } else {
-            self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString)
-        }
+        self.init(id: id, name: name, email: email, dateCreated: dateCreated, profileImage: profileImageString, social: socialLink!, specialisation: specilisation)
     }
 }
