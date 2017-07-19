@@ -12,8 +12,8 @@ import Foundation
 class Post:NSObject, JSONDecodable {
 
     var id:Int!
-    var title:String?
-    var text:String?
+    var title:String!
+    var text:String!
     var url: String!
     var user:User?
     var tags:[String]?

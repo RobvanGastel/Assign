@@ -62,6 +62,7 @@
 		D45D2FF51F02D485002FEBE7 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FF31F02D485002FEBE7 /* Input.swift */; };
 		D45D2FF71F02E8FF002FEBE7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FF61F02E8FF002FEBE7 /* View.swift */; };
 		D4C1947F1F1D31A7009A481B /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1947E1F1D31A7009A481B /* Reply.swift */; };
+		D4C194811F1FBAED009A481B /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C194801F1FBAED009A481B /* Social.swift */; };
 		D4C55DEB1F0A8FF00029E285 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEA1F0A8FF00029E285 /* UIImage.swift */; };
 		D4C55DED1F0AC3F10029E285 /* PostsRefreshDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */; };
 		D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DF01F0AFFBB0029E285 /* UIButton.swift */; };
@@ -140,6 +141,7 @@
 		D45D2FF31F02D485002FEBE7 /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		D45D2FF61F02E8FF002FEBE7 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		D4C1947E1F1D31A7009A481B /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
+		D4C194801F1FBAED009A481B /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		D4C55DEA1F0A8FF00029E285 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsRefreshDelegate.swift; sourceTree = "<group>"; };
 		D4C55DF01F0AFFBB0029E285 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				D4C8287D1F069A0B00A87D40 /* JSONParser.swift */,
 				D41955851ECF627C009575DE /* JSONDecodable.swift */,
 				D4C1947E1F1D31A7009A481B /* Reply.swift */,
+				D4C194801F1FBAED009A481B /* Social.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				D4C1947F1F1D31A7009A481B /* Reply.swift in Sources */,
 				D45D2FF41F02D485002FEBE7 /* Add.swift in Sources */,
 				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
+				D4C194811F1FBAED009A481B /* Social.swift in Sources */,
 				D4C55DEB1F0A8FF00029E285 /* UIImage.swift in Sources */,
 				D4C828761F03A59200A87D40 /* DateAgo.swift in Sources */,
 				D4C8287A1F0501F000A87D40 /* TabBarController.swift in Sources */,
@@ -681,7 +685,7 @@
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.applepen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.applep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
@@ -701,7 +705,7 @@
 				INFOPLIST_FILE = "assign-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assign.applepen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assign.applep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "assign-app/Bridging.h";
