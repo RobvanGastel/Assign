@@ -101,8 +101,8 @@ class ApiService {
 
         return sessionManager.request(URL, method: .post, parameters: parameters,
                                       encoding: URLEncoding.queryString)
-            .validate().responseJSON{ response in
-
+            .validate(statusCode: 200..<300).responseData { response in
+                
                 switch response.result {
                 case .success:
 

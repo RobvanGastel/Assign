@@ -59,7 +59,7 @@ class AuthService {
             "code": code
         ]
         
-        Alamofire.request(URL, method: .post, parameters: parameters, encoding: URLEncoding.queryString).validate().responseJSON { response in
+        Alamofire.request(URL, method: .post, parameters: parameters, encoding: URLEncoding.queryString).validate(statusCode: 200..<300).responseData { response in
             switch response.result {
             case .success:
                 print("AUTH: Register request successful")
