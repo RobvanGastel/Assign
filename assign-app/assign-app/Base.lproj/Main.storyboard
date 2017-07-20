@@ -1372,12 +1372,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9d-fu-3Ok">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9d-fu-3Ok">
                                                     <rect key="frame" x="346" y="6" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="U9d-fu-3Ok" secondAttribute="trailing" constant="11" id="F3U-4O-nVx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="U9d-fu-3Ok" secondAttribute="bottom" constant="-2" id="feW-y1-hPm"/>
+                                                <constraint firstItem="U9d-fu-3Ok" firstAttribute="top" secondItem="gq8-vd-WOO" secondAttribute="topMargin" constant="-2" id="knR-gn-sYy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
