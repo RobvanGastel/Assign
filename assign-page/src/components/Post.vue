@@ -1,7 +1,7 @@
 <template>
   <section class="post">
     <img class="faceholder" src="../assets/img/faceholder.jpg">
-    <div class="profile" :style="{ 'background-image': 'url(' + this.post.user.profileImage + ')' }" ></div>
+    <div class="profile" :style="{ 'background-image': 'url(' + 'img/' + this.post.user.profileImage + ')' }" ></div>
     <h2>{{ post.user.name }}</h2>
     <h3>{{ post.dateCreated }}</h3>
     <h1>{{ post.title }}</h1>
