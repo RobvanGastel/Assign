@@ -26,7 +26,7 @@ export default {
         { name: 'og:url', content: 'http://84.26.134.115:8080/assign/' },
         { name: 'og:locale', content: 'nl_NL' },
         { name: 'og:type', content: 'website' },
-        { name: 'og:image', content: '/static/share-image.jpg' },
+        { name: 'og:image', content: '/resources/share-image.jpg' },
         { name: 'og:image:type', content: 'image/jpg' },
         { name: 'og:image:width', content: '1024' },
         { name: 'og:image:height', content: '512' },
@@ -36,13 +36,13 @@ export default {
         { name: 'twitter:url', content: 'http://84.26.134.115:8080/assign/' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:domain', content: 'assignapp.co' },
-        { name: 'twitter:image', content: '/static/share-image.jpg' },
+        { name: 'twitter:image', content: '/resources/share-image.jpg' },
         { name: 'twitter:image:alt', content: 'Help jouw medestudent' },
         { name: 'twitter:site', content: '@assignappco' },
         { name: 'twitter:creator', content: '@assignappco' }
       ],
       link: [
-        { rel: 'shortcut icon', href: '/static/favicon.png' }
+        { rel: 'shortcut icon', href: '/resources/favicon.png' }
       ]
     }
   }
