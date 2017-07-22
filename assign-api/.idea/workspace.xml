@@ -18,17 +18,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#529#530#0" expanded="false" />
-                <element signature="e#585#586#0" expanded="false" />
-                <element signature="e#623#624#0" expanded="false" />
-                <element signature="e#667#668#0" expanded="false" />
-                <element signature="e#734#735#0" expanded="false" />
-                <element signature="e#793#794#0" expanded="false" />
-                <element signature="e#860#861#0" expanded="false" />
-                <element signature="e#919#920#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,25 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="share-image.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/share-image.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favicon.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/favicon.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="508" lean-forward="true" selection-start-line="0" selection-start-column="508" selection-end-line="0" selection-end-column="508" />
+              <caret line="0" column="438" lean-forward="false" selection-start-line="0" selection-start-column="438" selection-end-line="0" selection-end-column="438" />
               <folding />
             </state>
           </provider>
@@ -273,6 +249,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -445,7 +422,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1082,6 +1058,7 @@
       <workItem from="1500492037159" duration="3218000" />
       <workItem from="1500657012645" duration="1529000" />
       <workItem from="1500658670458" duration="5017000" />
+      <workItem from="1500712862070" duration="3616000" />
     </task>
     <servers />
   </component>
@@ -1118,7 +1095,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181882000" />
+    <option name="totallyTimeSpent" value="187364000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1483,17 +1460,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#529#530#0" expanded="false" />
-            <element signature="e#585#586#0" expanded="false" />
-            <element signature="e#623#624#0" expanded="false" />
-            <element signature="e#667#668#0" expanded="false" />
-            <element signature="e#734#735#0" expanded="false" />
-            <element signature="e#793#794#0" expanded="false" />
-            <element signature="e#860#861#0" expanded="false" />
-            <element signature="e#919#920#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1558,7 +1525,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="508" lean-forward="true" selection-start-line="0" selection-start-column="508" selection-end-line="0" selection-end-column="508" />
+          <caret line="0" column="438" lean-forward="false" selection-start-line="0" selection-start-column="438" selection-end-line="0" selection-end-column="438" />
           <folding />
         </state>
       </provider>

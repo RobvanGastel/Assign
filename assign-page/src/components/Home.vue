@@ -1,5 +1,12 @@
 <template>
-    <post :post="post"></post>
+  <div>
+    <div>
+      <post :post="post"></post>
+    </div>
+    <div>
+
+    </div>
+  </div>
 </template>
 
 <script>
@@ -20,7 +27,9 @@ export default {
     }
   },
   created () {
-    this.getPost(this.$route.params.url)
+    if(this.$route.params.url != null) {
+      this.getPost(this.$route.params.url)
+    }
   },
   methods: {
     getPost (url) {
@@ -37,11 +46,6 @@ export default {
           self.error = error
       });
     }
-  },
-  metaInfo: {
-    title: 'Post title | Assign',
-    // override the parent template and just use the above title only
-    titleTemplate: null
   }
 }
 </script>
