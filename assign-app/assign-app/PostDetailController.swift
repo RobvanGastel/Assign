@@ -19,7 +19,7 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var helpAboveButton: UIButton!
+    @IBOutlet weak var helpButtonBar: UIView!
     
     // The API service
     var apiService: ApiService?
@@ -61,9 +61,13 @@ class PostDetailController: UIViewController {
         
         if (currentPost?.user?.id == Storage.getUser().id) {
             self.helpButton.isHidden = true
+<<<<<<< HEAD
             self.helpAboveButton.isHidden = true
             
             // Handle own post settings
+=======
+            self.helpButtonBar.isHidden = true
+>>>>>>> origin/develop
         }
         
     }
@@ -88,21 +92,14 @@ class PostDetailController: UIViewController {
     }
     
     /// To share a post with Facebook, Twitter etc.
-    ///
-    /// TODO Add full functionality :
-    /// An image, text, Logo and URL.
     @IBAction func shareAction(_ sender: Any) {
         
-        // TODO add custom text to share
         let postText = (currentPost?.user?.name)! + " vraagt om hulp bij " + (currentPost?.title)!
-        // TODO Add custom url to match the post
         let postUrl : NSURL = NSURL(string: currentPost!.url)!
-        // TODO Add the assign logo
-        let image : UIImage = UIImage(named: "app-logo.png")!
         
         // Fills in the Image, text and url
         let activityViewController : UIActivityViewController = UIActivityViewController(
-            activityItems: [postText, postUrl, image], applicationActivities: nil)
+            activityItems: [postText, postUrl], applicationActivities: nil)
         
         // This lines is for the popover
         // activityViewController.popoverPresentationController?.barButtonItem = (sender as! UIBarButtonItem)
