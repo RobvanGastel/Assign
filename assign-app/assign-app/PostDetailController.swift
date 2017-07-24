@@ -40,7 +40,7 @@ class PostDetailController: UIViewController {
             
             if self.replied! {
                 self.helpButton.isHidden = true
-                self.helpAboveButton.isHidden = true
+                self.helpButtonBar.isHidden = true
             }
         }
         
@@ -61,13 +61,9 @@ class PostDetailController: UIViewController {
         
         if (currentPost?.user?.id == Storage.getUser().id) {
             self.helpButton.isHidden = true
-<<<<<<< HEAD
-            self.helpAboveButton.isHidden = true
+            self.helpButtonBar.isHidden = true
             
             // Handle own post settings
-=======
-            self.helpButtonBar.isHidden = true
->>>>>>> origin/develop
         }
         
     }
@@ -128,7 +124,7 @@ class PostDetailController: UIViewController {
             
             if success {
                 self.helpButton.isHidden = false
-                self.helpAboveButton.isHidden = false
+                self.helpButtonBar.isHidden = false
                 
                 // Handle button clicked
                 
