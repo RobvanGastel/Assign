@@ -27,26 +27,45 @@ class PostDetailController: UIViewController {
     // Provided data from the segue
     var currentPost:Post?
     
+    var replied: Bool? = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Init API service
         apiService = ApiService()
+
+        apiService?.checkReplied(id: (currentPost?.id)!) { response in
+            self.replied = response
+            
+            if self.replied! {
+                self.helpButton.isHidden = true
+                self.helpAboveButton.isHidden = true
+            }
+        }
         
+        self.initializePost()
+    }
+    
+    func initializePost() {
         // Set the data to the labels in the view
         self.userLabel.text = currentPost?.title
         self.titleLabel.text = currentPost?.text
         self.dateLabel.text = currentPost?.dateCreated?.timeAgo
         self.nameButton.setTitle(currentPost?.user?.name, for: .normal)
         
-        if(currentPost?.user?.id == Storage.getUser().id) {
-            self.helpButton.isHidden = true
-            self.helpAboveButton.isHidden = true
-        }
-        
         let url = URL(string: (currentPost?.user?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
+        
+        
+        if (currentPost?.user?.id == Storage.getUser().id) {
+            self.helpButton.isHidden = true
+            self.helpAboveButton.isHidden = true
+            
+            // Handle own post settings
+        }
+        
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.
@@ -86,7 +105,7 @@ class PostDetailController: UIViewController {
             activityItems: [postText, postUrl, image], applicationActivities: nil)
         
         // This lines is for the popover
-        activityViewController.popoverPresentationController?.barButtonItem = (sender as! UIBarButtonItem)
+        // activityViewController.popoverPresentationController?.barButtonItem = (sender as! UIBarButtonItem)
         
         // This line remove the arrow of the popover
         activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
@@ -106,8 +125,20 @@ class PostDetailController: UIViewController {
         // Present the share options
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
     @IBAction func helpAction(_ sender: Any) {
-//        apiService.
+        apiService?.addReply(id: (self.currentPost?.id)!) { success in
+            
+            if success {
+                self.helpButton.isHidden = false
+                self.helpAboveButton.isHidden = false
+                
+                // Handle button clicked
+                
+            } else {
+                // Error response
+            }
+        }
     }
 }
 
