@@ -64,6 +64,16 @@ To stop the running container
 $ docker stop <app-name>
 ```
 
+Delete every Docker containers
+Must be run first because images are attached to containers
+```
+$ docker rm -f $(docker ps -a -q)
+```
+Delete every Docker image
+```
+$ docker rmi -f $(docker images -q)
+```
+
 ## WildFly Docker
 The Backend is build in Java with Java EE7 as framework and as Server WildFly 
 The ```Dockerfile``` used for deployment should look something like this.
