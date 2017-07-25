@@ -132,3 +132,4 @@ $ docker run -p 49160:8080 -d <username>/node-web-app
 ```
 
 ## MySQL Docker
+MySQL is running on version 5.7.19 with the [Dockerfile from the Docs](https://github.com/docker-library/docs/tree/master/mysql).
