@@ -41,9 +41,6 @@ export default {
         { name: 'twitter:image:alt', content: 'Help jouw medestudent' },
         { name: 'twitter:site', content: '@assignappco' },
         { name: 'twitter:creator', content: '@assignappco' }
-      ],
-      link: [
-        { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
       ]
     }
   }

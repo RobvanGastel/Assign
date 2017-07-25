@@ -5,8 +5,8 @@ module.exports = {
   },
 
   css: [
-    '~assets/css/style.css',
-    '~assets/css/bootstrap.min.css'
+    '~assets/css/bootstrap.min.css',
+    '~assets/css/style.css'
   ],
 
   /*
@@ -17,16 +17,16 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Assign' }
+      { hid: 'description', name: 'description', content: 'Help jouw medestudenten' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#FF7F28' },
   /*
   ** Build configuration
   */

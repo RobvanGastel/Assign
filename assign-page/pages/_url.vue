@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <navigation></navigation>
+    <post-navigation></post-navigation>
     <div v-if="post.url != null">
       <post :post="post"></post>
       <div class="footer">
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Navigation from '../components/Navigation.vue'
+import PostNavigation from '../components/PostNavigation.vue'
 import NotFound from '../components/NotFound.vue'
 import Post from '../components/Post.vue'
 import axios from 'axios'
@@ -22,7 +22,7 @@ import axios from 'axios'
 export default {
   components: {
     Post,
-    Navigation,
+    PostNavigation,
     NotFound
   },
   data () {

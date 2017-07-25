@@ -1,6 +1,6 @@
 <template>
   <section class="post">
-    <p>Post not found</p>
+    <p>Deze assignment is niet gevonden, het kan dat de assignment is verwijderd door de eigenaar.</p>
   </section>
 </template>
 
@@ -10,12 +10,12 @@ export default {
   props: ['post'],
   head () {
     return {
-      title: 'Post not found',
+      title: 'Deze assignment is niet gevonden',
       titleTemplate: '%s — Assign',
       meta: [
         { name: 'language', content: 'nl_NL' },
-        { name: 'description', content: 'Post not found — Assign' },
-        { property: 'og:title', content: 'Post not found — Assign' },
+        { name: 'description', content: 'Deze assignment is niet gevonden — Assign' },
+        { property: 'og:title', content: 'Deze assignment is niet gevonden — Assign' },
         { property: 'og:site_name', content: 'assignapp.co' },
         { property: 'og:description', content: 'Assign app om medestudenten te helpen.' },
         { property: 'og:url', content: 'http://84.26.134.115:8080/assign/' },
@@ -35,9 +35,6 @@ export default {
         { name: 'twitter:image:alt', content: 'Help jouw medestudent' },
         { name: 'twitter:site', content: '@assignappco' },
         { name: 'twitter:creator', content: '@assignappco' }
-      ],
-      link: [
-        { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
       ]
     }
   }
