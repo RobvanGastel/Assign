@@ -1,3 +1,4 @@
+# Define node version
 FROM node:6.10.2
 
 # Set host for deployment
@@ -12,6 +13,6 @@ COPY . /opt/assign-app/assign-page
 RUN npm install
 RUN npm run build
 
-
+# Choose port to expose
 EXPOSE 80
 CMD [ "npm", "start" ]
