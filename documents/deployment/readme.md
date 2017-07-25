@@ -19,8 +19,7 @@ $ docker run --name <app-name> -p 5000:1337 -d <username>/<app-name>
 ```
 
 A good security practice is to run the Docker image (if possible) in read-only mode
-by adding --read-only flag
-See "Docker security" talk at mark 22:00 https://www.youtube.com/watch?v=oANurUSaOFs
+by adding --read-only flag for refference see [this video](https://youtu.be/oANurUSaOFs?t=22m)
 
 Run docker image with a folder from HOST machine mounted
 ```
