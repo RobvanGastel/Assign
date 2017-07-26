@@ -101,6 +101,25 @@ CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
 ```
 For the documentation visit [this link](https://hub.docker.com/r/jboss/wildfly/)
 
+To boot in standalone mode
+```
+$ docker run -it jboss/wildfly
+```
+To boot in domain mode
+```
+$ docker run -it jboss/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0
+```
+
+Add method of running the war
+Create Dockerfile with following content:
+```
+FROM jboss/wildfly
+ADD your-awesome-app.war /opt/jboss/wildfly/standalone/deployments/
+```
+Place your `your-awesome-app.war` file in the same directory as your Dockerfile.
+Run the build with `docker build --tag=wildfly-app .`
+Run the container with `docker run -it wildfly-app.` Application will be deployed on the container boot.
+
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
 The ```Dockerfile``` used for deployment should look something like this.
