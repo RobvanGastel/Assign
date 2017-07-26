@@ -125,7 +125,7 @@ Edit the environment file to set the JAVA_HOME when its not set yet.
 $ sudo nano /etc/environment
 ```
 
-Depending on where you installed your Java, you will need to provide the full path. For this example, I use open-jdk-1.8 with the path:  /usr/lib/jvm/java-1.8.0-openjdk-amd64
+Depending on where you installed your Java, you will need to provide the full path. For this example, I use open-jdk-1.8 with the path:  `/usr/lib/jvm/java-1.8.0-openjdk-amd64`
 Add the following lines:
 ```
 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
