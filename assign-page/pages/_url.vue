@@ -1,14 +1,9 @@
 <template>
   <div class="container-fluid">
     <post-navigation></post-navigation>
-    <div v-if="post.url != null">
-      <post :post="post"></post>
-      <div class="footer">
-        <a href="#" class="button-open">Open in app</a>
-      </div>
-    </div>
-    <div v-else>
-      <not-found></not-found>
+    <post :post="post"></post>
+    <div class="footer">
+      <a href="#" class="button-open">Open in app</a>
     </div>
   </div>
 </template>
