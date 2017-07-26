@@ -120,20 +120,40 @@ Place your `your-awesome-app.war` file in the same directory as your Dockerfile.
 Run the build with `docker build --tag=wildfly-app .`
 Run the container with `docker run -it wildfly-app.` Application will be deployed on the container boot.
 
+Install Java 1.8 with: 
+```
+$ apt-get install software-properties-common
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+```
+Then, depending on the version you want to install, execute one of the following commands:
+```
+$ sudo apt-get install oracle-java8-installer
+```
+
 Edit the environment file to set the JAVA_HOME when its not set yet.
 ```
 $ sudo nano /etc/environment
 ```
 
-Depending on where you installed your Java, you will need to provide the full path. For this example, I use open-jdk-1.8 with the path:  `/usr/lib/jvm/java-1.8.0-openjdk-amd64`
+Depending on where you installed your Java, you will need to provide the full path. For this example, I use open-jdk-1.8 with the path:  `/usr/lib/jvm/java-8-oracle`
 Add the following lines:
 ```
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export JAVA_HOME
 ```
 Test if the variable is been set right with:
 ```
 $ echo $JAVA_HOME
+```
+
+To install Maven use: 
+```
+$ sudo apt-get install maven
+```
+To build the the war use in the assign-api directory with the pom.xml
+```
+$ sudo mvn package
 ```
 
 ## Nodejs Docker
