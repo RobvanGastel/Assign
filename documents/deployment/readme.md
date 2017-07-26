@@ -110,16 +110,6 @@ To boot in domain mode
 $ docker run -it -d jboss/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0
 ```
 
-Add method of running the war
-Create Dockerfile with following content:
-```
-FROM jboss/wildfly
-ADD your-awesome-app.war /opt/jboss/wildfly/standalone/deployments/
-```
-Place your `your-awesome-app.war` file in the same directory as your Dockerfile.
-Run the build with `docker build --tag=wildfly-app .`
-Run the container with `docker run -it wildfly-app.` Application will be deployed on the container boot.
-
 Install Java 1.8 with: 
 ```
 $ apt-get install software-properties-common
@@ -155,6 +145,16 @@ To build the the war use in the assign-api directory with the pom.xml
 ```
 $ sudo mvn package
 ```
+
+Add method of running the war
+Create Dockerfile with following content:
+```
+FROM jboss/wildfly
+ADD your-awesome-app.war /opt/jboss/wildfly/standalone/deployments/
+```
+Place your `assign-api-1.0-SNAPSHOT.war` file in the same directory as your Dockerfile.
+Run the build with `docker build --tag=assign-api .`
+Run the container with `docker run -d -it assign-api` Application will be deployed on the container boot.
 
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
@@ -201,7 +201,7 @@ MySQL is running on version 5.7.19 with the [Dockerfile from the Docs](https://g
 
 Starting a MySQL container:
 ```
-$ docker run --name mysql -e MYSQL_ROOT_PASSWORD=F4F2mbut -d mysql:latest
+$ docker run --name mysql -e MYSQL_ROOT_PASSWORD=F4F2mbut -e MYSQL_DATABASE=assign -d mysql:latest
 ```
 
 ## Load balancer
