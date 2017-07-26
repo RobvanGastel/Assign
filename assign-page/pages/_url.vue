@@ -1,9 +1,14 @@
 <template>
   <div class="container-fluid">
     <post-navigation></post-navigation>
-    <post :post="post"></post>
-    <div class="footer">
-      <a href="#" class="button-open">Open in app</a>
+    <div v-if="post.url != null">
+      <post :post="post"></post>
+      <div class="footer">
+        <a href="#" class="button-open">Open in app</a>
+      </div>
+    </div>
+    <div v-else>
+      <not-found></not-found>
     </div>
   </div>
 </template>
@@ -13,7 +18,6 @@ import PostNavigation from '../components/PostNavigation.vue'
 import NotFound from '../components/NotFound.vue'
 import Post from '../components/Post.vue'
 import axios from 'axios'
-
 export default {
   components: {
     Post,
@@ -35,7 +39,6 @@ export default {
   methods: {
     getPost (url) {
       let self = this
-
       axios.get('http://84.26.134.115:8080/assign/api/page/post', { params: {
         url: url
       }})
