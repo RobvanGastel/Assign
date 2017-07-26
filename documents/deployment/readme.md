@@ -120,6 +120,22 @@ Place your `your-awesome-app.war` file in the same directory as your Dockerfile.
 Run the build with `docker build --tag=wildfly-app .`
 Run the container with `docker run -it wildfly-app.` Application will be deployed on the container boot.
 
+Edit the environment file to set the JAVA_HOME when its not set yet.
+```
+$ sudo nano /etc/environment
+```
+
+Depending on where you installed your Java, you will need to provide the full path. For this example, I use open-jdk-1.8 with the path:  /usr/lib/jvm/java-1.8.0-openjdk-amd64
+Add the following lines:
+```
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export JAVA_HOME
+```
+Test if the variable is been set right with:
+```
+$ echo $JAVA_HOME
+```
+
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
 The ```Dockerfile``` used for deployment should look something like this.
@@ -162,3 +178,12 @@ $ docker run -p 49160:8080 -d <username>/node-web-app
 
 ## MySQL Docker
 MySQL is running on version 5.7.19 with the [Dockerfile from the Docs](https://github.com/docker-library/docs/tree/master/mysql).
+
+Starting a MySQL container:
+```
+$ docker run --name mysql -e MYSQL_ROOT_PASSWORD=F4F2mbut -d mysql:latest
+```
+
+## Load balancer
+
+### Nginx
