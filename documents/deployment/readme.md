@@ -107,7 +107,7 @@ $ docker run -it jboss/wildfly
 ```
 To boot in domain mode
 ```
-$ docker run -it jboss/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0
+$ docker run -it -d jboss/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0
 ```
 
 Add method of running the war
