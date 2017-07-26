@@ -16,8 +16,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="122" column="22" lean-forward="true" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+            <state relative-caret-position="325">
+              <caret line="149" column="30" lean-forward="false" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -46,6 +46,7 @@
       <find>uriInfo</find>
       <find>securityContext</find>
       <find>404</find>
+      <find>org.apache.maven.plugins</find>
     </findStrings>
     <replaceStrings>
       <replace>Post</replace>
@@ -963,7 +964,7 @@
       <workItem from="1500657012645" duration="1529000" />
       <workItem from="1500658670458" duration="5017000" />
       <workItem from="1500712862070" duration="7512000" />
-      <workItem from="1501105082608" duration="1295000" />
+      <workItem from="1501105082608" duration="1527000" />
     </task>
     <servers />
   </component>
@@ -1000,7 +1001,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192555000" />
+    <option name="totallyTimeSpent" value="192787000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1419,8 +1420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="122" column="22" lean-forward="true" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+        <state relative-caret-position="325">
+          <caret line="149" column="30" lean-forward="false" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="30" />
           <folding />
         </state>
       </provider>
