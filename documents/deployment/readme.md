@@ -95,6 +95,8 @@ Database: `assign, -u ***REMOVED*** -p ***REMOVED***`
 
 War file: `assign-api.war`
 
+For documentation visit [this link](https://github.com/arun-gupta/docker-images/tree/master/wildfly-mysql-javaee7)
+
 Install Java 1.8 with: 
 ```
 $ apt-get install software-properties-common
@@ -130,6 +132,7 @@ To build the the war use in the assign-api directory with the pom.xml
 ```
 $ sudo mvn package
 ```
+
 
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
