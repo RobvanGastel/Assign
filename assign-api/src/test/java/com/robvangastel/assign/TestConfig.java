@@ -17,7 +17,7 @@ public class TestConfig {
      * http://localhost:9080/assign/api
      */
     public TestConfig() {
-        setBaseUrl("http://84.26.134.115:8080/assign/api");
+        setBaseUrl("http://***REMOVED***:8080/assign/api");
     }
 
     public static String getBaseUrl() {
