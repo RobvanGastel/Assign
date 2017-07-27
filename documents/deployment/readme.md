@@ -167,11 +167,11 @@ npm-debug.log
 ```
 To build the image use:
 ```
-$ docker build -t assign-page .
+$ docker build -t rob/assign-page .
 ```
 To run the image use the following command with ```-p``` redirecting a public port to a private port inside the container.
 ```
-$ docker run -p 80:3000 -d assign-page
+$ docker run -p 80:3000 -d rob/assign-page
 ```
 
 ## MySQL Docker
