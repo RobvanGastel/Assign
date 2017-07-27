@@ -183,5 +183,8 @@ $ docker run --name mysql -e MYSQL_ROOT_PASSWORD=F4F2mbut -e MYSQL_DATABASE=assi
 ```
 
 ## Load balancer
-
+Open port on:
+```
+$ iptables -I INPUT 1 -i eth0 -p tcp --dport 8080 -j ACCEPT
+```
 ### Nginx
