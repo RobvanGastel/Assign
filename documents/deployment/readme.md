@@ -167,11 +167,11 @@ npm-debug.log
 ```
 To build the image use:
 ```
-$ docker build -t <username>/node-web-app .
+$ docker build -t assign-page .
 ```
 To run the image use the following command with ```-p``` redirecting a public port to a private port inside the container.
 ```
-$ docker run -p 49160:8080 -d <username>/node-web-app
+$ docker run -p 80:3000 -d assign-page
 ```
 
 ## MySQL Docker
