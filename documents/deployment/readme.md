@@ -78,37 +78,21 @@ $ docker rmi -f $(docker images -q)
 The Backend is build in Java with Java EE7 as framework and as Server WildFly 
 The ```Dockerfile``` used for deployment should look something like this.
 
-```
-# Use latest jboss/base-jdk:7 image as the base
-FROM jboss/base-jdk:8
 
-# Set the WILDFLY_VERSION env variable
-ENV WILDFLY_VERSION 9.0.0.Final
-
-# Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
-# Make sure the distribution is available from a well-known place
-RUN cd $HOME && curl http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz | tar zx && mv $HOME/wildfly-$WILDFLY_VERSION $HOME/wildfly
-
-# Set the JBOSS_HOME env variable
-ENV JBOSS_HOME /opt/jboss/wildfly
-
-# Expose the ports we're interested in
-EXPOSE 8080
-
-# Set the default command to run on boot
-# This will boot WildFly in the standalone mode and bind to all interface
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
+To boot with MYSQL with variables:
 ```
-For the documentation visit [this link](https://hub.docker.com/r/jboss/wildfly/)
+$ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
+```
 
-To boot in standalone mode
+To boot WildFly with MYSQL link:
 ```
-$ docker run -it jboss/wildfly
+$ docker build -t wildfly .
+$ docker run --name wildfly -e MYSQL_HOST=***REMOVED*** -e MYSQL_PORT=5306 -p 8080:8080 -d wildfly
 ```
-To boot in domain mode
-```
-$ docker run -it -d jboss/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0
-```
+Datasource: `assignDS`
+Database: `assign, -u ***REMOVED*** -p ***REMOVED***`
+
+War file: `assign-api.war`
 
 Install Java 1.8 with: 
 ```
@@ -145,16 +129,6 @@ To build the the war use in the assign-api directory with the pom.xml
 ```
 $ sudo mvn package
 ```
-
-Add method of running the war
-Create Dockerfile with following content:
-```
-FROM jboss/wildfly
-ADD your-awesome-app.war /opt/jboss/wildfly/standalone/deployments/
-```
-Place your `assign-api-1.0-SNAPSHOT.war` file in the same directory as your Dockerfile.
-Run the build with `docker build --tag=assign-api .`
-Run the container with `docker run -d -it assign-api` Application will be deployed on the container boot.
 
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
