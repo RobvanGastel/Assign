@@ -90,6 +90,7 @@ $ docker build -t wildfly .
 $ docker run --name wildfly -e MYSQL_HOST=***REMOVED*** -e MYSQL_PORT=5306 -p 8080:8080 -d wildfly
 ```
 Datasource: `assignDS`
+
 Database: `assign, -u ***REMOVED*** -p ***REMOVED***`
 
 War file: `assign-api.war`
