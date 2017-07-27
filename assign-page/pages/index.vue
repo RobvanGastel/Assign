@@ -1,8 +1,6 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <h1>Assign</h1>
-    <h2>Help jouw medestudenten</h2>
   </div>
 </template>
 

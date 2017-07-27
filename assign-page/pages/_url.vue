@@ -4,7 +4,8 @@
     <div v-if="post.url != null">
       <post :post="post"></post>
       <div class="footer">
-        <a href="#" class="button-open">Open in app</a>
+        <div class="overlay"></div>
+        <a href="#" class="button-open">Download app</a>
       </div>
     </div>
     <div v-else>

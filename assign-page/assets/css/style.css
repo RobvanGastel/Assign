@@ -83,6 +83,7 @@ body{
   padding: 20px;
   max-width: 400px;
   margin: 0 auto;
+  margin-bottom: 74px;
 }
 
 .brand-nav{
@@ -92,14 +93,14 @@ body{
   height: 56px;
 }
 
-.button-install, .button-install:hover, .button-install:active, .button-install:focus{
+.button-info, .button-info:hover, .button-info:active, .button-info:focus{
   position: absolute;
   right: 15px;
   float: right;
   top: 14px;
   background-color: #FF7F28;
   color: #fff;
-  padding: 5px 16px;
+  padding: 4px 17px;
   border-radius: 32px;
   font-weight: 400;
   letter-spacing: 0.5px;
@@ -109,17 +110,29 @@ body{
 }
 
 .footer{
-  position: absolute;
+  position: fixed;
   left: 0;
-  bottom: 20px;
+  bottom: 26px;
   width: 100%;
   text-align: center;
+}
+
+.overlay{
+  position: absolute;
+  height: 80px;
+  width: 100vw;
+  z-index: -1;
+  margin-top: -30px;
+  background: -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,1)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(bottom,rgba(250,250,250,0),rgba(250,250,250,1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(bottom,rgba(250,250,250,0),rgba(250,250,250,1)); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom, rgba(250,250,250,0),rgba(250,250,250,1)); /*Standard*/
 }
 
 .button-open, .button-open:hover, .button-open:active, .button-open:focus{
   background-color: #FF7F28;
   color: #fff;
-  padding: 8px 21px;
+  padding: 10px 24px;
   border-radius: 32px;
   font-size: 16px;
   font-weight: 400;
