@@ -21,6 +21,10 @@ module.exports = {
     '~assets/css/style.css'
   ],
   /*
+  ** Customize the progress-bar color
+  */
+  loading: { color: '#FF7F28' },
+  /*
   ** Add axios globally
   */
   build: {
