@@ -17,31 +17,23 @@
       </a>
     </div>
     <div v-if="post.url != null">
-      <section class="post">
-        <img class="faceholder" src="/faceholder.jpg">
-        <div class="profile" :style="{ 'background-image': 'url(' + 'http://84.26.134.115:8080/assign/api/img/' + this.post.user.profileImage + ')' }" ></div>
-        <h2>{{ post.user.name }}</h2>
-        <h3>{{ post.dateCreated }}</h3>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.description }}</p>
-        <!-- <h3 class="text-center">3 aanbiedingen  •  Nog 3 uur beschikbaar</h3> -->
-      </section>
-      <div class="footer">
-        <div class="overlay"></div>
-        <a href="#" class="button-open">Download app</a>
-      </div>
+      <post :post="post"></post>
     </div>
     <div v-else>
-      <section class="post">
-        <p>Deze assignment is niet gevonden, het kan dat de assignment is verwijderd door de eigenaar.</p>
-      </section>
+      <not-found></not-found>
     </div>
   </div>
 </template>
 
 <script>
+import NotFound from '../components/NotFound.vue'
+import Post from '../components/Post.vue'
 import axios from 'axios'
 export default {
+  components: {
+    Post,
+    NotFound
+  },
   data () {
     return {
       post: {
