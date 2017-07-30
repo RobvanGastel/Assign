@@ -154,7 +154,7 @@ RUN npm install
 RUN npm run build
 
 # Choose port to expose
-EXPOSE 80
+EXPOSE 3000
 CMD [ "npm", "start" ]
 ```
 The file needs to be placed in the root directory of the app. The
@@ -167,11 +167,11 @@ npm-debug.log
 ```
 To build the image use:
 ```
-$ docker build -t rob/assign-page .
+$ docker build -t assign-page .
 ```
 To run the image use the following command with ```-p``` redirecting a public port to a private port inside the container.
 ```
-$ docker run -p 80:3000 -d rob/assign-page
+$ docker run -p 80:3000 -d assign-page
 ```
 
 ## MySQL Docker
