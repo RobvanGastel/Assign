@@ -1,14 +1,4 @@
 module.exports = {
-
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://84.26.134.115:8080/assign/api'
-  },
-
-  css: [
-    '~assets/css/bootstrap.min.css',
-    '~assets/css/style.css'
-  ],
-
   /*
   ** Headers of the page
   */
@@ -20,15 +10,22 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Help jouw medestudenten' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  /*
+  ** Global CSS
+  */
+  css: [
+    '~assets/css/bootstrap.min.css',
+    '~assets/css/style.css'
+  ],
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#FF7F28' },
   /*
-  ** Build configuration
+  ** Add axios globally
   */
   build: {
     vendor: ['axios'],
