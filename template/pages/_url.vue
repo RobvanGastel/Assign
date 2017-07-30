@@ -40,16 +40,8 @@
 </template>
 
 <script>
-import PostNavigation from '../components/PostNavigation.vue'
-import NotFound from '../components/NotFound.vue'
-import Post from '../components/Post.vue'
 import axios from 'axios'
 export default {
-  components: {
-    Post,
-    PostNavigation,
-    NotFound
-  },
   data () {
     return {
       post: {
