@@ -1,34 +1,22 @@
 module.exports = {
-
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://84.26.134.115:8080/assign/api'
-  },
-
-  css: [
-    '~assets/css/bootstrap.min.css',
-    '~assets/css/style.css'
-  ],
-
   /*
   ** Headers of the page
   */
   head: {
-    title: 'Assign',
+    title: 'starter',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Help jouw medestudenten' }
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  
   /*
-  ** Customize the progress-bar color
+  ** Global CSS
   */
-  loading: { color: '#FF7F28' },
-
+  css: ['~/assets/css/main.css'],
   /*
   ** Add axios globally
   */

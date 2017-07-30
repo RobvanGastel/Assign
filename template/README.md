@@ -1,6 +1,6 @@
-# {{ name }}
+# assign-page
 
-> {{ description }}
+> Nuxt.js project
 
 ## Build Setup
 
