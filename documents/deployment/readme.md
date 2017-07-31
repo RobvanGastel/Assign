@@ -1,6 +1,37 @@
 # Deployment
 Documentation and commands used in the deployment environment ( Ubuntu 17.04 ).
 
+Commands to start up the entire app -> nginx -> assign-page -> mysql -> wildfly 
+**NGINX**
+In head dir:
+```
+$ docker-compose up -d
+```
+
+**ASSIGN-PAGE**
+In asign-page dir:
+```
+$ docker build -t assign-page .
+```
+To build the app:
+```
+$ docker-compose up -d
+```
+
+**MYSQL**
+For now still without docker-compose
+```
+$ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
+```
+
+**WILDFLY**
+For now still without docker-compose
+
+In assign-api dir:
+```
+$ docker build -t wildfly .
+$ docker run --name wildfly -e MYSQL_HOST=***REMOVED*** -e MYSQL_PORT=5306 -p 8080:8080 -d wildfly
+```
 
 ## Docker
 Generic Docker commands to remember:
@@ -183,8 +214,19 @@ $ docker run --name mysql -e MYSQL_ROOT_PASSWORD=F4F2mbut -e MYSQL_DATABASE=assi
 ```
 
 ## Load balancer
-Open port on:
+Open port on ( only use this for debugging ):
 ```
 $ iptables -I INPUT 1 -i eth0 -p tcp --dport 8080 -j ACCEPT
 ```
 ### Nginx
+
+For Nginx a reverse proxy container is used, with [these specs](https://hub.docker.com/r/jwilder/nginx-proxy/). Together with the Nginx container we use docker-compose. 
+
+to run docker compose on a directory: 
+```
+$ docker-compose up -d
+```
+
+
+
+
