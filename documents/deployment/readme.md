@@ -2,13 +2,16 @@
 Documentation and commands used in the deployment environment ( Ubuntu 17.04 ).
 
 Commands to start up the entire app -> nginx -> assign-page -> mysql -> wildfly 
+
 **NGINX**
+
 In head dir:
 ```
 $ docker-compose up -d
 ```
 
 **ASSIGN-PAGE**
+
 In asign-page dir:
 ```
 $ docker build -t assign-page .
@@ -19,12 +22,14 @@ $ docker-compose up -d
 ```
 
 **MYSQL**
+
 For now still without docker-compose
 ```
 $ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
 ```
 
 **WILDFLY**
+
 For now still without docker-compose
 
 In assign-api dir:
