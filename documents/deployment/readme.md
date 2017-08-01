@@ -168,7 +168,7 @@ $ sudo mvn package
 
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
-The ```Dockerfile``` used for deployment should look something like this.
+The `Dockerfile` used for deployment should look something like this.
 ```
 # Define node version
 FROM node:6.10.2
