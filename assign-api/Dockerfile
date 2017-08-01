@@ -1,4 +1,4 @@
-FROM jboss/wildfly/wildfly:10.1.0.Final
+FROM jboss/wildfly:10.1.0.Final
 
 ADD configuration /opt/jboss/wildfly/configuration/
 
