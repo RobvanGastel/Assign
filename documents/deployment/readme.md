@@ -22,6 +22,19 @@ No dir specified:
 $ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
 ```
 
+## Load balancer
+For Nginx a reverse proxy container is used, with [these specs](https://hub.docker.com/r/jwilder/nginx-proxy/). Together with the Nginx container we use docker-compose. To set up the wildfly part I used [this](https://github.com/jwilder/nginx-proxy/issues/560) as documentation.
+
+to run docker compose on a directory: 
+```
+$ docker-compose up -d
+```
+
+Open port on ( only use this for debugging ):
+```
+$ iptables -I INPUT 1 -i eth0 -p tcp --dport 8080 -j ACCEPT
+```
+
 ## Docker
 Generic Docker commands to remember:
 
@@ -196,21 +209,6 @@ Starting a MySQL container:
 ```
 $ docker run --name mysql -e MYSQL_ROOT_PASSWORD=F4F2mbut -e MYSQL_DATABASE=assign -d mysql:latest
 ```
-
-## Load balancer
-Open port on ( only use this for debugging ):
-```
-$ iptables -I INPUT 1 -i eth0 -p tcp --dport 8080 -j ACCEPT
-```
-### Nginx
-
-For Nginx a reverse proxy container is used, with [these specs](https://hub.docker.com/r/jwilder/nginx-proxy/). Together with the Nginx container we use docker-compose. To set up the wildfly part I used [this](https://github.com/jwilder/nginx-proxy/issues/560) as documentation.
-
-to run docker compose on a directory: 
-```
-$ docker-compose up -d
-```
-
 
 
 
