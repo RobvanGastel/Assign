@@ -1,6 +1,6 @@
 
-version: '2'  
-services:  
+version: '2'
+services:
   nginx-proxy:
     image: jwilder/nginx-proxy
     restart: always
@@ -12,7 +12,7 @@ services:
     volumes:
       - '/etc/nginx/vhost.d'
       - '/usr/share/nginx/html'
-      - '/etc/nginx/certs:/etc/nginx/certs:ro' 
+      - '/etc/nginx/certs:/etc/nginx/certs:ro'
       - '/var/run/docker.sock:/tmp/docker.sock:ro'
 
   letsencrypt-nginx-proxy:
@@ -28,13 +28,17 @@ services:
     image: wildfly
     network_mode: bridge
     environment:
+<<<<<<< HEAD
      - VIRTUAL_HOST=api.assignapp.nl:8080
      - LETSENCRYPT_HOST=api.assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
+=======
+     - VIRTUAL_HOST=api.assignapp.nl
+>>>>>>> 4c71a86d236e8b746bc6e74c0185095a0579940c
      - MYSQL_HOST=***REMOVED***
      - MYSQL_PORT=5306
     ports:
-     - '8080:8080'  
+     - '8443:8443'
 
   assign-page:
     image: assign-page
