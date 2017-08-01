@@ -1,3 +1,4 @@
+
 version: '2'  
 services:  
   nginx-proxy:
@@ -13,8 +14,6 @@ services:
       - '/usr/share/nginx/html'
       - '/etc/nginx/certs:/etc/nginx/certs:ro' 
       - '/var/run/docker.sock:/tmp/docker.sock:ro'
-    environment:
-      - DEFAULT_HOST=assignapp.nl
 
   letsencrypt-nginx-proxy:
     container_name: letsencrypt-nginx-proxy
@@ -24,6 +23,16 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     volumes_from:
       - nginx-proxy
+
+  wildfly:
+    image: wildfly
+    network_mode: bridge
+    environment:
+     - VIRTUAL_HOST=api.assignapp.nl:8080
+     - MYSQL_HOST=***REMOVED***
+     - MYSQL_PORT=5306
+    ports:
+     - '8080:8080'  
 
 networks:
   default:
