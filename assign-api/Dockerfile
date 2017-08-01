@@ -9,13 +9,13 @@ RUN mv $JBOSS_HOME/standalone/configuration/standalone.xml $JBOSS_HOME/standalon
 ADD configuration/xml/standalone-full-sample.xml $JBOSS_HOME/standalone/configuration/standalone.xml
 
 # Add the certificate.sh script into $JBOSS_HOME/standalone/configuration/certs
-ADD configuration/certs/ $JBOSS_HOME/standalone/configuration/certs
+# ADD configuration/certs/ $JBOSS_HOME/standalone/configuration/certs
 
 # Switch to $JBOSS_HOME/configuration/certs
-WORKDIR /opt/jboss/wildfly/standalone/configuration/certs
+# WORKDIR /opt/jboss/wildfly/standalone/configuration/certs
 
 # Execute the script to generate self signed certificates
-RUN ./certificate.sh
+# RUN ./certificate.sh
 
 # Switch to the working dir /opt/jboss/wildfly
 WORKDIR /opt/jboss/wildfly
