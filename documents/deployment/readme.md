@@ -1,41 +1,25 @@
 # Deployment
 Documentation and commands used in the deployment environment ( Ubuntu 17.04 ).
 
-Commands to start up the entire app -> nginx -> assign-page -> mysql -> wildfly 
-
-**NGINX**
+To build the entire enviornment make sure you create mysql first en all the images are build.
 
 In head dir:
 ```
 $ docker-compose up -d
 ```
 
-**ASSIGN-PAGE**
-
+**IMAGES**
 In asign-page dir:
 ```
 $ docker build -t assign-page .
 ```
-To build the app:
-```
-$ docker-compose up -d
-```
-
-**MYSQL**
-
-For now still without docker-compose
-```
-$ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
-```
-
-**WILDFLY**
-
-For now still without docker-compose
-
 In assign-api dir:
 ```
 $ docker build -t wildfly .
-$ docker run --name wildfly -e MYSQL_HOST=***REMOVED*** -e MYSQL_PORT=5306 -p 8080:8080 -d wildfly
+```
+No dir specified:
+```
+$ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
 ```
 
 ## Docker
@@ -120,10 +104,9 @@ To boot with MYSQL with variables:
 $ docker run --name mysql -e MYSQL_USER=***REMOVED*** -e MYSQL_PASSWORD=***REMOVED*** -e MYSQL_DATABASE=assign -e MYSQL_ROOT_PASSWORD=***REMOVED*** -p 5306:3306 -d mysql
 ```
 
-To boot WildFly with MYSQL link:
+To build the Wildfly image:
 ```
 $ docker build -t wildfly .
-$ docker run --name wildfly -e MYSQL_HOST=***REMOVED*** -e MYSQL_PORT=5306 -p 8080:8080 -d wildfly
 ```
 Datasource: `assignDS`
 
@@ -204,10 +187,6 @@ npm-debug.log
 To build the image use:
 ```
 $ docker build -t assign-page .
-```
-To run the image use the following command with ```-p``` redirecting a public port to a private port inside the container.
-```
-$ docker run -p 80:3000 -d assign-page
 ```
 
 ## MySQL Docker
