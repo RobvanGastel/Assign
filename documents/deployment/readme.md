@@ -8,7 +8,7 @@ In head dir:
 $ docker-compose up -d
 ```
 
-**IMAGES**
+**IMAGES** <br/>
 In asign-page dir:
 ```
 $ docker build -t assign-page .
