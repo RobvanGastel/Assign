@@ -225,7 +225,7 @@ $ iptables -I INPUT 1 -i eth0 -p tcp --dport 8080 -j ACCEPT
 ```
 ### Nginx
 
-For Nginx a reverse proxy container is used, with [these specs](https://hub.docker.com/r/jwilder/nginx-proxy/). Together with the Nginx container we use docker-compose. 
+For Nginx a reverse proxy container is used, with [these specs](https://hub.docker.com/r/jwilder/nginx-proxy/). Together with the Nginx container we use docker-compose. To set up the wildfly part I used [this](https://github.com/jwilder/nginx-proxy/issues/560) as documentation.
 
 to run docker compose on a directory: 
 ```
