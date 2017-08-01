@@ -1,19 +1,31 @@
-mysql:
-  container_name: "db"
-  image: mysql:latest
-  environment:
-    MYSQL_DATABASE: assign
-    MYSQL_USER: ***REMOVED***
-    MYSQL_PASSWORD: ***REMOVED***
-    MYSQL_ROOT_PASSWORD: ***REMOVED***
-wildfly:
-  image: wildfly
-  environment:
-    - MYSQL_URI=db:3306
-  ports:
-    - 8080:8080
-  restart: always
-  volumes:
-    - ./htdocs:/var/www/html
-  environment:
-    - VIRTUAL_HOST=api.assignapp.nl
+version: '2'
+services:
+  mysql:
+    container_name: "db"
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: assign
+      MYSQL_USER: ***REMOVED***
+      MYSQL_PASSWORD: ***REMOVED***
+      MYSQL_ROOT_PASSWORD: ***REMOVED***
+
+  wildfly:
+    image: wildfly
+    restart: always
+    network_mode: bridge
+    volumes:
+      - ./htdocs:/var/www/html
+    environment:
+      - MYSQL_URI=db:3306
+      - VIRTUAL_HOST=api.assignapp.nl
+      - LETSENCRYPT_HOST=api.assignapp.nl
+      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
+    ports:
+      - 8080:8080
+      - 9990:9990
+
+networks:
+  default:
+    external:
+      name: nginx-net
