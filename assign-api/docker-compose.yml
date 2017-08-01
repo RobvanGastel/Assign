@@ -12,7 +12,6 @@ wildfly:
     - MYSQL_URI=db:3306
   ports:
     - 8080:8080
-    - 9990:9990
   restart: always
   volumes:
     - ./htdocs:/var/www/html
