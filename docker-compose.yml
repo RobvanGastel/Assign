@@ -28,13 +28,9 @@ services:
     image: wildfly
     network_mode: bridge
     environment:
-<<<<<<< HEAD
-     - VIRTUAL_HOST=api.assignapp.nl:8080
+     - VIRTUAL_HOST=api.assignapp.nl
      - LETSENCRYPT_HOST=api.assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
-=======
-     - VIRTUAL_HOST=api.assignapp.nl
->>>>>>> 4c71a86d236e8b746bc6e74c0185095a0579940c
      - MYSQL_HOST=***REMOVED***
      - MYSQL_PORT=5306
     ports:
