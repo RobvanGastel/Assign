@@ -55,7 +55,7 @@
             <security-realm name="AeroGearRealm">
                 <server-identities>
                     <ssl>
-                        <keystore path="certs/server.aerogear.dev.keystore" relative-to="jboss.server.config.dir" keystore-password="weak42" alias="server.aerogear.dev"/>
+                        <keystore path="certs/server.api.assignapp.nl.keystore" relative-to="jboss.server.config.dir" keystore-password="weak42" alias="api.assignapp.nl"/>
                     </ssl>
                 </server-identities>
             </security-realm>
@@ -163,9 +163,6 @@
                  <drivers>
                      <driver name="h2" module="com.h2database.h2">
                          <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-                     </driver>
-                     <driver name="mysql" module="com.mysql.jdbc">
-                         <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
                      </driver>
                  </drivers>
             </datasources>
