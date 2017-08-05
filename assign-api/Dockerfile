@@ -1,12 +1,12 @@
 FROM jboss/wildfly:10.1.0.Final
 
-ADD configuration /opt/jboss/wildfly/configuration/
+ADD configuration /opt/jboss/wildfly/standalone
 
 # Rename the original configuration file
-RUN mv $JBOSS_HOME/standalone/configuration/standalone.xml $JBOSS_HOME/standalone/configuration/standalone.xml.orig
+RUN mv /opt/jboss/wildfly/standalone/configuration/standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml.orig
 
 # WildFly configuration file ready for HTTPS
-ADD configuration/xml/standalone-full-sample.xml $JBOSS_HOME/standalone/configuration/standalone.xml
+ADD configuration/xml/standalone-full-sample.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
 
 # Add the certificate.sh script into $JBOSS_HOME/standalone/configuration/certs
 # ADD configuration/certs/ $JBOSS_HOME/standalone/configuration/certs
