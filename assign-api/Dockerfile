@@ -1,12 +1,6 @@
 FROM jboss/wildfly:10.1.0.Final
 
-<<<<<<< HEAD
 ADD configuration /opt/jboss/wildfly/standalone
-=======
-USER root
-
-ADD  configuration /opt/jboss/wildfly/configuration/
->>>>>>> origin/develop
 
 # Rename the original configuration file
 RUN mv /opt/jboss/wildfly/standalone/configuration/standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml.orig
