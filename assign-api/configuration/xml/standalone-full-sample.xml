@@ -55,7 +55,7 @@
             <security-realm name="AeroGearRealm">
                 <server-identities>
                     <ssl>
-                        <keystore path="certs/server.api.assignapp.nl.keystore" relative-to="jboss.server.config.dir" keystore-password="weak42" alias="api.assignapp.nl"/>
+                        <keystore path="certs/server.api.assignapp.nl.keystore" relative-to="jboss.server.config.dir" keystore-password="weak42" alias="server.api.assignapp.nl"/>
                     </ssl>
                 </server-identities>
             </security-realm>
