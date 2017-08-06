@@ -44,6 +44,7 @@ public class Post implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.PERSIST)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Reply> replies;
 
     @ElementCollection
