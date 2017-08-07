@@ -27,9 +27,9 @@ export default {
         { name: 'language', content: 'nl_NL' },
         { name: 'description', content: 'Home — Assign' },
         { property: 'og:title', content: 'Home — Assign' },
-        { property: 'og:site_name', content: 'assignapp.co' },
+        { property: 'og:site_name', content: 'assignapp.nl' },
         { property: 'og:description', content: 'Assign app om medestudenten te helpen.' },
-        { property: 'og:url', content: 'http://assignapp.nl' },
+        { property: 'og:url', content: 'https://assignapp.nl' },
         { property: 'og:locale', content: 'nl_NL' },
         { property: 'og:type', content: 'website' },
         { property: 'og:image', content: '/share-image.jpg' },
@@ -39,13 +39,13 @@ export default {
         { name: 'twitter:title', content: 'Home — Assign' },
         { name: 'twitter:site_name', content: 'Home — Assign' },
         { name: 'twitter:description', content: 'Home — Assign' },
-        { name: 'twitter:url', content: 'http://assignapp.nl' },
+        { name: 'twitter:url', content: 'https://assignapp.nl' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:domain', content: 'assignapp.co' },
+        { name: 'twitter:domain', content: 'assignapp.nl' },
         { name: 'twitter:image', content: '/share-image.jpg' },
         { name: 'twitter:image:alt', content: 'Help jouw medestudent' },
-        { name: 'twitter:site', content: '@assignappco' },
-        { name: 'twitter:creator', content: '@assignappco' }
+        { name: 'twitter:site', content: '@assignappnl' },
+        { name: 'twitter:creator', content: '@assignappnl' }
       ]
     }
   }
