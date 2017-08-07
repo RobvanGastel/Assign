@@ -1,7 +1,7 @@
 <template>
   <section class="post">
     <img class="faceholder" src="/faceholder.jpg">
-    <div class="profile" :style="{ 'background-image': 'url(' + 'http://84.26.134.115:8080/assign/api/img/' + this.post.user.profileImage + ')' }" ></div>
+    <div class="profile" :style="{ 'background-image': 'url(' + 'https://api.assignapp.nl/api/img/' + this.post.user.profileImage + ')' }" ></div>
     <h2>{{ post.user.name }}</h2>
     <h3>{{ post.dateCreated }}</h3>
     <h1>{{ post.title }}</h1>
@@ -23,7 +23,7 @@ export default {
         { property: 'og:title', content: this.post.title + '— Assign' },
         { property: 'og:site_name', content: this.post.title + '— Assign' },
         { property: 'og:description', content: this.post.user.name + ' vraagt om hulp bij ' + this.post.title },
-        { property: 'og:url', content: 'http://84.26.134.115:8080/assign/' },
+        { property: 'og:url', content: 'http://assignapp.nl' },
         { property: 'og:locale', content: 'nl_NL' },
         { property: 'og:type', content: 'website' },
         { property: 'og:image', content: '/share-image.jpg' },
@@ -33,7 +33,7 @@ export default {
         { name: 'twitter:title', content: this.post.title + '— Assign' },
         { name: 'twitter:site_name', content: this.post.title + '— Assign' },
         { name: 'twitter:description', content: this.post.user.name + ' vraagt om hulp bij ' + this.post.title },
-        { name: 'twitter:url', content: 'http://84.26.134.115:8080/assign/' },
+        { name: 'twitter:url', content: 'http://assignapp.nl' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:domain', content: 'assignapp.co' },
         { name: 'twitter:image', content: '/share-image.jpg' },

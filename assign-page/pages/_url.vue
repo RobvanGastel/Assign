@@ -32,23 +32,34 @@ export default {
         user: {
           name: 'Name'
         }
-      },
-      error: {}
+      }
     }
   },
   asyncData ({ params }) {
-    return axios.get('http://84.26.134.115:8080/assign/api/page/post', { params: {
+    return axios.get('https://api.assignapp.nl/assign/api/page/post', { params: {
       url: params.url
     }})
       .then((response) => {
         return { post: response.data }
       })
-      .catch((error) => {
-        return { post: {
-          url: null,
-          name: error.message
-        }}
+      .catch(function (error) {
+        self.error = error
       })
+  },
+  methods: {
+    getPost (url) {
+      let self = this
+      axios.get('https://api.assignapp.nl/assign/api/page/post', { params: {
+        url: url
+      }})
+        .then(function (response) {
+          self.post = response.data
+          // self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
+        })
+        .catch(function (error) {
+          self.error = error
+        })
+    }
   },
   head () {
     return {
