@@ -9,6 +9,7 @@
 						</a>
 						<h4>Assign</h4>
 						<h5>Help jouw medestudenten</h5>
+						<div class="headway"></div>
 					</div>
 				</div>
 			</div>
