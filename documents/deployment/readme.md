@@ -166,7 +166,7 @@ $ sudo mvn package
 ```
 
 sudo cp -r /opt/assign-app/assign-api/target/assign-api-1.0-SNAPSHOT.war /opt/assign-app/assign-api/configuration
-
+sudo mv assign-api-1.0-SNAPSHOT.war assign-api.war
 
 ## Nodejs Docker
 The frontend is build in [Nuxt.js](https://nuxtjs.org/) with express ( Based on Next.js ). 
