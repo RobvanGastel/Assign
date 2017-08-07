@@ -39,7 +39,7 @@ public class ImageController {
      * The directory where the images will be stored.
      * Make sure this directory exists before you run the service.
      */
-    private static final java.nio.file.Path BASE_DIR = Paths.get(System.getProperty("user.home"), "img");
+    private static final java.nio.file.Path BASE_DIR = Paths.get("/opt/jboss/wildfly/standalone/configuration/img");
 
     @Inject
     private UserService userService;
