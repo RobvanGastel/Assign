@@ -1,6 +1,6 @@
 <template>
   <section class="post">
-    <img class="faceholder" src="/faceholder.jpg">
+    <img class="faceholder" src="../assets/img/faceholder.jpg">
     <div class="profile" :style="{ 'background-image': 'url(' + 'https://api.assignapp.nl/assign/api/img/' + this.post.user.profileImage + ')' }" ></div>
     <h2>{{ post.user.name }}</h2>
     <h3>{{ post.dateCreated }}</h3>
