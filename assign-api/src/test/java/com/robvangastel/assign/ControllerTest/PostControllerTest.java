@@ -45,8 +45,8 @@ public class PostControllerTest {
         ObjectMapper mapper = new ObjectMapper();
 
         WebTarget target = client.target(baseUrl + "/auth")
-                .queryParam("email", "admin@mail.nl")
-                .queryParam("password", "admin");
+                .queryParam("email", "max@mail.nl")
+                .queryParam("password", "max");
         Response response = target.request().post(Entity.json(jsonString));
 
         try {
@@ -78,7 +78,7 @@ public class PostControllerTest {
     @Test
     public void getTest1() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/")
+        WebTarget target = client.target(baseUrl + "/posts")
                 .queryParam("start", 0)
                 .queryParam("size", 10);
         Response response = target.request()
@@ -110,7 +110,7 @@ public class PostControllerTest {
     @Test
     public void getTest2() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/")
+        WebTarget target = client.target(baseUrl + "/posts")
                 .queryParam("start", "a")
                 .queryParam("size", 10);
         Response response = target.request()
@@ -118,7 +118,7 @@ public class PostControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -172,7 +172,7 @@ public class PostControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();

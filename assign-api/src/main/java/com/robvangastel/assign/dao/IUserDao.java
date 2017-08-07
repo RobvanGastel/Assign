@@ -41,7 +41,7 @@ public interface IUserDao {
      * @param entity User to create
      * @return Created User
      */
-    User create(User entity) throws UserException;
+    void create(User entity) throws UserException;
 
     /***
      * Update User with the same id

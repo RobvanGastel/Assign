@@ -1,7 +1,9 @@
 package com.robvangastel.assign.services;
 
 import com.robvangastel.assign.dao.IReplyDao;
+import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
+import com.robvangastel.assign.domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -17,6 +19,10 @@ public class ReplyService implements Serializable {
     @Inject
     private IReplyDao replyDao;
 
+    public boolean DidUserReply(User user, Post post) {
+        return replyDao.DidUserReply(user, post);
+    }
+
     public Reply findById(long id) {
         return replyDao.findById(id);
     }
@@ -29,11 +35,13 @@ public class ReplyService implements Serializable {
         return replyDao.findByPost(id, start, size);
     }
 
-    public Reply create(Reply entity) throws Exception {
-        return replyDao.create(entity);
+    public void create(Reply entity) throws Exception {
+        // TODO Add notification
+        replyDao.create(entity);
     }
 
     public Reply setHelped(Reply entity, boolean done) {
+        // TODO Add notification
         entity.setHelped(done);
         return replyDao.update(entity);
     }

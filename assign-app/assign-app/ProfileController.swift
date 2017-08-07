@@ -13,6 +13,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var specialisationLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -25,6 +26,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     let size = 21 // Amount of Posts to load next
     var assignmentsStart = 0 // Starting index of the assignments
     var assignmentsReachedEnd = false // Check if there a no new posts
+    
+    var activityStart = 0 // Starting index of the activity
+    var activityReachedEnd = false // Check if there a no new replies
+    
     var isLoading = false // Is currently loading posts
     
     // The provided data from the segue 
@@ -33,7 +38,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // TableView arrays
     var overviewArray: [Post] = []
     var assignmentsArray: [Post] = []
-    var activityArray: [Post] = []
+    var activityArray: [Reply] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +76,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         
         // TODO add more fields
         self.nameLabel.text = currentUser?.name
+        self.specialisationLabel.text = currentUser?.specialisation
         
         // TODO improve scaling
         let url = URL(string: (currentUser?.profileImage)!)
@@ -84,8 +90,13 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     /// TODO Add calls for all tables
     func fillTables() {
         self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) { posts in
-            
             self.assignmentsArray = posts!
+            self.tableView.reloadData()
+        }
+        
+        self.apiService?.getRepliesByUser(size: size, start: activityStart, id: currentUser!.id!) {
+            replies in
+            self.activityArray = replies!
             self.tableView.reloadData()
         }
     }
@@ -125,7 +136,29 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             case 0:
                 break
             case 1:
-                
+                if activityArray.count >= 21
+                    && activityReachedEnd == false { // Need atleast 21 posts
+                    
+                    self.isLoading = true
+                    self.tableView.tableFooterView?.isHidden = false
+                    
+                    // Add 20 to load the next posts
+                    self.activityStart += 20
+                    apiService?.getRepliesByUser(size: size, start: activityStart,
+                                               id: currentUser!.id!) { r in
+                                                
+                        if (r?.count)! < 20 { // Check if all replies found
+                            print("API: No new replies")
+                            self.activityReachedEnd = true
+                        }
+                        
+                        self.activityArray += r!
+                        
+                        self.tableView.reloadData()
+                        self.isLoading = false
+                        self.tableView.tableFooterView?.isHidden = true
+                    }
+                }
                 break
                 
             case 2:
@@ -203,10 +236,18 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             }
             break
         case 1:
-            let post = activityArray[indexPath.row] as Post
+            let reply = activityArray[indexPath.row] as Reply
             
             if let titleLabel = cell.viewWithTag(401) as? UILabel {
-                titleLabel.text = post.title
+                titleLabel.text = reply.user.name + " wil helpen met: "
+            }
+            
+            if let textLabel = cell.viewWithTag(402) as? UILabel {
+                textLabel.text = reply.post.title
+            }
+            
+            if let dateLabel = cell.viewWithTag(403) as? UILabel {
+                dateLabel.text = reply.dateCreated.timeAgoSimple
             }
             
             break

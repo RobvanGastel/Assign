@@ -77,7 +77,7 @@ public interface ISchoolDao {
      * @param entity School to create
      * @return Created School
      */
-    School create(School entity);
+    void create(School entity);
 
     /***
      * Create a study for a school

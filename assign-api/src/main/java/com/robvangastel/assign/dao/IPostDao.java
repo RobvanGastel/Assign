@@ -21,6 +21,14 @@ public interface IPostDao {
     Post findById(long id);
 
     /***
+     * Find Post by url
+     * @param url
+     * @return Found Post or Null when
+     * the Post isn't found
+     */
+    Post findByUrl(String url);
+
+    /***
      * Find Post(s) by query
      * @param query
      * @param start of the list
@@ -51,9 +59,8 @@ public interface IPostDao {
     /***
      * Create a Post
      * @param entity Post to create
-     * @return Created Post
      */
-    Post create(Post entity) throws PostException;
+    void create(Post entity) throws PostException;
 
     /***
      * Update Post with the same id

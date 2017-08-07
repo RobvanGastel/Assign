@@ -1,6 +1,8 @@
 package com.robvangastel.assign.dao;
 
+import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
+import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.ReplyException;
 
 import java.util.List;
@@ -18,6 +20,14 @@ public interface IReplyDao {
      * the Reply isn't found
      */
     Reply findById(long id);
+
+    /***
+     * Did User reply to post
+     * @param user
+     * @param post
+     * @return Boolean indicating true or false
+     */
+    boolean DidUserReply(User user, Post post);
 
     /***
      * Find Reply(s) by User
@@ -44,7 +54,7 @@ public interface IReplyDao {
      * @param entity Reply to create
      * @return Created Reply
      */
-    Reply create(Reply entity) throws ReplyException;
+    void create(Reply entity) throws ReplyException;
 
     /***
      * Update Reply with the id

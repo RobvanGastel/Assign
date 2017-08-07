@@ -113,7 +113,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -128,7 +128,7 @@ public class SchoolControllerTest {
      * Method:
      * Get a post by id
      * @param id of the post
-     * @return A School object with matching id or statuscode 404
+     * @return A School object with matching id or statuscode 500
      * when no schools are found.
      */
     @Test
@@ -155,7 +155,7 @@ public class SchoolControllerTest {
      * Method:
      * Get a post by id
      * @param id of the post
-     * @return A School object with matching id or statuscode 404
+     * @return A School object with matching id or statuscode 500
      * when no schools are found.
      */
     @Test
@@ -167,7 +167,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -186,7 +186,7 @@ public class SchoolControllerTest {
      * @param id of the school
      * @param start of the list
      * @param size of the list
-     * @return a list of Study objects or or statuscode 404
+     * @return a list of Study objects or or statuscode 500
      * when no studies are found.
      */
     @Test
@@ -217,7 +217,7 @@ public class SchoolControllerTest {
      * @param id of the school
      * @param start of the list
      * @param size of the list
-     * @return a list of Study objects or or statuscode 404
+     * @return a list of Study objects or or statuscode 500
      * when no studies are found.
      */
     @Test
@@ -229,7 +229,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -248,7 +248,7 @@ public class SchoolControllerTest {
      * @param id of the school
      * @param start of the list
      * @param size of the list
-     * @return A list of User objects or statuscode 404
+     * @return A list of User objects or statuscode 500
      * when no users are found.
      */
     @Test
@@ -279,7 +279,7 @@ public class SchoolControllerTest {
      * @param id of the school
      * @param start of the list
      * @param size of the list
-     * @return A list of User objects or statuscode 404
+     * @return A list of User objects or statuscode 500
      * when no users are found.
      */
     @Test
@@ -291,7 +291,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
-            Assert.assertEquals(404, response.getStatus());
+            Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
             client.close();
@@ -312,7 +312,7 @@ public class SchoolControllerTest {
      * @param study name of the study
      * @param start of the list
      * @param size of the list
-     * @return A list of the User objects or statuscode 404
+     * @return A list of the User objects or statuscode 500
      * when no users are found.
      */
 

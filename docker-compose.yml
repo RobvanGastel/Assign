@@ -1,0 +1,51 @@
+
+version: '2'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    container_name: nginx-proxy
+    network_mode: bridge
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - '/etc/nginx/vhost.d'
+      - '/usr/share/nginx/html'
+      - '/etc/nginx/certs:/etc/nginx/certs:ro'
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+
+  letsencrypt-nginx-proxy:
+    container_name: letsencrypt-nginx-proxy
+    image: 'jrcs/letsencrypt-nginx-proxy-companion'
+    volumes:
+      - '/etc/nginx/certs:/etc/nginx/certs'
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    volumes_from:
+      - nginx-proxy
+
+  wildfly:
+    image: wildfly
+    network_mode: bridge
+    environment:
+     - VIRTUAL_HOST=api.assignapp.nl
+     - LETSENCRYPT_HOST=api.assignapp.nl
+     - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
+     - MYSQL_HOST=***REMOVED***
+     - MYSQL_PORT=5306
+    ports:
+     - '8443:8443'
+
+  assign-page:
+    image: assign-page
+    restart: always
+    network_mode: bridge
+    environment:
+     - VIRTUAL_HOST=assignapp.nl
+     - LETSENCRYPT_HOST=assignapp.nl
+     - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
+
+networks:
+  default:
+    external:
+      name: nginx-net

@@ -1,12 +1,13 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
+import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,10 +22,9 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/posts")
 @Secured({Role.USER})
-@Api(tags = {"posts"}, value = "/posts", description = "Operations about posts")
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
 
@@ -33,6 +33,9 @@ public class PostController {
 
     @Inject
     private UserService userService;
+
+    @Inject
+    private ReplyService replyService;
 
     @Context
     private SecurityContext securityContext;
@@ -45,12 +48,75 @@ public class PostController {
      * when no posts are found.
      */
     @GET
-    public List<Post> get(
+    public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-        return postService.findAll(user, start, size);
+        return Response.ok(postService.findAll(user, start, size)).build();
+    }
+
+    /***
+     * Check if User replied to post
+     * @param id of the Post
+     * @return Boolean indicating true or false
+     */
+    @GET
+    @Path("/{id}/replied")
+    public Response getRepliedByPost(@PathParam("id") long id) {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        if(post == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+
+        Boolean replied = replyService.DidUserReply(user, post);
+        return Response.ok(new DidReply(replied)).build();
+    }
+
+    /***
+     * Get all the replies of a post
+     * @param id of the Post
+     * @param start of the list
+     * @param size of the list
+     * @return A list of all the replies of the Post.
+     */
+    @GET
+    @Path("/{id}/replies")
+    public Response getByPost(@PathParam("id") long id,
+                              @DefaultValue("0") @QueryParam("start") int start,
+                              @DefaultValue("20") @QueryParam("size") int size) {
+        List<Reply> replies = replyService.findByPost(id, start, size);
+        return Response.ok(replies).build();
+    }
+
+    /***
+     * Create a Reply
+     * @param id of the post
+     * @throws Exception when invalid information for the reply is given.
+     */
+    @POST
+    @Path("/{id}/replies")
+    public Response create(@PathParam("id") long id) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Post post = postService.findById(id);
+
+        if (user.getId() != post.getUser().getId() && post != null) {
+            // Check if the user creating reply isnt replying to his own post
+
+            if(!replyService.DidUserReply(user, post)) {
+                // Check if he already replied to the post
+
+                replyService.create(new Reply(user, post));
+            } else {
+                throw new WebApplicationException(Response.Status.BAD_REQUEST);
+            }
+        } else {
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
+        }
+
+        return Response.ok().build();
     }
 
     /***
@@ -97,7 +163,6 @@ public class PostController {
      * Create a post for the authenticated user
      * @param title
      * @param description
-     * @return The created post
      * @throws Exception when invalid parameters are given for the
      * post.
      */
@@ -106,12 +171,8 @@ public class PostController {
                            @QueryParam("description") String description) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-        Post post = postService.create(new Post(user, title, description));
-
-        if (post == null) {
-            throw new WebApplicationException(Response.Status.BAD_REQUEST);
-        }
-        return Response.ok(post).build();
+        postService.create(new Post(user, title, description));
+        return Response.ok().build();
     }
 
     /***
@@ -152,5 +213,21 @@ public class PostController {
         }
 
         return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+
+    class DidReply {
+        private boolean replied;
+
+        public DidReply(boolean replied) {
+            this.replied = replied;
+        }
+
+        public boolean isReplied() {
+            return replied;
+        }
+
+        public void setReplied(boolean replied) {
+            this.replied = replied;
+        }
     }
 }

@@ -18,24 +18,54 @@ class PostDetailController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var helpButtonBar: UIView!
     
+    // The API service
+    var apiService: ApiService?
     
     // Provided data from the segue
     var currentPost:Post?
     
+    var replied: Bool? = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Init API service
+        apiService = ApiService()
+
+        apiService?.checkReplied(id: (currentPost?.id)!) { response in
+            self.replied = response
+            
+            if self.replied! {
+                self.helpButton.isHidden = true
+                self.helpButtonBar.isHidden = true
+            }
+        }
+        
+        self.initializePost()
+    }
+    
+    func initializePost() {
         // Set the data to the labels in the view
         self.userLabel.text = currentPost?.title
         self.titleLabel.text = currentPost?.text
         self.dateLabel.text = currentPost?.dateCreated?.timeAgo
-        
         self.nameButton.setTitle(currentPost?.user?.name, for: .normal)
         
         let url = URL(string: (currentPost?.user?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
+        
+        
+        if (currentPost?.user?.id == Storage.getUser().id) {
+            self.helpButton.isHidden = true
+            self.helpButtonBar.isHidden = true
+            
+            // Handle own post settings
+        }
+        
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.
@@ -58,24 +88,17 @@ class PostDetailController: UIViewController {
     }
     
     /// To share a post with Facebook, Twitter etc.
-    ///
-    /// TODO Add full functionality :
-    /// An image, text, Logo and URL.
     @IBAction func shareAction(_ sender: Any) {
         
-        // TODO add custom text to share
-        let postText = "USER vraagt om hulp met TITLE, kan jij helpen?"
-        // TODO Add custom url to match the post
-        let postUrl : NSURL = NSURL(string: "http://84.26.134.115:8080/api/posts/\(currentPost!.id)")!
-        // TODO Add the assign logo
-        let image : UIImage = UIImage(named: "app-logo.png")!
+        let postText = (currentPost?.user?.name)! + " vraagt om hulp bij " + (currentPost?.title)!
+        let postUrl : NSURL = NSURL(string: currentPost!.url)!
         
         // Fills in the Image, text and url
         let activityViewController : UIActivityViewController = UIActivityViewController(
-            activityItems: [postText, postUrl, image], applicationActivities: nil)
+            activityItems: [postText, postUrl], applicationActivities: nil)
         
         // This lines is for the popover
-        activityViewController.popoverPresentationController?.barButtonItem = (sender as! UIBarButtonItem)
+        // activityViewController.popoverPresentationController?.barButtonItem = (sender as! UIBarButtonItem)
         
         // This line remove the arrow of the popover
         activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
@@ -86,16 +109,29 @@ class PostDetailController: UIViewController {
             UIActivityType.postToFlickr,
             UIActivityType.postToVimeo,
             UIActivityType.openInIBooks,
-            UIActivityType.copyToPasteboard,
             UIActivityType.postToTencentWeibo,
             UIActivityType.postToWeibo,
             UIActivityType.print,
-            UIActivityType.airDrop,
             UIActivityType.saveToCameraRoll
         ]
         
         // Present the share options
         self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func helpAction(_ sender: Any) {
+        apiService?.addReply(id: (self.currentPost?.id)!) { success in
+            
+            if success {
+                self.helpButton.isHidden = false
+                self.helpButtonBar.isHidden = false
+                
+                // Handle button clicked
+                
+            } else {
+                // Error response
+            }
+        }
     }
 }
 

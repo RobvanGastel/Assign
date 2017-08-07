@@ -28,7 +28,7 @@ public class School implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @OneToMany(mappedBy = "school", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
