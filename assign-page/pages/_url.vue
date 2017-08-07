@@ -32,25 +32,10 @@ export default {
         user: {
           name: 'Name'
         }
-      }
+      },
+      error: {}
     }
   },
-  created () {
-    this.getPost(this.$route.params.url)
-  },
-  // fetch ({ store, params }) {
-  //   return axios.get('http://84.26.134.115:8080/assign/api/page/post', { params: {
-  //     url: params.url
-  //   }})
-  //   .then(function (response) {
-  //     self.post = response.data
-  //     self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
-  //     // store.commit('setStars', res.data)
-  //   })
-  //   .catch(function (error) {
-  //     self.error = error
-  //   })
-  // }
   asyncData ({ params }) {
     return axios.get('http://84.26.134.115:8080/assign/api/page/post', { params: {
       url: params.url
@@ -58,21 +43,12 @@ export default {
       .then((response) => {
         return { post: response.data }
       })
-  },
-  methods: {
-    getPost (url) {
-      let self = this
-      axios.get('http://84.26.134.115:8080/assign/api/page/post', { params: {
-        url: url
-      }})
-        .then(function (response) {
-          self.post = response.data
-          self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
-        })
-        .catch(function (error) {
-          self.error = error
-        })
-    }
+      .catch((error) => {
+        return { post: {
+          url: null,
+          name: error.message
+        }}
+      })
   },
   head () {
     return {
@@ -81,11 +57,6 @@ export default {
       link: [
         { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
       ]
-    }
-  },
-  computed: {
-    postId () {
-      return this.$store.state.post
     }
   }
 }
