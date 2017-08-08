@@ -58,14 +58,12 @@ class PostDetailController: UIViewController {
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
         
-        
-        if (currentPost?.user?.id == Storage.getUser().id) {
+        // Handle own post settings
+        if (currentPost?.user?.id == Storage.getUser().id ||
+            (currentPost?.replies?.contains(Storage.getUser().id))!) {
             self.helpButton.isHidden = true
             self.helpButtonBar.isHidden = true
-            
-            // Handle own post settings
         }
-        
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.

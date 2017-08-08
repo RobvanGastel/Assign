@@ -17,12 +17,13 @@ class Post:NSObject, JSONDecodable {
     var url: String!
     var user:User?
     var tags:[String]?
+    var replies: [Int]?
     var done:Bool?
     var dateCreated:Date?
     var dateDone:Date?
 
     init(id:Int, title:String,  text:String, dateCreated:Date, url: String,
-         user: User, done: Bool, tags: [String]) {
+         user: User, done: Bool, tags: [String], replies: [Int]) {
         self.id = id
         self.title = title
         self.text = text
@@ -31,6 +32,7 @@ class Post:NSObject, JSONDecodable {
         self.url = url
         self.done = done
         self.tags = tags
+        self.replies = replies
     }
 
     convenience required init?(JSON: [String: Any]) {
@@ -42,17 +44,17 @@ class Post:NSObject, JSONDecodable {
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
         guard let done = JSON["done"] as? Bool else { return nil }
         let tags = JSON["tags"] as! [String]
-        
+        let replies = JSON["replies"] as! [Int]
         
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
-        let urlString = "http://84.26.134.115:8080/assign/#/" + url;
+        let urlString = "https://assignapp.nl/" + url;
         
         // User
         let userString = JSON["user"] as! [String: Any]
         let user = User(JSON: userString)
 
         // Init the Post
-        self.init(id: id, title: title, text: text, dateCreated: dateCreated, url: urlString, user: user!, done: done, tags: tags)
+        self.init(id: id, title: title, text: text, dateCreated: dateCreated, url: urlString, user: user!, done: done, tags: tags, replies: replies)
     }
 }
 
