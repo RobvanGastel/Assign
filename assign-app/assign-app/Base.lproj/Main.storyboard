@@ -246,23 +246,8 @@
                                     <constraint firstItem="GIj-Qe-qLn" firstAttribute="centerX" secondItem="ASt-BW-Qce" secondAttribute="centerX" id="ufO-US-Dlt"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-V9-d9B">
-                                <rect key="frame" x="4" y="289" width="406" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="UAu-SC-nM5"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Overview"/>
-                                    <segment title="Activity"/>
-                                    <segment title="Assignments"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlActionChanged:" destination="MWW-f3-Nrd" eventType="valueChanged" id="JBl-Lb-6Q8"/>
-                                    <action selector="segmentedControlActionChanged:" destination="Cb4-VC-HQV" eventType="valueChanged" id="PfX-QK-JBs"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F44-DN-eAe">
-                                <rect key="frame" x="4" y="333" width="406" height="403"/>
+                                <rect key="frame" x="4" y="334" width="406" height="402"/>
                                 <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -327,19 +312,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-V9-d9B">
+                                <rect key="frame" x="0.0" y="290" width="414" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="UAu-SC-nM5"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Overview"/>
+                                    <segment title="Activity"/>
+                                    <segment title="Assignments"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlActionChanged:" destination="MWW-f3-Nrd" eventType="valueChanged" id="JBl-Lb-6Q8"/>
+                                    <action selector="segmentedControlActionChanged:" destination="Cb4-VC-HQV" eventType="valueChanged" id="PfX-QK-JBs"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="F44-DN-eAe" secondAttribute="trailing" constant="-16" id="8gl-di-rb5"/>
                             <constraint firstItem="F44-DN-eAe" firstAttribute="leading" secondItem="BfP-cD-Mec" secondAttribute="leadingMargin" constant="-16" id="Ebu-cR-h8b"/>
                             <constraint firstItem="ASt-BW-Qce" firstAttribute="leading" secondItem="BfP-cD-Mec" secondAttribute="leadingMargin" constant="-20" id="FOu-ov-EyU"/>
+                            <constraint firstItem="s7B-V9-d9B" firstAttribute="top" secondItem="ASt-BW-Qce" secondAttribute="bottom" id="IIF-r6-tVr"/>
                             <constraint firstItem="V9P-9F-iN8" firstAttribute="top" secondItem="F44-DN-eAe" secondAttribute="bottom" id="SkV-Ei-bPf"/>
                             <constraint firstItem="F44-DN-eAe" firstAttribute="top" secondItem="s7B-V9-d9B" secondAttribute="bottom" id="YmW-R1-io4"/>
                             <constraint firstItem="ASt-BW-Qce" firstAttribute="top" secondItem="gsH-Zt-yYh" secondAttribute="bottom" constant="-20" id="bAg-iM-odY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ASt-BW-Qce" secondAttribute="trailing" constant="-20" id="hd9-rY-YVc"/>
-                            <constraint firstItem="s7B-V9-d9B" firstAttribute="leading" secondItem="BfP-cD-Mec" secondAttribute="leadingMargin" constant="-16" id="me1-Xl-IQ6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="s7B-V9-d9B" secondAttribute="trailing" constant="-16" id="ss3-07-N53"/>
-                            <constraint firstItem="s7B-V9-d9B" firstAttribute="top" secondItem="ASt-BW-Qce" secondAttribute="bottom" constant="-1" id="ucj-UF-COJ"/>
+                            <constraint firstAttribute="trailing" secondItem="s7B-V9-d9B" secondAttribute="trailing" id="qdt-Z9-zrs"/>
+                            <constraint firstItem="s7B-V9-d9B" firstAttribute="leading" secondItem="BfP-cD-Mec" secondAttribute="leading" id="roz-Ck-jf2"/>
                             <constraint firstItem="s7B-V9-d9B" firstAttribute="centerX" secondItem="BfP-cD-Mec" secondAttribute="centerX" id="vgf-g8-2Fy"/>
                         </constraints>
                     </view>
