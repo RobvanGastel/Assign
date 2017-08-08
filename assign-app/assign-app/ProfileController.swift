@@ -82,8 +82,9 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         let url = URL(string: (currentUser?.profileImage)!)
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url!, filter: filter)
+        
+        segmentedControl.customizeAppearance(for: 44)
     }
-    
     
     /// API call to fill all the profile tables.
     ///

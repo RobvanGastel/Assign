@@ -8,8 +8,9 @@
 
 import Foundation
 
-/// UIImage extension to change the color of the TabBar Items.
 extension UIImage {
+    
+    /// UIImage extension to change the color of the TabBar Items.
     func imageWithColor(color1: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         color1.setFill()
@@ -27,5 +28,17 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    
+    /// UIImage extension to change the color of the SegmentedController item.
+    func colored(with color: UIColor, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor);
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        context!.fill(rect);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image!
     }
 }
