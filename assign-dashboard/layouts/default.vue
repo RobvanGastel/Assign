@@ -1,5 +1,5 @@
 <template>
-  <v-app dark toolbar footer>
+  <v-app light toolbar footer>
     <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
@@ -30,18 +30,6 @@
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.native.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.native.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>
     <main>
@@ -63,13 +51,15 @@
         drawer: true,
         fixed: false,
         items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
+          { icon: 'home', title: 'Home', to: '/' },
+          { icon: 'school', title: 'Schools', to: '/schools' },
+          { icon: 'people', title: 'Users', to: '/users' },
+          { icon: 'assignment', title: 'Assignments', to: '/assignments' }
         ],
         miniVariant: false,
         right: false,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Assign'
       }
     }
   }

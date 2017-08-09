@@ -12,6 +12,7 @@
   "dependencies": {
     "nuxt": "0.10.7",
     "vue-server-renderer": "latest",
+    "axios": "^0.16.2",
     "vuetify": "^0.13.0"
   },
   "devDependencies": {

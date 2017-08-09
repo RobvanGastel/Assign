@@ -1,9 +1,14 @@
 module.exports = {
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:9080/v0.1/dashboard'
+  }
+
   /*
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'Dashboard',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,7 +22,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#ff7f28' },
   /*
   ** Build configuration
   */

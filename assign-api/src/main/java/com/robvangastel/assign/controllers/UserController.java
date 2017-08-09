@@ -47,7 +47,7 @@ public class UserController {
      * when no users are found.
      */
     @GET
-    @Secured({Role.USER})
+    @Secured({Role.ADMIN})
     public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
