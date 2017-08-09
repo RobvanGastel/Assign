@@ -57,6 +57,14 @@ public interface IPostDao {
     List<Post> findAll(User user, int start, int size);
 
     /***
+     * Find all post(s)
+     * @param start of the list
+     * @param size of the list
+     * @return all the Post(s) within the start and size
+     */
+    List<Post> findAll(int start, int size);
+
+    /***
      * Create a Post
      * @param entity Post to create
      */

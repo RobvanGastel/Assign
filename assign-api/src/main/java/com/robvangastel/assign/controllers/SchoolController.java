@@ -22,7 +22,7 @@ import java.util.List;
 
 @RequestScoped // Request scoped for the Filters
 @Path("/schools")
-@Secured({Role.ADMIN})
+//@Secured({Role.ADMIN})
 @Produces({MediaType.APPLICATION_JSON})
 public class SchoolController {
 
@@ -42,7 +42,11 @@ public class SchoolController {
     public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return Response.ok(schoolService.findAll(start, size)).build();
+        return Response.ok(schoolService.findAll(start, size))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
+                .build();
     }
 
     /***

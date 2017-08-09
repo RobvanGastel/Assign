@@ -1,6 +1,8 @@
 package com.robvangastel.assign.services;
 
+import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.dao.IUserDao;
+import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
 
 import javax.enterprise.context.RequestScoped;
@@ -22,9 +24,18 @@ public class DashboardService {
     @Inject
     private IUserDao userDao;
 
+    @Inject
+    private IPostDao postDao;
+
     @GET
     @Path("/users")
     public List<User> findAllUsers(int start, int size) {
         return userDao.findAll(start, size);
+    }
+
+    @GET
+    @Path("/posts")
+    public List<Post> findAllPosts(int start, int size) {
+        return postDao.findAll(start, size);
     }
 }

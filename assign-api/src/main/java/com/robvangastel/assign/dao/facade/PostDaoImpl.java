@@ -69,6 +69,16 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
+    public List<Post> findAll(int start, int size) {
+        String queryString = "SELECT * FROM Post p ORDER BY p.dateCreated DESC";
+        return entityManager.createNativeQuery(queryString, Post.class)
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .getResultList();
+    }
+
+    @Override
     public void create(Post entity) throws PostException {
         entityManager.merge(entity);
     }
