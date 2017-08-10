@@ -57,7 +57,7 @@ export default {
           // self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
         })
         .catch(function (error) {
-          self.error = error
+          console.log(error)
         })
     }
   },
