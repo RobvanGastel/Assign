@@ -51,11 +51,6 @@ public class PostSerializer extends StdSerializer<Post> {
             }
 
             jgen.writeEndArray();
-        } else {
-
-            jgen.writeFieldName("tags");
-            jgen.writeStartArray();
-            jgen.writeEndArray();
         }
 
         // Replies serializer

@@ -1,9 +1,5 @@
 module.exports = {
 
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:9080/v0.1/dashboard'
-  }
-
   /*
   ** Headers of the page
   */
@@ -27,7 +23,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vuetify']
+    vendor: ['vuetify', 'axios']
   },
   plugins: ['~plugins/vuetify.js'],
   css: [
