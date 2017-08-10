@@ -43,7 +43,7 @@ export default {
         return { post: response.data }
       })
       .catch(function (error) {
-        self.error = error
+        console.log(error)
       })
   },
   methods: {
