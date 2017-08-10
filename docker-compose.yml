@@ -29,19 +29,21 @@ services:
     network_mode: bridge
     environment:
      - VIRTUAL_HOST=api.assignapp.nl
+     - VIRTUAL_PORT=8080
      - LETSENCRYPT_HOST=api.assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
      - MYSQL_HOST=***REMOVED***
      - MYSQL_PORT=5306
     ports:
-     - '8443:8443'
+     - '8080:8080'
 
-  assign-page:
+  page:
     image: assign-page
     restart: always
     network_mode: bridge
     environment:
-     - VIRTUAL_HOST=assignapp.nl
+     - VIRTUAL_HOST=www.assignapp.nl,assignapp.nl
+     - VIRTUAL_PORT=3000
      - LETSENCRYPT_HOST=assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
 
