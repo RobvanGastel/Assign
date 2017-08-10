@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      posts
+      <h6>Assignments</h6>
       <v-spacer></v-spacer>
       <v-text-field
         append-icon="search"

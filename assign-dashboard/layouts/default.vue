@@ -4,6 +4,7 @@
       persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
+      :enable-resize-watcher= "enableResize"
       v-model="drawer"
     >
       <v-list>
@@ -22,15 +23,15 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed>
-      <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn 
+    <v-toolbar fixed class="orange-highlight">
+      <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-btn class="white--text" 
         icon
         @click.native.stop="miniVariant = !miniVariant"
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -38,6 +39,7 @@
       </v-container>
     </main>
     <v-footer :fixed="fixed">
+      <v-spacer></v-spacer>
       <span>&copy; 2017 - Assign</span>
     </v-footer>
   </v-app>
@@ -52,6 +54,7 @@
         fixed: false,
         items: [
           { icon: 'home', title: 'Home', to: '/' },
+          { icon: 'network_check', title: 'Analytics', to: '/analytics' },
           { icon: 'school', title: 'Schools', to: '/schools' },
           { icon: 'people', title: 'Users', to: '/users' },
           { icon: 'assignment', title: 'Assignments', to: '/assignments' }
@@ -59,6 +62,7 @@
         miniVariant: false,
         right: false,
         rightDrawer: false,
+        enableResize: true,
         title: 'Assign'
       }
     }

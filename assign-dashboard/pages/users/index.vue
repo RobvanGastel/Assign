@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      Users
+      <h6>Users</h6>
       <v-spacer></v-spacer>
       <v-text-field
         append-icon="search"
