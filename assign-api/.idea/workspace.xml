@@ -1128,7 +1128,7 @@
       <option name="COMMON_VM_ARGUMENTS" value=" -Djboss.socket.binding.port-offset=1000" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="assign-api:war exploded">
+        <artifact name="assign-api:war">
           <settings />
         </artifact>
       </deployment>
@@ -1190,7 +1190,11 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method />
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="assign-api:war" />
+        </option>
+      </method>
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JUnit.Unit tests" />
@@ -1280,7 +1284,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217027000" />
+    <option name="totallyTimeSpent" value="217792000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1666,6 +1670,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
