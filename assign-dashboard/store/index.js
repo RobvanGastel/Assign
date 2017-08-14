@@ -21,10 +21,10 @@ export const actions = {
     }
   },
   login ({ commit }, { username, password }) {
-    return axios.post('/api/login', {
-      username,
-      password
-    })
+    return axios.post('http://localhost:9080/v0.1/auth', { params : {
+      "email" : username,
+      "password" : password
+    }})
     .then((res) => {
       commit('SET_USER', res.data)
     })
@@ -41,5 +41,4 @@ export const actions = {
       commit('SET_USER', null)
     })
   }
-
 }

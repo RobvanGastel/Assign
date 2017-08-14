@@ -48,6 +48,12 @@
   </v-layout>
 </template>
 
+<script>
+export default {
+  middleware: 'auth'
+}
+</script>
+
 <style scoped>
 #home .flex {
   margin-bottom: 16px;
