@@ -1,36 +1,40 @@
 <template>
-  <v-card>
-    <v-card-title>
-      <h6>Users</h6>
-      <v-spacer></v-spacer>
-      <v-text-field
-        append-icon="search"
-        label="Search"
-        single-line
-        hide-details
-        v-model="search"
-      ></v-text-field>
-    </v-card-title>
-    <v-data-table
-        v-bind:headers="headers"
-        v-bind:search="search"
-        v-bind:pagination.sync="pagination"
-        :total-items="totalUsers"
-        :loading="loading"
-        :items="users"
-        hide-actions
-        class="elevation-1"
-      >
-      <template slot="items" scope="props">
-        <td>{{ props.item.id }}</td>
-        <td class="text-xs-right">{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.email }}</td>
-        <td class="text-xs-right">{{ props.item.specialisation }}</td>
-        <td class="text-xs-right">{{ props.item.study }}</td>
-        <td class="text-xs-right">{{ props.item.dateCreated }}</td>
-      </template>
-    </v-data-table>
-  </v-card>
+  <v-layout row justify-center>
+    <v-flex xs11 sm11 md11>
+      <v-card>
+        <v-card-title>
+          <h6>Users</h6>
+          <v-spacer></v-spacer>
+          <v-text-field
+            append-icon="search"
+            label="Search"
+            single-line
+            hide-details
+            v-model="search"
+          ></v-text-field>
+        </v-card-title>
+        <v-data-table
+            v-bind:headers="headers"
+            v-bind:search="search"
+            v-bind:pagination.sync="pagination"
+            :total-items="totalUsers"
+            :loading="loading"
+            :items="users"
+            hide-actions
+            class="elevation-1"
+          >
+          <template slot="items" scope="props">
+            <td>{{ props.item.id }}</td>
+            <td class="text-xs-right">{{ props.item.name }}</td>
+            <td class="text-xs-right">{{ props.item.email }}</td>
+            <td class="text-xs-right">{{ props.item.specialisation }}</td>
+            <td class="text-xs-right">{{ props.item.study }}</td>
+            <td class="text-xs-right">{{ props.item.dateCreated }}</td>
+          </template>
+        </v-data-table>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
