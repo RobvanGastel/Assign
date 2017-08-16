@@ -36,7 +36,7 @@ export default {
     }
   },
   asyncData ({ params }) {
-    return axios.get('https://api.assignapp.nl/assign/api/page/post', { params: {
+    return axios.get(process.env.baseUrl + '/page/post', { params: {
       url: params.url
     }})
       .then((response) => {
@@ -49,7 +49,7 @@ export default {
   methods: {
     getPost (url) {
       let self = this
-      axios.get('https://api.assignapp.nl/assign/api/page/post', { params: {
+      axios.get(process.env.baseUrl + '/page/post', { params: {
         url: url
       }})
         .then(function (response) {

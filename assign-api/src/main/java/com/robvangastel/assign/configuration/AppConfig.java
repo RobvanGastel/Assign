@@ -7,7 +7,7 @@ import javax.ws.rs.core.Application;
  * @author Rob van Gastel
  */
 
-@ApplicationPath("/api")
+@ApplicationPath("/v0.1")
 public class AppConfig extends Application {
 
 }
