@@ -30,7 +30,9 @@
                             </v-flex>
                         </v-layout>
                         <div class="float-right">
-                            <v-btn class="btn-no-margin" @click.native="login()" primary flat router nuxt>Login</v-btn>
+                            <nuxt-link :to="'/'">
+                                <v-btn class="btn-no-margin" @click.native="login()" primary flat router nuxt>Login</v-btn>
+                            </nuxt-link>
                         </div>
                     </v-card-text>
                 </v-card>
@@ -55,6 +57,7 @@ export default {
           username: this.email,
           password: this.password
         })
+
         this.email = ''
         this.password = ''
         this.errorMessage = null
@@ -65,6 +68,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .float-right {
   float: right;
