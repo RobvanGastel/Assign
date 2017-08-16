@@ -1,4 +1,12 @@
 module.exports = {
+
+  /*
+  ** Set environment viarbles
+  */
+  env: {
+    baseUrl: 'http://localhost:9080/v0.1' // https://api.assignapp.nl/assign/api/page/post
+  },
+
   /*
   ** Headers of the page
   */
