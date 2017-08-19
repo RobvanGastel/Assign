@@ -68,7 +68,7 @@ export default {
       var self = this
       self.loading = false
 
-      axios.get('http://localhost:9080/v0.1/dashboard/users',{ params: {
+      axios.get('http://84.26.134.115:8080/v0.1/dashboard/users',{ params: {
         start: self.totalUsers
       }})
         .then((response) => {

@@ -26,7 +26,10 @@
           </v-container>
         </v-card-text>
         <v-card-actions>
+          <div style="float:right !important">
+
           <v-btn primary flat router nuxt>Add school</v-btn>
+                    </div>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -96,7 +99,7 @@ export default {
       var self = this
       self.loading = false
 
-      axios.get('http://localhost:9080/v0.1/schools',{ params: {
+      axios.get('http://84.26.134.115:8080/v0.1/schools',{ params: {
         start: self.totalSchools
       }})
         .then((response) => {
