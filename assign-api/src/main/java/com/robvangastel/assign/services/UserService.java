@@ -47,7 +47,7 @@ public class UserService implements Serializable {
         return dao.findAll(start, size);
     }
 
-    public User create(User entity) throws Exception {
+    public void create(User entity) throws Exception {
 
         if (!EMAIL_VALIDATION.matcher(entity.getEmail()).matches()) {
             throw new UserException("Invalid email address");
@@ -55,9 +55,8 @@ public class UserService implements Serializable {
 
         if (dao.findByEmail(entity.getEmail()) == null) {
             entity.setPassword(encoder.encode(entity.getPassword()));
-            return dao.create(entity);
+            dao.create(entity);
         }
-        return null;
     }
 
     public IdToken authenticate(Credentials credentials) {
@@ -65,9 +64,11 @@ public class UserService implements Serializable {
         if (user == null) {
             throw new AuthenticationException();
         }
+
         if (!encoder.matches(credentials.getPassword(), user.getPassword())) {
             throw new AuthenticationException();
         }
+
         return new IdToken(jwtHelper.generateToken(user));
     }
 

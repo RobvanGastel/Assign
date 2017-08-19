@@ -6,7 +6,6 @@ import com.robvangastel.assign.domain.Study;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.SchoolService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,10 +20,9 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
-@Secured({Role.ADMIN})
+@RequestScoped // Request scoped for the Filters
 @Path("/schools")
-@Api(tags = {"schools"}, value = "/schools", description = "Operations about schools")
+//@Secured({Role.ADMIN})
 @Produces({MediaType.APPLICATION_JSON})
 public class SchoolController {
 
@@ -41,10 +39,14 @@ public class SchoolController {
      * @return a list of all the school objects
      */
     @GET
-    public List<School> get(
+    public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return schoolService.findAll(start, size);
+        return Response.ok(schoolService.findAll(start, size))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
+                .build();
     }
 
     /***
@@ -66,9 +68,9 @@ public class SchoolController {
     /**
      * Get studies by school
      *
-     * @param id of the school
+     * @param id    of the school
      * @param start of the list
-     * @param size of the list
+     * @param size  of the list
      * @return a list of Study objects or or statuscode 404
      * when no studies are found.
      */
@@ -127,8 +129,8 @@ public class SchoolController {
     public Response create(@QueryParam("name") String name) throws Exception {
 
         if (!name.equals(null)) {
-            School school = schoolService.create(new School(name));
-            return Response.ok(school).build();
+            schoolService.create(new School(name));
+            return Response.ok().build();
 
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
@@ -139,8 +141,6 @@ public class SchoolController {
      * Add a study to a school
      * @param id of the school
      * @param name of the study
-     * @return the created study or a statuscode 404 when a invalid
-     * school is given.
      */
     @PUT
     @Path("/{id}")

@@ -1,12 +1,13 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
+import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,9 +22,8 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/users")
-@Api(tags = {"users"}, value = "/users", description = "Operations about users")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserController {
 
@@ -32,6 +32,9 @@ public class UserController {
 
     @Inject
     private PostService postService;
+
+    @Inject
+    private ReplyService replyService;
 
     @Context
     private SecurityContext securityContext;
@@ -44,10 +47,11 @@ public class UserController {
      * when no users are found.
      */
     @GET
-    public List<User> get(
+    @Secured({Role.ADMIN})
+    public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return userService.findAll(start, size);
+        return Response.ok(userService.findAll(start, size)).build();
     }
 
     /***
@@ -58,6 +62,7 @@ public class UserController {
      */
     @GET
     @Path("/{id}")
+    @Secured({Role.USER})
     public Response getById(@PathParam("id") long id) {
         User user = userService.findById(id);
         if (user == null) {
@@ -76,11 +81,28 @@ public class UserController {
      */
     @GET
     @Path("/{id}/posts")
+    @Secured({Role.USER})
     public Response getPostsByUser(@PathParam("id") long id,
                                    @DefaultValue("0") @QueryParam("start") int start,
                                    @DefaultValue("20") @QueryParam("size") int size) {
         List<Post> posts = postService.findByUser(id, start, size);
         return Response.ok(posts).build();
+    }
+
+    /***
+     * Get all the replies of a user
+     * @param id of the user
+     * @param start of the list
+     * @param size of the list
+     * @return A list of all the replies of the User.
+     */
+    @GET
+    @Path("/{id}/replies")
+    public Response getRepliesByUser(@PathParam("id") long id,
+                              @DefaultValue("0") @QueryParam("start") int start,
+                              @DefaultValue("20") @QueryParam("size") int size) {
+        List<Reply> replies = replyService.findByUser(id, start, size);
+        return Response.ok(replies).build();
     }
 
     /***
@@ -91,6 +113,7 @@ public class UserController {
      */
     @GET
     @Path("/email")
+    @Secured({Role.USER})
     public Response getByEmail(@QueryParam("email") String email) {
         User user = userService.findByEmail(email);
         if (user == null) {
@@ -105,7 +128,6 @@ public class UserController {
      * @param password
      * @param name
      * @param code
-     * @return the created user
      * @throws Exception when used or invalid information is given for
      * creating the user.
      */
@@ -114,11 +136,8 @@ public class UserController {
                            @QueryParam("password") String password,
                            @QueryParam("name") String name,
                            @QueryParam("code") String code) throws Exception {
-        User user = userService.create(new User(email, password, name));
-        if (user == null) {
-            throw new WebApplicationException(Response.Status.BAD_REQUEST);
-        }
-        return Response.ok(user).build();
+        userService.create(new User(email, password, name));
+        return Response.ok().build();
     }
 
     /***

@@ -57,7 +57,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if email == "" && password == "" {
             
             // Authenticate API call
-            authService?.authenticate(email: "admin@mail.nl", password: "admin") { success in
+            authService?.authenticate(email: "max@mail.nl", password: "max") { success in
                 if(success == true) {
                     
                     // Get the logged in user

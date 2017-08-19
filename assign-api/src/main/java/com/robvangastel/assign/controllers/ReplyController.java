@@ -8,7 +8,6 @@ import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -23,9 +22,9 @@ import java.util.List;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/replies")
-@Api(tags = {"replies"}, value = "/replies", description = "Operations about replies")
+@Secured({Role.USER})
 @Produces({MediaType.APPLICATION_JSON})
 public class ReplyController {
 
@@ -34,9 +33,6 @@ public class ReplyController {
 
     @Inject
     private UserService userService;
-
-    @Inject
-    private PostService postService;
 
     @Context
     private SecurityContext securityContext;
@@ -57,63 +53,6 @@ public class ReplyController {
     }
 
     /***
-     * Get all the replies of a user
-     * @param id of the user
-     * @param start of the list
-     * @param size of the list
-     * @return A list of all the replies of the User.
-     */
-    @GET
-    @Path("/users/{id}")
-    public Response getByUser(@PathParam("id") long id,
-                              @DefaultValue("0") @QueryParam("start") int start,
-                              @DefaultValue("20") @QueryParam("size") int size) {
-        List<Reply> replies = replyService.findByUser(id, start, size);
-        return Response.ok(replies).build();
-    }
-
-    /***
-     * Get all the replies of a post
-     * @param id of the Post
-     * @param start of the list
-     * @param size of the list
-     * @return A list of all the replies of the Post.
-     */
-    @GET
-    @Path("/posts/{id}")
-    public Response getByPost(@PathParam("id") long id,
-                              @DefaultValue("0") @QueryParam("start") int start,
-                              @DefaultValue("20") @QueryParam("size") int size) {
-        List<Reply> replies = replyService.findByPost(id, start, size);
-        return Response.ok(replies).build();
-    }
-
-    /***
-     * Create a Reply
-     * @param id of the post
-     * @return the created reply.
-     * @throws Exception when invalid information for the reply is given.
-     */
-    @POST
-    @Path("/posts/{id}")
-    @Secured({Role.USER})
-    public Response create(@PathParam("id") long id) throws Exception {
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-        Post post = postService.findById(id);
-        Reply reply;
-
-        if (user.getId() != post.getUser().getId() && post != null) {
-            // Check if the user creating reply isnt replying to his own post
-            reply = replyService.create(new Reply(user, post));
-        } else {
-            throw new WebApplicationException(Response.Status.BAD_REQUEST);
-        }
-
-        return Response.ok(reply).build();
-    }
-
-
-    /***
      * Set the boolean helped on a reply of the user.
      * @param id of the reply
      * @return A matching statuscode indicating success or failure
@@ -121,7 +60,6 @@ public class ReplyController {
      */
     @PUT
     @Path("{id}")
-    @Secured({Role.USER})
     public Response setHelped(@PathParam("id") long id) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Reply reply = replyService.findById(id);

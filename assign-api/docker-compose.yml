@@ -1,0 +1,16 @@
+version: '2'
+services:
+  mysql:
+    container_name: "db"
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: assign
+      MYSQL_USER: ***REMOVED***
+      MYSQL_PASSWORD: ***REMOVED***
+      MYSQL_ROOT_PASSWORD: ***REMOVED***
+
+networks:
+  default:
+    external:
+      name: nginx-net

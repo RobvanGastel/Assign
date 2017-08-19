@@ -35,7 +35,7 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
     @Override
     public List<User> findUsersBySchool(long id, int start, int size) {
         Query q = entityManager.createQuery(
-                "SELECT st.studenten FROM School s INNER JOIN s.studies st WHERE s.id = :id")
+                "SELECT st.students FROM School s INNER JOIN s.studies st WHERE s.id = :id")
                 .setFirstResult(start)
                 .setMaxResults(size)
                 .setParameter("id", id);
@@ -55,7 +55,7 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
     @Override
     public List<User> findUsersBySchoolAndStudy(String study, long id, int start, int size) {
         Query q = entityManager.createQuery(
-                "SELECT st.studenten FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
+                "SELECT st.students FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
                 .setFirstResult(start)
                 .setMaxResults(size)
                 .setParameter("id", id)
@@ -78,7 +78,7 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
     @Override
     public boolean doesStudyAlreadyExist(Long id, String study) {
         Query q = entityManager.createQuery(
-                "SELECT st.studenten FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
+                "SELECT st.students FROM School s INNER JOIN s.studies st WHERE s.id = :id AND st.name = :study")
                 .setParameter("id", id)
                 .setParameter("study", study);
         if (q.getResultList().isEmpty()) {
@@ -89,9 +89,8 @@ public class SchoolDaoImpl extends AbstractDao<School> implements ISchoolDao {
     }
 
     @Override
-    public School create(School entity) {
+    public void create(School entity) {
         entityManager.persist(entity);
-        return entity;
     }
 
     @Override

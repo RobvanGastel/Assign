@@ -21,6 +21,14 @@ public interface IPostDao {
     Post findById(long id);
 
     /***
+     * Find Post by url
+     * @param url
+     * @return Found Post or Null when
+     * the Post isn't found
+     */
+    Post findByUrl(String url);
+
+    /***
      * Find Post(s) by query
      * @param query
      * @param start of the list
@@ -49,11 +57,18 @@ public interface IPostDao {
     List<Post> findAll(User user, int start, int size);
 
     /***
+     * Find all post(s)
+     * @param start of the list
+     * @param size of the list
+     * @return all the Post(s) within the start and size
+     */
+    List<Post> findAll(int start, int size);
+
+    /***
      * Create a Post
      * @param entity Post to create
-     * @return Created Post
      */
-    Post create(Post entity) throws PostException;
+    void create(Post entity) throws PostException;
 
     /***
      * Update Post with the same id

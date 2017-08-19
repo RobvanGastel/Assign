@@ -4,7 +4,6 @@ import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
-import io.swagger.annotations.Api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -26,9 +25,8 @@ import java.nio.file.StandardCopyOption;
  * @author Rob van Gastel
  */
 
-@RequestScoped
+@RequestScoped // Request scoped for the Filters
 @Path("/img")
-@Api(tags = {"img"}, value = "/img", description = "Manages the profile pictures of the users")
 public class ImageController {
 
     /*
@@ -41,7 +39,7 @@ public class ImageController {
      * The directory where the images will be stored.
      * Make sure this directory exists before you run the service.
      */
-    private static final java.nio.file.Path BASE_DIR = Paths.get(System.getProperty("user.home"), "img");
+    private static final java.nio.file.Path BASE_DIR = Paths.get("/opt/jboss/wildfly/standalone/img");
 
     @Inject
     private UserService userService;

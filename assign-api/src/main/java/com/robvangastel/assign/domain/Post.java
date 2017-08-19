@@ -37,13 +37,14 @@ public class Post implements Serializable {
     private static final String HASHTAG_REGEX = "^#\\w+([.]?\\w+)*|\\s#\\w+([.]?\\w+)*";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.PERSIST)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Reply> replies;
 
     @ElementCollection
@@ -55,6 +56,9 @@ public class Post implements Serializable {
 
     @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
+    private String url;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Timestamp dateCreated;

@@ -42,17 +42,7 @@ class ApiService {
        }
     }
 
-    /// This function returns *User* for given id.
-    ///
-    /// TODO Add implementation
-    /// Param: id
-    func getUser() {
-
-    }
-
     /// This function returns a list of *Post* objects for the authenticated user.
-    ///
-    /// TODO Retrieve custom Posts of Call
     @discardableResult
     func getPosts(size: Int, start: Int,
                   completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
@@ -103,8 +93,8 @@ class ApiService {
 
         return sessionManager.request(URL, method: .post, parameters: parameters,
                                       encoding: URLEncoding.queryString)
-            .validate().responseJSON{ response in
-
+            .validate(statusCode: 200..<300).responseData { response in
+                
                 switch response.result {
                 case .success:
 
@@ -159,8 +149,6 @@ class ApiService {
     }
     
     /// This function returns a list of *Post* objects for the authenticated user.
-    ///
-    /// TODO Retrieve custom Posts of Call
     @discardableResult
     func getPostsByUser(size: Int, start: Int, id: Int,
                   completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
@@ -194,6 +182,106 @@ class ApiService {
                     print("API: Retrieve posts error")
                     print(error)
             }
+        }
+    }
+    
+    /// This function returns a list of *Reply* objects for the user by id.
+    @discardableResult
+    func getRepliesByUser(size: Int, start: Int, id: Int,
+                        completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let idString = "\(id)"
+        let URL = Storage.getURL() + "/users/" + idString + "/replies"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                                        
+            switch response.result {
+            case .success:
+                var replyArray = [Reply]()
+                
+                if let replies = response.value as? [[String:Any]] {
+                    for reply in replies {
+                        replyArray.append(Reply(JSON: reply)!)
+                    }
+                }
+                
+                print("API: Retrieve replies successful")
+                completionHandler(replyArray)
+                
+            case .failure(let error):
+                print("API: Retrieve replies error")
+                print(error)
+            }
+        }
+    }
+    
+    /// This function creates a Reply for given Post and User.
+    @discardableResult
+    func addReply(id: Int,
+                  completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let postId = "\(id)"
+        let URL = Storage.getURL() + "/posts/" + postId + "/replies"
+        
+        return sessionManager.request(URL, method: .get,
+                                      encoding: URLEncoding.queryString).validate()
+        .responseJSON { response in
+                
+            switch response.result {
+                
+            case .success:
+                print("API: Create reply successful")
+                completionHandler(true)
+                
+            case .failure(let error):
+                print("API: Create reply error")
+                completionHandler(false)
+                print(error)
+            }
+        }
+    }
+    
+    /// This function checks if the user has already replied to this Post.
+    @discardableResult
+    func checkReplied(id: Int,
+                  completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let postId = "\(id)"
+        let URL = Storage.getURL() + "/posts/" + postId + "/replied"
+        
+        return sessionManager.request(URL, method: .get,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                    
+                case .success:
+                    
+                    if let JSON = response.value as? [String:Any] {
+                        
+                        if let replied = JSON["replied"] as? Bool {
+                            print("API: Create reply successful")
+                            completionHandler(replied)
+                        }
+                    }
+                    
+                    completionHandler(false)
+                    
+                case .failure(let error):
+                    print("API: Create reply error")
+                    completionHandler(false)
+                    print(error)
+                }
         }
     }
 }
