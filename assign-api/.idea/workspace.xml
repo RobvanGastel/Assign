@@ -12,7 +12,143 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PostSerializer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/PostSerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SchoolController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/SchoolController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <folding>
+                <marker date="1502385429115" expanded="true" signature="1279:1294" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="1300:1465" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="1470:1493" ph="@{...}" />
+                <marker date="1502385429115" expanded="true" signature="1548:1765" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="1771:2010" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="2015:2046" ph="@{...}" />
+                <marker date="1502385429115" expanded="true" signature="2291:2425" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="2431:2652" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="2657:2686" ph="@{...}" />
+                <marker date="1502385429115" expanded="true" signature="2925:3052" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="3058:3331" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="3336:3371" ph="@{...}" />
+                <marker date="1502385429115" expanded="true" signature="3714:3856" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="3862:4029" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="4117:4357" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="4363:4469" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="4474:4497" ph="@{...}" />
+                <marker date="1502385429115" expanded="true" signature="4586:4863" ph="{...}" />
+                <marker date="1502385429115" expanded="true" signature="4869:5068" ph="/**...*/" />
+                <marker date="1502385429115" expanded="true" signature="5073:5099" ph="@{...}" />
+                <marker date="1502385429115" expanded="true" signature="5170:5256" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="62" column="8" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="63" selection-end-column="18" />
+              <folding>
+                <marker date="1502385429127" expanded="true" signature="1461:1538" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="1544:1703" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="1708:1757" ph="@{...}" />
+                <marker date="1502385429127" expanded="true" signature="1812:2019" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="2025:2260" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="2265:2320" ph="@{...}" />
+                <marker date="1502385429127" expanded="true" signature="2553:2671" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="2677:2872" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="2877:2908" ph="@{...}" />
+                <marker date="1502385429127" expanded="true" signature="3133:3257" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="3263:3431" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="3436:3486" ph="@{...}" />
+                <marker date="1502385429127" expanded="true" signature="3553:3766" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="3772:3985" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="4263:4369" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="4375:4657" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="4662:4692" ph="@{...}" />
+                <marker date="1502385429127" expanded="true" signature="4908:5194" ph="{...}" />
+                <marker date="1502385429127" expanded="true" signature="5200:5424" ph="/**...*/" />
+                <marker date="1502385429127" expanded="true" signature="5429:5482" ph="@{...}" />
+                <marker date="1502385429127" expanded="true" signature="5553:5637" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IPostDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IPostDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="935">
+              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+              <folding>
+                <marker date="1502385429136" expanded="true" signature="1352:1364" ph="/**...*/" />
+                <marker date="1502385429136" expanded="true" signature="1364:1421" ph="/**...*/" />
+                <marker date="1502385429136" expanded="true" signature="1478:1632" ph="/**...*/" />
+                <marker date="1502385429136" expanded="true" signature="1668:1735" ph="/**...*/" />
+                <marker date="1502385429136" expanded="true" signature="1792:1861" ph="/**...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1037">
+              <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+              <folding>
+                <marker date="1502385429147" expanded="true" signature="1176:1467" ph="SELECT * FRO... Post" />
+                <marker date="1502385429147" expanded="true" signature="2334:2521" ph="SELECT * FRO... Post" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserSerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/UserSerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#474#475#0" expanded="false" />
+                <element signature="e#500#501#0" expanded="false" />
+                <element signature="e#547#548#0" expanded="false" />
+                <element signature="e#571#572#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IUserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IUserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+>>>>>>> refs/remotes/origin/feature_dashboard
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -631,13 +767,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="configuration" />
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="facade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">

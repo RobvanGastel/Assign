@@ -1,5 +1,7 @@
 FROM jboss/wildfly:10.1.0.Final
 
+USER root
+
 ADD configuration /opt/jboss/wildfly/standalone
 
 # Rename the original configuration file
@@ -17,10 +19,7 @@ WORKDIR /opt/jboss/wildfly/standalone/configuration/certs
 # Execute the script to generate self signed certificates
 RUN ./certificate.sh
 
-# Set the working directory to jboss' user home directory
-WORKDIR /opt/jboss
-
 # Expose SSL default port
-EXPOSE 8443
+EXPOSE 8080
 
-# CMD ["/opt/jboss/wildfly/configuration/execute.sh"]
+CMD ["/opt/jboss/wildfly/standalone/execute.sh"]

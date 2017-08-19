@@ -12,6 +12,9 @@ module.exports = {
   */
   head: {
     title: 'Assign',
+    htmlAttrs: {
+      lang: 'nl',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,6 +24,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  
   /*
   ** Global CSS
   */
