@@ -36,20 +36,20 @@ export default {
     }
   },
   asyncData ({ params }) {
-    return axios.get('https://api.assignapp.nl/assign/api/page/post', { params: {
+    return axios.get(process.env.baseUrl + '/page/post', { params: {
       url: params.url
     }})
       .then((response) => {
         return { post: response.data }
       })
       .catch(function (error) {
-        self.error = error
+        console.log(error)
       })
   },
   methods: {
     getPost (url) {
       let self = this
-      axios.get('https://api.assignapp.nl/assign/api/page/post', { params: {
+      axios.get(process.env.baseUrl + '/page/post', { params: {
         url: url
       }})
         .then(function (response) {
@@ -57,7 +57,7 @@ export default {
           // self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
         })
         .catch(function (error) {
-          self.error = error
+          console.log(error)
         })
     }
   },

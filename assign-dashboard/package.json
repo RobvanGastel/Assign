@@ -10,9 +10,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "nuxt": "0.10.7",
     "vue-server-renderer": "latest",
-    "axios": "^0.16.2",
     "vuetify": "^0.13.0"
   },
   "devDependencies": {

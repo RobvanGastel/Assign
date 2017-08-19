@@ -29,11 +29,7 @@ public class DashboardController {
             @DefaultValue("20") @QueryParam("size") int size) {
         List<User> users = dashboardService.findAllUsers(start, size);
 
-        return Response.ok(users)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
-                .build();
+        return Response.ok(users).build();
     }
 
     @GET
@@ -43,10 +39,6 @@ public class DashboardController {
             @DefaultValue("20") @QueryParam("size") int size) {
         List<Post> posts = dashboardService.findAllPosts(start, size);
 
-        return Response.ok(posts)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
-                .build();
+        return Response.ok(posts).build();
     }
 }
