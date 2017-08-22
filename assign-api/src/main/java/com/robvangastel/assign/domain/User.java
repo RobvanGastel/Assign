@@ -55,6 +55,10 @@ public class User implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private SocialLink socialLink;
 
+    @JsonManagedReference
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Firebase firebase;
+
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<String> tags = new ArrayList<>();
