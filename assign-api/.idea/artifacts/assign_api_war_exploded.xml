@@ -28,6 +28,12 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.5" />
           <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt:0.6.0" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.8" />
+          <element id="library" level="project" name="Maven: io.github.openfeign:feign-core:9.4.0" />
+          <element id="library" level="project" name="Maven: org.jvnet:animal-sniffer-annotation:1.0" />
+          <element id="library" level="project" name="Maven: io.github.openfeign:feign-jackson:9.4.0" />
+          <element id="library" level="project" name="Maven: io.github.openfeign:feign-okhttp:9.4.0" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.2.0" />
+          <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.6.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

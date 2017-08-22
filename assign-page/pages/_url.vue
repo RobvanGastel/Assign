@@ -54,7 +54,6 @@ export default {
       }})
         .then(function (response) {
           self.post = response.data
-          // self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
         })
         .catch(function (error) {
           console.log(error)
