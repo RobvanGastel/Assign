@@ -9,8 +9,6 @@ import javax.json.JsonObject;
 /**
  * @author Rob van Gastel
  */
-
-
 public interface FirebaseClient {
 
     @RequestLine("POST /")

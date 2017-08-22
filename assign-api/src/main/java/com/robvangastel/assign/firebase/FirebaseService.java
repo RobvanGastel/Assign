@@ -8,7 +8,6 @@ import feign.okhttp.OkHttpClient;
 import javax.ejb.Stateless;
 import javax.json.JsonObject;
 import java.io.Serializable;
-import java.util.Map;
 
 /**
  * @author Rob van Gastel
@@ -23,8 +22,9 @@ public class FirebaseService implements Serializable {
 
     FirebaseClient client;
 
+    // TODO create singleton of client / best implementation of a client
     public FirebaseService() {
-        client = new Feign.Builder()
+        client = Feign.builder()
                 .client(new OkHttpClient())
                 .encoder(new JacksonEncoder())
                 .decoder(new JacksonDecoder())
@@ -36,6 +36,7 @@ public class FirebaseService implements Serializable {
 //        "notification_key": user.notification_key,
 //        "registration_ids": registration_ids
     public boolean removeRegistrationId(Body body) {
+
         body.setOperation(Operations.remove.toString());
 
         JsonObject response = client.registation(APIKEY, SENDERID, body);
@@ -58,7 +59,10 @@ public class FirebaseService implements Serializable {
 //        "registration_ids": user.registration_ids
     public JsonObject createNotificationkey(Body body) {
         body.setOperation(Operations.create.toString());
+        body.setNotification_key_name("dsadsadsadsad");
+        body.registration_ids.add("632cd442e56077470c4e8381eabe87e4ce4ac6d0");
 
+        // TODO Return bool on statuscode response
         return client.registation(APIKEY, SENDERID, body);
     }
 
