@@ -113,12 +113,12 @@ public class FirebaseService implements Serializable {
      */
     public void createNotificationkey(Body body, Long id) throws FeignException {
         body.setOperation(Operations.create.toString());
-        JsonObject response = registerClient.register(API_KEY, SENDER_ID, body);
+        Body response = registerClient.register(API_KEY, SENDER_ID, body);
 
         User user = userDao.findById(id);
 
         Firebase firebase = user.getFirebase();
-        firebase.setNotificationKey(response.getString("notification_key"));
+        firebase.setNotificationKey(response.getNotification_key());
         firebase.setRegisterIds(body.getRegistration_ids());
         firebaseDao.update(firebase);
     }

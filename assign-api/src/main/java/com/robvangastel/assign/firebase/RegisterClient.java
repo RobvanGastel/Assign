@@ -21,6 +21,6 @@ public interface RegisterClient {
      */
     @RequestLine("POST /")
     @Headers({"Content-Type: application/json", "Authorization: key={api_key}", "project_id: {sender_id}"})
-    JsonObject register(@Param("api_key") String apiKey,
+    Body register(@Param("api_key") String apiKey,
                     @Param("sender_id") String senderId, Body body);
 }
