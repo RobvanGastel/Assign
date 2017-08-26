@@ -52,6 +52,10 @@ public class User implements Serializable {
     @LazyCollection(LazyCollectionOption.TRUE)
     private List<Reply> replies = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    @LazyCollection(LazyCollectionOption.TRUE)
+    private List<Notification> notifications = new ArrayList<>();
+
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private SocialLink socialLink;

@@ -4,6 +4,11 @@ import com.robvangastel.assign.dao.IReplyDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.firebase.FirebaseService;
+import com.robvangastel.assign.firebase.domain.Data;
+import com.robvangastel.assign.firebase.domain.Notification;
+import com.robvangastel.assign.firebase.domain.Payload;
+import com.robvangastel.assign.firebase.domain.Priority;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -18,6 +23,9 @@ public class ReplyService implements Serializable {
 
     @Inject
     private IReplyDao replyDao;
+
+    @Inject
+    private FirebaseService firebaseService;
 
     public boolean DidUserReply(User user, Post post) {
         return replyDao.DidUserReply(user, post);
@@ -37,6 +45,18 @@ public class ReplyService implements Serializable {
 
     public void create(Reply entity) throws Exception {
         // TODO Add notification
+        String title = entity.getUser().getName() + " wants to help you out!";
+        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
+
+        Payload payload = new Payload(
+                new Notification(title, body),
+                new Data(true),
+                entity.getPost().getUser()
+                        .getFirebase().getNotificationKey(),  // Firebase key
+                Priority.normal);
+
+        firebaseService.sendNotification(payload, entity.getPost().getUser().getId());
+
         replyDao.create(entity);
     }
 

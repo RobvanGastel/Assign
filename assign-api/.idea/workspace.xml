@@ -24,78 +24,94 @@
     <favorites_list name="assign-api" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="60" lean-forward="true" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-              <folding>
-                <marker date="1503762533476" expanded="true" signature="683:708" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartUp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="89" column="34" lean-forward="true" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirebaseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="772">
-              <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirebaseService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/NotificationClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/RegisterClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5562678">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="FirebaseController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="515">
+                  <caret line="87" column="37" lean-forward="false" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Payload.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Payload.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FirebaseService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="268">
+                  <caret line="145" column="28" lean-forward="false" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ReplyService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ReplyService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="57" selection-end-column="86" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="NotificationClient.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/NotificationClient.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Payload.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Payload.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Notification.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Notification.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/ImageController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-web.xml" />
@@ -154,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/security/jwt/JwtHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/FirebaseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Firebase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Notification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/IFirebase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/Data.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/Operations.java" />
@@ -163,20 +177,16 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/firebase.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/NotificationClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Operations.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Response.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Priority.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Payload.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Data.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Notification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Body.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/CodeGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/FirebaseException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/IFirebaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/FirebaseDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/DashboardController.java" />
@@ -184,11 +194,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/GenericExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/robvangastel/assign/ControllerTest/PostControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/robvangastel/assign/ControllerTest/UserControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/PostSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/RegisterClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/NotificationClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Notification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Data.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Notification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ReplyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
       </list>
     </option>
@@ -1625,7 +1641,7 @@
       <workItem from="1502707913749" duration="8873000" />
       <workItem from="1502991079690" duration="4113000" />
       <workItem from="1503414790283" duration="12277000" />
-      <workItem from="1503680101458" duration="24072000" />
+      <workItem from="1503680101458" duration="27956000" />
     </task>
     <servers />
   </component>
@@ -1662,7 +1678,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276447000" />
+    <option name="totallyTimeSpent" value="280331000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1691,15 +1707,15 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36499467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24546425" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266385" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32657418" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2230523" sideWeight="0.66537565" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2230523" sideWeight="0.66537565" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26607424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1737,7 +1753,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseService.java</url>
-          <line>115</line>
+          <line>116</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
@@ -1751,30 +1767,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Study.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/School.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Reply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1809,26 +1801,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Operations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1885,14 +1861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="121" column="8" lean-forward="false" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Firebase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1924,14 +1892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/DashboardService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1952,14 +1912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Payload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2103,14 +2055,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="89" column="34" lean-forward="true" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/robvangastel/assign/ControllerTest/UserControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-476">
@@ -2127,6 +2071,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="76" column="23" lean-forward="false" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/RegisterClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -2139,36 +2099,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/NotificationClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        <state relative-caret-position="408">
+          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Reply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Payload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/FirebaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        <state relative-caret-position="268">
+          <caret line="145" column="28" lean-forward="false" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ReplyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="57" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2177,10 +2179,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="60" lean-forward="true" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+        <state relative-caret-position="340">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           <folding>
-            <marker date="1503762533476" expanded="true" signature="683:708" ph="..." />
+            <marker date="1503768709646" expanded="true" signature="1229:1254" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/firebase/domain/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="87" column="37" lean-forward="false" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

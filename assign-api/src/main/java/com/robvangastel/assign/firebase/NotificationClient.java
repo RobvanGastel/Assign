@@ -2,6 +2,7 @@ package com.robvangastel.assign.firebase;
 
 import com.robvangastel.assign.firebase.domain.Notification;
 
+import com.robvangastel.assign.firebase.domain.Payload;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
@@ -21,6 +22,6 @@ public interface NotificationClient {
      */
     @RequestLine("POST /")
     @Headers({"Content-Type: application/json", "Authorization: key={api_key}"})
-    JsonObject send(@Param("api_key") String apiKey, Notification body);
+    void send(@Param("api_key") String apiKey, Payload body);
 }
 
