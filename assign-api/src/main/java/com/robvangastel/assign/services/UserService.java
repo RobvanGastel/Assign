@@ -6,6 +6,7 @@ import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.AuthenticationException;
 import com.robvangastel.assign.exception.UserException;
+import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.security.Credentials;
 import com.robvangastel.assign.security.IdToken;
 import com.robvangastel.assign.security.jwt.JwtHelper;
@@ -56,6 +57,8 @@ public class UserService implements Serializable {
         if (dao.findByEmail(entity.getEmail()) == null) {
             entity.setPassword(encoder.encode(entity.getPassword()));
             dao.create(entity);
+        } else {
+            throw new UserException("Email address already used");
         }
     }
 

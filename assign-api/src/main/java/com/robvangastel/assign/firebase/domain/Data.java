@@ -11,10 +11,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @NoArgsConstructor
 public class Data {
-//        data: {
-//            stock: "GOOG",
-//            open: 829.62,
-//            close: "635.67"
-//        }
-//    };
+
+    // TODO Implement Data
 }

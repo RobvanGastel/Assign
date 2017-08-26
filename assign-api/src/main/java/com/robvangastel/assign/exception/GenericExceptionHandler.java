@@ -19,10 +19,10 @@ public class GenericExceptionHandler implements ExceptionMapper<Throwable> {
         setHttpStatus(throwable, errorMessage);
 
         errorMessage.setMessage(throwable.getMessage());
+
         StringWriter errorStackTrace = new StringWriter();
         throwable.printStackTrace(new PrintWriter(errorStackTrace));
-
-        errorMessage.setStacktrace(errorStackTrace.toString());
+        // errorMessage.setStacktrace(errorStackTrace.toString()); // Disable Stacktrace on Live build
 
         return Response.status(errorMessage.getStatus())
                 .entity(errorMessage)
