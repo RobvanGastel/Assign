@@ -1,4 +1,4 @@
-package com.robvangastel.assign.firebase;
+package com.robvangastel.assign.firebase.domain;
 
 /**
  * @author Rob van Gastel

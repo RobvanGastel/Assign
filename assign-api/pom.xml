@@ -128,17 +128,17 @@
             <version>${feign.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-jackson</artifactId>
             <version>${feign.version}</version>
         </dependency>
 
+        <!-- Bug fixed keep dependency on 9.5.1 -->
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
-            <version>9.5.1 </version>
+            <version>9.5.1</version>
         </dependency>
         <!-- END: HTTP Client -->
 

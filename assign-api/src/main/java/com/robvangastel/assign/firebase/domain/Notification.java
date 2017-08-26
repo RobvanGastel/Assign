@@ -1,5 +1,6 @@
 package com.robvangastel.assign.firebase.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -13,10 +14,10 @@ import javax.persistence.Entity;
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
+@AllArgsConstructor
 public class Notification {
-//        notification: {
-//            title: "$GOOG up 1.43% on the day",
-//            body: "$GOOG gained 11.80 points to close at 835.67, up 1.43% on the day."
-//        },
 
+    private String title;
+    private String body;
+    private String icon;
 }
