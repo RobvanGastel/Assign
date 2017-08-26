@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+import Firebase
 import CoreData
 
 @UIApplicationMain
@@ -14,9 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Initialize NotificationCenter
+        UNUserNotificationCenter.current().delegate = self
+        
+        // Initialize Firebase
+        FirebaseApp.configure()
+        
+        // Check if the App is stil allowed to get Push Notifications
+        registerForPushNotifications()
         
         return true
     }
@@ -89,6 +98,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    // MARK: - Push Notifications
+    
+    // Checks if the app still has authorization to get Push Notifications
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            
+            // Voorbeeld van een view actie op een Notificatie
+            let viewAction = UNNotificationAction(identifier: "NotificationController",
+                                                  title: "View",
+                                                  options: [.foreground])
+            
+            let notificationCategory = UNNotificationCategory(identifier: "Notification",
+                                                              actions: [viewAction],
+                                                              intentIdentifiers: [],
+                                                              options: [])
+            
+            UNUserNotificationCenter.current().setNotificationCategories([notificationCategory])
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    // If the app still has permissions get the Notifications
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
 }
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        let aps = userInfo as! [String: AnyObject]
+        
+        // TODO Add check for notification
+        //            if response.actionIdentifier == "SpecialView" {
+        
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "NotificationNavigationController") as! UINavigationController
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = initialViewControlleripad
+        self.window?.makeKeyAndVisible()
+        //            }
+        
+        completionHandler()
+    }
+}
+
+
+
 
