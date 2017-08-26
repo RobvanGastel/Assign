@@ -7,6 +7,7 @@ import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.firebase.domain.Body;
 import com.robvangastel.assign.firebase.domain.Notification;
 import com.robvangastel.assign.firebase.domain.Operations;
+import com.robvangastel.assign.firebase.domain.Payload;
 import feign.Feign;
 import feign.FeignException;
 import feign.jackson.JacksonDecoder;
@@ -141,11 +142,12 @@ public class FirebaseService implements Serializable {
      *  }
      * }
      *
-     * @param notification
+     * @param payload
+     * @param id of the User
      * @throws FeignException When Firebase gives a invalid statuscode
      */
-    public void sendNotification(Notification notification) throws FeignException {
-        JsonObject response = notificationClient.send(API_KEY, notification);
+    public void sendNotification(Payload payload, Long id) throws FeignException {
+        notificationClient.send(API_KEY, payload);
 
         // TODO Persist in database
     }

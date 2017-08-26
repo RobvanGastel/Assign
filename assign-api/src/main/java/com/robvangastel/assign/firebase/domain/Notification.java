@@ -20,4 +20,9 @@ public class Notification {
     private String title;
     private String body;
     private String icon;
+
+    public Notification(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
 }

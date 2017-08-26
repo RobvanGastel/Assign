@@ -2,7 +2,7 @@ package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.firebase.domain.Body;
+import com.robvangastel.assign.firebase.domain.*;
 import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.UserService;
@@ -68,6 +68,23 @@ public class FirebaseController {
         body.getRegistration_ids().add(id);
 
         firebaseService.removeRegistrationId(body, user.getId());
+        return Response.ok().build();
+    }
+
+    @GET
+    public Response afdsadsad() {
+        // TODO Add notification
+        String title = " wants to help you out!";
+         String body = " offers to help you out with ";
+
+        Payload payload = new Payload(
+                new Notification(title, body),
+                new Data(true),
+                "f_BQ2nIdHeY:APA91bFeGN4WEPpSiK-lAj5pF6M_Rz04TatTHz7E0lTTffln7dOYoKO-E_Njh3IXTTwW2FLBabMEWr_ZmAoP1h5kYk5NusjsUqFxmJhSukGD9WIbyZuNeAgAzKnN2mg-ja0-ynEqCumf",  // Firebase key
+                Priority.normal);
+
+        firebaseService.sendNotification(payload, 10L);
+
         return Response.ok().build();
     }
 }
