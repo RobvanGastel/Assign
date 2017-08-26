@@ -11,13 +11,13 @@ public class TestConfig {
 
     /***
      * Deployment url:
-     * http://84.26.134.115:8080/assign/api
+     * https://api.assignapp.nl/v0.1
      *
      * Local url:
-     * http://localhost:9080/assign/api
+     * http://localhost:9080/v0.1
      */
     public TestConfig() {
-        setBaseUrl("http://***REMOVED***:8080/assign/api");
+        setBaseUrl("http://localhost:9080/v0.1");
     }
 
     public static String getBaseUrl() {
