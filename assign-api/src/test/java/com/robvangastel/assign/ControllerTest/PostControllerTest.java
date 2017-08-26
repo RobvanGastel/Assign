@@ -139,7 +139,7 @@ public class PostControllerTest {
     @Test
     public void getByIdTest1() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/" + 16);
+        WebTarget target = client.target(baseUrl + "/posts/" + 21);
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
                 .get();

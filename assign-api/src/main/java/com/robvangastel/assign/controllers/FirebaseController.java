@@ -37,26 +37,23 @@ public class FirebaseController {
     public Response createNotificationKey(@QueryParam("id") String id) {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-
         Body body = new Body();
-        body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
-        body.getRegistration_ids().add(id);
 
-        firebaseService.createNotificationkey(body, user.getId());
-        return Response.ok().build();
-    }
+        if(user.getFirebase().getNotificationKey() == null) {
 
-    @PUT
-    public Response addRegistrationId(@QueryParam("id") String id) {
+            body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
+            body.getRegistration_ids().add(id);
 
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+            firebaseService.createNotificationkey(body, user.getId());
+        } else {
 
-        Body body = new Body();
-        body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
-        body.setNotification_key(user.getFirebase().getNotificationKey());
-        body.getRegistration_ids().add(id);
+            body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
+            body.setNotification_key(user.getFirebase().getNotificationKey());
+            body.getRegistration_ids().add(id);
 
-        firebaseService.addRegistrationId(body, user.getId());
+            firebaseService.addRegistrationId(body, user.getId());
+        }
+
         return Response.ok().build();
     }
 
