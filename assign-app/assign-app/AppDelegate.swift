@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+
 import Firebase
 import CoreData
 
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         
         // Initialize Firebase
+        FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min) // Prevent from Console spam
         FirebaseApp.configure()
         
         // Check if the App is stil allowed to get Push Notifications
@@ -130,6 +132,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
     }
+}
+
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                 fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    
+    if let messageID = userInfo["gcm_message_id"] {
+        print("Message ID: \(messageID)")
+    }
+    
+    // Print full message.
+    print(userInfo)
+    
+    
+    let alert = UIAlertController(title: "FireBase", message:"didReceiveRemoteNotification fetchCompletionHandler", preferredStyle: UIAlertControllerStyle.alert)
+    
+    // add an action (button)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    
+    completionHandler(UIBackgroundFetchResult.newData)
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

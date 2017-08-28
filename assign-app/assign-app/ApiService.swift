@@ -284,4 +284,31 @@ class ApiService {
                 }
         }
     }
+    
+    @discardableResult
+    func registerDevice(token: String,
+                        completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/firebase"
+        
+        let parameters: Parameters = [
+            "id" : token
+        ]
+        
+        return sessionManager.request(URL, method: .post, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                                        
+                switch response.result {
+                case .success:
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: register token error")
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
 }

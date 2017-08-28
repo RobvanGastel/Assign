@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 /// Controller to let the user authenticate.
 class LoginController: UIViewController, UITextFieldDelegate {
@@ -60,10 +61,18 @@ class LoginController: UIViewController, UITextFieldDelegate {
             authService?.authenticate(email: "max@mail.nl", password: "max") { success in
                 if(success == true) {
                     
+                    // TODO Handle check
+                    print(Messaging.messaging().fcmToken!)
+                    // TODO Handle possible exceptions
+                    self.apiService?.registerDevice(token: Messaging.messaging().fcmToken!) { response in
+                        
+                    }
+                    
                     // Get the logged in user
                     self.apiService?.getCurrentUser() { response in
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
+                    
                     
                     // Redirect to overview
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
