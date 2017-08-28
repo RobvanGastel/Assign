@@ -14,17 +14,14 @@ public class Payload {
     private Notification notification;
     private Data data;
     private String to;
-    private Priority priority;
 
-    public Payload(Notification notification, String to, Priority priority) {
+    public Payload(Notification notification, String to) {
         this.notification = notification;
-        this.priority = priority;
         this.to = to;
     }
 
-    public Payload(Data data, String to, Priority priority) {
+    public Payload(Data data, String to) {
         this.data = data;
-        this.priority = priority;
         this.to = to;
     }
 }
