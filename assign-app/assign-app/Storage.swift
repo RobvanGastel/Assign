@@ -47,7 +47,7 @@ class Storage {
 
     /// This function returns the API url.
     class func getURL() -> String {
-        return "https://api.assignapp.nl/assign/api"
+        return "https://api.assignapp.nl/v0.1"
     }
 
     /// This function returns the *User* object of this authenticated user.
