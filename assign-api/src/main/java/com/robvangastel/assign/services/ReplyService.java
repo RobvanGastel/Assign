@@ -45,17 +45,17 @@ public class ReplyService implements Serializable {
 
     public void create(Reply entity) throws Exception {
         // TODO Add notification
-        String title = entity.getUser().getName() + " wants to help you out!";
-        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
+       // String title = entity.getUser().getName() + " wants to help you out!";
+        //String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
 
-        Payload payload = new Payload(
-                new Notification(title, body),
-                new Data(true),
-                entity.getPost().getUser()
-                        .getFirebase().getNotificationKey(),  // Firebase key
-                Priority.normal);
-
-        firebaseService.sendNotification(payload, entity.getPost().getUser().getId());
+//        Payload payload = new Payload(
+        //                new Notification(title, body),
+//                 new Data(true),
+        //                entity.getPost().getUser()
+        //                        .getFirebase().getNotificationKey(),  // Firebase key
+        //               Priority.normal);
+//
+//        firebaseService.sendNotification(payload, entity.getPost().getUser().getId());
 
         replyDao.create(entity);
     }

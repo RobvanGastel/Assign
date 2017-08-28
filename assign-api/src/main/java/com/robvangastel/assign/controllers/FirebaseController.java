@@ -72,15 +72,16 @@ public class FirebaseController {
     }
 
     @GET
-    public Response afdsadsad() {
+    public Response afdsadsad() throws Exception {
+
         // TODO Add notification
         String title = " wants to help you out!";
-         String body = " offers to help you out with ";
+        String body = " offers to help you out with ";
 
         Payload payload = new Payload(
                 new Notification(title, body),
                 new Data(true),
-                "f_BQ2nIdHeY:APA91bFeGN4WEPpSiK-lAj5pF6M_Rz04TatTHz7E0lTTffln7dOYoKO-E_Njh3IXTTwW2FLBabMEWr_ZmAoP1h5kYk5NusjsUqFxmJhSukGD9WIbyZuNeAgAzKnN2mg-ja0-ynEqCumf",  // Firebase key
+                "APA91bGWJIPekuoEHIHlQTlcl2Xdh8o2vWEtHtKK3F8OB4cmbuGqMAF869ok05Bi4EHi0AbGioueDGTmrNQU-Ij8y3pCzlIsRxFbxgXWburz61GX55u95Bgzs6l-cxNrISo4CNrQ4_xU",  // Firebase key
                 Priority.normal);
 
         firebaseService.sendNotification(payload, 10L);

@@ -5,20 +5,25 @@ import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.Firebase;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.firebase.domain.Body;
-import com.robvangastel.assign.firebase.domain.Notification;
 import com.robvangastel.assign.firebase.domain.Operations;
 import com.robvangastel.assign.firebase.domain.Payload;
+
 import feign.Feign;
 import feign.FeignException;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.okhttp.OkHttpClient;
+import org.json.simple.JSONObject;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.json.JsonObject;
+import javax.ws.rs.HttpMethod;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * @author Rob van Gastel
@@ -32,7 +37,6 @@ public class FirebaseService implements Serializable {
     private final static String API_KEY = FirebaseProperties.getInstance().getValue("apikey");
 
     RegisterClient registerClient;
-    NotificationClient notificationClient;
 
     @Inject
     private IFirebaseDao firebaseDao;
@@ -49,11 +53,6 @@ public class FirebaseService implements Serializable {
                 .decoder(new JacksonDecoder())
                 .target(RegisterClient.class, URL_REGISTER);
 
-        notificationClient = Feign.builder()
-                .client(new OkHttpClient())
-                .encoder(new JacksonEncoder())
-                .decoder(new JacksonDecoder())
-                .target(NotificationClient.class, URL_SEND);
     }
 
     /**
@@ -146,8 +145,27 @@ public class FirebaseService implements Serializable {
      * @param id of the User
      * @throws FeignException When Firebase gives a invalid statuscode
      */
-    public void sendNotification(Payload payload, Long id) throws FeignException {
-        notificationClient.send(API_KEY, payload);
+    public void sendNotification(Payload payload, Long id) throws Exception {
+
+        String payloadJson = "{\"to\":\"f_BQ2nIdHeY:APA91bFeGN4WEPpSiK-lAj5pF6M_Rz04TatTHz7E0lTTffln7dOYoKO-E_Njh3IXTTwW2FLBabMEWr_ZmAoP1h5kYk5NusjsUqFxmJhSukGD9WIbyZuNeAgAzKnN2mg-ja0-ynEqCumf\", \"notification\" : {\n" +
+                "\"title\" : \"Test\",\n" +
+                "\"body\" : \"Test\"\n" +
+                "}}";
+
+        JSONObject json = new JSONObject();
+        json.put("notification", payload);
+
+        try {
+            HttpURLConnection connection = createURLConnection(URL_SEND, API_KEY);
+            OutputStream os = connection.getOutputStream();
+            os.write(payloadJson.getBytes());
+
+            System.out.println(connection.getResponseCode() + " " + connection.getResponseMessage() );
+
+            connection.disconnect();
+        } catch (Exception e) {
+            // TODO Catch error
+        }
 
         // TODO Persist in database
     }
@@ -158,5 +176,15 @@ public class FirebaseService implements Serializable {
      */
     public void sendNotification(String topic) {
 
+    }
+
+    private HttpURLConnection createURLConnection(String url, String apiKey) throws IOException {
+        URL u = new URL(url);
+        HttpURLConnection connection = (HttpURLConnection) u.openConnection();
+        connection.setDoOutput(true);
+        connection.setRequestMethod(HttpMethod.POST);
+        connection.setRequestProperty( "Authorization", "key=" + apiKey);
+        connection.setRequestProperty( "Content-Type", "application/json");
+        return connection;
     }
 }
