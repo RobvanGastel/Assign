@@ -31,6 +31,7 @@
           <element id="library" level="project" name="Maven: io.github.openfeign:feign-core:9.4.0" />
           <element id="library" level="project" name="Maven: org.jvnet:animal-sniffer-annotation:1.0" />
           <element id="library" level="project" name="Maven: io.github.openfeign:feign-jackson:9.4.0" />
+          <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1" />
           <element id="library" level="project" name="Maven: io.github.openfeign:feign-okhttp:9.5.1" />
           <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.6.0" />
           <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.11.0" />
