@@ -8,7 +8,6 @@ import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.firebase.domain.Data;
 import com.robvangastel.assign.firebase.domain.Notification;
 import com.robvangastel.assign.firebase.domain.Payload;
-import com.robvangastel.assign.firebase.domain.Priority;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
