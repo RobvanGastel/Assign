@@ -1,32 +1,25 @@
 package com.robvangastel.assign.firebase;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.ObjectMapper;
+import com.mashape.unirest.http.Unirest;
 import com.robvangastel.assign.dao.IFirebaseDao;
 import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.Firebase;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.firebase.domain.Body;
-import com.robvangastel.assign.firebase.domain.Notification;
 import com.robvangastel.assign.firebase.domain.Operations;
 import com.robvangastel.assign.firebase.domain.Payload;
-
-import feign.Feign;
-import feign.FeignException;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
-import feign.okhttp.OkHttpClient;
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.json.JsonObject;
-import javax.ws.rs.HttpMethod;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.Serializable;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -40,8 +33,6 @@ public class FirebaseService implements Serializable {
     private final static String SENDER_ID = FirebaseProperties.getInstance().getValue("senderid");
     private final static String API_KEY = FirebaseProperties.getInstance().getValue("apikey");
 
-    RegisterClient registerClient;
-
     @Inject
     private IFirebaseDao firebaseDao;
 
@@ -50,13 +41,26 @@ public class FirebaseService implements Serializable {
 
     @PostConstruct
     public void initialize() {
+        Unirest.setObjectMapper(new com.mashape.unirest.http.ObjectMapper() {
+            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
+                    = new com.fasterxml.jackson.databind.ObjectMapper();
 
-        registerClient = Feign.builder()
-                .client(new OkHttpClient())
-                .encoder(new JacksonEncoder())
-                .decoder(new JacksonDecoder())
-                .target(RegisterClient.class, URL_REGISTER);
+            public <T> T readValue(String value, Class<T> valueType) {
+                try {
+                    return jacksonObjectMapper.readValue(value, valueType);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
+            public String writeValue(Object value) {
+                try {
+                    return jacksonObjectMapper.writeValueAsString(value);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     /**
@@ -69,11 +73,19 @@ public class FirebaseService implements Serializable {
      * "registration_ids": registration_ids
      *
      * @param body
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void removeRegistrationId(Body body, Long id) throws FeignException {
+    public void removeRegistrationId(Body body, Long id) throws Exception {
         body.setOperation(Operations.remove.toString());
-        registerClient.register(API_KEY, SENDER_ID, body);
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
+        headers.put("project_id", "key=" + SENDER_ID);
+
+        HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                .headers(headers)
+                .asObject(Body.class);
+//        Body response = response.getBody();
 
         Firebase firebase = firebaseDao.findById(id);
         firebase.getRegisterIds().removeAll(body.getRegistration_ids());
@@ -90,11 +102,18 @@ public class FirebaseService implements Serializable {
      * "registration_ids": registration_ids
      *
      * @param body
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void addRegistrationId(Body body, Long id) throws FeignException {
+    public void addRegistrationId(Body body, Long id) throws Exception {
         body.setOperation(Operations.add.toString());
-        registerClient.register(API_KEY, SENDER_ID, body);
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
+        headers.put("project_id", "key=" + SENDER_ID);
+
+        HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                .headers(headers)
+                .asObject(Body.class);
 
         Firebase firebase = firebaseDao.findById(id);
         firebase.getRegisterIds().addAll(body.getRegistration_ids());
@@ -113,16 +132,24 @@ public class FirebaseService implements Serializable {
      * @param body
      * @param id The user Id
      * @return The created register key
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void createNotificationkey(Body body, Long id) throws FeignException {
+    public void createNotificationkey(Body body, Long id) throws Exception {
         body.setOperation(Operations.create.toString());
-        Body response = registerClient.register(API_KEY, SENDER_ID, body);
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
+        headers.put("project_id", "key=" + SENDER_ID);
+
+        HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                .headers(headers)
+                .asObject(Body.class);
+
+        Body responseBody = response.getBody();
 
         User user = userDao.findById(id);
-
         Firebase firebase = user.getFirebase();
-        firebase.setNotificationKey(response.getNotification_key());
+        firebase.setNotificationKey(responseBody.getNotification_key());
         firebase.setRegisterIds(body.getRegistration_ids());
         firebaseDao.update(firebase);
     }
@@ -147,18 +174,26 @@ public class FirebaseService implements Serializable {
      *
      * @param payload
      * @param id of the User
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
     public void sendNotification(Payload payload, Long id) throws Exception {
 
-        JSONObject jsonPayload = payloadToJsonObject(payload);
-        HttpURLConnection connection = createURLConnection(URL_SEND, API_KEY);
-        OutputStream os = connection.getOutputStream();
-        os.write(jsonPayload.toJSONString().getBytes());
-        System.out.println(connection.getResponseCode() + " " + connection.getResponseMessage() + " " + connection.getContent().toString() );
-        connection.disconnect();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
 
-        // TODO Persist in database
+        HttpResponse response = Unirest.post(URL_SEND)
+                .headers(headers)
+                .body(payloadToJsonObject(payload))
+                .asJson();
+
+        if( response.getStatus() <= 200 && response.getStatus() < 300) {
+
+            // TODO Persist in database
+        } else {
+            // TODO Throw error
+        }
+
     }
 
     /**
@@ -169,18 +204,8 @@ public class FirebaseService implements Serializable {
 
     }
 
-    private HttpURLConnection createURLConnection(String url, String apiKey) throws IOException {
-        URL u = new URL(url);
-        HttpURLConnection connection = (HttpURLConnection) u.openConnection();
-        connection.setDoOutput(true);
-        connection.setRequestMethod(HttpMethod.POST);
-        connection.setRequestProperty( "Authorization", "key=" + apiKey);
-        connection.setRequestProperty( "Content-Type", "application/json");
-        return connection;
-    }
-
     private JSONObject payloadToJsonObject(Payload payload) {
-        ObjectMapper oMapper = new ObjectMapper();
+        com.fasterxml.jackson.databind.ObjectMapper oMapper = new com.fasterxml.jackson.databind.ObjectMapper();
         JSONObject json = new JSONObject();
 
         Map<String, Object> notification = oMapper.convertValue(payload.getNotification(), Map.class);

@@ -34,7 +34,7 @@ public class FirebaseController {
     private SecurityContext securityContext;
 
     @POST
-    public Response createNotificationKey(@QueryParam("id") String id) {
+    public Response createNotificationKey(@QueryParam("id") String id) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Body body = new Body();
@@ -58,7 +58,7 @@ public class FirebaseController {
     }
 
     @DELETE
-    public Response removeRegistrationId(@QueryParam("id") String id) {
+    public Response removeRegistrationId(@QueryParam("id") String id) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
