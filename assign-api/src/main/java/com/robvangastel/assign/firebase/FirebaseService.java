@@ -1,9 +1,5 @@
 package com.robvangastel.assign.firebase;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.ObjectMapper;
-import com.mashape.unirest.http.Unirest;
 import com.robvangastel.assign.dao.IFirebaseDao;
 import com.robvangastel.assign.dao.INotificationDao;
 import com.robvangastel.assign.dao.IUserDao;
@@ -14,15 +10,19 @@ import com.robvangastel.assign.exception.FirebaseException;
 import com.robvangastel.assign.firebase.domain.Body;
 import com.robvangastel.assign.firebase.domain.Operations;
 import com.robvangastel.assign.firebase.domain.Payload;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.ObjectMapper;
+import com.mashape.unirest.http.Unirest;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import org.json.JSONObject;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -218,26 +218,28 @@ public class FirebaseService implements Serializable {
         // Mutate body
         JSONObject json = new JSONObject(payload);
 
+        // Set headers
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Authorization", "key=" + API_KEY);
 
+        // Send HTTP request
         HttpResponse response = Unirest.post(URL_SEND)
                 .headers(headers)
                 .body(json)
                 .asJson();
 
-        if( response.getStatus() <= 200 && response.getStatus() < 300) {
+        // Check for valid statuscode
+        if (response.getStatus() <= 200 && response.getStatus() < 300) {
 
-            // TODO Persist in database
             User user = userDao.findById(id);
 
+            // Persist Notification
             notificationDao.create(new Notification(user,
                     payload.getNotification().getTitle(), payload.getNotification().getBody()));
 
         } else {
             throw new FirebaseException("Exception on send Notification");
         }
-
-    
+    }
 }
