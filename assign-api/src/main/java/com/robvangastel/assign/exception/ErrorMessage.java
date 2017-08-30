@@ -15,6 +15,6 @@ public class ErrorMessage {
 
     private int status;
     private String message;
-//    private String stacktrace;
+    private String stacktrace;
 
 }
