@@ -2,6 +2,7 @@ package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.services.PostService;
+import org.json.JSONObject;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -30,18 +31,11 @@ public class PageController {
     @GET
     @Path("/post")
     public Response getByUrl(@QueryParam("url") String url) {
-        Post p = postService.findByUrl(url);
-        Post post = new Post();
-        post = p;
+        Post post = postService.findByUrl(url);
 
         if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-
-        post.getUser().setEmail("");
-        post.getUser().getSocialLink().setPhonenumber("");
-        post.getUser().getSocialLink().setFacebook("");
-        post.getUser().getSocialLink().setTwitter("");
 
         return Response.ok(post).build();
     }
