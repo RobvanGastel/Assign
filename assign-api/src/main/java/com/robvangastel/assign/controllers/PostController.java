@@ -216,6 +216,7 @@ public class PostController {
     }
 
     class DidReply {
+
         private boolean replied;
 
         public DidReply(boolean replied) {

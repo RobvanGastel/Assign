@@ -1,14 +1,16 @@
 package com.robvangastel.assign.firebase;
 
-import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.robvangastel.assign.dao.IFirebaseDao;
+import com.robvangastel.assign.dao.INotificationDao;
 import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.Firebase;
+import com.robvangastel.assign.domain.Notification;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.FirebaseException;
 import com.robvangastel.assign.firebase.domain.Body;
 import com.robvangastel.assign.firebase.domain.Operations;
 import com.robvangastel.assign.firebase.domain.Payload;
@@ -20,10 +22,12 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @author Rob van Gastel
+ *
  */
 @Stateless
 public class FirebaseService implements Serializable {
@@ -39,9 +43,12 @@ public class FirebaseService implements Serializable {
     @Inject
     private IUserDao userDao;
 
+    @Inject
+    private INotificationDao notificationDao;
+
     @PostConstruct
     public void initialize() {
-        Unirest.setObjectMapper(new com.mashape.unirest.http.ObjectMapper() {
+        Unirest.setObjectMapper(new ObjectMapper() {
             private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
                     = new com.fasterxml.jackson.databind.ObjectMapper();
 
@@ -76,20 +83,29 @@ public class FirebaseService implements Serializable {
      * @throws Exception When Firebase gives a invalid statuscode
      */
     public void removeRegistrationId(Body body, Long id) throws Exception {
+        // Mutate body
         body.setOperation(Operations.remove.toString());
+        JSONObject json = new JSONObject(body);
+
+        // Set headers
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Authorization", "key=" + API_KEY);
-        headers.put("project_id", "key=" + SENDER_ID);
+        headers.put("project_id", SENDER_ID);
 
+        // Send HTTP request
         HttpResponse<Body> response = Unirest.post(URL_REGISTER)
                 .headers(headers)
+                .body(json)
                 .asObject(Body.class);
-//        Body response = response.getBody();
 
-        Firebase firebase = firebaseDao.findById(id);
-        firebase.getRegisterIds().removeAll(body.getRegistration_ids());
-        firebaseDao.update(firebase);
+        if( response.getStatus() <= 200 && response.getStatus() < 300) {
+            Firebase firebase = firebaseDao.findById(id);
+            firebase.getRegisterIds().removeAll(body.getRegistration_ids());
+            firebaseDao.update(firebase);
+        } else {
+            throw new FirebaseException("Remove registration id failed");
+        }
     }
 
     /**
@@ -105,19 +121,29 @@ public class FirebaseService implements Serializable {
      * @throws Exception When Firebase gives a invalid statuscode
      */
     public void addRegistrationId(Body body, Long id) throws Exception {
+        // Mutate body
         body.setOperation(Operations.add.toString());
+        JSONObject json = new JSONObject(body);
+
+        // Set headers
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Authorization", "key=" + API_KEY);
-        headers.put("project_id", "key=" + SENDER_ID);
+        headers.put("project_id",  SENDER_ID);
 
+        // Send HTTP request
         HttpResponse<Body> response = Unirest.post(URL_REGISTER)
                 .headers(headers)
+                .body(json)
                 .asObject(Body.class);
 
-        Firebase firebase = firebaseDao.findById(id);
-        firebase.getRegisterIds().addAll(body.getRegistration_ids());
-        firebaseDao.update(firebase);
+        if( response.getStatus() <= 200 && response.getStatus() < 300) {
+            Firebase firebase = firebaseDao.findById(id);
+            firebase.getRegisterIds().addAll(body.getRegistration_ids());
+            firebaseDao.update(firebase);
+        } else {
+            throw new FirebaseException("Add registration id failed");
+        }
     }
 
     /**
@@ -135,23 +161,35 @@ public class FirebaseService implements Serializable {
      * @throws Exception When Firebase gives a invalid statuscode
      */
     public void createNotificationkey(Body body, Long id) throws Exception {
+        // Mutate body
         body.setOperation(Operations.create.toString());
+        JSONObject json = new JSONObject(body);
+
+        // Set headers
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Authorization", "key=" + API_KEY);
-        headers.put("project_id", "key=" + SENDER_ID);
+        headers.put("project_id", SENDER_ID);
 
+        // Send HTTP request
         HttpResponse<Body> response = Unirest.post(URL_REGISTER)
                 .headers(headers)
+                .body(json)
                 .asObject(Body.class);
 
-        Body responseBody = response.getBody();
+        if( response.getStatus() <= 200 && response.getStatus() < 300) {
+            // Parse body
+            Body responseBody = response.getBody();
 
-        User user = userDao.findById(id);
-        Firebase firebase = user.getFirebase();
-        firebase.setNotificationKey(responseBody.getNotification_key());
-        firebase.setRegisterIds(body.getRegistration_ids());
-        firebaseDao.update(firebase);
+            // Persist the response
+            User user = userDao.findById(id);
+            Firebase firebase = user.getFirebase();
+            firebase.setNotificationKey(responseBody.getNotification_key());
+            firebase.setRegisterIds(body.getRegistration_ids());
+            firebaseDao.update(firebase);
+        } else {
+            throw new FirebaseException("Create notification key");
+        }
     }
 
     /**
@@ -177,6 +215,8 @@ public class FirebaseService implements Serializable {
      * @throws Exception When Firebase gives a invalid statuscode
      */
     public void sendNotification(Payload payload, Long id) throws Exception {
+        // Mutate body
+        JSONObject json = new JSONObject(payload);
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
@@ -184,37 +224,20 @@ public class FirebaseService implements Serializable {
 
         HttpResponse response = Unirest.post(URL_SEND)
                 .headers(headers)
-                .body(payloadToJsonObject(payload))
+                .body(json)
                 .asJson();
 
         if( response.getStatus() <= 200 && response.getStatus() < 300) {
 
             // TODO Persist in database
+            User user = userDao.findById(id);
+
+            notificationDao.create(new Notification(user,
+                    payload.getNotification().getTitle(), payload.getNotification().getBody()));
+
         } else {
-            // TODO Throw error
+            throw new FirebaseException("Exception on send Notification");
         }
 
-    }
-
-    /**
-     * TODO Implement Topic Notifications
-     * @param topic
-     */
-    public void sendNotification(String topic) {
-
-    }
-
-    private JSONObject payloadToJsonObject(Payload payload) {
-        com.fasterxml.jackson.databind.ObjectMapper oMapper = new com.fasterxml.jackson.databind.ObjectMapper();
-        JSONObject json = new JSONObject();
-
-        Map<String, Object> notification = oMapper.convertValue(payload.getNotification(), Map.class);
-        Map<String, Object> data = oMapper.convertValue(payload.getData(), Map.class);
-
-        json.put("to", payload.getTo());
-        json.put("notification", notification);
-        json.put("data", data);
-
-        return json;
-    }
+    
 }
