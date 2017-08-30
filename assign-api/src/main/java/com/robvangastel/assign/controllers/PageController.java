@@ -30,7 +30,9 @@ public class PageController {
     @GET
     @Path("/post")
     public Response getByUrl(@QueryParam("url") String url) {
-        Post post = postService.findByUrl(url);
+        Post p = postService.findByUrl(url);
+        Post post = new Post();
+        post = p;
 
         if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
