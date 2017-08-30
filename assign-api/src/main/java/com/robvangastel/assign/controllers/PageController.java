@@ -36,10 +36,9 @@ public class PageController {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        return Response.ok(post)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
-                .build();
+        post.getUser().setEmail("");
+        post.getUser().getSocialLink().setPhonenumber("");
+
+        return Response.ok(post).build();
     }
 }

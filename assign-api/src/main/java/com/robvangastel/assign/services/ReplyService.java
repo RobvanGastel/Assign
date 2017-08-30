@@ -8,6 +8,7 @@ import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.firebase.domain.Data;
 import com.robvangastel.assign.firebase.domain.Notification;
 import com.robvangastel.assign.firebase.domain.Payload;
+import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -42,7 +43,7 @@ public class ReplyService implements Serializable {
         return replyDao.findByPost(id, start, size);
     }
 
-    public void create(Reply entity) throws Exception {
+    public void create(Reply entity) {
 
         // Send Notification on Reply
         String title = entity.getUser().getName() + " wants to help you out!";
@@ -60,7 +61,19 @@ public class ReplyService implements Serializable {
     }
 
     public Reply setHelped(Reply entity, boolean done) {
-        // TODO Add notification
+
+        // Send Notification on Reply
+        String title = entity.getUser().getName() + " wants to help you out!";
+        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
+
+        Payload payload = new Payload(
+                new Notification(title, body),
+                new Data(true),
+                entity.getPost().getUser()
+                        .getFirebase().getNotificationKey());
+
+        firebaseService.sendNotification(payload, entity.getPost().getUser().getId());
+
         entity.setHelped(done);
         return replyDao.update(entity);
     }

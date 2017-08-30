@@ -67,7 +67,7 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
 
-        if(post == null) {
+        if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
@@ -105,7 +105,7 @@ public class PostController {
         if (user.getId() != post.getUser().getId() && post != null) {
             // Check if the user creating reply isnt replying to his own post
 
-            if(!replyService.DidUserReply(user, post)) {
+            if (!replyService.DidUserReply(user, post)) {
                 // Check if he already replied to the post
 
                 replyService.create(new Reply(user, post));

@@ -6,10 +6,10 @@ import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.AuthenticationException;
 import com.robvangastel.assign.exception.UserException;
-import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.security.Credentials;
 import com.robvangastel.assign.security.IdToken;
 import com.robvangastel.assign.security.jwt.JwtHelper;
+import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,6 +23,8 @@ import java.util.regex.Pattern;
 
 @Stateless
 public class UserService implements Serializable {
+
+    private static final Logger LOG = Logger.getLogger(UserService.class.getSimpleName());
 
     @Inject
     private IUserDao dao;
@@ -60,6 +62,8 @@ public class UserService implements Serializable {
         } else {
             throw new UserException("Email address already used");
         }
+
+        LOG.info("User created with email: " + entity.getEmail());
     }
 
     public IdToken authenticate(Credentials credentials) {
