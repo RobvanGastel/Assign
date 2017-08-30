@@ -79,6 +79,9 @@ public class FirebaseController {
     @GET
     public Response test() throws Exception {
 
+
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
         Reply entity = replyService.findById(30);
 
         String title = entity.getUser().getName() + " wants to help you out!";
@@ -90,8 +93,7 @@ public class FirebaseController {
                 "APA91bGWJIPekuoEHIHlQTlcl2Xdh8o2vWEtHtKK3F8OB4cmbuGqMAF869ok05Bi4EHi0AbGioueDGTmrNQU-Ij8y3pCzlIsRxFbxgXWburz61GX55u95Bgzs6l-cxNrISo4CNrQ4_xU");
 
         // TODO Check for null value when retrieving Key
-        // entity.getPost().getUser().getFirebase().getNotificationKey()
-        firebaseService.sendNotification(payload, 10L);
+        firebaseService.sendNotification(payload, user.getId());
 
         return Response.ok().build();
 
