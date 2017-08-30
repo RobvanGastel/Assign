@@ -40,7 +40,7 @@ public class PageController {
         post.getUser().getSocialLink().setPhonenumber("");
         post.getUser().getSocialLink().setFacebook("");
         post.getUser().getSocialLink().setTwitter("");
-        
+
         return Response.ok(post).build();
     }
 }
