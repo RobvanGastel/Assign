@@ -1,6 +1,8 @@
 package com.robvangastel.assign.firebase.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Rob van Gastel

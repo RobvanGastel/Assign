@@ -20,7 +20,7 @@ import javax.inject.Inject;
 @Startup
 public class StartUp {
 
-    private static final Logger LOG = Logger.getLogger(StartUp.class.getName());
+    private static final Logger LOG = Logger.getLogger(StartUp.class.getSimpleName());
 
     @Inject
     private UserService userService;
@@ -95,8 +95,10 @@ public class StartUp {
             replyService.create(new Reply(rob, post_max_2));
             replyService.create(new Reply(rob, post_max_3));
 
+            LOG.info("Startup successfully executed.");
+
         } catch (Exception e) {
-            LOG.info("An exception occurred : " + e.getMessage());
+            LOG.warn("An exception occurred : " + e.getMessage());
         }
     }
 }

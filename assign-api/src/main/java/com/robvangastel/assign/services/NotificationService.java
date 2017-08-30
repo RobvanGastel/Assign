@@ -1,9 +1,7 @@
 package com.robvangastel.assign.services;
 
-import com.robvangastel.assign.CodeGenerator;
 import com.robvangastel.assign.dao.INotificationDao;
 import com.robvangastel.assign.domain.Notification;
-import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
 
 import javax.ejb.Stateless;
@@ -13,11 +11,10 @@ import java.util.List;
 
 /**
  * @author Rob van Gastel
- *
  */
 @Stateless
 public class NotificationService implements Serializable {
-    
+
     @Inject
     private INotificationDao notificationDao;
 

@@ -3,8 +3,11 @@ package com.robvangastel.assign.controllers;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.firebase.domain.*;
 import com.robvangastel.assign.firebase.FirebaseService;
+import com.robvangastel.assign.firebase.domain.Body;
+import com.robvangastel.assign.firebase.domain.Data;
+import com.robvangastel.assign.firebase.domain.Notification;
+import com.robvangastel.assign.firebase.domain.Payload;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
@@ -38,23 +41,29 @@ public class FirebaseController {
     @Context
     private SecurityContext securityContext;
 
+    /***
+     * Create Notification key or add registration id to Firebase
+     * @param token being added
+     * @return Statuscode indicating success or failure
+     * @throws Exception
+     */
     @POST
-    public Response createNotificationKey(@QueryParam("id") String id) throws Exception {
+    public Response createNotificationKey(@QueryParam("token") String token) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Body body = new Body();
 
-        if(user.getFirebase().getNotificationKey() == null) {
+        if (user.getFirebase().getNotificationKey() == null) {
 
             body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
-            body.getRegistration_ids().add(id);
+            body.getRegistration_ids().add(token);
 
             firebaseService.createNotificationkey(body, user.getId());
         } else {
 
             body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
             body.setNotification_key(user.getFirebase().getNotificationKey());
-            body.getRegistration_ids().add(id);
+            body.getRegistration_ids().add(token);
 
             firebaseService.addRegistrationId(body, user.getId());
         }
@@ -62,15 +71,21 @@ public class FirebaseController {
         return Response.ok().build();
     }
 
+    /***
+     * Remove registration id from Firebase
+     * @param token being removed
+     * @return Statuscode indicating success or failure
+     * @throws Exception
+     */
     @DELETE
-    public Response removeRegistrationId(@QueryParam("id") String id) throws Exception {
+    public Response removeRegistrationId(@QueryParam("token") String token) throws Exception {
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
         Body body = new Body();
         body.setNotification_key_name(user.getFirebase().getNotificationKeyName());
         body.setNotification_key(user.getFirebase().getNotificationKey());
-        body.getRegistration_ids().add(id);
+        body.getRegistration_ids().add(token);
 
         firebaseService.removeRegistrationId(body, user.getId());
         return Response.ok().build();
@@ -78,8 +93,6 @@ public class FirebaseController {
 
     @GET
     public Response test() throws Exception {
-
-
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
         Reply entity = replyService.findById(30);
@@ -96,6 +109,5 @@ public class FirebaseController {
         firebaseService.sendNotification(payload, user.getId());
 
         return Response.ok().build();
-
     }
 }

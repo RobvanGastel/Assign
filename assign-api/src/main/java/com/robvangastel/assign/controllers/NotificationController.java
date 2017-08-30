@@ -1,7 +1,6 @@
 package com.robvangastel.assign.controllers;
 
 import com.robvangastel.assign.domain.Notification;
-import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
