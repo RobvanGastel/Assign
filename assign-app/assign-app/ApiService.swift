@@ -285,6 +285,7 @@ class ApiService {
         }
     }
     
+    /// This function registerd the Firebase token in the API.
     @discardableResult
     func registerDevice(token: String,
                         completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
@@ -309,6 +310,42 @@ class ApiService {
                     completionHandler(false)
                     print(error)
                 }
+        }
+    }
+    
+    /// This function returns a list of *Notification* objects for the authenticated user.
+    @discardableResult
+    func getNotifications(size: Int, start: Int,
+                  completionHandler: @escaping (_ response: [Notification]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/notifications"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate().responseJSON{ response in
+                                        
+            switch response.result {
+            case .success:
+                var notificationsArray = [Notification]()
+                
+                if let notifications = response.value as? [[String:Any]] {
+                    for notification in notifications {
+                        notificationsArray.append(Notification(JSON: notification)!)
+                    }
+                }
+                
+                print("API: Retrieve posts successful")
+                completionHandler(notificationsArray)
+                
+            case .failure(let error):
+                print("API: Retrieve posts error")
+                print(error)
+            }
         }
     }
 }
