@@ -31,8 +31,6 @@ public class SocialLink implements Serializable {
 
     private String twitter;
     private String facebook;
-
-    @Size(min = 8, max = 15)
     private String phonenumber;
 
     public SocialLink(String twitter, String facebook, String phonenumber) {

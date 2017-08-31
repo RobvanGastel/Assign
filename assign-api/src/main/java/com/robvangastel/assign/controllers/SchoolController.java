@@ -1,10 +1,8 @@
 package com.robvangastel.assign.controllers;
 
-import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.School;
 import com.robvangastel.assign.domain.Study;
 import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.SchoolService;
 
 import javax.enterprise.context.RequestScoped;

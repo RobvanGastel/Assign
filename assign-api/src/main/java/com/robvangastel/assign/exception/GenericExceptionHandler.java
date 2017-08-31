@@ -22,7 +22,7 @@ public class GenericExceptionHandler implements ExceptionMapper<Throwable> {
 
         StringWriter errorStackTrace = new StringWriter();
         throwable.printStackTrace(new PrintWriter(errorStackTrace));
-        errorMessage.setStacktrace(errorStackTrace.toString()); // Disable Stacktrace on Live build
+         errorMessage.setStacktrace(errorStackTrace.toString()); // Disable Stacktrace on Live build
 
         return Response.status(errorMessage.getStatus())
                 .entity(errorMessage)

@@ -1,32 +1,29 @@
 package com.robvangastel.assign.firebase;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.ObjectMapper;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.robvangastel.assign.dao.IFirebaseDao;
+import com.robvangastel.assign.dao.INotificationDao;
 import com.robvangastel.assign.dao.IUserDao;
 import com.robvangastel.assign.domain.Firebase;
+import com.robvangastel.assign.domain.Notification;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.FirebaseException;
 import com.robvangastel.assign.firebase.domain.Body;
-import com.robvangastel.assign.firebase.domain.Notification;
 import com.robvangastel.assign.firebase.domain.Operations;
 import com.robvangastel.assign.firebase.domain.Payload;
-
-import feign.Feign;
-import feign.FeignException;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
-import feign.okhttp.OkHttpClient;
-import org.json.simple.JSONObject;
+import org.jboss.logging.Logger;
+import org.json.JSONObject;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.json.JsonObject;
-import javax.ws.rs.HttpMethod;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.Serializable;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,12 +32,12 @@ import java.util.Map;
 @Stateless
 public class FirebaseService implements Serializable {
 
+    private static final Logger LOG = Logger.getLogger(FirebaseService.class.getSimpleName());
+
     private final static String URL_REGISTER = FirebaseProperties.getInstance().getValue("url.register");
     private final static String URL_SEND = FirebaseProperties.getInstance().getValue("url.send");
     private final static String SENDER_ID = FirebaseProperties.getInstance().getValue("senderid");
     private final static String API_KEY = FirebaseProperties.getInstance().getValue("apikey");
-
-    RegisterClient registerClient;
 
     @Inject
     private IFirebaseDao firebaseDao;
@@ -48,20 +45,36 @@ public class FirebaseService implements Serializable {
     @Inject
     private IUserDao userDao;
 
+    @Inject
+    private INotificationDao notificationDao;
+
     @PostConstruct
     public void initialize() {
+        Unirest.setObjectMapper(new ObjectMapper() {
+            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
+                    = new com.fasterxml.jackson.databind.ObjectMapper();
 
-        registerClient = Feign.builder()
-                .client(new OkHttpClient())
-                .encoder(new JacksonEncoder())
-                .decoder(new JacksonDecoder())
-                .target(RegisterClient.class, URL_REGISTER);
+            public <T> T readValue(String value, Class<T> valueType) {
+                try {
+                    return jacksonObjectMapper.readValue(value, valueType);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
+            public String writeValue(Object value) {
+                try {
+                    return jacksonObjectMapper.writeValueAsString(value);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     /**
      * Removes a registration id from Firebase.
-     *
+     * <p>
      * Body variables:
      * "operation": "remove",
      * "notification_key_name": user.notification_key_name
@@ -69,20 +82,42 @@ public class FirebaseService implements Serializable {
      * "registration_ids": registration_ids
      *
      * @param body
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void removeRegistrationId(Body body, Long id) throws FeignException {
+    public void removeRegistrationId(Body body, Long id) {
+        // Mutate body
         body.setOperation(Operations.remove.toString());
-        registerClient.register(API_KEY, SENDER_ID, body);
+        JSONObject json = new JSONObject(body);
 
-        Firebase firebase = firebaseDao.findById(id);
-        firebase.getRegisterIds().removeAll(body.getRegistration_ids());
-        firebaseDao.update(firebase);
+        // Set headers
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
+        headers.put("project_id", SENDER_ID);
+
+        try {
+            // Send HTTP request
+            HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                    .headers(headers)
+                    .body(json)
+                    .asObject(Body.class);
+
+            if (response.getStatus() <= 200 && response.getStatus() < 300) {
+                Firebase firebase = firebaseDao.findById(id);
+                firebase.getRegisterIds().removeAll(body.getRegistration_ids());
+                firebaseDao.update(firebase);
+            } else {
+                throw new FirebaseException("Remove registration id failed");
+            }
+
+        } catch(UnirestException e) {
+            LOG.error("Remove registration id error on request.");
+        }
     }
 
     /**
      * Add a registration id to Firebase.
-     *
+     * <p>
      * Body variables:
      * "operation": "add",
      * "notification_key_name": user.notification_key_name
@@ -90,106 +125,143 @@ public class FirebaseService implements Serializable {
      * "registration_ids": registration_ids
      *
      * @param body
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void addRegistrationId(Body body, Long id) throws FeignException {
+    public void addRegistrationId(Body body, Long id) {
+        // Mutate body
         body.setOperation(Operations.add.toString());
-        registerClient.register(API_KEY, SENDER_ID, body);
+        JSONObject json = new JSONObject(body);
 
-        Firebase firebase = firebaseDao.findById(id);
-        firebase.getRegisterIds().addAll(body.getRegistration_ids());
-        firebaseDao.update(firebase);
+        // Set headers
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
+        headers.put("project_id", SENDER_ID);
+
+        try {
+            // Send HTTP request
+            HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                    .headers(headers)
+                    .body(json)
+                    .asObject(Body.class);
+
+            if (response.getStatus() <= 200 && response.getStatus() < 300) {
+                Firebase firebase = firebaseDao.findById(id);
+                firebase.getRegisterIds().addAll(body.getRegistration_ids());
+                firebaseDao.update(firebase);
+            } else {
+                throw new FirebaseException("Add registration id failed");
+            }
+
+        } catch(UnirestException e) {
+            LOG.error("Add registration id error on request.");
+        }
     }
 
     /**
      * Creates a Notification Key in Firebase when the user first opens the
      * app on a mobile device.
-     *
+     * <p>
      * Body variables:
      * "operation": "create"
      * "notification_key_name": user.notification_key_name
      * "registration_ids": user.registration_ids
      *
      * @param body
-     * @param id The user Id
+     * @param id   The user Id
      * @return The created register key
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void createNotificationkey(Body body, Long id) throws FeignException {
+    public void createNotificationkey(Body body, Long id) {
+        // Mutate body
         body.setOperation(Operations.create.toString());
-        Body response = registerClient.register(API_KEY, SENDER_ID, body);
+        JSONObject json = new JSONObject(body);
 
-        User user = userDao.findById(id);
+        // Set headers
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
+        headers.put("project_id", SENDER_ID);
 
-        Firebase firebase = user.getFirebase();
-        firebase.setNotificationKey(response.getNotification_key());
-        firebase.setRegisterIds(body.getRegistration_ids());
-        firebaseDao.update(firebase);
+        try {
+        // Send HTTP request
+        HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                .headers(headers)
+                .body(json)
+                .asObject(Body.class);
+
+        if (response.getStatus() <= 200 && response.getStatus() < 300) {
+                // Parse body
+                Body responseBody = response.getBody();
+
+                // Persist the response
+                User user = userDao.findById(id);
+                Firebase firebase = user.getFirebase();
+                firebase.setNotificationKey(responseBody.getNotification_key());
+                firebase.setRegisterIds(body.getRegistration_ids());
+                firebaseDao.update(firebase);
+            } else {
+                throw new FirebaseException("Create notification key");
+            }
+
+        } catch(UnirestException e) {
+            LOG.error("Create notification key error on request.");
+        }
     }
 
     /**
      * Send Notification to Device group.
-     *
+     * <p>
      * Notification Body:
      * {
      * "to" : "bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
      * "priority" : "normal",
-     *  "notification" : {
-     *  "body" : "This week’s edition is now available.",
-     *  "title" : "NewsMagazine.com",
-     *  "icon" : "new",
-     *  },
-     *  "data" : {
-     *  "volume" : "3.21.15",
-     *  "contents" : "http://www.news-magazine.com/world-week/21659772"
-     *  }
+     * "notification" : {
+     * "body" : "This week’s edition is now available.",
+     * "title" : "NewsMagazine.com",
+     * "icon" : "new",
+     * },
+     * "data" : {
+     * "volume" : "3.21.15",
+     * "contents" : "http://www.news-magazine.com/world-week/21659772"
+     * }
      * }
      *
      * @param payload
-     * @param id of the User
-     * @throws FeignException When Firebase gives a invalid statuscode
+     * @param id      of the User
+     * @throws Exception When Firebase gives a invalid statuscode
      */
-    public void sendNotification(Payload payload, Long id) throws Exception {
+    public void sendNotification(Payload payload, Long id) {
+        // Mutate body
+        JSONObject json = new JSONObject(payload);
 
-        JSONObject jsonPayload = payloadToJsonObject(payload);
-        HttpURLConnection connection = createURLConnection(URL_SEND, API_KEY);
-        OutputStream os = connection.getOutputStream();
-        os.write(jsonPayload.toJSONString().getBytes());
-        System.out.println(connection.getResponseCode() + " " + connection.getResponseMessage() + " " + connection.getContent().toString() );
-        connection.disconnect();
+        // Set headers
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Authorization", "key=" + API_KEY);
 
-        // TODO Persist in database
-    }
+        try {
+            // Send HTTP request
+            HttpResponse response = Unirest.post(URL_SEND)
+                    .headers(headers)
+                    .body(json)
+                    .asJson();
 
-    /**
-     * TODO Implement Topic Notifications
-     * @param topic
-     */
-    public void sendNotification(String topic) {
+            // Check for valid statuscode
+            if (response.getStatus() <= 200 && response.getStatus() < 300) {
 
-    }
+                User user = userDao.findById(id);
 
-    private HttpURLConnection createURLConnection(String url, String apiKey) throws IOException {
-        URL u = new URL(url);
-        HttpURLConnection connection = (HttpURLConnection) u.openConnection();
-        connection.setDoOutput(true);
-        connection.setRequestMethod(HttpMethod.POST);
-        connection.setRequestProperty( "Authorization", "key=" + apiKey);
-        connection.setRequestProperty( "Content-Type", "application/json");
-        return connection;
-    }
+                // Persist Notification
+                notificationDao.create(new Notification(user,
+                        payload.getNotification().getTitle(), payload.getNotification().getBody()));
 
-    private JSONObject payloadToJsonObject(Payload payload) {
-        ObjectMapper oMapper = new ObjectMapper();
-        JSONObject json = new JSONObject();
+            } else {
+                throw new FirebaseException("Exception on send Notification");
+            }
 
-        Map<String, Object> notification = oMapper.convertValue(payload.getNotification(), Map.class);
-        Map<String, Object> data = oMapper.convertValue(payload.getData(), Map.class);
-
-        json.put("to", payload.getTo());
-        json.put("notification", notification);
-        json.put("data", data);
-
-        return json;
+        } catch(UnirestException e) {
+            LOG.error("Send notification error on request.");
+        }
     }
 }

@@ -24,8 +24,7 @@
         <!-- Project setup versions -->
         <jackson.version>2.7.5</jackson.version>
         <jsonwebtoken.version>0.6.0</jsonwebtoken.version>
-        <swagger.version>1.5.4</swagger.version>
-        <feign.version>9.4.0</feign.version>
+        <unirest.version>1.4.9</unirest.version>
         <projectlombok.version>1.16.8</projectlombok.version>
         <javaee-web.version>7.0</javaee-web.version>
         <!-- END: Project setup versions -->
@@ -123,28 +122,31 @@
 
         <!-- HTTP Client -->
         <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-core</artifactId>
-            <version>${feign.version}</version>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>${unirest.version}</version>
         </dependency>
 
+        <!-- Child dependencies -->
         <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-jackson</artifactId>
-            <version>${feign.version}</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
         </dependency>
-
         <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.0.2</version>
         </dependency>
-
-        <!-- Bug fixed keep dependency on 9.5.1 -->
         <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-okhttp</artifactId>
-            <version>9.5.1</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20140107</version>
         </dependency>
         <!-- END: HTTP Client -->
 

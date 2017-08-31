@@ -1,11 +1,9 @@
 package com.robvangastel.assign.controllers;
 
-import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.Secured;
-import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
 
@@ -16,7 +14,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import java.util.List;
 
 /**
  * @author Rob van Gastel

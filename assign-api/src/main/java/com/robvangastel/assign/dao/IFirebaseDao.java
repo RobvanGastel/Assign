@@ -3,12 +3,10 @@ package com.robvangastel.assign.dao;
 import com.robvangastel.assign.domain.Firebase;
 import com.robvangastel.assign.exception.FirebaseException;
 
-import java.util.List;
-
 /**
  * @author Rob van Gastel
  */
-public  interface IFirebaseDao {
+public interface IFirebaseDao {
 
     /***
      * Find Firebase by id

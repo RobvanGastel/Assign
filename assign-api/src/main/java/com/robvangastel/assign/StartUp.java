@@ -20,7 +20,7 @@ import javax.inject.Inject;
 @Startup
 public class StartUp {
 
-    private static final Logger LOG = Logger.getLogger(StartUp.class.getName());
+    private static final Logger LOG = Logger.getLogger(StartUp.class.getSimpleName());
 
     @Inject
     private UserService userService;
@@ -82,7 +82,6 @@ public class StartUp {
             postService.create(new Post(kees, "Hoe krijg ik die kinderen aan het werk?", "Lorem ipsum dolor sit amet, #consectetur adipiscing elit. Donec eleifend #ligula enim, in tempor sem interdum quis. Sed #bibendum ex neque, et dapibus nulla ullamcorper a."));
             postService.create(new Post(kees, "Hoe leg ik de jager/verzamelaar cultuur uit?", "Lorem ipsum dolor sit amet, #consectetur adipiscing elit. Donec eleifend #ligula enim, in tempor sem interdum quis. Sed #bibendum ex neque, et dapibus nulla ullamcorper a."));
 
-            Post post_max_1 = postService.findById(20L);
             Post post_max_2 = postService.findById(21L);
             Post post_max_3 = postService.findById(22L);
 
@@ -93,12 +92,13 @@ public class StartUp {
             replyService.create(new Reply(max, post_rob_1));
             replyService.create(new Reply(max, post_rob_2));
 
-            replyService.create(new Reply(rob, post_max_1));
             replyService.create(new Reply(rob, post_max_2));
             replyService.create(new Reply(rob, post_max_3));
 
+            LOG.info("Startup successfully executed.");
+
         } catch (Exception e) {
-            LOG.info("An exception occurred : " + e.getMessage());
+            LOG.warn("An exception occurred : " + e.getMessage());
         }
     }
 }

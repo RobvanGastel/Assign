@@ -18,7 +18,7 @@ import java.util.List;
 @Stateless
 public class PostService implements Serializable {
 
-    private static final Logger LOG = Logger.getLogger(PostService.class.getName());
+    private static final Logger LOG = Logger.getLogger(PostService.class.getSimpleName());
 
     @Inject
     private IPostDao postDao;
@@ -53,6 +53,8 @@ public class PostService implements Serializable {
         String code = CodeGenerator.getInstance().getCode(8);
         entity.setUrl(code);
         postDao.create(entity);
+
+        LOG.info("Post created with title: " + entity.getTitle());
     }
 
     public Post setDone(Post entity, boolean done) {

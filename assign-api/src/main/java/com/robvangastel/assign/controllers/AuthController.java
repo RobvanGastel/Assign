@@ -15,6 +15,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * @author Rob van Gastel
+ *         <p>
+ *         TODO add change password
  */
 
 @Stateless
@@ -38,6 +40,4 @@ public class AuthController {
         IdToken token = service.authenticate(new Credentials(username, password));
         return Response.ok(token).build();
     }
-
-    // TODO add change password
 }

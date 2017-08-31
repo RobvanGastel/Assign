@@ -17,7 +17,7 @@ public class FirebaseProperties {
     }
 
     public static FirebaseProperties getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             try {
                 instance = new FirebaseProperties();
             } catch (IOException e) {
