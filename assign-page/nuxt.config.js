@@ -4,7 +4,7 @@ module.exports = {
   ** Set environment viarbles
   */
   env: {
-    baseUrl: 'https://api.assignapp.nl/v0.1'
+    baseUrl: 'http://localhost:9080/v0.1' //https://api.assignapp.nl
   },
 
   /*

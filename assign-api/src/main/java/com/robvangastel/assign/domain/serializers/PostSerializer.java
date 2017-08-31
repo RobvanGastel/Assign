@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.text.SimpleDateFormat;

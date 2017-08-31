@@ -57,7 +57,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             throw new NotAuthorizedException("Authorization header must be provided");
         }
         // Extract the token from the HTTP Authorization header
-        String token = authorizationHeader.substring("Bearer" .length()).trim();
+        String token = authorizationHeader.substring("Bearer".length()).trim();
         return token;
     }
 

@@ -1,13 +1,18 @@
 package com.robvangastel.assign.controllers;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.robvangastel.assign.domain.Post;
+import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.services.PostService;
+import lombok.Data;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @author Rob van Gastel
@@ -36,10 +41,42 @@ public class PageController {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        return Response.ok(post)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
-                .build();
+        PostWithoutSocial postWithoutSocial = new PostWithoutSocial(post.getId(), post.getUrl(),
+                post.getTitle(), post.getDescription(), post.getDateCreated(), post.getTags(),
+                post.getUser().getName(), post.isDone(), post.getUser().getProfileImage());
+
+        return Response.ok(postWithoutSocial).build();
+    }
+
+    @Data
+    class PostWithoutSocial {
+
+        private Long id;
+        private String url;
+        private String title;
+        private String description;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+        private Timestamp dateCreated;
+
+        private List<String> tags;
+        private String name;
+        private Boolean done;
+        private String profileImage;
+
+        public PostWithoutSocial(Long id, String url, String title, String description,
+                                 Timestamp dateCreated, List<String> tags, String name,
+                                 Boolean done, String profileImage) {
+
+            this.id = id;
+            this.url = url;
+            this.title = title;
+            this.description = description;
+            this.dateCreated = dateCreated;
+            this.tags = tags;
+            this.name = name;
+            this.profileImage = profileImage;
+            this.done = done;
+        }
     }
 }

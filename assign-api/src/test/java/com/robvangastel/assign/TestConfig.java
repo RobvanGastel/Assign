@@ -17,7 +17,7 @@ public class TestConfig {
      * http://localhost:9080/v0.1
      */
     public TestConfig() {
-        setBaseUrl("http://localhost:9080/v0.1");
+        setBaseUrl("https://api.assignapp.nl/v0.1");
     }
 
     public static String getBaseUrl() {

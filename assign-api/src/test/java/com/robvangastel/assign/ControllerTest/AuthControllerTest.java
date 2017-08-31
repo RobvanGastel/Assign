@@ -14,8 +14,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * @author Rob van Gastel
- *
- * TODO create a non-static server
+ *         <p>
+ *         TODO create a non-static server
  */
 public class AuthControllerTest {
 

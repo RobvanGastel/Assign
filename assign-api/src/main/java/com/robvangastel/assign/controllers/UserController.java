@@ -99,8 +99,8 @@ public class UserController {
     @GET
     @Path("/{id}/replies")
     public Response getRepliesByUser(@PathParam("id") long id,
-                              @DefaultValue("0") @QueryParam("start") int start,
-                              @DefaultValue("20") @QueryParam("size") int size) {
+                                     @DefaultValue("0") @QueryParam("start") int start,
+                                     @DefaultValue("20") @QueryParam("size") int size) {
         List<Reply> replies = replyService.findByUser(id, start, size);
         return Response.ok(replies).build();
     }
