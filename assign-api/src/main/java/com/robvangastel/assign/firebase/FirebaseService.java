@@ -112,6 +112,7 @@ public class FirebaseService implements Serializable {
 
         } catch(UnirestException e) {
             LOG.error("Remove registration id error on request.");
+            throw new FirebaseException("Invalid registration id");
         }
     }
 
@@ -206,6 +207,7 @@ public class FirebaseService implements Serializable {
 
         } catch(UnirestException e) {
             LOG.error("Create notification key error on request.");
+            throw new FirebaseException("Invalid notification key");
         }
     }
 
@@ -257,10 +259,10 @@ public class FirebaseService implements Serializable {
                         payload.getNotification().getTitle(), payload.getNotification().getBody()));
 
             } else {
-                throw new FirebaseException("Exception on send Notification");
+                LOG.error("Send notification error on request.");
             }
 
-        } catch(UnirestException e) {
+        } catch(Exception e) {
             LOG.error("Send notification error on request.");
         }
     }

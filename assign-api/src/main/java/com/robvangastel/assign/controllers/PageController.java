@@ -49,7 +49,7 @@ public class PageController {
     }
 
     @Data
-    class PostWithoutSocial {
+    public class PostWithoutSocial {
 
         private Long id;
         private String url;

@@ -2,9 +2,7 @@ package com.robvangastel.assign.ControllerTest;
 
 /**
  * @author Rob van Gastel
- *         <p>
- *         TODO create a non-static server
- *         TODO Improve tests to include parsing response
+ * TODO Improve tests to include parsing response
  */
 public class ReplyControllerTest {
 

@@ -16,9 +16,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * @author Rob van Gastel
- *         <p>
- *         TODO create a non-static server
- *         TODO Improve tests to include parsing response
+ * TODO Improve tests to include parsing response
  */
 public class SchoolControllerTest {
 
