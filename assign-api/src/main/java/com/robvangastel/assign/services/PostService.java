@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * @author Rob van Gastel
+ * TODO Handle creation Post
  */
 
 @Stateless
@@ -30,6 +31,8 @@ public class PostService implements Serializable {
     public Post findByUrl(String url) {
         return postDao.findByUrl(url);
     }
+
+    public List<Post> findAll(int start, int size) { return postDao.findAll(start, size); }
 
     public List<Post> findAll(User user, int start, int size) {
         return postDao.findAll(user, start, size);

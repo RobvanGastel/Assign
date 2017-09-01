@@ -91,6 +91,11 @@ public class FirebaseController {
         return Response.ok().build();
     }
 
+    /***
+     * TODO Remove this method
+     * @return
+     * @throws Exception
+     */
     @GET
     public Response test() throws Exception {
 
