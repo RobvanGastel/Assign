@@ -12,8 +12,8 @@ extension UISegmentedControl {
     
     func customizeAppearance(for height: Int) {
         
-        setTitleTextAttributes([NSFontAttributeName:UIFont(name:"Helvetica Neue", size:13.0)!,NSForegroundColorAttributeName:UIColor.lightGray], for:.normal)
-        setTitleTextAttributes([NSFontAttributeName:UIFont(name:"Helvetica Neue", size:13.0)!,NSForegroundColorAttributeName:UIColor.orange], for:.selected)
+        setTitleTextAttributes([NSFontAttributeName:UIFont(name:"Helvetica Neue", size:15.0)!,NSForegroundColorAttributeName:UIColor.lightGray], for:.normal)
+        setTitleTextAttributes([NSFontAttributeName:UIFont(name:"Helvetica Neue", size:15.0)!,NSForegroundColorAttributeName:UIColor.orange], for:.selected)
         setDividerImage(UIImage().colored(with: .clear, size: CGSize(width: 1, height: height)), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         setBackgroundImage(UIImage().colored(with: .clear, size: CGSize(width: 1, height: height)), for: .normal, barMetrics: .default)
         setBackgroundImage(UIImage().colored(with: .clear, size: CGSize(width: 1, height: height)), for: .selected, barMetrics: .default);
