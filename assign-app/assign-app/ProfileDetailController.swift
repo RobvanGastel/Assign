@@ -128,6 +128,12 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    // Add some space to the TableView
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+    }
+    
     /// Load next posts and add to the tableView
     func loadPosts() {
         if !isLoading { // Checks if the table is currently loading
