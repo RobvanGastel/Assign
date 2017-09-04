@@ -89,11 +89,11 @@ public class StartUp {
             Post post_rob_2 = postService.findById(24L);
 
             // Creating replies
-            replyService.create(new Reply(max, post_rob_1));
-            replyService.create(new Reply(max, post_rob_2));
+            replyService.create(max, post_rob_1);
+            replyService.create(max, post_rob_2);
 
-            replyService.create(new Reply(rob, post_max_2));
-            replyService.create(new Reply(rob, post_max_3));
+            replyService.create(rob, post_max_2);
+            replyService.create(rob, post_max_3);
 
             LOG.info("Startup successfully executed.");
 
