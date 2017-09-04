@@ -34,7 +34,7 @@ public class PostControllerTest {
     private static String baseUrl = new TestConfig().getBaseUrl();
     private static String jsonString = "{}";
     private static String authorizationHeader = "Bearer ";
-    private static List<Post> posts;
+    private static List<Post> posts; // Retrieved post to test endpoints with
 
     /***
      * The beforeClass handles the authentication token to make
@@ -100,7 +100,12 @@ public class PostControllerTest {
                 .get();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(response.readEntity(new GenericType<List<Post>>() {}));
+
         } finally {
             response.close();
             client.close();
@@ -132,6 +137,7 @@ public class PostControllerTest {
                 .get();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
@@ -159,7 +165,11 @@ public class PostControllerTest {
                 .get();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(response.readEntity(new GenericType<Post>() {}));
         } finally {
             response.close();
             client.close();
@@ -186,7 +196,9 @@ public class PostControllerTest {
                 .get();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
+
         } finally {
             response.close();
             client.close();
@@ -195,20 +207,74 @@ public class PostControllerTest {
 
     /***
      * getByQuery(@QueryParam("query") String query,
-     @DefaultValue("0") @QueryParam("start") int start,
-     @DefaultValue("20") @QueryParam("size") int size)
-      *
-      * Case:
-      *
-      * Method:
-      * Get post(s) by query
-      * @param query string to search the posts by
+     * @DefaultValue("0") @QueryParam("start") int start,
+     * @DefaultValue("20") @QueryParam("size") int size)
+     *
+     * Case: Get posts by a valid query.
+     *
+     * Method:
+     * Get post(s) by query
+     * @param query string to search the posts by
      * @param start of the list
      * @param size lof the list
      * @return A list of posts matching the query,
      * the fields being searched are description, title, email
      * and name.
      */
+    @Test
+    public void getByQueryTest1() {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(baseUrl + "/posts")
+                .queryParam("query", posts.get(0).getDescription());
+        Response response = target.request()
+                .header("Authorization", authorizationHeader)
+                .get();
+
+        try {
+            // Check for expected response code
+            Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(response.readEntity(new GenericType<List<Post>>() {}));
+        } finally {
+            response.close();
+            client.close();
+        }
+    }
+
+    /***
+     * getByQuery(@QueryParam("query") String query,
+     * @DefaultValue("0") @QueryParam("start") int start,
+     * @DefaultValue("20") @QueryParam("size") int size)
+     *
+     * Case: Get posts by an invalid query
+     *
+     * Method:
+     * Get post(s) by query
+     * @param query string to search the posts by
+     * @param start of the list
+     * @param size lof the list
+     * @return A list of posts matching the query,
+     * the fields being searched are description, title, email
+     * and name.
+     */
+    @Test
+    public void getByQueryTest2() {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(baseUrl + "/posts/query")
+                .queryParam("query", "nopostscontainsthisstring");
+        Response response = target.request()
+                .header("Authorization", authorizationHeader)
+                .get();
+
+        try {
+            // Check for expected response code
+            Assert.assertEquals(200, response.getStatus());
+        } finally {
+            response.close();
+            client.close();
+        }
+    }
 
     /***
      * create(@QueryParam("title") String title,
@@ -235,6 +301,7 @@ public class PostControllerTest {
                 .post(Entity.json(jsonString));
 
         try {
+            // Check for expected response code
             Assert.assertEquals(200, response.getStatus());
         } finally {
             response.close();
@@ -266,6 +333,7 @@ public class PostControllerTest {
                 .post(Entity.json(jsonString));
 
         try {
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();

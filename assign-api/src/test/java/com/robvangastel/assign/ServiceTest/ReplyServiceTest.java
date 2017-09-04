@@ -1,7 +1,18 @@
 package com.robvangastel.assign.ServiceTest;
 
 /**
- * Created by robvangastel on 01/09/2017.
+ * @author Rob van Gastel
  */
 public class ReplyServiceTest {
+
+    // EXAMPLE DESCRIPTION
+    /***
+     * TEST CASE METHOD
+     *
+     * Case: STATE TEST CASE
+     *
+     * Method:
+     * STATE METHOD DESCRIPTION
+     */
+
 }
