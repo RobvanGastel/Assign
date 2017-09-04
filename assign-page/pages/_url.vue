@@ -42,20 +42,17 @@ export default {
       .then((response) => {
         return { post: response.data }
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
       })
   },
   methods: {
     getPost (url) {
-      let self = this
-      axios.get(process.env.baseUrl + '/page/post', { params: {
-        url: url
-      }})
-        .then(function (response) {
-          self.post = response.data
+      axios.get(process.env.baseUrl + '/page/post', { params: { url } })
+        .then((response) => {
+          this.post = response.data
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error)
         })
     }

@@ -50,6 +50,7 @@
 		B2E801291F0C1D780005980B /* icon-bar-overview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E8011F1F0C1D780005980B /* icon-bar-overview@2x.png */; };
 		B2E8012A1F0C1D780005980B /* icon-bar-overview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E801201F0C1D780005980B /* icon-bar-overview@3x.png */; };
 		D40192A01F3A2DD900879B8C /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D401929F1F3A2DD900879B8C /* UISegmentedControl.swift */; };
+		D40192A21F574AAD00879B8C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40192A11F574AAD00879B8C /* Notification.swift */; };
 		D41955791ECF023C009575DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955781ECF023C009575DE /* AuthService.swift */; };
 		D419557B1ECF0367009575DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419557A1ECF0367009575DE /* Storage.swift */; };
 		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
@@ -131,6 +132,7 @@
 		B2E801201F0C1D780005980B /* icon-bar-overview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-overview@3x.png"; sourceTree = "<group>"; };
 		CB18BEEBDCC82AD67CD88980 /* Pods-assign-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.debug.xcconfig"; sourceTree = "<group>"; };
 		D401929F1F3A2DD900879B8C /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		D40192A11F574AAD00879B8C /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D41955781ECF023C009575DE /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D419557A1ECF0367009575DE /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D419557E1ECF1BCD009575DE /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				D41955851ECF627C009575DE /* JSONDecodable.swift */,
 				D4C1947E1F1D31A7009A481B /* Reply.swift */,
 				D4C194801F1FBAED009A481B /* Social.swift */,
+				D40192A11F574AAD00879B8C /* Notification.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
+				D40192A21F574AAD00879B8C /* Notification.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,
 				D4C1947F1F1D31A7009A481B /* Reply.swift in Sources */,
