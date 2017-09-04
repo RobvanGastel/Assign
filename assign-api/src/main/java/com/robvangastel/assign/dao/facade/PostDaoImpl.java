@@ -57,8 +57,6 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
         return q.getResultList();
     }
 
-    @
-
     @Override
     @SuppressWarnings("unchecked")
     public List<Post> findAll(User user, int start, int size) {
