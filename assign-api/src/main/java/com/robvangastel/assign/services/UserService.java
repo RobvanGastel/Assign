@@ -69,11 +69,11 @@ public class UserService implements Serializable {
     public IdToken authenticate(Credentials credentials) {
         User user = dao.findByEmail(credentials.getUsername());
         if (user == null) {
-            throw new AuthenticationException();
+            throw new AuthenticationException("Email doesn't exist");
         }
 
         if (!encoder.matches(credentials.getPassword(), user.getPassword())) {
-            throw new AuthenticationException();
+            throw new AuthenticationException("Invalid password");
         }
 
         return new IdToken(jwtHelper.generateToken(user));

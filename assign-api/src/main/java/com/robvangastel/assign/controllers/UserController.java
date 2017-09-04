@@ -141,7 +141,7 @@ public class UserController {
     }
 
     /***
-     * TODO Implement
+     * TODO Implement uniform update method
      *
      * Update the authenticated user
      * @param location

@@ -19,16 +19,6 @@ public interface INotificationDao {
     Notification findById(long id);
 
     /***
-     * Find Notification(s) by user
-     * @param id
-     * @param start of the list
-     * @param size of the list
-     * @return Found Notification(s) limited by 20 or Null when
-     * the Notification(s) isn't found
-     */
-    List<Notification> findByUser(long id, int start, int size);
-
-    /***
      * Find all Notification(s)
      * @param start of the list
      * @param size of the list
@@ -39,6 +29,7 @@ public interface INotificationDao {
     /***
      * Create a Notification
      * @param entity Notification to create
+     * @throws NotificationException
      */
     void create(Notification entity) throws NotificationException;
 
@@ -53,12 +44,14 @@ public interface INotificationDao {
     /***
      * Delete Notification
      * @param entity Notification to delete
+     * @throws NotificationException
      */
     void delete(Notification entity) throws NotificationException;
 
     /***
      * Delete Notification by id
      * @param id id of the Notification
+     * @throws NotificationException
      */
     void deleteById(long id) throws NotificationException;
 }

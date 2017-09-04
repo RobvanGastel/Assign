@@ -19,6 +19,7 @@ import javax.ws.rs.core.SecurityContext;
 import java.util.List;
 
 /**
+ * TODO Implement uniform update method
  * @author Rob van Gastel
  */
 
@@ -149,6 +150,9 @@ public class PostController {
     public Response getByQuery(@QueryParam("query") String query,
                                @DefaultValue("0") @QueryParam("start") int start,
                                @DefaultValue("20") @QueryParam("size") int size) {
+
+        // Query
+
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         List<Post> posts = postService.findByQuery(user, query, start, size);
