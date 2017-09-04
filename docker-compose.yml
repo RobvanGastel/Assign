@@ -34,6 +34,8 @@ services:
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
      - MYSQL_HOST=***REMOVED***
      - MYSQL_PORT=5306
+     - SET_CONTAINER_TIMEZONE=true
+     - CONTAINER_TIMEZONE=Europe/Amsterdam
     ports:
      - '8080:8080'
 
