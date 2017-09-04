@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a896dbc-9ceb-435f-930f-6802f9271c14" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/NotificationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/NotificationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/INotificationDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/INotificationDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/NotificationDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/NotificationDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/AuthenticationException.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/AuthenticationException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/UserService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java" afterPath="$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,12 +39,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotificationController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NotificationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/NotificationController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="692">
               <caret line="75" column="48" lean-forward="true" selection-start-line="75" selection-start-column="48" selection-end-line="75" selection-end-column="48" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+              <folding>
+                <element signature="e#338#339#0" expanded="true" />
+                <element signature="e#394#395#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostDaoImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+              <folding>
+                <marker date="1504520303444" expanded="true" signature="1176:1467" ph="SELECT * FRO... Post" />
+                <marker date="1504520303444" expanded="true" signature="2334:2521" ph="SELECT * FRO... Post" />
+                <marker date="1504520303444" expanded="true" signature="2909:2957" ph="SELECT * FRO... Post" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -217,7 +236,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/FirebaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/StartUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/ReplyService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/SocialLink.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/exception/ErrorMessage.java" />
@@ -229,12 +247,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/interceptors/PostSearchInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/interceptors/SearchInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/NotificationDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/INotificationDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/NotificationController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -731,7 +750,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JBoss Server.WildFly">
+  <component name="RunManager" selected="JUnit.Unit tests">
     <configuration default="false" name="PostControllerTest.getByIdTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1412,14 +1431,11 @@
       <workItem from="1503984255838" duration="7409000" />
       <workItem from="1504044723610" duration="78000" />
       <workItem from="1504433067051" duration="6214000" />
-      <workItem from="1504514497840" duration="2769000" />
+      <workItem from="1504514497840" duration="2870000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unit_tests - 2017.08.26 at 10h 54m 32s.xml">
-      <configuration name="Unit tests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Unit_tests - 2017.08.26 at 10h 56m 57s.xml">
       <configuration name="Unit tests" configurationId="JUnit" />
     </history-entry>
@@ -1441,6 +1457,9 @@
     <history-entry file="Unit_tests - 2017.08.30 at 20h 07m 17s.xml">
       <configuration name="Unit tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Unit_tests - 2017.09.04 at 12h 18m 31s.xml">
+      <configuration name="Unit tests" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="UserControllerTest_getTest1 - 2017.08.26 at 11h 04m 06s.xml">
       <configuration name="UserControllerTest.getTest1" configurationId="JUnit" />
     </history-entry>
@@ -1449,7 +1468,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356589000" />
+    <option name="totallyTimeSpent" value="356690000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1480,13 +1499,13 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4302789" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32536522" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32502708" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34236187" sideWeight="0.66537565" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34236187" sideWeight="0.66537565" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26918977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1711,13 +1730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1828,18 +1840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <marker date="1504518699786" expanded="true" signature="1176:1467" ph="SELECT * FRO... Post" />
-            <marker date="1504518699786" expanded="true" signature="2341:2528" ph="SELECT * FRO... Post" />
-            <marker date="1504518699786" expanded="true" signature="2916:2964" ph="SELECT * FRO... Post" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/PostService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1906,6 +1906,29 @@
         <state relative-caret-position="692">
           <caret line="75" column="48" lean-forward="true" selection-start-line="75" selection-start-column="48" selection-end-line="75" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/robvangastel/assign/TestConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/PostDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+          <folding>
+            <marker date="1504520303444" expanded="true" signature="1176:1467" ph="SELECT * FRO... Post" />
+            <marker date="1504520303444" expanded="true" signature="2334:2521" ph="SELECT * FRO... Post" />
+            <marker date="1504520303444" expanded="true" signature="2909:2957" ph="SELECT * FRO... Post" />
+          </folding>
         </state>
       </provider>
     </entry>
