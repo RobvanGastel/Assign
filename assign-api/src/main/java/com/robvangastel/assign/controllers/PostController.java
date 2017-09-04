@@ -130,9 +130,11 @@ public class PostController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         Post post = postService.findById(id);
+
         if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(post).build();
     }
 

@@ -3,6 +3,8 @@ package com.robvangastel.assign.ControllerTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.robvangastel.assign.CodeGenerator;
 import com.robvangastel.assign.TestConfig;
+import com.robvangastel.assign.domain.School;
+import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.security.IdToken;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -12,11 +14,12 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 /**
  * @author Rob van Gastel
- * TODO Improve tests to include parsing response
  */
 public class SchoolControllerTest {
 
@@ -80,7 +83,11 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(response.readEntity(new GenericType<List<School>>() {}));
         } finally {
             response.close();
             client.close();
@@ -111,6 +118,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
@@ -138,7 +146,11 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(response.readEntity(new GenericType<School>() {}));
         } finally {
             response.close();
             client.close();
@@ -165,6 +177,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
@@ -196,7 +209,9 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(200, response.getStatus());
+
         } finally {
             response.close();
             client.close();
@@ -258,7 +273,11 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(response.readEntity(new GenericType<List<User>>() {}));
         } finally {
             response.close();
             client.close();
@@ -289,6 +308,7 @@ public class SchoolControllerTest {
                 .get();
 
         try {
+            // Check for epected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
@@ -335,6 +355,7 @@ public class SchoolControllerTest {
                 .post(Entity.json(jsonString));
 
         try {
+            // Check for epected response code
             Assert.assertEquals(200, response.getStatus());
         } finally {
             response.close();
@@ -363,6 +384,7 @@ public class SchoolControllerTest {
                 .post(Entity.json(jsonString));
 
         try {
+            // Check for epected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();

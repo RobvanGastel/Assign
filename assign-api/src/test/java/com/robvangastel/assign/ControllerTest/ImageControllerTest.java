@@ -2,7 +2,7 @@ package com.robvangastel.assign.ControllerTest;
 
 /**
  * @author Rob van Gastel
- * TODO Add possible texts
+ * TODO Add possible tests
  */
 public class ImageControllerTest {
 

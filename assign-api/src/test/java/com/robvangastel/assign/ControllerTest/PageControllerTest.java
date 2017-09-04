@@ -95,6 +95,7 @@ public class PageControllerTest {
         Response response = target.request().get();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(200, response.getStatus());
         } finally {
             response.close();
@@ -122,6 +123,7 @@ public class PageControllerTest {
         Response response = target.request().get();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
@@ -151,9 +153,13 @@ public class PageControllerTest {
         Response response = target.request().get();
 
         try {
-
             post = response.readEntity(Post.class);
+
+            // Check for expected response code
             Assert.assertEquals(200, response.getStatus());
+
+            // Check for expected response body
+            Assert.assertNotNull(post);
         } finally {
             response.close();
             client.close();
