@@ -35,6 +35,7 @@ public class UserControllerTest {
     private static String baseUrl = new TestConfig().getBaseUrl();
     private static String jsonString = "{}";
     private static String authorizationHeader = "Bearer ";
+    private static String authorizationHeaderAdmin = "Bearer ";
 
     @BeforeClass
     public static void beforeClass() {
@@ -54,6 +55,21 @@ public class UserControllerTest {
 
         } finally {
             response.close();
+        }
+
+        WebTarget targetAdmin = client.target(baseUrl + "/auth")
+                .queryParam("email", "admin@mail.nl")
+                .queryParam("password", "admin");
+        Response responseAdmin = targetAdmin.request().post(Entity.json(jsonString));
+
+        try {
+            String tokenString = responseAdmin.readEntity(String.class);
+            IdToken token = mapper.readValue(tokenString, IdToken.class);
+            authorizationHeaderAdmin += token.getToken();
+        } catch (Exception e) {
+
+        } finally {
+            responseAdmin.close();
             client.close();
         }
     }
@@ -79,7 +95,7 @@ public class UserControllerTest {
                 .queryParam("start", 0)
                 .queryParam("size", 10);
         Response response = target.request()
-                .header("Authorization", authorizationHeader)
+                .header("Authorization", authorizationHeaderAdmin)
                 .get();
 
         try {
@@ -115,7 +131,7 @@ public class UserControllerTest {
                 .queryParam("start", "a")
                 .queryParam("size", 10);
         Response response = target.request()
-                .header("Authorization", authorizationHeader)
+                .header("Authorization", authorizationHeaderAdmin)
                 .get();
 
         try {
