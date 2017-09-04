@@ -106,13 +106,8 @@ public class PostController {
         if (user.getId() != post.getUser().getId() && post != null) {
             // Check if the user creating reply isnt replying to his own post
 
-            if (!replyService.DidUserReply(user, post)) {
-                // Check if he already replied to the post
+            replyService.create(user, post);
 
-                replyService.create(new Reply(user, post));
-            } else {
-                throw new WebApplicationException(Response.Status.BAD_REQUEST);
-            }
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
@@ -152,9 +147,6 @@ public class PostController {
     public Response getByQuery(@QueryParam("query") String query,
                                @DefaultValue("0") @QueryParam("start") int start,
                                @DefaultValue("20") @QueryParam("size") int size) {
-
-        // Query
-
 
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         List<Post> posts = postService.findByQuery(user, query, start, size);

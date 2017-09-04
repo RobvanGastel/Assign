@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  * @author Rob van Gastel
- * TODO Handle creation Post
  */
 
 @Stateless
@@ -55,6 +54,11 @@ public class PostService implements Serializable {
         // This generates the URL which has the total number of possiblities of
         // 218.340.105.584.896 different strings.
         String code = CodeGenerator.getInstance().getCode(8);
+
+        while(postDao.isUrlUsed(code)) {
+            code = CodeGenerator.getInstance().getCode(8);
+        }
+
         entity.setUrl(code);
         postDao.create(entity);
 

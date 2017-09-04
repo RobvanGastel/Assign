@@ -30,9 +30,21 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     public Post findByUrl(String url) {
         Query q = entityManager.createQuery(
-                "FROM Post p WHERE p.url = :url ORDER BY p.dateCreated DESC")
+                "FROM Post p WHERE p.url = :url")
                 .setParameter("url", url);
         return (Post) q.getSingleResult();
+    }
+
+    @Override
+    public Boolean isUrlUsed(String url) {
+        Query q = entityManager.createQuery(
+                "FROM Post p WHERE p.url = :url")
+                .setParameter("url", url);
+        if (q.getResultList().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override

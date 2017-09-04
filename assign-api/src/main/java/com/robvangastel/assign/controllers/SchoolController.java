@@ -40,11 +40,8 @@ public class SchoolController {
     public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return Response.ok(schoolService.findAll(start, size))
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Content-Length, Authentication, Authorization")
-                .build();
+        List<School> schools = schoolService.findAll(start, size);
+        return Response.ok(schools).build();
     }
 
     /***
@@ -57,9 +54,11 @@ public class SchoolController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         School school = schoolService.findById(id);
+
         if (school == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(school).build();
     }
 
@@ -129,7 +128,6 @@ public class SchoolController {
         if (!name.equals(null)) {
             schoolService.create(new School(name));
             return Response.ok().build();
-
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
@@ -148,6 +146,7 @@ public class SchoolController {
         if (school == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         Study study = schoolService.addStudy(school, name);
         return Response.ok(study).build();
     }
