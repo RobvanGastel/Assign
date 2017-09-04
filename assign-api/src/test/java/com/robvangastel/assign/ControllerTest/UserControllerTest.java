@@ -103,7 +103,8 @@ public class UserControllerTest {
             Assert.assertEquals(200, response.getStatus());
 
             // Check for expected response body
-            Assert.assertNotNull(response.readEntity(new GenericType<List<User>>() {}));
+            Assert.assertNotNull(response.readEntity(new GenericType<List<User>>() {
+            }));
         } finally {
             response.close();
             client.close();
@@ -167,7 +168,8 @@ public class UserControllerTest {
             Assert.assertEquals(200, response.getStatus());
 
             // Check for expected response body
-            Assert.assertNotNull(response.readEntity(new GenericType<User>() {}));
+            Assert.assertNotNull(response.readEntity(new GenericType<User>() {
+            }));
         } finally {
             response.close();
             client.close();
@@ -258,7 +260,8 @@ public class UserControllerTest {
             Assert.assertEquals(200, response.getStatus());
 
             // Check for expected response body
-            Assert.assertNotNull(response.readEntity(new GenericType<List<Post>>() {}));
+            Assert.assertNotNull(response.readEntity(new GenericType<List<Post>>() {
+            }));
         } finally {
             response.close();
             client.close();
@@ -322,7 +325,8 @@ public class UserControllerTest {
             Assert.assertEquals(200, response.getStatus());
 
             // Check for expected response body
-            Assert.assertNotNull(response.readEntity(new GenericType<User>() {}));
+            Assert.assertNotNull(response.readEntity(new GenericType<User>() {
+            }));
         } finally {
             response.close();
             client.close();

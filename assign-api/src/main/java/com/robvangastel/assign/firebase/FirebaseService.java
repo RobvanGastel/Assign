@@ -110,7 +110,7 @@ public class FirebaseService implements Serializable {
                 throw new FirebaseException("Remove registration id failed");
             }
 
-        } catch(UnirestException e) {
+        } catch (UnirestException e) {
             LOG.error("Remove registration id error on request.");
             throw new FirebaseException("Invalid registration id");
         }
@@ -154,7 +154,7 @@ public class FirebaseService implements Serializable {
                 throw new FirebaseException("Add registration id failed");
             }
 
-        } catch(UnirestException e) {
+        } catch (UnirestException e) {
             LOG.error("Add registration id error on request.");
         }
     }
@@ -185,13 +185,13 @@ public class FirebaseService implements Serializable {
         headers.put("project_id", SENDER_ID);
 
         try {
-        // Send HTTP request
-        HttpResponse<Body> response = Unirest.post(URL_REGISTER)
-                .headers(headers)
-                .body(json)
-                .asObject(Body.class);
+            // Send HTTP request
+            HttpResponse<Body> response = Unirest.post(URL_REGISTER)
+                    .headers(headers)
+                    .body(json)
+                    .asObject(Body.class);
 
-        if (response.getStatus() <= 200 && response.getStatus() < 300) {
+            if (response.getStatus() <= 200 && response.getStatus() < 300) {
                 // Parse body
                 Body responseBody = response.getBody();
 
@@ -205,7 +205,7 @@ public class FirebaseService implements Serializable {
                 throw new FirebaseException("Create notification key");
             }
 
-        } catch(UnirestException e) {
+        } catch (UnirestException e) {
             LOG.error("Create notification key error on request.");
             throw new FirebaseException("Invalid notification key");
         }
@@ -262,7 +262,7 @@ public class FirebaseService implements Serializable {
                 LOG.error("Send notification error on request.");
             }
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             LOG.error("Send notification error on request.");
         }
     }

@@ -7,7 +7,6 @@ import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.ReplyException;
 import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.services.ReplyService;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -51,7 +50,7 @@ public class ReplyServiceTest {
      * Case: Create a Reply on when the reply already exists.
      *
      */
-    @Test(expected=ReplyException.class)
+    @Test(expected = ReplyException.class)
     public void createTest1() {
         User user = new User("user@email.nl", "password", "name");
         Post post = new Post(user, "This is a test!", "This message # contains zero hashtags");

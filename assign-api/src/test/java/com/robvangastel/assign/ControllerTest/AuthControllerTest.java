@@ -3,7 +3,6 @@ package com.robvangastel.assign.ControllerTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.robvangastel.assign.TestConfig;
 import com.robvangastel.assign.security.IdToken;
-import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 

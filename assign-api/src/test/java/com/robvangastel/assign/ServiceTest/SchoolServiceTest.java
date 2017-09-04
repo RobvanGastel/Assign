@@ -5,7 +5,6 @@ import com.robvangastel.assign.domain.School;
 import com.robvangastel.assign.domain.Study;
 import com.robvangastel.assign.exception.SchoolException;
 import com.robvangastel.assign.services.SchoolService;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -66,7 +65,7 @@ public class SchoolServiceTest {
      * Case: Add study that already exist.
      *
      */
-    @Test(expected=SchoolException.class)
+    @Test(expected = SchoolException.class)
     public void addStudyTest2() {
         School school = new School("Fontys");
         school.setId(1L);

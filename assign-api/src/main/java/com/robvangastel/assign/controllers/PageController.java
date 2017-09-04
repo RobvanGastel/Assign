@@ -2,7 +2,6 @@ package com.robvangastel.assign.controllers;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.robvangastel.assign.domain.Post;
-import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.services.PostService;
 import lombok.Data;
 

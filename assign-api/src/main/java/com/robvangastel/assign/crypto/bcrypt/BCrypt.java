@@ -60,6 +60,8 @@ import java.security.SecureRandom;
 public class BCrypt {
     // BCrypt parameters
 
+    static final int MIN_LOG_ROUNDS = 4;
+    static final int MAX_LOG_ROUNDS = 31;
     private static final int GENSALT_DEFAULT_LOG2_ROUNDS = 10;
     private static final int BCRYPT_SALT_LEN = 16;
     // Blowfish parameters
@@ -257,8 +259,6 @@ public class BCrypt {
             8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
             -1, -1, -1, -1, -1, -1, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
             41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, -1, -1, -1, -1, -1};
-    static final int MIN_LOG_ROUNDS = 4;
-    static final int MAX_LOG_ROUNDS = 31;
     // Expanded Blowfish key
     private int P[];
     private int S[];
@@ -370,35 +370,6 @@ public class BCrypt {
     }
 
     /**
-     * Blowfish encipher a single 64-bit block encoded as two 32-bit halves
-     *
-     * @param lr  an array containing the two 32-bit half blocks
-     * @param off the position in the array of the blocks
-     */
-    private final void encipher(int lr[], int off) {
-        int i, n, l = lr[off], r = lr[off + 1];
-
-        l ^= P[0];
-        for (i = 0; i <= BLOWFISH_NUM_ROUNDS - 2; ) {
-            // Feistel substitution on left word
-            n = S[(l >> 24) & 0xff];
-            n += S[0x100 | ((l >> 16) & 0xff)];
-            n ^= S[0x200 | ((l >> 8) & 0xff)];
-            n += S[0x300 | (l & 0xff)];
-            r ^= n ^ P[++i];
-
-            // Feistel substitution on right word
-            n = S[(r >> 24) & 0xff];
-            n += S[0x100 | ((r >> 16) & 0xff)];
-            n ^= S[0x200 | ((r >> 8) & 0xff)];
-            n += S[0x300 | (r & 0xff)];
-            l ^= n ^ P[++i];
-        }
-        lr[off] = r ^ P[BLOWFISH_NUM_ROUNDS + 1];
-        lr[off + 1] = l;
-    }
-
-    /**
      * Cycically extract a word of key material
      *
      * @param data the string to extract the data from
@@ -419,119 +390,11 @@ public class BCrypt {
         return word;
     }
 
-    /**
-     * Initialise the Blowfish key schedule
-     */
-    private void init_key() {
-        P = (int[]) P_orig.clone();
-        S = (int[]) S_orig.clone();
-    }
-
-    /**
-     * Key the Blowfish cipher
-     *
-     * @param key an array containing the key
-     */
-    private void key(byte key[]) {
-        int i;
-        int koffp[] = {0};
-        int lr[] = {0, 0};
-        int plen = P.length, slen = S.length;
-
-        for (i = 0; i < plen; i++) {
-            P[i] = P[i] ^ streamtoword(key, koffp);
-        }
-
-        for (i = 0; i < plen; i += 2) {
-            encipher(lr, 0);
-            P[i] = lr[0];
-            P[i + 1] = lr[1];
-        }
-
-        for (i = 0; i < slen; i += 2) {
-            encipher(lr, 0);
-            S[i] = lr[0];
-            S[i + 1] = lr[1];
-        }
-    }
-
-    /**
-     * Perform the "enhanced key schedule" step described by Provos and Mazieres in
-     * "A Future-Adaptable Password Scheme" http://www.openbsd.org/papers/bcrypt-paper.ps
-     *
-     * @param data salt information
-     * @param key  password information
-     */
-    private void ekskey(byte data[], byte key[]) {
-        int i;
-        int koffp[] = {0}, doffp[] = {0};
-        int lr[] = {0, 0};
-        int plen = P.length, slen = S.length;
-
-        for (i = 0; i < plen; i++) {
-            P[i] = P[i] ^ streamtoword(key, koffp);
-        }
-
-        for (i = 0; i < plen; i += 2) {
-            lr[0] ^= streamtoword(data, doffp);
-            lr[1] ^= streamtoword(data, doffp);
-            encipher(lr, 0);
-            P[i] = lr[0];
-            P[i + 1] = lr[1];
-        }
-
-        for (i = 0; i < slen; i += 2) {
-            lr[0] ^= streamtoword(data, doffp);
-            lr[1] ^= streamtoword(data, doffp);
-            encipher(lr, 0);
-            S[i] = lr[0];
-            S[i + 1] = lr[1];
-        }
-    }
-
     static long roundsForLogRounds(int log_rounds) {
         if (log_rounds < 4 || log_rounds > 31) {
             throw new IllegalArgumentException("Bad number of rounds");
         }
         return 1L << log_rounds;
-    }
-
-    /**
-     * Perform the central password hashing step in the bcrypt scheme
-     *
-     * @param password   the password to hash
-     * @param salt       the binary salt to hash with the password
-     * @param log_rounds the binary logarithm of the number of rounds of hashing to apply
-     * @return an array containing the binary hashed password
-     */
-    private byte[] crypt_raw(byte password[], byte salt[], int log_rounds) {
-        int cdata[] = (int[]) bf_crypt_ciphertext.clone();
-        int clen = cdata.length;
-        byte ret[];
-
-        long rounds = roundsForLogRounds(log_rounds);
-
-        init_key();
-        ekskey(salt, password);
-        for (long i = 0; i < rounds; i++) {
-            key(password);
-            key(salt);
-        }
-
-        for (int i = 0; i < 64; i++) {
-            for (int j = 0; j < (clen >> 1); j++) {
-                encipher(cdata, j << 1);
-            }
-        }
-
-        ret = new byte[clen * 4];
-        for (int i = 0, j = 0; i < clen; i++) {
-            ret[j++] = (byte) ((cdata[i] >> 24) & 0xff);
-            ret[j++] = (byte) ((cdata[i] >> 16) & 0xff);
-            ret[j++] = (byte) ((cdata[i] >> 8) & 0xff);
-            ret[j++] = (byte) (cdata[i] & 0xff);
-        }
-        return ret;
     }
 
     /**
@@ -677,6 +540,143 @@ public class BCrypt {
             ret |= caa[i] ^ cab[i];
         }
         return ret == 0;
+    }
+
+    /**
+     * Blowfish encipher a single 64-bit block encoded as two 32-bit halves
+     *
+     * @param lr  an array containing the two 32-bit half blocks
+     * @param off the position in the array of the blocks
+     */
+    private final void encipher(int lr[], int off) {
+        int i, n, l = lr[off], r = lr[off + 1];
+
+        l ^= P[0];
+        for (i = 0; i <= BLOWFISH_NUM_ROUNDS - 2; ) {
+            // Feistel substitution on left word
+            n = S[(l >> 24) & 0xff];
+            n += S[0x100 | ((l >> 16) & 0xff)];
+            n ^= S[0x200 | ((l >> 8) & 0xff)];
+            n += S[0x300 | (l & 0xff)];
+            r ^= n ^ P[++i];
+
+            // Feistel substitution on right word
+            n = S[(r >> 24) & 0xff];
+            n += S[0x100 | ((r >> 16) & 0xff)];
+            n ^= S[0x200 | ((r >> 8) & 0xff)];
+            n += S[0x300 | (r & 0xff)];
+            l ^= n ^ P[++i];
+        }
+        lr[off] = r ^ P[BLOWFISH_NUM_ROUNDS + 1];
+        lr[off + 1] = l;
+    }
+
+    /**
+     * Initialise the Blowfish key schedule
+     */
+    private void init_key() {
+        P = (int[]) P_orig.clone();
+        S = (int[]) S_orig.clone();
+    }
+
+    /**
+     * Key the Blowfish cipher
+     *
+     * @param key an array containing the key
+     */
+    private void key(byte key[]) {
+        int i;
+        int koffp[] = {0};
+        int lr[] = {0, 0};
+        int plen = P.length, slen = S.length;
+
+        for (i = 0; i < plen; i++) {
+            P[i] = P[i] ^ streamtoword(key, koffp);
+        }
+
+        for (i = 0; i < plen; i += 2) {
+            encipher(lr, 0);
+            P[i] = lr[0];
+            P[i + 1] = lr[1];
+        }
+
+        for (i = 0; i < slen; i += 2) {
+            encipher(lr, 0);
+            S[i] = lr[0];
+            S[i + 1] = lr[1];
+        }
+    }
+
+    /**
+     * Perform the "enhanced key schedule" step described by Provos and Mazieres in
+     * "A Future-Adaptable Password Scheme" http://www.openbsd.org/papers/bcrypt-paper.ps
+     *
+     * @param data salt information
+     * @param key  password information
+     */
+    private void ekskey(byte data[], byte key[]) {
+        int i;
+        int koffp[] = {0}, doffp[] = {0};
+        int lr[] = {0, 0};
+        int plen = P.length, slen = S.length;
+
+        for (i = 0; i < plen; i++) {
+            P[i] = P[i] ^ streamtoword(key, koffp);
+        }
+
+        for (i = 0; i < plen; i += 2) {
+            lr[0] ^= streamtoword(data, doffp);
+            lr[1] ^= streamtoword(data, doffp);
+            encipher(lr, 0);
+            P[i] = lr[0];
+            P[i + 1] = lr[1];
+        }
+
+        for (i = 0; i < slen; i += 2) {
+            lr[0] ^= streamtoword(data, doffp);
+            lr[1] ^= streamtoword(data, doffp);
+            encipher(lr, 0);
+            S[i] = lr[0];
+            S[i + 1] = lr[1];
+        }
+    }
+
+    /**
+     * Perform the central password hashing step in the bcrypt scheme
+     *
+     * @param password   the password to hash
+     * @param salt       the binary salt to hash with the password
+     * @param log_rounds the binary logarithm of the number of rounds of hashing to apply
+     * @return an array containing the binary hashed password
+     */
+    private byte[] crypt_raw(byte password[], byte salt[], int log_rounds) {
+        int cdata[] = (int[]) bf_crypt_ciphertext.clone();
+        int clen = cdata.length;
+        byte ret[];
+
+        long rounds = roundsForLogRounds(log_rounds);
+
+        init_key();
+        ekskey(salt, password);
+        for (long i = 0; i < rounds; i++) {
+            key(password);
+            key(salt);
+        }
+
+        for (int i = 0; i < 64; i++) {
+            for (int j = 0; j < (clen >> 1); j++) {
+                encipher(cdata, j << 1);
+            }
+        }
+
+        ret = new byte[clen * 4];
+        for (int i = 0, j = 0; i < clen; i++) {
+            ret[j++] = (byte) ((cdata[i] >> 24) & 0xff);
+            ret[j++] = (byte) ((cdata[i] >> 16) & 0xff);
+            ret[j++] = (byte) ((cdata[i] >> 8) & 0xff);
+            ret[j++] = (byte) (cdata[i] & 0xff);
+        }
+        return ret;
     }
 }
 
