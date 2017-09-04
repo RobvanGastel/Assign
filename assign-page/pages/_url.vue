@@ -5,7 +5,7 @@
       <post :post="post"></post>
       <div class="footer">
         <div class="overlay"></div>
-        <a href="#" class="button-open">Download app</a>
+        <a href="/" class="button-opencta">Open in de Assign App</a>
       </div>
     </div>
     <div v-else>
