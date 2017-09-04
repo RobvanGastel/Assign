@@ -65,5 +65,18 @@ public class NotificationController {
         return Response.ok(notification).build();
     }
 
+    @DELETE
+    @Path("/{id}")
+    public Response deleteById(@PathParam("id") long id) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+        Notification notification = notificationService.findById(id);
+
+        if (user.getId() == notification.getUser().getId()) {
+            notificationService.delete(id);
+            return Response.noContent().build();
+        }
+
+        return Response.status(Response.Status.BAD_REQUEST).build();
+    }
 
 }

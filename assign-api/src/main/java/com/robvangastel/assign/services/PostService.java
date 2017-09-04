@@ -2,6 +2,7 @@ package com.robvangastel.assign.services;
 
 import com.robvangastel.assign.CodeGenerator;
 import com.robvangastel.assign.dao.IPostDao;
+import com.robvangastel.assign.dao.IReplyDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
 import org.jboss.logging.Logger;

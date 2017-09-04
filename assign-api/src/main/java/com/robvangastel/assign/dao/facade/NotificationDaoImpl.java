@@ -27,16 +27,6 @@ public class NotificationDaoImpl extends AbstractDao<Notification> implements IN
     }
 
     @Override
-    public List<Notification> findByUser(long id, int start, int size) {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Notification n, User u WHERE u.id = n.user.id AND u.id = :id ORDER BY n.dateCreated DESC")
-                .setFirstResult(start)
-                .setMaxResults(size)
-                .setParameter("id", id);
-        return q.getResultList();
-    }
-
-    @Override
     @SuppressWarnings("unchecked")
     public List<Notification> findAll(User user, int start, int size) {
         String queryString = "SELECT * FROM Notification n JOIN User u ON n.user_id = u.id ORDER BY n.dateCreated DESC";
