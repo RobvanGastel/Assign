@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * TODO Implement uniform update method
+ *
  * @author Rob van Gastel
  */
 
@@ -167,11 +168,15 @@ public class PostController {
     @POST
     public Response create(@QueryParam("title") String title,
                            @QueryParam("description") String description) throws Exception {
-
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         postService.create(new Post(user, title, description));
         return Response.ok().build();
     }
+
+//    @PUT
+//    public Response update(@FormParam("post") Post post) {
+//
+//    }
 
     /***
      * Set a post of the authenticated user to done

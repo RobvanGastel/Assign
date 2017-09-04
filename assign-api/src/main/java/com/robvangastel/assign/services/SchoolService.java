@@ -58,7 +58,7 @@ public class SchoolService implements Serializable {
         // 916.132.832 different strings.
         String code = CodeGenerator.getInstance().getCode(5);
 
-        while(schoolDao.isCodeUsed(code)) {
+        while (schoolDao.isCodeUsed(code)) {
             code = CodeGenerator.getInstance().getCode(5);
         }
 

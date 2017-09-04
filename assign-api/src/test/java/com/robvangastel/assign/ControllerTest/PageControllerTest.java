@@ -64,7 +64,8 @@ public class PageControllerTest {
                     .header("Authorization", authorizationHeader)
                     .get();
 
-            posts = response.readEntity(new GenericType<List<Post>>() {});
+            posts = response.readEntity(new GenericType<List<Post>>() {
+            });
 
 
         } catch (Exception e) {

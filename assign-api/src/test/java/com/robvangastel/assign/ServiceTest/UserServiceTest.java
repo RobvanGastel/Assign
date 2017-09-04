@@ -44,7 +44,7 @@ public class UserServiceTest {
      * Case: Create a user with a existing email.
      *
      */
-    @Test(expected=UserException.class)
+    @Test(expected = UserException.class)
     public void createTest2() throws Exception {
         User user = new User("user@email.nl", "password", "user");
 
