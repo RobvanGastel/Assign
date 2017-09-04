@@ -2,6 +2,7 @@ package com.robvangastel.assign.ControllerTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.robvangastel.assign.TestConfig;
+import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.security.IdToken;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -11,13 +12,12 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 /**
  * @author Rob van Gastel
- *         <p>
- *         TODO create a non-static server
- *         TODO Improve tests to include parsing response
  */
 public class PostControllerTest {
 
@@ -34,10 +34,11 @@ public class PostControllerTest {
     private static String baseUrl = new TestConfig().getBaseUrl();
     private static String jsonString = "{}";
     private static String authorizationHeader = "Bearer ";
+    private static List<Post> posts;
 
     /***
      * The beforeClass handles the authentication token to make
-     * requests to the PostController.
+     * requests to the PostController for the posts.
      */
     @BeforeClass
     public static void beforeClass() {
@@ -50,9 +51,22 @@ public class PostControllerTest {
         Response response = target.request().post(Entity.json(jsonString));
 
         try {
+
             String tokenString = response.readEntity(String.class);
             IdToken token = mapper.readValue(tokenString, IdToken.class);
             authorizationHeader += token.getToken();
+
+            client = ClientBuilder.newClient();
+            target = client.target(baseUrl + "/posts")
+                    .queryParam("start", 0)
+                    .queryParam("size", 10);
+            response = target.request()
+                    .header("Authorization", authorizationHeader)
+                    .get();
+
+            posts = response.readEntity(new GenericType<List<Post>>() {});
+
+
         } catch (Exception e) {
 
         } finally {
@@ -139,7 +153,7 @@ public class PostControllerTest {
     @Test
     public void getByIdTest1() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl + "/posts/" + 21);
+        WebTarget target = client.target(baseUrl + "/posts/" + posts.get(0).getId());
         Response response = target.request()
                 .header("Authorization", authorizationHeader)
                 .get();

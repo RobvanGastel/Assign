@@ -15,3 +15,8 @@ Now you can install the dependencies in your project:
 $ pod install
 ```
 When the dependencies are installed make sure to reopen the project with the `assign-app.xcworkspace` project file!
+
+When this will still leave you stranded with un-logical errors, try updating your pod:
+```
+$ pod update
+```

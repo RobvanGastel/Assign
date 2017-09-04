@@ -91,10 +91,15 @@ public class FirebaseController {
         return Response.ok().build();
     }
 
+    /***
+     * TODO Remove this method
+     * @return
+     * @throws Exception
+     */
     @GET
     public Response test() throws Exception {
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Reply entity = replyService.findById(30);
 
         String title = entity.getUser().getName() + " wants to help you out!";
