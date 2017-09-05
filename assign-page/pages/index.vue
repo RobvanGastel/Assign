@@ -1,8 +1,9 @@
 <template>
-  <div class="container-fluid">
+  <div>
     <navigation></navigation>
   </div>
 </template>
+
 
 <script>
 import Navigation from '../components/Navigation.vue'
@@ -21,14 +22,14 @@ export default {
   },
   head () {
     return {
-      title: 'Home',
-      titleTemplate: '%s — Assign',
+      title: 'Het middel voor een communicatieve leeromgeving',
+      titleTemplate: 'Assign – %s',
       meta: [
         { name: 'language', content: 'nl_NL' },
-        { name: 'description', content: 'Home — Assign' },
-        { property: 'og:title', content: 'Home — Assign' },
+        { name: 'description', content: 'Het middel voor een communicatieve leeromgeving' },
+        { property: 'og:title', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
         { property: 'og:site_name', content: 'assignapp.nl' },
-        { property: 'og:description', content: 'Assign app om medestudenten te helpen.' },
+        { property: 'og:description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
         { property: 'og:url', content: 'https://assignapp.nl' },
         { property: 'og:locale', content: 'nl_NL' },
         { property: 'og:type', content: 'website' },
@@ -36,14 +37,14 @@ export default {
         { property: 'og:image:type', content: 'image/jpg' },
         { property: 'og:image:width', content: '1024' },
         { property: 'og:image:height', content: '512' },
-        { name: 'twitter:title', content: 'Home — Assign' },
-        { name: 'twitter:site_name', content: 'Home — Assign' },
-        { name: 'twitter:description', content: 'Home — Assign' },
+        { name: 'twitter:title', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
+        { name: 'twitter:site_name', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
+        { name: 'twitter:description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
         { name: 'twitter:url', content: 'https://assignapp.nl' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:domain', content: 'assignapp.nl' },
         { name: 'twitter:image', content: '/share-image.jpg' },
-        { name: 'twitter:image:alt', content: 'Help jouw medestudent' },
+        { name: 'twitter:image:alt', content: 'Het middel voor een communicatieve leeromgeving' },
         { name: 'twitter:site', content: '@assignappnl' },
         { name: 'twitter:creator', content: '@assignappnl' }
       ],

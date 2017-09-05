@@ -1,11 +1,11 @@
 <template>
-  <div class="container-fluid">
+  <div>
     <post-navigation></post-navigation>
     <div v-if="post.url != null">
       <post :post="post"></post>
       <div class="footer">
         <div class="overlay"></div>
-        <a href="/" class="button-opencta">Open in de Assign App</a>
+        <nuxt-link class="btn-opencta" alt="Open in app" :to="'#appstore'">Open in de Assign App</nuxt-link>
       </div>
     </div>
     <div v-else>
@@ -60,7 +60,7 @@ export default {
   head () {
     return {
       title: 'Post',
-      titleTemplate: '%s — Assign',
+      titleTemplate: 'Assign – %s',
       link: [
         { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
       ]
