@@ -34,12 +34,25 @@ h3{
 
 /* date */
 h4{
-  font-size: 14px;
-  color: #3D3D3D;
-  font-weight: 500;
-  margin-top: 0px;
-  margin-bottom: 5px;
-  padding-top: 9px;
+  font-size: 18px;
+  color: #4A4A4A;
+  font-weight: 400;
+  margin: 0px;
+  padding-top: 17px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+img{
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+a:hover, a:hover h4, a:hover img{
+  text-decoration: none;
+  opacity: 0.8;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* date */
@@ -73,7 +86,7 @@ html {
 }
 
 body{
-  background-color: #FAFAFA;
+  background-color: rgb(245, 245, 245);
 }
 
 .post{
@@ -93,20 +106,24 @@ body{
   height: 56px;
 }
 
-.button-info, .button-info:hover, .button-info:active, .button-info:focus{
+.button-navcta, .button-navcta:hover, .button-navcta:active, .button-navcta:focus{
   position: absolute;
   right: 15px;
   float: right;
-  top: 14px;
+  top: 10px;
   background-color: #FF7F28;
   color: #fff;
-  padding: 4px 17px;
-  border-radius: 32px;
-  font-weight: 400;
+  padding: 8px 17px;
   letter-spacing: 0.5px;
   text-decoration: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px 0 rgba(255,127,40,0.30);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 1px;
 }
 
 .footer{
@@ -123,13 +140,13 @@ body{
   width: 100vw;
   z-index: -1;
   margin-top: -30px;
-  background: -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,1)); /*Safari 5.1-6*/
-  background: -o-linear-gradient(bottom,rgba(250,250,250,0),rgba(250,250,250,1)); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(bottom,rgba(250,250,250,0),rgba(250,250,250,1)); /*Fx 3.6-15*/
-  background: linear-gradient(to bottom, rgba(250,250,250,0),rgba(250,250,250,1)); /*Standard*/
+  background: -webkit-linear-gradient(top,rgba(245,245,245,0),rgba(245,245,245,1)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(bottom,rgba(245,245,245,0),rgba(245,245,245,1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(bottom,rgba(245,245,245,0),rgba(245,245,245,1)); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom, rgba(245,245,245,0),rgba(245,245,245,1)); /*Standard*/
 }
 
-.button-open, .button-open:hover, .button-open:active, .button-open:focus{
+.button-opencta, .button-opencta:hover, .button-opencta:active, .button-opencta:focus{
   background-color: #FF7F28;
   color: #fff;
   padding: 10px 24px;
@@ -138,14 +155,15 @@ body{
   font-weight: 400;
   letter-spacing: 0.5px;
   text-decoration: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px 0 rgba(255,127,40,0.30);
 }
 
-.button-open:hover, .button-open:active, .button-open:focus, .button-install:hover, .button-install:active, .button-install:focus{
-  opacity: 0.7;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+.button-opencta:hover, .button-opencta:active, .button-opencta:focus, .button-navcta:hover, .button-navcta:active, .button-navcta:focus{
+  opacity: 0.8;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .profile{

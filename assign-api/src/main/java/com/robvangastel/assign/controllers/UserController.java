@@ -65,9 +65,11 @@ public class UserController {
     @Secured({Role.USER})
     public Response getById(@PathParam("id") long id) {
         User user = userService.findById(id);
+
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(user).build();
     }
 
@@ -116,9 +118,11 @@ public class UserController {
     @Secured({Role.USER})
     public Response getByEmail(@QueryParam("email") String email) {
         User user = userService.findByEmail(email);
+
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(user).build();
     }
 
@@ -141,7 +145,7 @@ public class UserController {
     }
 
     /***
-     * TODO Implement
+     * TODO Implement uniform update method
      *
      * Update the authenticated user
      * @param location
@@ -153,14 +157,15 @@ public class UserController {
      */
     @PUT
     @Secured({Role.USER})
-    public Response update(@QueryParam("location") String location,
-                           @QueryParam("websiteURL") String websiteURL,
-                           @QueryParam("bio") String bio) throws Exception {
-        //TODO Update function
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+    public Response update(User user) throws Exception {
+        User userAuth = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
+
+
         return Response.noContent().build();
     }
 

@@ -32,13 +32,11 @@ import java.util.regex.Pattern;
  * @author Dave Syer
  */
 public class BCryptPasswordEncoder implements PasswordEncoder {
+    private final Logger logger = Logger.getLogger(BCryptPasswordEncoder.class.getSimpleName());
+    private final int strength;
+    private final SecureRandom random;
     private Pattern BCRYPT_PATTERN = Pattern
             .compile("\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
-    private final Logger logger = Logger.getLogger(BCryptPasswordEncoder.class.getSimpleName());
-
-    private final int strength;
-
-    private final SecureRandom random;
 
     public BCryptPasswordEncoder() {
         this(-1);
