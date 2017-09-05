@@ -4,6 +4,7 @@ import com.robvangastel.assign.CodeGenerator;
 import com.robvangastel.assign.dao.IPostDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.PostException;
 import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * TODO Test if on updateContent tags update
  * @author Rob van Gastel
  */
 
@@ -51,8 +53,19 @@ public class PostService implements Serializable {
         postDao.deleteById(id);
     }
 
-    public void update(Post entity) {
-        postDao.update(entity);
+    public void updateContent(Post entity, User user) {
+        Post post = postDao.findById(entity.getId());
+
+        // Check if post exists, is not set to done yet
+        // and a valid user is updating the post.
+        if(post == null || post.isDone() == true
+                || user.getId() != post.getUser().getId()) {
+            throw new PostException("Invalid update request.");
+        }
+
+        post.setTitle(entity.getTitle());
+        post.setDescription(entity.getDescription());
+        postDao.update(post);
     }
 
     public void create(Post entity) throws Exception {

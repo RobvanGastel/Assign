@@ -14,6 +14,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
 
     // The API & Auth service
     var apiService: ApiService?
@@ -23,7 +24,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Hides the keyboard when tapping on the screen
         self.hideKeyboardWhenTappedAround()
-
+        
         // Init of the services
         apiService = ApiService()
         authService = AuthService()
@@ -41,6 +42,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     /// Login action from the view.
     @IBAction func login(_ sender: Any) {
+        // Set loading indicator true
+        loginButton.loadingIndicator(show: true, text: "")
+        
         authenticate(email: email.text!, password: password.text!)
     }
     
@@ -73,6 +77,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
                     
+                    
+                    self.loginButton.loadingIndicator(show: false, text: "Login")
                     
                     // Redirect to overview
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
