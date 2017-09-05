@@ -80,6 +80,7 @@ public class FirebaseControllerTest {
                 .post(Entity.json(jsonString));
 
         try {
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();
@@ -108,6 +109,7 @@ public class FirebaseControllerTest {
                 .delete();
 
         try {
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
         } finally {
             response.close();

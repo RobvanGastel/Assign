@@ -43,9 +43,11 @@ public class ReplyController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         Reply reply = replyService.findById(id);
+
         if (reply == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(reply).build();
     }
 

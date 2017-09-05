@@ -9,7 +9,6 @@ import com.robvangastel.assign.exception.NotificationException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -24,16 +23,6 @@ public class NotificationDaoImpl extends AbstractDao<Notification> implements IN
     public NotificationDaoImpl() {
         super();
         setClassObj(Notification.class);
-    }
-
-    @Override
-    public List<Notification> findByUser(long id, int start, int size) {
-        Query q = entityManager.createQuery(
-                "SELECT p FROM Notification n, User u WHERE u.id = n.user.id AND u.id = :id ORDER BY n.dateCreated DESC")
-                .setFirstResult(start)
-                .setMaxResults(size)
-                .setParameter("id", id);
-        return q.getResultList();
     }
 
     @Override

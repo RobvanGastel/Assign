@@ -4,6 +4,7 @@ import com.robvangastel.assign.dao.IReplyDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.ReplyException;
 import com.robvangastel.assign.firebase.FirebaseService;
 import com.robvangastel.assign.firebase.domain.Data;
 import com.robvangastel.assign.firebase.domain.Notification;
@@ -42,21 +43,28 @@ public class ReplyService implements Serializable {
         return replyDao.findByPost(id, start, size);
     }
 
-    public void create(Reply entity) {
+    public void create(User user, Post post) {
 
-        // Send Notification on Reply
-        String title = entity.getUser().getName() + " wants to help you out!";
-        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
+        // Check if he already replied to the post
+        if (!replyDao.DidUserReply(user, post)) {
 
-        Payload payload = new Payload(
-                new Notification(title, body),
-                new Data(true),
-                entity.getPost().getUser()
-                        .getFirebase().getNotificationKey());
+            // Send Notification on Reply
+            String title = user.getName() + " wants to help you out!";
+            String body = user.getName() + " offers to help you out with " + post.getTitle();
 
-        firebaseService.sendNotification(payload, entity.getPost().getUser().getId());
+            Payload payload = new Payload(
+                    new Notification(title, body),
+                    new Data(true),
+                    post.getUser()
+                            .getFirebase().getNotificationKey());
 
-        replyDao.create(entity);
+            firebaseService.sendNotification(payload, post.getUser().getId());
+
+            replyDao.create(new Reply(user, post));
+
+        } else {
+            throw new ReplyException("User already replied to the post.");
+        }
     }
 
     public Reply setHelped(Reply entity, boolean done) {

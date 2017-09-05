@@ -29,6 +29,14 @@ public interface IPostDao {
     Post findByUrl(String url);
 
     /***
+     * Find out if the url is used
+     * @param url
+     * @return True when a Post is found
+     * False when a Post isn't found
+     */
+    Boolean isUrlUsed(String url);
+
+    /***
      * Find Post(s) by query
      * @param query
      * @param start of the list
