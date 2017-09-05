@@ -176,10 +176,10 @@ nav ul li{
   height: 56px;
 }
 
-.btn-navcta, .btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus{
+.btn-navcta{
   right: 15px;
   float: right;
-  margin-top: 10px;
+  margin: 10px 0px 0px 15px;
   background-color: #FF7F28;
   color: #fff;
   padding: 8px 17px;
@@ -193,6 +193,11 @@ nav ul li{
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 1px;
+}
+
+.btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus{
+  background-color: #FF7F28;
+  color: #fff;
 }
 
 
@@ -238,4 +243,40 @@ nav ul li{
   opacity: 0.8;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+
+
+/*
+ * Tablet 480px
+ */
+@media screen and (min-width: 480px) {
+  .brand-nav{
+    background-color: #fff;
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 15px;
+    height: 70px;
+    /*In masthead
+    height: 86px;
+    padding-top: 8px;
+    border-bottom: none;*/
+  }
+  .logo{
+    margin-top: 17px;
+    height: 36px;
+    width: 36px;
+  }
+  h4.logo-text{
+    padding-top: 22px;
+    font-size: 22px;
+  }
+  .lnk{
+    padding: 23px 15px;
+  }
+  .btn-navcta{
+    font-size: 14px;
+    padding: 12px 26px;
+    margin: 13px 0 0 15px;
+    border-radius: 100px;
+  }
 }
