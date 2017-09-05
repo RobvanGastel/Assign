@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <post-navigation></post-navigation>
     <div v-if="post.url != null">
       <post :post="post"></post>
