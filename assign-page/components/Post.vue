@@ -16,12 +16,12 @@ export default {
   head () {
     return {
       title: this.post.title,
-      titleTemplate: '%s — Assign',
+      titleTemplate: 'Assign – %s',
       meta: [
         { name: 'description', content: this.post.name + ' vraagt om hulp bij ' + this.post.title },
         { name: 'language', content: 'nl_NL' },
-        { property: 'og:title', content: this.post.title + '— Assign' },
-        { property: 'og:site_name', content: this.post.title + '— Assign' },
+        { property: 'og:title', content: 'Assign – ' + this.post.title },
+        { property: 'og:site_name', content: 'Assign – ' + this.post.title },
         { property: 'og:description', content: this.post.name + ' vraagt om hulp bij ' + this.post.title },
         { property: 'og:url', content: 'https://assignapp.nl' },
         { property: 'og:locale', content: 'nl_NL' },
@@ -30,14 +30,14 @@ export default {
         { property: 'og:image:type', content: 'image/jpg' },
         { property: 'og:image:width', content: '1024' },
         { property: 'og:image:height', content: '512' },
-        { name: 'twitter:title', content: this.post.title + '— Assign' },
-        { name: 'twitter:site_name', content: this.post.title + '— Assign' },
+        { name: 'twitter:title', content: 'Assign – ' + this.post.title },
+        { name: 'twitter:site_name', content: 'Assign – ' + this.post.title },
         { name: 'twitter:description', content: this.post.name + ' vraagt om hulp bij ' + this.post.title },
         { name: 'twitter:url', content: 'https://assignapp.nl' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:domain', content: 'assignapp.nl' },
         { name: 'twitter:image', content: '/share-image.jpg' },
-        { name: 'twitter:image:alt', content: 'Help jouw medestudent' },
+        { name: 'twitter:image:alt', content: 'Het middel voor een communicatieve leeromgeving' },
         { name: 'twitter:site', content: '@assignappnl' },
         { name: 'twitter:creator', content: '@assignappnl' }
       ]
