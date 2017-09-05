@@ -32,6 +32,9 @@ class AddPostController: UIViewController, UITextViewDelegate {
         // Initializes the delegate
         descriptionText.delegate = self
         
+        // Open up keyboard on load
+        titleField.becomeFirstResponder()
+        
         // Layout settings
         view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -94,7 +97,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
                 if(success == true) {
                     // Navigate back to the previous view
                     self.delegate?.refreshPosts()
-                    self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
                     
                     // TODO Add SUCCESS message
                 } else {
@@ -106,5 +109,9 @@ class AddPostController: UIViewController, UITextViewDelegate {
         }
     }
     
-    
+    @IBAction func backClick(_ sender: Any) {
+        view.endEditing(true)
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
