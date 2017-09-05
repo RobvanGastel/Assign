@@ -173,10 +173,18 @@ public class PostController {
         return Response.ok().build();
     }
 
-//    @PUT
-//    public Response update(@FormParam("post") Post post) {
-//
-//    }
+    @PUT
+    public Response update(Post post) {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        if (post == null) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
+        postService.updateContent(post, user);
+
+        return Response.ok().build();
+    }
 
     /***
      * Set a post of the authenticated user to done
