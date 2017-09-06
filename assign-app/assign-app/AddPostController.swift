@@ -110,8 +110,8 @@ class AddPostController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func backClick(_ sender: Any) {
-        view.endEditing(true)
         
+        view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
 }
