@@ -348,4 +348,52 @@ class ApiService {
             }
         }
     }
+    
+    /// This function sets a post to done.
+    @discardableResult
+    func setDone(id: Int,
+                        completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .put,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: set done post failed.")
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function deletes a Post.
+    @discardableResult
+    func deletePost(id: Int,
+                 completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .delete,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: delete post failed.")
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
 }

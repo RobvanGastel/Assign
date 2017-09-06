@@ -13,7 +13,7 @@
         <!--Post Detail Controller-->
         <scene sceneID="uxe-3U-2Hg">
             <objects>
-                <viewController storyboardIdentifier="ProfileController" hidesBottomBarWhenPushed="YES" id="yny-p8-2xX" customClass="PostDetailController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostDetailController" hidesBottomBarWhenPushed="YES" id="yny-p8-2xX" customClass="PostDetailController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tcs-Gf-PlK"/>
                         <viewControllerLayoutGuide type="bottom" id="qH2-ss-IiA"/>
@@ -160,6 +160,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CzT-p8-pD3">
+                        <barButtonItem key="leftBarButtonItem" image="icon-cross.png" id="VtG-EY-ZDE">
+                            <connections>
+                                <action selector="backAction:" destination="yny-p8-2xX" id="lhk-Di-y9T"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="icon-share.png" id="4Gy-8A-lTB">
                             <connections>
                                 <action selector="shareAction:" destination="yny-p8-2xX" id="MbI-qc-lV5"/>
@@ -488,9 +493,6 @@
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="yny-p8-2xX" kind="show" identifier="PostDetailSegue" id="HVH-jN-rTZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1591,7 +1593,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBf-vL-4uU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="-1327"/>
+            <point key="canvasLocation" x="2806" y="-1327"/>
         </scene>
         <!--Settings Navigation-->
         <scene sceneID="Vtq-yP-utR">
@@ -1609,7 +1611,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oF-ZO-o5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="-1327"/>
+            <point key="canvasLocation" x="1893" y="-1327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="95d-1H-jLV">
@@ -1629,6 +1631,107 @@
             </objects>
             <point key="canvasLocation" x="2805.7971014492755" y="-569.02173913043487"/>
         </scene>
+        <!--Own Post Detail Controller-->
+        <scene sceneID="Uvs-Q0-W2M">
+            <objects>
+                <viewController storyboardIdentifier="OwnPostDetailController" hidesBottomBarWhenPushed="YES" id="tgV-B6-jGp" customClass="OwnPostDetailController" customModule="assign_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pvg-Fq-m0k"/>
+                        <viewControllerLayoutGuide type="bottom" id="yy8-k9-qaj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z2K-QV-uc2">
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVm-zw-Qbl" customClass="UIOverviewDetail" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="14" y="5" width="386" height="262"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkY-tQ-XCa" customClass="UITitleDetail" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="87" width="346" height="24"/>
+                                        <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWe-gQ-2cy" customClass="UIProfileDetail" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="9S7-OP-eV3"/>
+                                            <constraint firstAttribute="width" constant="48" id="pFI-7R-baQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QQ-WT-zZk" customClass="UIDescriptionDetail" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="129" width="346" height="19"/>
+                                        <color key="tintColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="16"/>
+                                        <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cby-gT-kVr" customClass="UINameDetail" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="82" y="20" width="284" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <color key="tintColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Name">
+                                            <color key="titleColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75G-qo-wBD" customClass="UIDateDetail" customModule="assign_app" customModuleProvider="target">
+                                        <rect key="frame" x="82" y="47" width="284" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <color key="textColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bWe-gQ-2cy" firstAttribute="top" secondItem="aVm-zw-Qbl" secondAttribute="top" constant="20" id="9hV-mQ-e2D"/>
+                                    <constraint firstItem="6QQ-WT-zZk" firstAttribute="centerX" secondItem="aVm-zw-Qbl" secondAttribute="centerX" id="IDM-ck-pbi"/>
+                                    <constraint firstItem="bWe-gQ-2cy" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" constant="20" id="ILg-N7-ge9"/>
+                                    <constraint firstItem="kkY-tQ-XCa" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" constant="20" id="Jom-9P-u7y"/>
+                                    <constraint firstItem="kkY-tQ-XCa" firstAttribute="centerX" secondItem="aVm-zw-Qbl" secondAttribute="centerX" id="ZqZ-1a-kWv"/>
+                                    <constraint firstItem="kkY-tQ-XCa" firstAttribute="top" secondItem="bWe-gQ-2cy" secondAttribute="bottom" constant="19" id="bXn-iw-CZv"/>
+                                    <constraint firstItem="6QQ-WT-zZk" firstAttribute="top" secondItem="kkY-tQ-XCa" secondAttribute="bottom" constant="18" id="gyY-UV-HfI"/>
+                                    <constraint firstItem="6QQ-WT-zZk" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" constant="20" id="qA1-Os-oaq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yy8-k9-qaj" firstAttribute="top" secondItem="aVm-zw-Qbl" secondAttribute="bottom" constant="405" id="LPP-dP-CZl"/>
+                            <constraint firstItem="aVm-zw-Qbl" firstAttribute="centerX" secondItem="Z2K-QV-uc2" secondAttribute="centerX" id="VFC-L0-ExG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aVm-zw-Qbl" secondAttribute="trailing" constant="-6" id="YdO-PQ-bVO"/>
+                            <constraint firstItem="aVm-zw-Qbl" firstAttribute="leading" secondItem="Z2K-QV-uc2" secondAttribute="leadingMargin" constant="-6" id="etP-Es-HNL"/>
+                            <constraint firstItem="aVm-zw-Qbl" firstAttribute="top" secondItem="pvg-Fq-m0k" secondAttribute="bottom" constant="5" id="xiP-BG-Olq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wBg-27-DHF">
+                        <barButtonItem key="leftBarButtonItem" image="icon-cross.png" id="2cT-HZ-fEr">
+                            <connections>
+                                <action selector="backAction:" destination="tgV-B6-jGp" id="Mk3-00-nsv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="icon-settings.png" id="L10-wk-nv7">
+                            <connections>
+                                <action selector="settingsAction:" destination="tgV-B6-jGp" id="wpd-QX-Gv6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="75G-qo-wBD" id="0ve-Ik-3YA"/>
+                        <outlet property="nameButton" destination="Cby-gT-kVr" id="H2Y-AU-PNj"/>
+                        <outlet property="profileImage" destination="bWe-gQ-2cy" id="zRX-HX-tkU"/>
+                        <outlet property="titleLabel" destination="6QQ-WT-zZk" id="xaO-pc-ajs"/>
+                        <outlet property="userLabel" destination="kkY-tQ-XCa" id="S54-4y-5ni"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZ2-fC-QLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954" y="232"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon-add.png" width="20" height="20"/>
@@ -1639,11 +1742,9 @@
         <image name="icon-cross.png" width="18" height="18"/>
         <image name="icon-search.png" width="20" height="20"/>
         <image name="icon-settings-white.png" width="22" height="22"/>
+        <image name="icon-settings.png" width="22" height="22"/>
         <image name="icon-share.png" width="18" height="20"/>
         <image name="logo-trans.png" width="88" height="88"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="E9m-bu-7yT"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

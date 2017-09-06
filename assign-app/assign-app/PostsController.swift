@@ -97,6 +97,22 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         return cell
     }
     
+    /// Segue for Post Detail View
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if post.user!.id != Storage.getUser().id {
+            let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+            vc.currentPost = post
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+            vc.currentPost = post
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     /// Add data to the segue before triggering.
     ///
     /// TODO Modify so it works with push and pop

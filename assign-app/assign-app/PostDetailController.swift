@@ -34,15 +34,6 @@ class PostDetailController: UIViewController {
         
         // Init API service
         apiService = ApiService()
-
-        apiService?.checkReplied(id: (currentPost?.id)!) { response in
-            self.replied = response
-            
-            if self.replied! {
-                self.helpButton.isHidden = true
-                self.helpButtonBar.isHidden = true
-            }
-        }
         
         self.initializePost()
     }
@@ -130,6 +121,10 @@ class PostDetailController: UIViewController {
                 // Error response
             }
         }
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
