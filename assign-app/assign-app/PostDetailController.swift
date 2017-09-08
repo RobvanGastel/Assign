@@ -112,8 +112,8 @@ class PostDetailController: UIViewController {
         apiService?.addReply(id: (self.currentPost?.id)!) { success in
             
             if success {
-                self.helpButton.isHidden = false
-                self.helpButtonBar.isHidden = false
+                self.helpButton.isHidden = true
+                self.helpButtonBar.isHidden = true
                 
                 // Handle button clicked
                 
