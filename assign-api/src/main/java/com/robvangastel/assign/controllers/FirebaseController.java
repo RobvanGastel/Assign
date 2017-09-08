@@ -111,7 +111,7 @@ public class FirebaseController {
                 "APA91bGWJIPekuoEHIHlQTlcl2Xdh8o2vWEtHtKK3F8OB4cmbuGqMAF869ok05Bi4EHi0AbGioueDGTmrNQU-Ij8y3pCzlIsRxFbxgXWburz61GX55u95Bgzs6l-cxNrISo4CNrQ4_xU");
 
         // TODO Check for null value when retrieving Key
-        firebaseService.sendNotification(payload, user.getId());
+        firebaseService.sendNotification(payload, user, user);
 
         return Response.ok().build();
     }
