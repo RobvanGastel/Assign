@@ -58,7 +58,7 @@ public class ReplyService implements Serializable {
                     post.getUser()
                             .getFirebase().getNotificationKey());
 
-            firebaseService.sendNotification(payload, post.getUser().getId());
+            firebaseService.sendNotification(payload, post.getUser(), user);
 
             replyDao.create(new Reply(user, post));
 
@@ -79,7 +79,7 @@ public class ReplyService implements Serializable {
                 entity.getPost().getUser()
                         .getFirebase().getNotificationKey());
 
-        firebaseService.sendNotification(payload, entity.getPost().getUser().getId());
+        firebaseService.sendNotification(payload, entity.getPost().getUser(), entity.getUser());
 
         entity.setHelped(done);
         return replyDao.update(entity);
