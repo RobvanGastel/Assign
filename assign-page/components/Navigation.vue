@@ -5,8 +5,8 @@
 				<div class="row">
 					<div class="col-xs-12 col-md-10 col-md-offset-1">
 
-						<nuxt-link :to="'/'">
-							<img class="logo" alt="Assign logo" src="/logo.png">
+						<nuxt-link :to="'/'" class="logo">
+							<img class="logo-image" alt="Assign logo" src="/logo.png">
 							<h4 class="logo-text">Assign</h4>
 						</nuxt-link>
 						<div class="headway"></div>

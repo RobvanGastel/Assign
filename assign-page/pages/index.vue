@@ -1,15 +1,15 @@
 <template>
   <div class="container-fluid">
-    <navigation></navigation>
+    <masthead></masthead>
   </div>
 </template>
 
 
 <script>
-import Navigation from '../components/Navigation.vue'
+import Masthead from '../components/Masthead.vue'
 export default {
   components: {
-    Navigation
+    Masthead
   },
   data () {
     return {
