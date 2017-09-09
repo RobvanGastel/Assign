@@ -54,7 +54,7 @@ public class ReplyService implements Serializable {
 
             Payload payload = new Payload(
                     new Notification(title, body),
-                    new Data(true),
+                    new Data(post.getId()),
                     post.getUser()
                             .getFirebase().getNotificationKey());
 
@@ -75,7 +75,7 @@ public class ReplyService implements Serializable {
 
         Payload payload = new Payload(
                 new Notification(title, body),
-                new Data(true),
+                new Data(entity.getPost().getId()),
                 entity.getPost().getUser()
                         .getFirebase().getNotificationKey());
 

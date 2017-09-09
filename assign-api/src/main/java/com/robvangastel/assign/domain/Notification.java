@@ -30,29 +30,27 @@ public class Notification implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private User sender;
+//    @OneToOne(cascade = CascadeType.PERSIST)
+//    private User sender;
 
     @Column(nullable = false)
     private String title;
 
     private String body;
     private String icon;
+
     private Boolean read;
+    private Long postId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Timestamp dateCreated;
 
-    public Notification(User user, User sender, String title, String body) {
+    public Notification(User user, User sender, Long postId, String title, String body) {
         this.user = user;
+//        this.sender = sender;
+        this.postId = postId;
         this.title = title;
         this.body = body;
-        this.read = false;
-    }
-
-    public Notification(User user, String title) {
-        this.user = user;
-        this.title = title;
         this.read = false;
     }
 
