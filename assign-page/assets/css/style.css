@@ -181,14 +181,17 @@ nav ul li{
   float: left;
 }
 
+nav ul li .lnk {
+  float: left;
+  padding: 16px 15px;
+}
+
 .lnk{
   font-size: 18px;
   line-height: 22px;
   font-weight: 600;
   color: #4A4A4A;
   opacity: .85;
-  padding: 16px 15px;
-  float: left;
   transition: all .2s ease;
 }
 
@@ -226,7 +229,7 @@ nav ul li{
   letter-spacing: 1px;
 }
 
-.btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus{
+.btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus {
   background-color: #FF7F28;
   color: #fff;
   text-decoration: none;
@@ -237,9 +240,9 @@ nav ul li{
 
 
 /*
- * Footer
+ * Footer Post
  */
-.footer{
+.footer {
   position: fixed;
   left: 0;
   bottom: 26px;
@@ -280,6 +283,38 @@ nav ul li{
 .btn-opencta:active, .btn-opencta:focus, .btn-navcta:active, .btn-navcta:focus{
   background-color: #EE6D15;
   text-decoration: none;
+}
+
+
+
+
+/*
+ * Footer Regular
+ */
+footer {
+  padding: 60px 0;
+  background-color: white;
+}
+
+footer ul {
+  margin: 10px 0;
+  padding: 0;
+}
+
+footer ul li {
+  list-style: none;
+  padding: 7px 0;
+}
+
+footer ul li .lnk {
+  list-style: none;
+  padding: 6px 0;
+}
+
+footer b {
+  font-weight: 700;
+  font-size: 17px;
+  color: #FF7F28;
 }
 
 
@@ -356,11 +391,14 @@ nav ul li{
     height: 70px;
   }
 
-  .masthead .brand-nav{
+  .brand-nav.masthead-nav {
     background-color: transparent;
     height: 86px;
-    padding-top: 8px;
+    padding: 8px 0;
     border-bottom: none;
+    background-color: white;
+    margin: 0;
+
   }
 
   .logo-image{
@@ -374,7 +412,7 @@ nav ul li{
     font-size: 22px;
   }
 
-  .lnk{
+  .brand-nav .lnk{
     padding: 23px 15px;
   }
 
@@ -385,3 +423,33 @@ nav ul li{
     border-radius: 100px;
   }
 }
+
+
+
+
+/*
+ * Masthead
+ */
+ .masthead {
+   padding: 80px 0;
+   background-color: white;
+   border-bottom: 1px solid #e2e2e2;
+ }
+
+
+
+/*
+ * Steps
+ */
+ .steps {
+   padding: 50px;
+   background-color: white;
+ }
+
+ .step-1 {
+   padding-top: 80px;
+ }
+
+ .step-2 {
+   padding-bottom: 80px;
+ }

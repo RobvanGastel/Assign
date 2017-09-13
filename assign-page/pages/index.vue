@@ -1,15 +1,21 @@
 <template>
   <div class="container-fluid">
     <masthead></masthead>
+    <steps></steps>
+    <footer-page></footer-page>
   </div>
 </template>
 
 
 <script>
 import Masthead from '../components/Masthead.vue'
+import Steps from '../components/Steps.vue'
+import FooterPage from '../components/FooterPage.vue'
 export default {
   components: {
-    Masthead
+    Masthead,
+    Steps,
+    FooterPage
   },
   data () {
     return {
