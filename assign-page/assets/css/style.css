@@ -5,8 +5,8 @@
 
 /* title */
 h1{
-  font-size: 40px;
-  line-height: 1.1;
+  font-size: 32px;
+  line-height: 1.2;
   font-weight: 700;
   color: #4A4A4A;
 }
@@ -23,7 +23,7 @@ h2{
 
 /* date */
 h3{
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.6;
   font-weight: 400;
   color: #5E5E5E;
@@ -32,7 +32,7 @@ h3{
 }
 
 h4{
-  font-size: 16px;
+  font-size: 14px;
   color: #A4A4A4;
   font-weight: 400;
 }
@@ -95,6 +95,12 @@ p{
   margin-bottom: 2px;
 }
 
+.post p{
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 
 
 
@@ -120,6 +126,7 @@ body{
   padding: 20px;
   max-width: 400px;
   margin: 0 auto;
+  margin-top: 15px;
   margin-bottom: 74px;
 }
 
@@ -168,7 +175,8 @@ h4.logo-text{
  * Nav
  */
 nav{
-  float: right;
+  right: 15px;
+  position: absolute;
 }
 
 nav ul{
@@ -206,14 +214,13 @@ nav ul li .lnk {
 .brand-nav{
   background-color: #fff;
   border-bottom: 1px solid #E8E8E8;
-  margin-bottom: 15px;
   height: 56px;
 }
 
 .btn-navcta{
   right: 15px;
   float: right;
-  margin: 10px 0px 0px 15px;
+  margin: 10px 0;
   background-color: #FF7F28;
   color: #fff;
   padding: 8px 17px;
@@ -292,18 +299,24 @@ nav ul li .lnk {
  * Footer Regular
  */
 footer {
-  padding: 60px 0;
+  padding: 40px 0;
   background-color: white;
 }
 
+footer .footer-section {
+  margin-top: 30px;
+}
+
 footer ul {
-  margin: 10px 0;
+  margin: 0;
   padding: 0;
 }
 
 footer ul li {
   list-style: none;
   padding: 7px 0;
+  float: left;
+  margin-right: 30px;
 }
 
 footer ul li .lnk {
@@ -334,7 +347,8 @@ footer b {
    transition: all .16s ease;
  }
 
-.masthead .btn{
+.masthead .btn,
+.download .btn{
   margin: 0 8px;
 }
 
@@ -384,6 +398,12 @@ footer b {
  * Tablet 480px
  */
 @media screen and (min-width: 480px) {
+  nav{
+    float: right;
+    right: 0;
+    position: initial;
+  }
+
   .brand-nav{
     background-color: #fff;
     border-bottom: 1px solid #E8E8E8;
@@ -422,6 +442,62 @@ footer b {
     margin: 13px 0 0 15px;
     border-radius: 100px;
   }
+
+  section.masthead,
+  section.download {
+    padding: 60px 0;
+  }
+
+  h4{
+    font-size: 16px;
+  }
+
+  /* Type */
+  h1{
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  h3{
+    font-size: 22px;
+  }
+
+  /*
+   * Small Computer 768px
+   */
+  @media screen and (min-width: 768px) {
+    /* Footer */
+    footer {
+      padding: 60px 0;
+    }
+
+    footer ul {
+      margin: 10px 0;
+    }
+
+    footer ul li {
+      margin-right: 0;
+      float: none;
+    }
+
+    .component-steps .step h5 {
+      margin-top: 10px;
+    }
+
+    /*
+     * Computer 992px
+     */
+    @media screen and (min-width: 992px) {
+      section.masthead,
+      section.download {
+        padding: 80px 0;
+      }
+
+      .component-steps .step h5 {
+        margin-top: 30px;
+      }
+    }
+  }
 }
 
 
@@ -431,25 +507,42 @@ footer b {
  * Masthead
  */
  .masthead {
-   padding: 80px 0;
+   padding: 40px 0;
    background-color: white;
    border-bottom: 1px solid #e2e2e2;
  }
 
 
-
 /*
- * Steps
+ * Download
  */
- .steps {
-   padding: 50px;
+ .download {
+   padding: 40px 0;
    background-color: white;
  }
 
- .step-1 {
+
+/*
+ * step
+ */
+ .step {
+   padding: 40px 0;
+   background-color: white;
+ }
+
+ .step h5 {
+   margin-top: 30px;
+ }
+
+ .step-first {
    padding-top: 80px;
  }
 
- .step-2 {
+ .step-last {
    padding-bottom: 80px;
  }
+
+.step-illustration {
+  width: 100%;
+  max-width: 360px;
+}
