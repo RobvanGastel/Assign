@@ -5,7 +5,7 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-xs-12 col-sm-4 col-md-2 col-md-offset-1 footer-section">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 col-lg-offset-1 footer-section">
 						<b>Hulp</b>
 						<ul>
 							<li><nuxt-link class="lnk" alt="Contact" :to="'/contact'">Contact</nuxt-link></li>
@@ -15,7 +15,7 @@
 						</ul>
 					</div>
 
-					<div class="col-xs-12 col-sm-4 col-md-2 footer-section">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 footer-section">
 						<b>Functies</b>
 						<ul>
 							<li><nuxt-link class="lnk" alt="Contact" :to="'/contact'">Bellen</nuxt-link></li>
@@ -25,7 +25,7 @@
 						</ul>
 					</div>
 
-					<div class="col-xs-12 col-sm-4 col-md-2 footer-section">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 footer-section">
 						<b>Legal</b>
 						<ul>
 							<li><nuxt-link class="lnk" alt="Contact" :to="'/contact'">Voorwaarden</nuxt-link></li>
