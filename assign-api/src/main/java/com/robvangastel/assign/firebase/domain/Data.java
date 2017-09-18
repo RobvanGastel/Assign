@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 public class Data {
 
     // TODO Implement Data
-    private boolean newNotification;
+    private Long postId;
 }
