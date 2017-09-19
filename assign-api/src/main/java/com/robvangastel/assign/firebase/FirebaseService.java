@@ -275,5 +275,8 @@ public class FirebaseService implements Serializable {
                         payload.getData().getPostId(),
                         payload.getNotification().getTitle(),
                         payload.getNotification().getBody()));
+
+
+        LOG.info("Notification created for: " + receiver.getName());
     }
 }
