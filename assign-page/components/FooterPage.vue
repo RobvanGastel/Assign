@@ -29,8 +29,8 @@
 						<b>Legal</b>
 						<ul>
 							<li><nuxt-link class="lnk" alt="Contact" :to="'/#contact'">Voorwaarden</nuxt-link></li>
-							<li><nuxt-link class="lnk" alt="Twitter" :to="'https://twitter.com/assignappnl'">Privacy</nuxt-link></li>
-							<li><nuxt-link class="lnk" alt="Vragen" :to="'mailto:assignapp.dev@gmail.com'">Pers</nuxt-link></li>
+							<li><a class="lnk" alt="Twitter" target="_blank" href="https://twitter.com/assignappnl">Privacy</a></li>
+							<li><a class="lnk" alt="Vragen" href="mailto:assignapp.dev@gmail.com">Pers</a></li>
 							<li><nuxt-link class="lnk" alt="Vragen" :to="'/#faq'">Release Notes</nuxt-link></li>
 						</ul>
 					</div>
