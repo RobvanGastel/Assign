@@ -13,9 +13,9 @@
 					<nav>
 						<ul>
 							<li><nuxt-link class="lnk hidden-xs hidden-sm" alt="Download" :to="'#appstore'">Download</nuxt-link></li>
-							<li><nuxt-link class="lnk hidden-xs hidden-sm" alt="Contact" :to="'/contact'">Contact</nuxt-link></li>
-							<li><nuxt-link class="lnk hidden-xs hidden-sm" alt="Vragen" :to="'/faq'">Vragen</nuxt-link></li>
-							<li class="dropdown-toggle hidden-xs hidden-sm"><nuxt-link class="lnk dropdown-toggle" alt="Functies" :to="'/functies'">Functies</nuxt-link>
+							<li><nuxt-link class="lnk hidden-xs hidden-sm" alt="Contact" :to="'/#contact'">Contact</nuxt-link></li>
+							<li><nuxt-link class="lnk hidden-xs hidden-sm" alt="Vragen" :to="'/#faq'">Vragen</nuxt-link></li>
+							<li class="dropdown-toggle hidden-xs hidden-sm"><nuxt-link class="lnk dropdown-toggle" alt="Functies" :to="'/#functies'">Functies</nuxt-link>
 								<ul class="dropdown-menu">
 									<li><nuxt-link class="lnk lnk-dropdown" alt="Functie1" :to="'/functies#functie1'">Functie1</nuxt-link></li>
 									<li><nuxt-link class="lnk lnk-dropdown" alt="Functie2" :to="'/functies#functie2'">Functie2</nuxt-link></li>
