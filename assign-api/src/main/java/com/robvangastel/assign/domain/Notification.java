@@ -64,5 +64,4 @@ public class Notification implements Serializable {
     public void beforePersist() {
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
-
 }
