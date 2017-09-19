@@ -1,15 +1,30 @@
 <template>
   <div class="container-fluid">
     <masthead></masthead>
+    <steps></steps>
+    <features></features>
+    <download></download>
+    <banner></banner>
+    <footer-page></footer-page>
   </div>
 </template>
 
 
 <script>
 import Masthead from '../components/Masthead.vue'
+import Steps from '../components/Steps.vue'
+import Features from '../components/Features.vue'
+import Download from '../components/Download.vue'
+import Banner from '../components/Banner.vue'
+import FooterPage from '../components/FooterPage.vue'
 export default {
   components: {
-    Masthead
+    Masthead,
+    Steps,
+    Features,
+    Download,
+    Banner,
+    FooterPage
   },
   data () {
     return {
