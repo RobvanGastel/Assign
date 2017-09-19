@@ -155,24 +155,13 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
+    // This method will be called when app received push notifications in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        let userInfo = response.notification.request.content.userInfo
+        let userInfo = notification.request.content.userInfo
         let aps = userInfo as! [String: AnyObject]
         
-        // TODO Add check for notification
-        //            if response.actionIdentifier == "SpecialView" {
-        
-        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "NotificationNavigationController") as! UINavigationController
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = initialViewControlleripad
-        self.window?.makeKeyAndVisible()
-        //            }
-        
-        completionHandler()
+        completionHandler([.alert, .badge, .sound])
     }
 }
 

@@ -21,7 +21,7 @@ import java.util.Calendar;
 @AllArgsConstructor
 public class Notification implements Serializable {
 
-//    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -38,13 +38,17 @@ public class Notification implements Serializable {
 
     private String body;
     private String icon;
+
     private Boolean readNotification;
+    private Long postId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Timestamp dateCreated;
 
-    public Notification(User user, User sender, String title, String body) {
+    public Notification(User user, User sender, Long postId, String title, String body) {
         this.user = user;
+        this.sender = sender;
+        this.postId = postId;
         this.title = title;
         this.body = body;
         this.readNotification = false;
