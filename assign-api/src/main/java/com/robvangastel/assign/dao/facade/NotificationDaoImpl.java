@@ -28,10 +28,11 @@ public class NotificationDaoImpl extends AbstractDao<Notification> implements IN
     @Override
     @SuppressWarnings("unchecked")
     public List<Notification> findAll(User user, int start, int size) {
-        String queryString = "SELECT * FROM Notification n WHERE n.user_id = u.id ORDER BY n.dateCreated DESC";
+        String queryString = "SELECT * FROM Notification n WHERE n.user_id = :id ORDER BY n.dateCreated DESC";
         return entityManager.createNativeQuery(queryString, Notification.class)
                 .setFirstResult(start)
                 .setMaxResults(size)
+                .setParameter("id", user.getId())
                 .getResultList();
     }
 

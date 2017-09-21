@@ -1,6 +1,9 @@
 package com.robvangastel.assign.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.robvangastel.assign.domain.serializers.NotificationSerializer;
+import com.robvangastel.assign.domain.serializers.PostSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,11 +17,12 @@ import java.util.Calendar;
 /**
  * @author Rob van Gastel
  */
+
 @Entity
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonSerialize(using = NotificationSerializer.class)
 public class Notification implements Serializable {
 
     private static final long serialVersionUID = 1L;

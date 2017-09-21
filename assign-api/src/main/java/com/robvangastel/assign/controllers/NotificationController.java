@@ -65,6 +65,12 @@ public class NotificationController {
         return Response.ok(notification).build();
     }
 
+    /***
+     * Delete notification by id
+     * @param id of the notification
+     * @return A statuscode indicating failure or success
+     * @throws Exception
+     */
     @DELETE
     @Path("/{id}")
     public Response deleteById(@PathParam("id") long id) throws Exception {
