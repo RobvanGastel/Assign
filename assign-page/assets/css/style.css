@@ -42,6 +42,7 @@ h4{
   font-size: 14px;
   color: #A4A4A4;
   font-weight: 400;
+  margin-top: 16px;
 }
 
 h5{
@@ -471,6 +472,7 @@ footer b {
 }
 
 
+
 /*
  * Download
  */
@@ -496,7 +498,41 @@ footer b {
 
 
 
+/*
+ * Modal
+ */
+.modal {
+  background-color: rgba(0,0,0,.15);
+}
 
+.modal-license {
+  background-color: white;
+  border-radius: 4px;
+  padding: 40px 50px;
+  height: 80vh;
+  margin: 10vh 0;
+  overflow-y: hidden;
+  border: 1px solid #CDCDCD;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.1);
+}
+
+#close-modal-license {
+  float: right;
+  transform: translate(31px,-21px);
+  cursor: pointer;
+  padding: 10px;
+}
+
+.modal-license-content {
+  overflow-y: auto;
+  height: calc(80vh - 165px);
+  padding-bottom: 40px;
+}
+
+
+/* Activate the modal */
+body { overflow-y: hidden; }
+#modal-license { display: block; }
 
 
 
