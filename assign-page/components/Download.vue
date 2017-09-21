@@ -9,8 +9,8 @@
             <h5>Begin anderen te helpen</h5>
             <h2>Download de app</h2>
             <p>Als jouw school een Assign licentie heeft kan jij de app downloaden in de App Store voor iPhone. Heeft jouw school geen licentie? Laat jouw school dit weten.</p>
-            <nuxt-link class="btn btn-primary" alt="Vraag een demo versie aan" :to="'#demo'">Download de iOS App</nuxt-link>
-						<nuxt-link class="btn btn-secundary hidden-xs" alt="Deel met jouw school" :to="'#delen'">Deel met jouw school</nuxt-link>
+            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Download de iOS App</nuxt-link>
+						<nuxt-link class="btn btn-secundary hidden-xs" title="Deel met jouw school" :to="'#delen'">Deel met jouw school</nuxt-link>
           </div>
 
         </div>
