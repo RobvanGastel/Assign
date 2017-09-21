@@ -1,5 +1,5 @@
 <template>
-	<div class="row">
+	<div class="row component-footerpage">
 
 		<footer>
 			<div class="container">
