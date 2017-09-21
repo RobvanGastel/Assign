@@ -13,7 +13,7 @@
             <h5>Label text</h5>
             <h2>Een grote titel met een nog grotere impact</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur.</p>
-            <nuxt-link class="btn btn-primary" alt="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
+            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
           </div>
 
         </div>
@@ -32,7 +32,7 @@
             <h5>Label text</h5>
             <h2>Een grote titel met een nog grotere impact</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur.</p>
-            <nuxt-link class="btn btn-primary" alt="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
+            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
           </div>
 
         </div>
@@ -51,7 +51,7 @@
             <h5>Label text</h5>
             <h2>Een grote titel met een nog grotere impact</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur.</p>
-            <nuxt-link class="btn btn-primary" alt="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
+            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
           </div>
 
         </div>

@@ -11,7 +11,7 @@
           </div>
 
 					<div class="col-xs-12 col-md-3 pull-right">
-						<nuxt-link class="btn btn-primary" alt="Vraag een demo versie aan" :to="'#demo'">Probeer de demo</nuxt-link>
+						<nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Probeer de demo</nuxt-link>
 					</div>
 
         </div>
