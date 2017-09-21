@@ -5,6 +5,7 @@
     <features></features>
     <download></download>
     <banner></banner>
+    <modal-license></modal-license>
     <footer-page></footer-page>
   </div>
 </template>
@@ -16,6 +17,7 @@ import Steps from '../components/Steps.vue'
 import Features from '../components/Features.vue'
 import Download from '../components/Download.vue'
 import Banner from '../components/Banner.vue'
+import ModalLicense from '../components/ModalLicense.vue'
 import FooterPage from '../components/FooterPage.vue'
 export default {
   components: {
@@ -24,6 +26,7 @@ export default {
     Features,
     Download,
     Banner,
+    ModalLicense,
     FooterPage
   },
   data () {

@@ -6,7 +6,7 @@
 				<div class="row">
 
 					<div class="col-xs-12 col-sm-6 col-md-5 pull-right">
-						<img src="../assets/img/illustration-problem.svg" alt="Assign chat function" class="step-illustration">
+						<img src="../assets/img/illustration-problem.svg" alt="Assign chat function" class="step-illustration" draggable="false">
 					</div>
 
           <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
@@ -25,7 +25,7 @@
 				<div class="row">
 
 					<div class="col-xs-12 col-sm-6 col-md-5 col-lg-offset-1">
-						<img src="../assets/img/illustration-chat.svg" alt="Assign chat function" class="step-illustration">
+						<img src="../assets/img/illustration-chat.svg" alt="Assign chat function" class="step-illustration" draggable="false">
 					</div>
 
 					<div class="col-xs-12 col-sm-6 col-lg-5 pull-right">
@@ -44,7 +44,7 @@
 				<div class="row">
 
 					<div class="col-xs-12 col-sm-6 col-md-5 pull-right">
-						<img src="../assets/img/illustration-notification.svg" alt="Assign chat function" class="step-illustration">
+						<img src="../assets/img/illustration-notification.svg" alt="Assign chat function" class="step-illustration" draggable="false">
 					</div>
 
           <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
