@@ -3,6 +3,7 @@ package com.robvangastel.assign.services;
 import com.robvangastel.assign.dao.INotificationDao;
 import com.robvangastel.assign.domain.Notification;
 import com.robvangastel.assign.domain.User;
+import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
