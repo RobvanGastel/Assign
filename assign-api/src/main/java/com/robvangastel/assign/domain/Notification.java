@@ -30,8 +30,8 @@ public class Notification implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 
-//    @OneToOne(cascade = CascadeType.PERSIST)
-//    private User sender;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private User sender;
 
     @Column(nullable = false)
     private String title;
@@ -39,7 +39,7 @@ public class Notification implements Serializable {
     private String body;
     private String icon;
 
-    private Boolean read;
+    private Boolean readNotification;
     private Long postId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
@@ -47,16 +47,21 @@ public class Notification implements Serializable {
 
     public Notification(User user, User sender, Long postId, String title, String body) {
         this.user = user;
-//        this.sender = sender;
+        this.sender = sender;
         this.postId = postId;
         this.title = title;
         this.body = body;
-        this.read = false;
+        this.readNotification = false;
+    }
+
+    public Notification(User user, String title) {
+        this.user = user;
+        this.title = title;
+        this.readNotification = false;
     }
 
     @PrePersist
     public void beforePersist() {
         this.dateCreated = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
-
 }

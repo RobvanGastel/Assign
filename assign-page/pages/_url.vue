@@ -43,7 +43,7 @@ export default {
         return { post: response.data }
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error.response.status)
       })
   },
   methods: {
@@ -53,7 +53,7 @@ export default {
           this.post = response.data
         })
         .catch((error) => {
-          console.log(error)
+          console.log(error.response.status)
         })
     }
   },
