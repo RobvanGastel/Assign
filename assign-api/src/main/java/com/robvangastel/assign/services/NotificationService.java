@@ -27,6 +27,10 @@ public class NotificationService implements Serializable {
         return notificationDao.findAll(user, start, size);
     }
 
+    public void readNotifications(List<Long> ids) {
+        notificationDao.readNotifications(ids);
+    }
+
     public void delete(long id) throws Exception {
         notificationDao.deleteById(id);
     }
