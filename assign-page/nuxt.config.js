@@ -11,7 +11,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Assign',
+    title: 'Assign – Het middel voor een communicatieve leeromgeving',
     htmlAttrs: {
       lang: 'nl',
     },
@@ -21,7 +21,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato' }
     ]
   },
 

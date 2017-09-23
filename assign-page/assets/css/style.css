@@ -1,7 +1,43 @@
 /*
  * globals
  */
- .section-padding {
+ @font-face {
+   font-family: 'Lato';
+   src:  url('/fonts/LatoLatin-Regular.woff2') format('woff2'),
+         url('/fonts/LatoLatin-Regular.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ @font-face {
+   font-family: 'Lato';
+   src:  url('/fonts/LatoLatin-Semibold.woff2') format('woff2'),
+         url('/fonts/LatoLatin-Semibold.woff') format('woff');
+   font-weight: 600;
+   font-style: normal;
+ }
+
+ @font-face {
+   font-family: 'Lato';
+   src:  url('/fonts/LatoLatin-Bold.woff2') format('woff2'),
+         url('/fonts/LatoLatin-Bold.woff') format('woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+
+html {
+  position: relative;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  background-color: rgb(245, 245, 245);
+  font-family: "Lato", sans-serif;
+}
+
+.section-padding {
   padding: 40px 0;
 }
 
@@ -79,7 +115,7 @@ p{
 .post h1{
   font-size: 20px;
   line-height: 26px;
-  font-weight: 400;
+  font-weight: 600;
   color: #414141;
   margin-top: 26px;
   margin-bottom: 15px;
@@ -88,7 +124,7 @@ p{
 .post h2{
   font-size: 16px;
   line-height: 21px;
-  font-weight: 400;
+  font-weight: 600;
   color: #3D3D3D;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -115,18 +151,6 @@ p{
 /*
  * basic layout
  */
-html {
-  position: relative;
-  min-height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body{
-  background-color: rgb(245, 245, 245);
-  font-family: "Lato", sans-serif;
-}
-
 .post{
   background-color: #fff;
   border: 1px solid #E8E8E8;
@@ -241,7 +265,7 @@ nav ul li .lnk {
   text-transform: uppercase;
   font-weight: 800;
   font-size: 13px;
-  letter-spacing: 1px;
+  letter-spacing: .6px;
 }
 
 .btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus {
@@ -749,7 +773,6 @@ input[type="radio"]:checked ~ label {
   }
 
   .btn-navcta{
-    font-size: 14px;
     padding: 12px 26px;
     margin: 13px 0 0 15px;
     border-radius: 100px;

@@ -12,6 +12,7 @@
 							<li><a class="lnk" title="Twitter" target="_blank" href="https://twitter.com/assignappnl">Twitter</a></li>
 							<li><a class="lnk" title="Mail" href="mailto:assignapp%2edev%40gmail%2ecom">Mail</a></li>
 							<li><nuxt-link class="lnk" title="Vragen" :to="'/#faq'">Vragen</nuxt-link></li>
+							<li class="headway-widget"></li>
 						</ul>
 					</div>
 
