@@ -37,6 +37,14 @@ public class NotificationDaoImpl extends AbstractDao<Notification> implements IN
     }
 
     @Override
+    public void readNotifications(List<Long> ids) {
+        for(Long id : ids) {
+            entityManager.createNativeQuery("UPDATE Notification n SET readNotification = true WHERE id = :id")
+                    .setParameter("id", id);
+        }
+    }
+
+    @Override
     public void create(Notification entity) throws NotificationException {
         entityManager.merge(entity);
     }

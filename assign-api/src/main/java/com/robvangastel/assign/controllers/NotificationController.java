@@ -14,6 +14,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by robvangastel on 30/08/2017.
@@ -63,6 +65,18 @@ public class NotificationController {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         return Response.ok(notification).build();
+    }
+
+    @PUT
+    public Response readNotifications(@QueryParam("ids") List<Long> ids) {
+
+        if (ids == null) {
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
+        }
+
+        notificationService.readNotifications(ids);
+
+        return Response.ok().build();
     }
 
     /***
