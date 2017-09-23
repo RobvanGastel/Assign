@@ -16,7 +16,7 @@
 						</ul>
 					</div>
 
-					<!-- <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 footer-section">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 footer-section">
 						<b>Functies</b>
 						<ul>
 							<li><nuxt-link class="lnk" title="Contact" :to="'/#contact'">Bellen</nuxt-link></li>
@@ -34,7 +34,7 @@
 							<li><a class="lnk" title="Vragen" href="mailto:assignapp%2edev%40gmail%2ecom">Pers</a></li>
 							<li><nuxt-link class="lnk" title="Vragen" :to="'/#faq'">Release Notes</nuxt-link></li>
 						</ul>
-					</div> -->
+					</div>
 
 				</div>
 			</div>

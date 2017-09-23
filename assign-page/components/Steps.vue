@@ -10,10 +10,10 @@
 					</div>
 
           <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
-            <h5>Label text</h5>
-            <h2>Een grote titel met een nog grotere impact</h2>
-            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur.</p>
-            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
+            <h5>Vastlopen</h5>
+            <h2>Het lukt niet altijd alleen</h2>
+            <p>Iedereen loopt wel eens vast bij een probleem, dit is jammer wanneer een ander de oplossing kan uitleggen waardoor jij weer verder kunt.</p>
+            <nuxt-link class="btn btn-primary" title="Lees meer over vastlopen" :to="'/blog/vastlopen-kan-gebeuren'">Lees meer over vastlopen</nuxt-link>
           </div>
 
         </div>
@@ -29,10 +29,10 @@
 					</div>
 
 					<div class="col-xs-12 col-sm-6 col-lg-5 pull-right">
-            <h5>Label text</h5>
-            <h2>Een grote titel met een nog grotere impact</h2>
-            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur.</p>
-            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
+            <h5>Helpen</h5>
+            <h2>Elkaar helpen kan op talloze manieren</h2>
+            <p>Een groot probleem kan veel aandacht vragen terwijl een korte vragen juist met een enkel berichtje opgelost kan worden.</p>
+            <nuxt-link class="btn btn-primary" title="Bekijk de communicatie mogelijkheden" :to="'/functies/communicatie'">Bekijk de manieren</nuxt-link>
           </div>
 
         </div>
@@ -48,10 +48,10 @@
 					</div>
 
           <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
-            <h5>Label text</h5>
-            <h2>Een grote titel met een nog grotere impact</h2>
-            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur.</p>
-            <nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Lees meer over titels</nuxt-link>
+            <h5>Voor elk student</h5>
+            <h2>Iedereen kan helpen</h2>
+            <p>Elk student heeft unieke eigenschappen en kennis die een ander niet heeft en andersom ook. Door Assign kunnen studenten elkaar gemakkelijk zelfstandig helpen.</p>
+            <nuxt-link class="btn btn-primary" title="Lees over coöperatief leren" :to="'/blog/cooperatief-leren'">Lees over coöperatief leren</nuxt-link>
           </div>
 
         </div>
