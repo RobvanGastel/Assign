@@ -1,7 +1,43 @@
 /*
  * globals
  */
- .section-padding {
+ @font-face {
+   font-family: 'Lato';
+   src:  url('/fonts/LatoLatin-Regular.woff2') format('woff2'),
+         url('/fonts/LatoLatin-Regular.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ @font-face {
+   font-family: 'Lato';
+   src:  url('/fonts/LatoLatin-Semibold.woff2') format('woff2'),
+         url('/fonts/LatoLatin-Semibold.woff') format('woff');
+   font-weight: 600;
+   font-style: normal;
+ }
+
+ @font-face {
+   font-family: 'Lato';
+   src:  url('/fonts/LatoLatin-Bold.woff2') format('woff2'),
+         url('/fonts/LatoLatin-Bold.woff') format('woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+
+html {
+  position: relative;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  background-color: rgb(245, 245, 245);
+  font-family: "Lato", sans-serif;
+}
+
+.section-padding {
   padding: 40px 0;
 }
 
@@ -79,7 +115,7 @@ p{
 .post h1{
   font-size: 20px;
   line-height: 26px;
-  font-weight: 400;
+  font-weight: 600;
   color: #414141;
   margin-top: 26px;
   margin-bottom: 15px;
@@ -88,7 +124,7 @@ p{
 .post h2{
   font-size: 16px;
   line-height: 21px;
-  font-weight: 400;
+  font-weight: 600;
   color: #3D3D3D;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -115,18 +151,6 @@ p{
 /*
  * basic layout
  */
-html {
-  position: relative;
-  min-height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body{
-  background-color: rgb(245, 245, 245);
-  font-family: "Lato", sans-serif;
-}
-
 .post{
   background-color: #fff;
   border: 1px solid #E8E8E8;
@@ -241,7 +265,7 @@ nav ul li .lnk {
   text-transform: uppercase;
   font-weight: 800;
   font-size: 13px;
-  letter-spacing: 1px;
+  letter-spacing: .6px;
 }
 
 .btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus {
@@ -508,7 +532,7 @@ footer b {
 .modal-license {
   background-color: white;
   border-radius: 4px;
-  padding: 40px 50px;
+  padding: 50px 0;
   height: 80vh;
   margin: 10vh 0;
   overflow-y: hidden;
@@ -518,21 +542,186 @@ footer b {
 
 #close-modal-license {
   float: right;
-  transform: translate(31px,-21px);
-  cursor: pointer;
+  transform: translate(24px,-34px);
   padding: 10px;
+  cursor: pointer;
+}
+
+.modal-license-header {
+  padding: 0 50px;
 }
 
 .modal-license-content {
   overflow-y: auto;
-  height: calc(80vh - 165px);
-  padding-bottom: 40px;
+  height: calc(80vh - 178px);
+  padding: 0 50px 37px;
+}
+
+.modal-license-content form input[type="text"] {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 11px 15px;
+  font-size: 18px;
+  margin-bottom: 13px;
+  outline: none;
+  -webkit-transition: .2s ease;
+  -moz-transition: .2s ease;
+  -ms-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.modal-license-content form input[type="text"]:focus {
+  border: 1px solid #666;
+}
+
+label {
+  color: #666;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 26px;
+  width: 100%;
+}
+
+.modal .btn {
+  margin-top: 64px;
+  display: table;
+}
+
+.modal-checkbox {
+  width: auto;
+}
+
+.modal-checkbox input {
+  display: none;
+  position: relative;
+  z-index: -9999;
+}
+
+.modal-checkbox .icon-checkbox,
+.modal-checkbox .icon-checkedbox {
+  display: block;
+}
+
+.modal-checkbox .icon-checkedbox {
+  opacity: 0;
+  transform: translateY(17px);
+  -webkit-transition: .1s ease;
+  -moz-transition: .1s ease;
+  -ms-transition: .1s ease;
+  transition: .1s ease;
+  cursor: pointer;
+}
+
+.modal-checkbox input:checked + .icon-checkedbox {
+  opacity: 1;
+}
+
+p.voorwaarden-text {
+  display: inline-block;
+  transform: translateY(-7px);
+  margin: 0 9px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #999;
+}
+
+p.voorwaarden-text a {
+  text-decoration: none;
+  color: #ff7f28;
+  -webkit-transition: .1s ease;
+  -moz-transition: .1s ease;
+  -ms-transition: .1s ease;
+  transition: .1s ease;
+}
+
+p.voorwaarden-text a:hover {
+  opacity: .8;
 }
 
 
+
+
+
+/* Form Styles */
+.modal-radiobox {
+	display: inline-block;
+	width: 32%;
+	font-size: 18px;
+}
+
+.modal-radiobox-center {
+  margin: 0 2%;
+}
+
+.modal-radiobox label {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 400;
+	border: 1px solid #ccc;
+	width: 100%;
+	padding: 10px 0;
+  margin: 0;
+  border-radius: 4px;
+  letter-spacing: 0;
+  -webkit-transition: .1s ease;
+  -moz-transition: .1s ease;
+  -ms-transition: .1s ease;
+  transition: .1s ease;
+  cursor: pointer;
+}
+
+.modal-radiobox label:hover {
+  border: 1px solid #666;
+}
+
+input[type="radio"] {
+	opacity: 0;
+	width: 0;
+  height: 0;
+}
+
+input[type="radio"]:checked ~ label {
+  opacity: 1;
+	border: 1px solid #ff7f28;
+  background-color: #ff7f28;
+  color: white;
+}
+
+.modal-radiobox label .icon-checkbox,
+.modal-radiobox label .icon-checkedbox {
+  display: inline-block;
+}
+
+.modal-radiobox label .icon-checkbox{
+  transform: translate(10px, -2px);
+}
+
+.modal-radiobox label .icon-checkedbox{
+  transform: translate(-7px, -2px);
+}
+
+.modal-radiobox label .icon-checkedbox {
+  opacity: 0;
+  -webkit-transition: .1s ease;
+  -moz-transition: .1s ease;
+  -ms-transition: .1s ease;
+  transition: .1s ease;
+  cursor: pointer;
+}
+
+.modal-radiobox input:checked + label .icon-checkedbox {
+  opacity: 1;
+}
+
+
+
+
 /* Activate the modal */
-body { overflow-y: hidden; }
-#modal-license { display: block; }
+/*body { overflow-y: hidden; }
+#modal-license { display: block; }*/
 
 
 
@@ -584,7 +773,6 @@ body { overflow-y: hidden; }
   }
 
   .btn-navcta{
-    font-size: 14px;
     padding: 12px 26px;
     margin: 13px 0 0 15px;
     border-radius: 100px;
