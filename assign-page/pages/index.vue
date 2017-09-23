@@ -44,7 +44,7 @@ export default {
       titleTemplate: 'Assign – %s',
       meta: [
         { name: 'language', content: 'nl_NL' },
-        { name: 'description', content: 'Het middel voor een communicatieve leeromgeving' },
+        { name: 'description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
         { property: 'og:title', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
         { property: 'og:site_name', content: 'assignapp.nl' },
         { property: 'og:description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
