@@ -472,6 +472,20 @@ footer b {
    border-bottom: 1px solid #e2e2e2;
  }
 
+ .masthead-sub {
+   background-color: #FFF8F4;
+   border-bottom: 1px solid #e2e2e2;
+   /*padding: 40px 0 0;*/
+ }
+
+ .masthead-sub .btn {
+   margin-right: 16px;
+ }
+
+ /*.masthead-sub h3 {
+   margin-bottom: 30px;
+ }*/
+
 
 /*
  * step
@@ -784,7 +798,6 @@ input[type="radio"]:checked ~ label {
   .brand-nav{
     background-color: #fff;
     border-bottom: 1px solid #E8E8E8;
-    margin-bottom: 15px;
     height: 70px;
   }
 
@@ -794,7 +807,6 @@ input[type="radio"]:checked ~ label {
     border-bottom: none;
     background-color: #FFF8F4;
     margin: 0;
-
   }
 
   .logo-image{
@@ -821,6 +833,10 @@ input[type="radio"]:checked ~ label {
   .section-padding {
     padding: 60px 0;
   }
+
+  /*.masthead-sub {
+    padding: 80px 0 10px;
+  }*/
 
   h1{
     font-size: 40px;
@@ -869,6 +885,10 @@ input[type="radio"]:checked ~ label {
       .section-padding {
         padding: 80px 0;
       }
+
+      /*.masthead-sub {
+        padding: 100px 0 20px;
+      }*/
 
       .component-steps .step h5 {
         margin-top: 30px;
