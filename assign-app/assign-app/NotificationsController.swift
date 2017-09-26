@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NotificationsController: UITableViewController {
     
@@ -71,21 +72,61 @@ class NotificationsController: UITableViewController {
         return notifications.count
     }
     
+    /// Segue for Post Detail View
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let notification = notifications[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        apiService?.getPostById(id: notification.postId!) { post in
+            
+            if notification.sender!.id != Storage.getUser().id {
+                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+                vc.currentPost = post
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+                vc.currentPost = post
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        // apiService?.setRead(ids: <#T##[Int]#>, completionHandler: <#T##(Bool) -> Void#>)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath)
         
         let notification = notifications[indexPath.row] as Notification
         
         if let titleLabel = cell.viewWithTag(101) as? UILabel {
-            titleLabel.text = notification.title
+            titleLabel.text = notification.body
         }
         
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = notification.body
+            nameLabel.text = notification.sender.name + " wil helpen met: "
         }
         
         if let dateLabel = cell.viewWithTag(103) as? UILabel {
             dateLabel.text = notification.dateCreated?.timeAgoSimple
+        }
+        
+        if let profileImage = cell.viewWithTag(104) as? UIImageView {
+            let url = URL(string: (notification.sender?.profileImage)!)!
+            let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+            profileImage.af_setImage(withURL: url, filter: filter)
+        }
+        
+        if let isReadView = cell.viewWithTag(105) as? UIView {
+            if !notification.readNotification {
+                isReadView.layer.cornerRadius = isReadView.frame.size.width/2
+                isReadView.clipsToBounds = true
+                isReadView.layer.borderWidth = 2.5
+                isReadView.layer.borderColor = UIColor.white.cgColor
+                isReadView.layer.shadowOpacity = 1.0
+                
+            } else {
+                isReadView.isHidden = true
+            }
         }
         
         return cell
@@ -152,5 +193,16 @@ class NotificationsController: UITableViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func readNotifications(_ sender: Any) {
+        
+        var ids :[Int] = []
+        
+        for notification in notifications {
+            ids.append(notification.id)
+        }
+        
+        self.apiService?.setRead(ids: ids) {}
     }
 }
