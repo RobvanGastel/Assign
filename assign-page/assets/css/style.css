@@ -94,7 +94,7 @@ p{
   line-height: 1.8;
   color: #5E5E5E;
   font-weight: 400;
-  margin-bottom: 38px;
+  margin-bottom: 32px;
 }
 
 .logo-image{
@@ -243,12 +243,13 @@ nav ul li .lnk {
   outline: none;
 }
 
+.lnk.lnk-secondary,
 .lnk.lnk-primary {
   color: #ff7f28;
   position: relative;
 }
 
-.lnk.lnk-primary:after {
+.lnk.lnk-secondary:after {
   content: "";
   background-color: #ff7f28;
   width: 100%;
@@ -261,8 +262,24 @@ nav ul li .lnk {
   z-index: -1;
 }
 
-.lnk.lnk-primary:hover:after {
+.lnk.lnk-secondary:hover:after {
   opacity: .2;
+}
+
+.lnk.lnk-primary .cta-arrow {
+  transform: translateX(3px);
+}
+
+@keyframes pulsate {
+  0% {transform: translateX(2px);}
+  20% {transform: translateX(10px);}
+  30% {transform: translateX(10px);}
+  70% {transform: translateX(2px);}
+}
+
+.lnk.lnk-primary:hover .cta-arrow {
+  animation: pulsate 1.5s ease;
+  animation-iteration-count: infinite;
 }
 
 .brand-nav{
@@ -522,7 +539,7 @@ footer b {
 }
 
 .features h2 {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .features ul {
@@ -557,6 +574,11 @@ footer b {
 .component-download {
   border-bottom: 1px solid #e2e2e2;
 }
+
+.download p {
+  margin-bottom: 34px;
+}
+
 
 
 
@@ -834,6 +856,10 @@ input[type="radio"]:checked ~ label {
     padding: 60px 0;
   }
 
+  .download p {
+    margin-bottom: 48px;
+  }
+
   /*.masthead-sub {
     padding: 80px 0 10px;
   }*/
@@ -872,6 +898,10 @@ input[type="radio"]:checked ~ label {
 
     .component-steps .step h5 {
       margin-top: 10px;
+    }
+
+    .step-text {
+      margin-top: 40px;
     }
 
     .component-download {
