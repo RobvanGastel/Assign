@@ -77,6 +77,29 @@ class ApiService {
             }
         }
     }
+    
+    /// This function returns Post by given Id.
+    @discardableResult
+    func getPostById(id: Int, completionHandler: @escaping (_ response: Post?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .get,
+                                      encoding: URLEncoding.queryString).validate().responseJSON { response in
+                
+            switch response.result {
+            case .success:
+                let post = Post(JSON: response.value as! [String : Any])
+                print("API: Retrieve post successful")
+                completionHandler(post)
+
+            case .failure(let error):
+                print("API: Retrieve post error")
+                print(error)
+            }
+        }
+    }
 
     /// This function posts a *Post* for the authenticated user.
     @discardableResult
@@ -143,6 +166,31 @@ class ApiService {
                     
                 case .failure(let error):
                     print("API: Retrieve search posts error")
+                    print(error)
+                }
+        }
+    }
+    
+    
+    /// This function deletes a Post.
+    @discardableResult
+    func deletePost(id: Int,
+                    completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .delete,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: delete post failed.")
+                    completionHandler(false)
                     print(error)
                 }
         }
@@ -355,7 +403,7 @@ class ApiService {
                         completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let URL = Storage.getURL() + "/posts/" + String(id)
+        let URL = Storage.getURL() + "/posts/"
         
         return sessionManager.request(URL, method: .put,
                                       encoding: URLEncoding.queryString).validate()
@@ -373,25 +421,30 @@ class ApiService {
         }
     }
     
-    /// This function deletes a Post.
+    /// This function sets a post to done.
     @discardableResult
-    func deletePost(id: Int,
-                 completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+    func setRead(ids: [Int],
+                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let URL = Storage.getURL() + "/posts/" + String(id)
+        let URL = Storage.getURL() + "/posts"
         
-        return sessionManager.request(URL, method: .delete,
+        let parameters: Parameters = [
+            "ids" : ids
+        ]
+        
+        print(parameters)
+        
+        return sessionManager.request(URL, method: .put, parameters: parameters,
                                       encoding: URLEncoding.queryString).validate()
             .responseJSON{ response in
                 
                 switch response.result {
                 case .success:
-                    completionHandler(true)
+                    print("API: set done post succesful.")
                     
                 case .failure(let error):
-                    print("API: delete post failed.")
-                    completionHandler(false)
+                    print("API: set done post failed.")
                     print(error)
                 }
         }
