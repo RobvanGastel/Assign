@@ -49,8 +49,8 @@ public class ReplyService implements Serializable {
         if (!replyDao.DidUserReply(user, post)) {
 
             // Send Notification on Reply
-            String title = user.getName() + " wants to help you out!";
-            String body = user.getName() + " offers to help you out with " + post.getTitle();
+            String title = user.getName() + " wil helpen met:";
+            String body = post.getTitle();
 
             Payload payload = new Payload(
                     new Notification(title, body),
@@ -70,8 +70,8 @@ public class ReplyService implements Serializable {
     public Reply setHelped(Reply entity, boolean done) {
 
         // Send Notification on Reply
-        String title = entity.getUser().getName() + " wants to help you out!";
-        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
+        String title = entity.getPost().getUser().getName() + " wil helpen met:";
+        String body = entity.getPost().getTitle();
 
         Payload payload = new Payload(
                 new Notification(title, body),
