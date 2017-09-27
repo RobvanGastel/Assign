@@ -22,7 +22,7 @@
 									<input type="text" name="naam" id="naam" placeholder="Vul hier uw naam in" class="modal-inputtext"/>
 
 									<label for="mail">E-mail</label>
-									<input type="text" name="mail" id="mail" placeholder="Vul hier uw e-mailadres in" class="modal-inputtext"/>
+									<input type="email" name="mail" id="mail" placeholder="Vul hier uw e-mailadres in" class="modal-inputtext"/>
 
 									<label for="school">schoolnaam</label>
 									<input type="text" name="school" id="school" placeholder="Vul hier de naam van uw school in" class="modal-inputtext"/>

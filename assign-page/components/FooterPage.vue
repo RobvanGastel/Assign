@@ -40,7 +40,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-5 footer-section">
 						<b>Blijf up to date</b>
 						<ul>
-							<li><p class="lnk">Wij delen ons proces in ons nieuwsbrief.</p></li>
+							<li><div class="lnk">Wij delen ons proces in ons nieuwsbrief.</div></li>
 						</ul>
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
@@ -55,7 +55,7 @@
 								</div>
 								<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 						    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06ec3ad60c8473d5c82f6f977_2d6c899cf6" tabindex="-1" value=""></div>
-						    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						    <div class="clear"><input type="submit" value="Ga verder" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 					    </div>
 						</form>
 						</div>
