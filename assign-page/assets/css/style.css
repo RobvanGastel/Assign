@@ -388,7 +388,7 @@ nav ul li .lnk {
  * Footer Regular
  */
 footer {
-  padding: 40px 0;
+  padding: 40px 0 100px;
   background-color: white;
 }
 
@@ -417,6 +417,45 @@ footer b {
   font-weight: 700;
   font-size: 17px;
   color: #FF7F28;
+}
+
+footer input[type="email"] {
+  width: 90%;
+  border-radius: 26px;
+  border: 0;
+  font-size: 16px;
+  background-color: #f8f8f8;
+  margin-bottom: 13px;
+  padding: 10px 15px 10px 20px;
+  outline: none;
+  transition: .2s ease;
+  position: absolute;
+  display: block;
+  margin-top: 52px;
+}
+
+footer input[type="submit"] {
+  background-color: #ff7f28;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 25px;
+  position: absolute;
+  text-align: right;
+  right: 15px;
+  display: block;
+  margin-top: 52px;
+  -webkit-transition: all .16s ease;
+  transition: all .16s ease;
+  box-shadow: 0 4px 6px 0 rgba(255,127,40,.1);
+}
+
+footer input[type="submit"]:hover {
+  background-color: #FF7F28;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px 0 rgba(255,127,40,.3);
 }
 
 
@@ -633,7 +672,7 @@ footer b {
   padding: 0 50px 37px;
 }
 
-.modal-license-content form input[type="text"] {
+.modal-license-content form input.modal-inputtext {
   width: 100%;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -647,7 +686,7 @@ footer b {
   transition: .2s ease;
 }
 
-.modal-license-content form input[type="text"]:focus {
+.modal-license-content form input.modal-inputtext:focus {
   border: 1px solid #666;
 }
 
@@ -894,6 +933,15 @@ input[type="radio"]:checked ~ label {
     footer ul li {
       margin-right: 0;
       float: none;
+    }
+
+    footer input[type="email"] {
+      margin-top: 10px;
+    }
+
+    footer input[type="submit"] {
+      margin-top: 10px;
+      right: 0;
     }
 
     .component-steps .step h5 {
