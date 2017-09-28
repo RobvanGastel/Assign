@@ -1,7 +1,7 @@
 package com.robvangastel.assign.exception;
 
 /**
- * Created by robvangastel on 30/08/2017.
+ * @author Rob van Gastel
  */
 public class NotificationException extends RuntimeException {
 

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by robvangastel on 30/08/2017.
+ * @author Rob van Gastel
  */
 @RequestScoped // Request scoped for the Filters
 @Path("/notifications")
@@ -67,15 +67,37 @@ public class NotificationController {
         return Response.ok(notification).build();
     }
 
-    @PUT
-    public Response readNotifications(@QueryParam("ids") List<Long> ids) {
+    /***
+     * set Notifications to read by an id array
+     * @param ids array of ids
+     * @return a matching id or a statuscode 404
+     * when no notification is found.
+     */
+    @POST
+    public Response readNotifications(List<Long> ids) {
 
         if (ids == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
 
         notificationService.readNotifications(ids);
+        return Response.ok().build();
+    }
 
+    /***
+     * set a single notification to read by id
+     * @param id of the notification
+     * @return a matching id or a statuscode 404
+     * when no notification is found.
+     */
+    @PUT
+    @Path("/{id}")
+    public Response readNotification(@PathParam("id") long id) {
+
+        List ids = new ArrayList<Long>();
+        ids.add(id);
+
+        notificationService.readNotifications(ids);
         return Response.ok().build();
     }
 
