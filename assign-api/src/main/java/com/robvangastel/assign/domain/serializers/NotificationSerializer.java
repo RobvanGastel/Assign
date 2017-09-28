@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by robvangastel on 07/09/2017.
+ * @author Rob van Gastel
  */
 public class NotificationSerializer extends StdSerializer<Notification> {
 
