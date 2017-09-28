@@ -431,7 +431,7 @@ footer input[type="email"] {
   transition: .2s ease;
   position: absolute;
   display: block;
-  margin-top: 52px;
+  margin-top: 72px;
 }
 
 footer input[type="submit"] {
@@ -446,7 +446,7 @@ footer input[type="submit"] {
   text-align: right;
   right: 15px;
   display: block;
-  margin-top: 52px;
+  margin-top: 72px;
   -webkit-transition: all .16s ease;
   transition: all .16s ease;
   box-shadow: 0 4px 6px 0 rgba(255,127,40,.1);
@@ -914,6 +914,14 @@ input[type="radio"]:checked ~ label {
 
   h4{
     font-size: 16px;
+  }
+
+  footer input[type="email"] {
+    margin-top: 52px;
+  }
+
+  footer input[type="submit"] {
+    margin-top: 52px;
   }
 
 
