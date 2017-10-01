@@ -24,7 +24,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Hides the keyboard when tapping on the screen
-        self.hideKeyboardWhenTappedAround()
+        
 
         // Init API service
         apiService = ApiService()
