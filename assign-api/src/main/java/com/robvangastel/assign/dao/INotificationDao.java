@@ -49,6 +49,12 @@ public interface INotificationDao {
     void readNotifications(List<Long> ids);
 
     /***
+     * Update the read status of a Notification
+     * @param id of the notification
+     */
+    void readNotification(Long id);
+
+    /***
      * Delete Notification
      * @param entity Notification to delete
      * @throws NotificationException
