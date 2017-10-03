@@ -19,7 +19,7 @@ import Download from '../components/Download.vue'
 import Banner from '../components/Banner.vue'
 import ModalLicense from '../components/ModalLicense.vue'
 import FooterPage from '../components/FooterPage.vue'
-import headway from '../assets/js/headway'
+// import headway from '../assets/js/headway'
 export default {
   components: {
     Masthead,
@@ -36,16 +36,17 @@ export default {
         user: {
           name: 'Name'
         }
-      },
-      config: {
-        selector: '.headway-widget',
-        account: 'J5Kp6x'
       }
+      // ,
+      // config: {
+      //   selector: '.headway-widget',
+      //   account: 'J5Kp6x'
+      // }
     }
   },
-  created () {
-    headway.init(this.config)
-  },
+  // created () {
+  //   headway.init(this.config)
+  // },
   head () {
     return {
       title: 'Het middel voor een communicatieve leeromgeving',
