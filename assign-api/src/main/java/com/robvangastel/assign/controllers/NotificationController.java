@@ -7,6 +7,7 @@ import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.NotificationService;
 import com.robvangastel.assign.services.UserService;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * @author Rob van Gastel
  */
-@RequestScoped // Request scoped for the Filters
+@Stateless // Request scoped for the Filters
 @Path("/notifications")
 @Secured({Role.USER})
 @Produces({MediaType.APPLICATION_JSON})
@@ -94,10 +95,7 @@ public class NotificationController {
     @Path("/{id}")
     public Response readNotification(@PathParam("id") long id) {
 
-        List ids = new ArrayList<Long>();
-        ids.add(id);
-
-        notificationService.readNotifications(ids);
+        notificationService.readNotification(id);
         return Response.ok().build();
     }
 

@@ -3,7 +3,6 @@ package com.robvangastel.assign.services;
 import com.robvangastel.assign.dao.INotificationDao;
 import com.robvangastel.assign.domain.Notification;
 import com.robvangastel.assign.domain.User;
-import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -29,6 +28,10 @@ public class NotificationService implements Serializable {
 
     public void readNotifications(List<Long> ids) {
         notificationDao.readNotifications(ids);
+    }
+
+    public void readNotification(Long id) {
+        notificationDao.readNotification(id);
     }
 
     public void delete(long id) throws Exception {
