@@ -6,6 +6,10 @@
     <download></download>
     <banner></banner>
     <modal-license></modal-license>
+    <div>
+		  <button v-on:click="counter += 1">Add 1</button>
+		  <p>The button above has been clicked {{ counter }} times.</p>
+		</div>
     <footer-page></footer-page>
   </div>
 </template>
@@ -34,7 +38,8 @@ export default {
     return {
       post: {
         user: {
-          name: 'Name'
+          name: 'Name',
+          counter: 0
         }
       }
       // ,
