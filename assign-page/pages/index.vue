@@ -6,10 +6,6 @@
     <download></download>
     <banner></banner>
     <modal-license></modal-license>
-    <div>
-		  <button v-on:click="incrementCounter">Add 1</button>
-		  <p>The button above has been clicked {{ counter }} times.</p>
-		</div>
     <footer-page></footer-page>
   </div>
 </template>
@@ -47,11 +43,6 @@ export default {
       //   selector: '.headway-widget',
       //   account: 'J5Kp6x'
       // }
-    }
-  },
-  methods: {
-    incrementCounter() {
-      this.counter++;
     }
   },
   // created () {
