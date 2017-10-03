@@ -434,7 +434,24 @@ footer input[type="email"] {
   margin-top: 72px;
 }
 
-footer input[type="submit"] {
+footer input[type="email"]:focus:invalid {
+  background: #FFEAEA;
+}
+
+footer input[type="email"]:valid {
+  background: #EEF9E9;
+}
+
+footer input[type="email"]:valid ~ input[type="submit"].button-valid {
+  display: block;
+}
+
+footer input[type="email"]:valid ~ input[type="button"].button-invalid {
+  display: none;
+}
+
+footer input[type="submit"],
+footer input[type="button"] {
   background-color: #ff7f28;
   color: #fff;
   border: none;
@@ -450,6 +467,7 @@ footer input[type="submit"] {
   -webkit-transition: all .16s ease;
   transition: all .16s ease;
   box-shadow: 0 4px 6px 0 rgba(255,127,40,.1);
+  outline: none;
 }
 
 footer input[type="submit"]:hover {
@@ -458,6 +476,15 @@ footer input[type="submit"]:hover {
   box-shadow: 0 3px 10px 0 rgba(255,127,40,.3);
 }
 
+footer input[type="button"].button-invalid {
+  background-color: #e2e2e2;
+  color: #5e5e5e;
+  box-shadow: none;
+}
+
+footer input[type="submit"].button-valid {
+  display: none;
+}
 
 
 
@@ -649,6 +676,7 @@ footer input[type="submit"]:hover {
   border-radius: 4px;
   padding: 50px 0;
   height: 80vh;
+  max-height: 880px;
   margin: 10vh 0;
   overflow-y: hidden;
   border: 1px solid #CDCDCD;
@@ -920,7 +948,8 @@ input[type="radio"]:checked ~ label {
     margin-top: 52px;
   }
 
-  footer input[type="submit"] {
+  footer input[type="submit"],
+  footer input[type="button"] {
     margin-top: 52px;
   }
 
@@ -947,7 +976,8 @@ input[type="radio"]:checked ~ label {
       margin-top: 10px;
     }
 
-    footer input[type="submit"] {
+    footer input[type="submit"],
+    footer input[type="button"] {
       margin-top: 10px;
       right: 0;
     }
