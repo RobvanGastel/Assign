@@ -342,7 +342,7 @@ class ApiService {
         let URL = Storage.getURL() + "/firebase"
         
         let parameters: Parameters = [
-            "id" : token
+            "token" : token
         ]
         
         return sessionManager.request(URL, method: .post, parameters: parameters,
