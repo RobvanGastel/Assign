@@ -48,8 +48,6 @@ public class NotificationDaoImpl extends AbstractDao<Notification> implements IN
     public void readNotification(Long id) {
         entityManager.createQuery("UPDATE Notification n SET n.readNotification = true WHERE n.id = :id")
                 .setParameter("id", id).executeUpdate();
-
-
     }
 
     @Override

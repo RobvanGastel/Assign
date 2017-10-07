@@ -65,7 +65,7 @@ public class FirebaseController {
             body.setNotification_key(user.getFirebase().getNotificationKey());
             body.getRegistration_ids().add(token);
 
-            firebaseService.addRegistrationId(body, user.getId());
+            firebaseService.addRegistrationId(body, user.getFirebase().getId());
         }
 
         return Response.ok().build();
@@ -91,28 +91,28 @@ public class FirebaseController {
         return Response.ok().build();
     }
 
-    /***
-     * TODO Remove this method
-     * @return
-     * @throws Exception
-     */
-    @GET
-    public Response test() throws Exception {
-
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-        Reply entity = replyService.findById(30);
-
-        String title = entity.getUser().getName() + " wants to help you out!";
-        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
-
-        Payload payload = new Payload(
-                new Notification(title, body),
-                new Data(10L),
-                "APA91bGWJIPekuoEHIHlQTlcl2Xdh8o2vWEtHtKK3F8OB4cmbuGqMAF869ok05Bi4EHi0AbGioueDGTmrNQU-Ij8y3pCzlIsRxFbxgXWburz61GX55u95Bgzs6l-cxNrISo4CNrQ4_xU");
-
-        // TODO Check for null value when retrieving Key
-        firebaseService.sendNotification(payload, user, user);
-
-        return Response.ok().build();
-    }
+//    /***
+//     * TODO Remove this method
+//     * @return
+//     * @throws Exception
+//     */
+//    @GET
+//    public Response test() throws Exception {
+//
+//        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+//        Reply entity = replyService.findById(30);
+//
+//        String title = entity.getUser().getName() + " wants to help you out!";
+//        String body = entity.getUser().getName() + " offers to help you out with " + entity.getPost().getTitle();
+//
+//        Payload payload = new Payload(
+//                new Notification(title, body),
+//                new Data(10L),
+//                "APA91bGWJIPekuoEHIHlQTlcl2Xdh8o2vWEtHtKK3F8OB4cmbuGqMAF869ok05Bi4EHi0AbGioueDGTmrNQU-Ij8y3pCzlIsRxFbxgXWburz61GX55u95Bgzs6l-cxNrISo4CNrQ4_xU");
+//
+//        // TODO Check for null value when retrieving Key
+//        firebaseService.sendNotification(payload, user, user);
+//
+//        return Response.ok().build();
+//    }
 }
