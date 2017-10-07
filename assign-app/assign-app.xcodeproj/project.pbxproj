@@ -100,8 +100,6 @@
 		20E53ACB1F48866100F65FDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A7B4D5AEA8A177169FE3A2C /* Pods_assign_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_assign_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B219D6E11F88FF4A00173D31 /* icon-read@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-read@2x.png"; sourceTree = "<group>"; };
-		B219D6E21F88FF4B00173D31 /* icon-read@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-read@3x.png"; sourceTree = "<group>"; };
-		B219D6E31F88FF4B00173D31 /* icon-read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-read.png"; sourceTree = "<group>"; };
 		B22ED2241F1E06420058D7C0 /* icon-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook.png"; sourceTree = "<group>"; };
 		B22ED2251F1E06420058D7C0 /* icon-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook@2x.png"; sourceTree = "<group>"; };
 		B22ED2261F1E06420058D7C0 /* icon-facebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook@3x.png"; sourceTree = "<group>"; };
@@ -310,9 +308,7 @@
 		D4EB70B01ED1E57B003895C4 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				B219D6E31F88FF4B00173D31 /* icon-read.png */,
 				B219D6E11F88FF4A00173D31 /* icon-read@2x.png */,
-				B219D6E21F88FF4B00173D31 /* icon-read@3x.png */,
 				B28E0A7D1F14181A0007F9DE /* app-logo@2x.png */,
 				B28E0A7C1F14181A0007F9DE /* logo-trans@2x.png */,
 				B2B56D471F0EE595003A561A /* profile@2x.jpg */,
