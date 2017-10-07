@@ -1230,12 +1230,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notificaties" id="gii-5C-wKI">
-                        <barButtonItem key="leftBarButtonItem" image="icon-read.png" id="RH3-Qy-CA3">
-                            <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="readNotifications:" destination="JGm-uX-Mvj" id="kk9-lD-Fnd"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="icon-read.png" id="9QJ-c4-y8X"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="TaO-6v-47P"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
