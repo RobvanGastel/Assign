@@ -56,6 +56,9 @@
 		D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955811ECF3E6A009575DE /* JWTHandler.swift */; };
 		D41955841ECF4288009575DE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955831ECF4288009575DE /* Credentials.swift */; };
 		D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41955851ECF627C009575DE /* JSONDecodable.swift */; };
+		D44469AA1F7AF8D000810752 /* icon-read@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D44469A71F7AF8CF00810752 /* icon-read@2x.png */; };
+		D44469AB1F7AF8D000810752 /* icon-read@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D44469A81F7AF8D000810752 /* icon-read@3x.png */; };
+		D44469AC1F7AF8D000810752 /* icon-read.png in Resources */ = {isa = PBXBuildFile; fileRef = D44469A91F7AF8D000810752 /* icon-read.png */; };
 		D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FE81F018FD8002FEBE7 /* StartController.swift */; };
 		D45D2FEB1F01AD8E002FEBE7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */; };
 		D45D2FED1F01ADBC002FEBE7 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */; };
@@ -141,6 +144,9 @@
 		D41955811ECF3E6A009575DE /* JWTHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHandler.swift; sourceTree = "<group>"; };
 		D41955831ECF4288009575DE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D41955851ECF627C009575DE /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		D44469A71F7AF8CF00810752 /* icon-read@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-read@2x.png"; path = "../../../../../Downloads/icon-read@2x.png"; sourceTree = "<group>"; };
+		D44469A81F7AF8D000810752 /* icon-read@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-read@3x.png"; path = "../../../../../Downloads/icon-read@3x.png"; sourceTree = "<group>"; };
+		D44469A91F7AF8D000810752 /* icon-read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-read.png"; path = "../../../../../Downloads/icon-read.png"; sourceTree = "<group>"; };
 		D45D2FE81F018FD8002FEBE7 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -307,6 +313,9 @@
 		D4EB70B01ED1E57B003895C4 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				D44469A91F7AF8D000810752 /* icon-read.png */,
+				D44469A71F7AF8CF00810752 /* icon-read@2x.png */,
+				D44469A81F7AF8D000810752 /* icon-read@3x.png */,
 				B28E0A7D1F14181A0007F9DE /* app-logo@2x.png */,
 				B28E0A7C1F14181A0007F9DE /* logo-trans@2x.png */,
 				B2B56D471F0EE595003A561A /* profile@2x.jpg */,
@@ -466,8 +475,10 @@
 				B22ED23B1F1E06420058D7C0 /* icon-twitter@3x.png in Resources */,
 				B2D37C661F07DDFA00C3A0BA /* icon-search@2x.png in Resources */,
 				B2E801221F0C1D780005980B /* icon-bar-notifications@2x.png in Resources */,
+				D44469AC1F7AF8D000810752 /* icon-read.png in Resources */,
 				B2E801261F0C1D780005980B /* icon-bar-notifications@3x.png in Resources */,
 				B2D37C651F07DDFA00C3A0BA /* icon-add@2x.png in Resources */,
+				D44469AB1F7AF8D000810752 /* icon-read@3x.png in Resources */,
 				B2B56D481F0EE595003A561A /* profile@2x.jpg in Resources */,
 				B2E010D61F097B18008AF890 /* icon-settings-white@2x.png in Resources */,
 				B22ED2321F1E06420058D7C0 /* icon-facebook@3x.png in Resources */,
@@ -485,6 +496,7 @@
 				B2E801281F0C1D780005980B /* icon-bar-search@3x.png in Resources */,
 				B22ED2371F1E06420058D7C0 /* icon-phone@2x.png in Resources */,
 				B28E0A7F1F14181A0007F9DE /* app-logo@2x.png in Resources */,
+				D44469AA1F7AF8D000810752 /* icon-read@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

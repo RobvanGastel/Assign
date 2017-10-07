@@ -59,9 +59,6 @@ class NotificationsController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
     }
     
-    
-    
-    
     // MARK: - Table view with Posts
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,6 +74,8 @@ class NotificationsController: UITableViewController {
         let notification = notifications[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        apiService?.setRead(id: notification.id) {}
+        
         apiService?.getPostById(id: notification.postId!) { post in
             
             if notification.sender!.id != Storage.getUser().id {
@@ -89,8 +88,6 @@ class NotificationsController: UITableViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
-        // apiService?.setRead(ids: <#T##[Int]#>, completionHandler: <#T##(Bool) -> Void#>)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
