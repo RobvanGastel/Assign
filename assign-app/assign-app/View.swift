@@ -94,5 +94,23 @@ class UIProfilePage: UIImageView {
         self.layer.cornerRadius = 32
         self.layer.masksToBounds = true
         self.image = #imageLiteral(resourceName: "profile.jpg")
+        
+        self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 16
+    }
+}
+
+
+class UIProfilePageShadow: UIView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        self.layer.cornerRadius = 32
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        self.layer.shadowRadius = 12
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.masksToBounds = false
     }
 }
