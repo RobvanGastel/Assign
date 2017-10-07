@@ -342,7 +342,7 @@ class ApiService {
         let URL = Storage.getURL() + "/firebase"
         
         let parameters: Parameters = [
-            "id" : token
+            "token" : token
         ]
         
         return sessionManager.request(URL, method: .post, parameters: parameters,
@@ -427,15 +427,36 @@ class ApiService {
                  completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let URL = Storage.getURL() + "/posts"
-        
         let parameters: Parameters = [
             "ids" : ids
         ]
         
-        print(parameters)
+        let URL = Storage.getURL() + "/notifications"
+
+        return sessionManager.request(URL, method: .put,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    print("API: set done post succesful.")
+                    
+                case .failure(let error):
+                    print("API: set done post failed.")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function sets a post to done.
+    @discardableResult
+    func setRead(id: Int,
+                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
         
-        return sessionManager.request(URL, method: .put, parameters: parameters,
+        let URL = Storage.getURL() + "/notifications/" + String(id)
+        
+        return sessionManager.request(URL, method: .put,
                                       encoding: URLEncoding.queryString).validate()
             .responseJSON{ response in
                 
