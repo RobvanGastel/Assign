@@ -1230,7 +1230,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notificaties" id="gii-5C-wKI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="RH3-Qy-CA3">
+                        <barButtonItem key="leftBarButtonItem" image="icon-read.png" id="RH3-Qy-CA3">
                             <connections>
                                 <action selector="readNotifications:" destination="JGm-uX-Mvj" id="kk9-lD-Fnd"/>
                             </connections>
@@ -1756,6 +1756,7 @@
         <image name="icon-bar-profile.png" width="19" height="20"/>
         <image name="icon-cross-white.png" width="16" height="16"/>
         <image name="icon-cross.png" width="18" height="18"/>
+        <image name="icon-read.png" width="19" height="19"/>
         <image name="icon-search.png" width="20" height="20"/>
         <image name="icon-settings-white.png" width="22" height="22"/>
         <image name="icon-settings.png" width="22" height="22"/>
