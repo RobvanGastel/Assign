@@ -645,6 +645,20 @@ footer input[type="submit"].button-valid {
 
 
 /*
+ * Functie Content
+ */
+ .component-functiecontent {
+   border-top: 1px solid #e2e2e2;
+   border-bottom: 1px solid #e2e2e2;
+   padding-top: 20px;
+   padding-bottom: 60px;
+   background-color: white;
+ }
+
+
+
+
+/*
  * Download
  */
 .component-download {

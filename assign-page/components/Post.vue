@@ -6,7 +6,6 @@
     <h3>{{ post.dateCreated }}</h3>
     <h1>{{ post.title }}</h1>
     <p>{{ post.description }}</p>
-    <!-- <h3 class="text-center">3 aanbiedingen  •  Nog 3 uur beschikbaar</h3> -->
   </section>
 </template>
 

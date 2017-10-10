@@ -21,7 +21,7 @@
 							<!-- <li><nuxt-link class="lnk" title="Voorwaarden" :to="'/voorwaarden'">Voorwaarden</nuxt-link></li> -->
 							<!-- <li><nuxt-link class="lnk" title="Privacy" :to="'/privacy'">Privacy</nuxt-link></li> -->
 							<li><a class="lnk" title="Pers Kit" target="_blank" href="https://www.dropbox.com/sh/5a4vkzmw9sh0hlp/AAB_XkR3pBIgO1Vgm3VQaLwXa?dl=0">Pers Kit</a></li>
-							<li><a class="lnk" title="Release Notes" target="_blank" href="https://headwayapp.co/assign-app-changelog">Release Notes</a></li>
+							<li><a class="lnk" title="Aanpassingen" target="_blank" href="https://headwayapp.co/assign-app-changelog">Aanpassingen</a></li>
 							<li class="headway-widget"></li>
 						</ul>
 					</div>
