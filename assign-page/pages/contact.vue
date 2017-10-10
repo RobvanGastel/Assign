@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub-contact title="Kom in dsadcontact" description="Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen."></masthead-sub-contact>
+    <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
     <banner></banner>
     <footer-page></footer-page>
   </div>
@@ -9,22 +9,27 @@
 
 <script>
 import Navigation from '../components/Navigation.vue'
-import MastheadSubContact from '../components/MastheadSubContact.vue'
+import MastheadSub from '../components/MastheadSub.vue'
 import Banner from '../components/Banner.vue'
 import FooterPage from '../components/FooterPage.vue'
 export default {
   components: {
     Navigation,
-    MastheadSubContact,
+    MastheadSub,
     Banner,
     FooterPage
   },
   data () {
     return {
-      content: {
-        title: 'Kom in contact',
-        description: 'Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen.'
-      }
+      title: 'Kom in contact',
+      description: 'Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen.',
+      illustratie: 'contact',
+      firstbtn: 'Bekijk ons Twitter',
+      firstbtnlnk: 'https://twitter.com/assignappnl',
+      firstbtntrgt: '_blank',
+      secondbtn: 'Mail ons',
+      secondbtnlnk: 'mailto:assignapp%2edev%40gmail%2ecom',
+      secondbtntrgt: ''
     }
   },
   head () {
