@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub-404></masthead-sub-404>
+    <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
     <banner></banner>
     <footer-page></footer-page>
   </div>
@@ -10,23 +10,27 @@
 
 <script>
 import Navigation from '../components/Navigation.vue'
-import MastheadSub404 from '../components/MastheadSub404.vue'
+import MastheadSub from '../components/MastheadSub.vue'
 import Banner from '../components/Banner.vue'
 import FooterPage from '../components/FooterPage.vue'
 export default {
   components: {
     Navigation,
-    MastheadSub404,
+    MastheadSub,
     Banner,
     FooterPage
   },
   data () {
     return {
-      post: {
-        user: {
-          name: 'Name'
-        }
-      }
+      title: 'Deze pagina is niet gevonden.',
+      description: 'Kom met ons in contact zodat wij dit kunnen oplossen.',
+      illustratie: '404',
+      firstbtn: 'Ga naar contact',
+      firstbtnlnk: '/contact',
+      firstbtntrgt: '',
+      secondbtn: '',
+      secondbtnlnk: '',
+      secondbtntrgt: ''
     }
   },
   head () {

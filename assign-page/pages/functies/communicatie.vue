@@ -1,33 +1,35 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub-contact :title=title :description=description></masthead-sub-contact>
-    <functie-content></functie-content>
+    <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
+    <!-- <functie-content></functie-content> -->
     <footer-page></footer-page>
   </div>
 </template>
 
 <script>
 import Navigation from '../../components/Navigation.vue'
-import MastheadSubContact from '../../components/MastheadSubContact.vue'
+import MastheadSub from '../../components/MastheadSub.vue'
 import FunctieContent from '../../components/FunctieContent.vue'
 import FooterPage from '../../components/FooterPage.vue'
 export default {
   components: {
     Navigation,
-    MastheadSubContact,
+    MastheadSub,
     FunctieContent,
     FooterPage
   },
   data () {
     return {
-      post: {
-        user: {
-          name: 'Name'
-        }
-      },
-      title: 'SWAG',
-      description: 'YOLO'
+      title: 'Communicatie Manieren',
+      description: 'Mensen kunnen via jouw profiel met jou in contact komen. Hoe zij dat kunnen bepaal jij zelf.',
+      illustratie: 'contact',
+      firstbtn: '',
+      firstbtnlnk: '',
+      firstbtntrgt: '',
+      secondbtn: '',
+      secondbtnlnk: '',
+      secondbtntrgt: ''
     }
   },
   head () {

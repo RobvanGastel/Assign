@@ -40,7 +40,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-5 footer-section">
 						<b>Blijf up to date</b>
 						<ul>
-							<li><div class="lnk">Wij delen ons proces in ons nieuwsbrief.</div></li>
+							<li><div class="lnk">Volg ons in onze nieuwsbrief!</div></li>
 						</ul>
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
