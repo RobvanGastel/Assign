@@ -9,8 +9,8 @@
 					</div>
 
 					<div class="col-xs-12 col-sm-7 col-md-6 col-md-offset-1 content-text">
-            <h1>Kom in contact</h1>
-            <h3>Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen.</h3>
+            <h1>{{ title }}</h1>
+            <h3>{{ description }}</h3>
 						<a class="btn btn-primary" title="Twitter" target="_blank" href="https://twitter.com/assignappnl">Bekijk ons Twitter</a>
 						<a class="btn btn-primary" title="Mail" href="mailto:assignapp%2edev%40gmail%2ecom">Mail ons</a>
           </div>
@@ -21,3 +21,9 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  props: ['title', 'description']
+}
+</script>

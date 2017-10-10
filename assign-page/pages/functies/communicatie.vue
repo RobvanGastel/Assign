@@ -1,29 +1,30 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub-contact title="Kom in contact" description="Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen."></masthead-sub-contact>
-    <banner></banner>
+    <masthead-sub-contact title="Communicatie manieren" description="Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen."></masthead-sub-contact>
+    <functie-content></functie-content>
     <footer-page></footer-page>
   </div>
 </template>
 
 <script>
-import Navigation from '../components/Navigation.vue'
-import MastheadSubContact from '../components/MastheadSubContact.vue'
-import Banner from '../components/Banner.vue'
-import FooterPage from '../components/FooterPage.vue'
+import Navigation from '../../components/Navigation.vue'
+import MastheadSubContact from '../../components/MastheadSubContact.vue'
+import FunctieContent from '../../components/FunctieContent.vue'
+import FooterPage from '../../components/FooterPage.vue'
 export default {
   components: {
     Navigation,
     MastheadSubContact,
-    Banner,
+    FunctieContent,
     FooterPage
   },
   data () {
     return {
-      content: {
-        title: 'Kom in contact',
-        description: 'Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen.'
+      post: {
+        user: {
+          name: 'Name'
+        }
       }
     }
   },
