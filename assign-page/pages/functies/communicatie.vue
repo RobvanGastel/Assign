@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub-contact title="Communicatie manieren" description="Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen."></masthead-sub-contact>
+    <masthead-sub-contact :title=title :description=description></masthead-sub-contact>
     <functie-content></functie-content>
     <footer-page></footer-page>
   </div>
@@ -25,7 +25,9 @@ export default {
         user: {
           name: 'Name'
         }
-      }
+      },
+      title: 'SWAG',
+      description: 'YOLO'
     }
   },
   head () {
