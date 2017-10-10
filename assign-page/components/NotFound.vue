@@ -1,6 +1,6 @@
 <template>
   <section class="post">
-    <p>Deze assignment is niet gevonden, het kan dat de assignment is verwijderd door de eigenaar.</p>
+    <p>Deze pagina of assignment is niet gevonden, de assignment is mogelijk verwijderd door de eigenaar.</p>
   </section>
 </template>
 

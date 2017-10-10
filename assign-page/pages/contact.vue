@@ -1,19 +1,22 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub></masthead-sub>
+    <masthead-sub-contact></masthead-sub-contact>
+    <banner></banner>
     <footer-page></footer-page>
   </div>
 </template>
 
 <script>
 import Navigation from '../components/Navigation.vue'
-import MastheadSub from '../components/MastheadSub.vue'
+import MastheadSubContact from '../components/MastheadSubContact.vue'
+import Banner from '../components/Banner.vue'
 import FooterPage from '../components/FooterPage.vue'
 export default {
   components: {
     Navigation,
-    MastheadSub,
+    MastheadSubContact,
+    Banner,
     FooterPage
   },
   data () {
