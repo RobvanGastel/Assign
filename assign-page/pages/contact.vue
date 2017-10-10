@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <navigation></navigation>
-    <masthead-sub-contact title="Kom in contact" description="Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen."></masthead-sub-contact>
+    <masthead-sub-contact title="Kom in dsadcontact" description="Wij beantwoorden graag jouw vragen, je kunt op verschillende manieren met ons in contact komen."></masthead-sub-contact>
     <banner></banner>
     <footer-page></footer-page>
   </div>
