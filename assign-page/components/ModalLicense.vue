@@ -86,7 +86,6 @@ export default {
     return {
       showModal: false
     }
-  },
-  props: ['showModal']
+  }
 }
 </script>
