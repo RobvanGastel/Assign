@@ -26,17 +26,14 @@
 
 <script>
 import MastheadNavigation from '../components/MastheadNavigation.vue'
-import Banner from '../components/Banner.vue'
 export default {
   components: {
-    MastheadNavigation,
-    Banner
+    MastheadNavigation
   },
   data () {
     return {
       showModal: false
     }
-  },
-  props: ['showModal']
+  }
 }
 </script>
