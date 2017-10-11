@@ -22,8 +22,8 @@ export default {
   data () {
     return {
       title: 'Persoonlijk Profiel',
-      description: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel',
-      illustratie: 'contact',
+      description: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.',
+      illustratie: 'dashboard',
       firstbtn: '',
       firstbtnlnk: '',
       firstbtntrgt: '',
@@ -34,14 +34,14 @@ export default {
   },
   head () {
     return {
-      title: 'Contact',
+      title: 'Persoonlijk Profiel',
       titleTemplate: 'Assign – %s',
       meta: [
         { name: 'language', content: 'nl_NL' },
-        { name: 'description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
-        { property: 'og:title', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
+        { name: 'description', content: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.' },
+        { property: 'og:title', content: 'Assign – Persoonlijk Profiel' },
         { property: 'og:site_name', content: 'assignapp.nl' },
-        { property: 'og:description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
+        { property: 'og:description', content: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.' },
         { property: 'og:url', content: 'https://assignapp.nl' },
         { property: 'og:locale', content: 'nl_NL' },
         { property: 'og:type', content: 'website' },
@@ -49,9 +49,9 @@ export default {
         { property: 'og:image', content: 'https://assignapp.nl/share-image.jpg' },
         { property: 'og:image:width', content: '1024' },
         { property: 'og:image:height', content: '512' },
-        { name: 'twitter:title', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
-        { name: 'twitter:site_name', content: 'Assign – Het middel voor een communicatieve leeromgeving' },
-        { name: 'twitter:description', content: 'Assign helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.' },
+        { name: 'twitter:title', content: 'Assign – Persoonlijk Profiel' },
+        { name: 'twitter:site_name', content: 'Assign – Persoonlijk Profiel' },
+        { name: 'twitter:description', content: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.' },
         { name: 'twitter:url', content: 'https://assignapp.nl' },
         { name: 'twitter:card', content: 'summary' },
         { name: 'twitter:domain', content: 'assignapp.nl' },
