@@ -11,7 +11,8 @@
           </div>
 
 					<div class="col-xs-12 col-md-3 pull-right">
-						<nuxt-link class="btn btn-primary" title="Vraag een demo versie aan" :to="'#demo'">Probeer de demo</nuxt-link>
+						<button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
+						{{ showModal }}
 					</div>
 
         </div>
@@ -20,3 +21,14 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      showModal: false
+    }
+  },
+  props: ['showModal']
+}
+</script>

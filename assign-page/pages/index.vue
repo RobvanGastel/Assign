@@ -5,7 +5,8 @@
     <features></features>
     <download></download>
     <banner></banner>
-    <modal-license></modal-license>
+    <button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
+    <modal-license v-if="showModal" @close="showModal = false"></modal-license>
     <footer-page></footer-page>
   </div>
 </template>
@@ -32,12 +33,7 @@ export default {
   },
   data () {
     return {
-      post: {
-        user: {
-          name: 'Name',
-          counter: 0
-        }
-      }
+      showModal: false
       // ,
       // config: {
       //   selector: '.headway-widget',
@@ -45,6 +41,7 @@ export default {
       // }
     }
   },
+  props: ['showModal'],
   // created () {
   //   headway.init(this.config)
   // },
