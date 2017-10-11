@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <navigation></navigation>
     <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
-    <banner></banner>
     <footer-page></footer-page>
   </div>
 </template>
