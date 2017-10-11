@@ -26,9 +26,11 @@
 
 <script>
 import MastheadNavigation from '../components/MastheadNavigation.vue'
+import Banner from '../components/Banner.vue'
 export default {
   components: {
-    MastheadNavigation
+    MastheadNavigation,
+    Banner
   },
   data () {
     return {

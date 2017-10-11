@@ -18,7 +18,6 @@
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
