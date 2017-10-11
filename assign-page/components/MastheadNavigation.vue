@@ -22,7 +22,8 @@
 									<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Communicatie manieren" :to="'/functies/communicatie'">Communicatie manieren</nuxt-link></li>
 								</ul>
 							</li>
-							<li><nuxt-link class="btn-navcta" title="Vraag een demo aan" :to="'#demo'">Vraag demo aan</nuxt-link></li>
+							<li><button class="btn-navcta" title="Vraag een demo aan" @click="showModal = true">Vraag demo aan</button></li>
+							{{ showModal }}
 						</ul>
 					</nav>
 
@@ -31,3 +32,14 @@
 		</div>
 	</section>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      showModal: false
+    }
+  },
+  props: ['showModal']
+}
+</script>

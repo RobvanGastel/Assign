@@ -309,6 +309,8 @@ nav ul li .lnk {
   font-weight: 800;
   font-size: 13px;
   letter-spacing: .6px;
+  border: none;
+  outline: none;
 }
 
 .btn-navcta:hover, .btn-navcta:active, .btn-navcta:focus {
@@ -504,6 +506,7 @@ footer input[type="submit"].button-valid {
    border-radius: 100px;
    -webkit-transition: all .16s ease;
    transition: all .16s ease;
+   outline: none;
  }
 
 .masthead .btn,
@@ -911,8 +914,8 @@ input[type="radio"]:checked ~ label {
 
 
 /* Activate the modal */
-/*body { overflow-y: hidden; }
-#modal-license { display: block; }*/
+/*body { overflow-y: hidden; }*/
+#modal-license { display: block; }
 
 
 
