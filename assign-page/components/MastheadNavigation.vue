@@ -35,10 +35,8 @@
 
 <script>
 export default {
-  data () {
-    return {
-      showModal: false
-    }
-  }
+  data: () => ({
+    showModal: false
+  })
 }
 </script>

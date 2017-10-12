@@ -25,15 +25,13 @@
 
 
 <script>
-import MastheadNavigation from '../components/MastheadNavigation.vue'
+import MastheadNavigation from '../components/MastheadNavigation'
 export default {
   components: {
     MastheadNavigation
   },
-  data () {
-    return {
-      showModal: false
-    }
-  }
+  data: () => ({
+    showModal: false
+  })
 }
 </script>
