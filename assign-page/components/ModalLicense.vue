@@ -5,17 +5,17 @@
 			<div class="container">
 				<div class="row">
 
-          <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+					<div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
 						<div class="modal-license">
 							<div class="modal-license-header">
 								<img src="../assets/img/close.svg" alt="Sluiten" id="close-modal-license" draggable="false" @click="$emit('close')">
-		            <h5>Beta licentie aanvragen</h5>
-		            <h2>Vul hier de gegevens in om een licentie aan te vragen.</h2>
+								<h5>Beta licentie aanvragen</h5>
+								<h2>Vul hier de gegevens in om een licentie aan te vragen.</h2>
 							</div>
 
 							<div class="modal-license-content">
-		            <p>Wij zullen een mailtje sturen met de benodigde informatie om de app te gaan gebruiken in jullie school omgeving.</p>
+								<p>Wij zullen een mailtje sturen met de benodigde informatie om de app te gaan gebruiken in jullie school omgeving.</p>
 
 								<form>
 									<label for="naam">naam</label>
@@ -55,7 +55,7 @@
 										</label>
 									</div>
 
-			            <nuxt-link class="btn btn-primary" type="submit" title="Vraag een licentie aan" :to="'#demo'">Vraag een licentie aan</nuxt-link>
+			            			<nuxt-link class="btn btn-primary" type="submit" title="Vraag een licentie aan" :to="'#demo'">Vraag een licentie aan</nuxt-link>
 
 									<label class="modal-checkbox">
 										<input type="checkbox" required="true" name="voorwaarden"/>
@@ -65,27 +65,23 @@
 									<p class="voorwaarden-text">Ik heb de <nuxt-link title="Bekijk de Gebruiksvoorwaarden" :to="'/gebruiksvoorwaarden'">Gebruiksvoorwaarden</nuxt-link> gelezen</p>
 
 								</form>
-
 							</div>
 
 						</div>
+          			</div>
 
-          </div>
+        		</div>
+      		</div>
+    	</section>
 
-        </div>
-      </div>
-    </section>
-
-  </div>
+  	</div>
 </template>
 
 
 <script>
 export default {
-  data () {
-    return {
-      showModal: false
-    }
-  }
+  data: () => ({
+    showModal: false
+  })
 }
 </script>
