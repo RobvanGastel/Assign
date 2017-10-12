@@ -9,7 +9,7 @@
 
 <script>
 import Navigation from '../../components/Navigation'
-import MastheadSub from '../../components/MastheadSub'
+import MastheadSub from '../../components/mast/MastheadSub'
 import FunctieContent from '../../components/FunctieContent'
 import FooterPage from '../../components/FooterPage'
 export default {

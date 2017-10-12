@@ -23,9 +23,8 @@
   </div>
 </template>
 
-
 <script>
-import MastheadNavigation from '../components/MastheadNavigation'
+import MastheadNavigation from './MastheadNavigation'
 export default {
   components: {
     MastheadNavigation
