@@ -1,5 +1,6 @@
 <template>
 	<div class="row">
+
 		<section class="brand-nav">
 			<div class="container">
 				<div class="row">
@@ -12,10 +13,10 @@
 
 						<nav>
 							<ul>
-								<li><nuxt-link class="lnk hidden-xs hidden-sm" title="Download" :to="'#appstore'">Download</nuxt-link></li>
+								<!-- Change on launch -->
+								<!-- <li><nuxt-link class="lnk hidden-xs hidden-sm" title="Download" :to="'#appstore'">Download</nuxt-link></li> -->
 								<li><nuxt-link class="lnk hidden-xs hidden-sm" title="Contact" :to="'/contact'">Contact</nuxt-link></li>
-								<!-- <li><nuxt-link class="lnk hidden-xs hidden-sm" title="Vragen" :to="'/faq'">Vragen</nuxt-link></li> -->
-								<li class="dropdown-toggle hidden-xs hidden-sm"><nuxt-link class="lnk dropdown-toggle" title="Functies" :to="'/#functies'">Functies</nuxt-link>
+								<li class="dropdown-toggle hidden-xs hidden-sm"><p class="lnk dropdown-toggle" title="Functies">Functies</p>
 									<ul class="dropdown-nav">
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Hashtags" :to="'/functies/hashtags'">Hashtags</nuxt-link></li>
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Profielen" :to="'/functies/profiel'">Profielen</nuxt-link></li>
@@ -23,7 +24,7 @@
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Communicatie manieren" :to="'/functies/communicatie'">Communicatie manieren</nuxt-link></li>
 									</ul>
 								</li>
-								<li><nuxt-link class="btn-navcta" title="Vraag een demo aan" :to="'#demo'">Vraag demo aan</nuxt-link></li>
+								<li><button class="btn-navcta" title="Vraag een demo aan" @click="showModal = true">Vraag demo aan</button></li>
 							</ul>
 						</nav>
 
@@ -31,5 +32,20 @@
 				</div>
 			</div>
 		</section>
+
+		<modal-license v-if="showModal" @close="showModal = false"></modal-license>
+
 	</div>
 </template>
+
+<script>
+import ModalLicense from './ModalLicense'
+export default {
+  components: {
+    ModalLicense
+  },
+  data: () => ({
+    showModal: false
+  })
+}
+</script>

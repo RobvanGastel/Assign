@@ -3,7 +3,7 @@
     <masthead></masthead>
     <steps></steps>
     <features></features>
-    <download></download>
+    <!-- <download></download> -->
     <banner></banner>
     <footer-page></footer-page>
   </div>
@@ -13,7 +13,7 @@
 import Masthead from '../components/mast/Masthead'
 import Steps from '../components/Steps'
 import Features from '../components/Features'
-import Download from '../components/Download'
+// import Download from '../components/Download'
 import Banner from '../components/Banner'
 import FooterPage from '../components/FooterPage'
 // import headway from '../assets/js/headway'
@@ -22,7 +22,7 @@ export default {
     Masthead,
     Steps,
     Features,
-    Download,
+    // Download,
     Banner,
     FooterPage
   },

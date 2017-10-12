@@ -206,17 +206,22 @@ h4.logo-text{
 /*
  * Nav
  */
-nav{
+nav {
   right: 15px;
   position: absolute;
 }
 
-nav ul{
+nav .dropdown-toggle p {
+  margin: 0;
+  cursor: default;
+}
+
+nav ul {
   margin-bottom: 0px;
   text-align: left;
 }
 
-nav ul li{
+nav ul li {
   list-style: none;
   float: left;
 }
@@ -226,7 +231,7 @@ nav ul li .lnk {
   padding: 16px 15px;
 }
 
-.lnk{
+.lnk {
   font-size: 18px;
   line-height: 22px;
   font-weight: 600;
@@ -235,7 +240,9 @@ nav ul li .lnk {
   transition: all .1s ease;
 }
 
-.lnk:hover, .lnk:focus, .lnk:active{
+.lnk:hover,
+.lnk:focus,
+.lnk:active {
   opacity: .99;
   color: #4A4A4A;
   text-decoration: none;
@@ -1047,6 +1054,11 @@ input[type="radio"]:checked ~ label {
 
     .masthead-sub {
       border-bottom: none;
+    }
+
+    /* Change on launch */
+    .component-features {
+      border-bottom: 0;
     }
 
     /*

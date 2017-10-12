@@ -5,7 +5,8 @@
       <post :post="post"></post>
       <div class="footer">
         <div class="overlay"></div>
-        <nuxt-link class="btn-opencta" title="Open in app" :to="'#appstore'">Open in de Assign App</nuxt-link>
+        <!-- Change on launch -->
+        <!-- <nuxt-link class="btn-opencta" title="Open in app" :to="'#appstore'">Open in de Assign App</nuxt-link> -->
       </div>
     </div>
     <div v-else>
