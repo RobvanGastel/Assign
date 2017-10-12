@@ -11,8 +11,8 @@
           </div>
 
 					<div class="col-xs-12 col-md-3 pull-right">
-						<button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
-						{{ showModal }}
+            <button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
+            <modal-license v-if="showModal" @close="showModal = false"></modal-license>
 					</div>
 
         </div>
@@ -23,7 +23,11 @@
 </template>
 
 <script>
+import ModalLicense from '../components/modal/ModalLicense'
 export default {
+  components: {
+    ModalLicense
+  },
   data: () => ({
     showModal: false
   })

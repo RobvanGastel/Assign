@@ -23,7 +23,7 @@
 								</ul>
 							</li>
 							<li><button class="btn-navcta" title="Vraag een demo aan" @click="showModal = true">Vraag demo aan</button></li>
-							{{ showModal }}
+							<modal-banner v-if="showModal" @close="showModal = false"></modal-banner>
 						</ul>
 					</nav>
 
@@ -34,7 +34,11 @@
 </template>
 
 <script>
+import ModalBanner from '../modal/ModalBanner'
 export default {
+  components: {
+    ModalBanner
+  },
   data: () => ({
     showModal: false
   })

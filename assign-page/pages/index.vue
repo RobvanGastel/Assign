@@ -5,12 +5,9 @@
     <features></features>
     <download></download>
     <banner></banner>
-    <button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
-    <modal-license v-if="showModal" @close="showModal = false"></modal-license>
     <footer-page></footer-page>
   </div>
 </template>
-
 
 <script>
 import Masthead from '../components/mast/Masthead'
@@ -18,7 +15,7 @@ import Steps from '../components/Steps'
 import Features from '../components/Features'
 import Download from '../components/Download'
 import Banner from '../components/Banner'
-import ModalLicense from '../components/ModalLicense'
+import ModalLicense from '../components/modal/ModalLicense'
 import FooterPage from '../components/FooterPage'
 // import headway from '../assets/js/headway'
 export default {
