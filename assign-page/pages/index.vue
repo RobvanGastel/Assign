@@ -13,7 +13,7 @@
 
 
 <script>
-import Masthead from '../components/Masthead'
+import Masthead from '../components/mast/Masthead'
 import Steps from '../components/Steps'
 import Features from '../components/Features'
 import Download from '../components/Download'
