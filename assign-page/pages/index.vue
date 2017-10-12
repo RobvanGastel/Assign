@@ -15,7 +15,6 @@ import Steps from '../components/Steps'
 import Features from '../components/Features'
 import Download from '../components/Download'
 import Banner from '../components/Banner'
-import ModalLicense from '../components/modal/ModalLicense'
 import FooterPage from '../components/FooterPage'
 // import headway from '../assets/js/headway'
 export default {
@@ -25,7 +24,6 @@ export default {
     Features,
     Download,
     Banner,
-    ModalLicense,
     FooterPage
   },
   data: () => ({
