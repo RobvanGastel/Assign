@@ -255,6 +255,8 @@ public class FirebaseService implements Serializable {
             if (response.getStatus() <= 200 && response.getStatus() < 300) {
 
 
+                LOG.error(response.getBody());
+
             } else {
                 LOG.error("Send notification error on request.");
             }
