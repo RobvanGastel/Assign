@@ -11,24 +11,26 @@
           </div>
 
 					<div class="col-xs-12 col-md-3 pull-right">
-						<button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
-						{{ showModal }}
+            <button class="btn btn-primary" title="Vraag een demo versie aan"  @click="showModal = true">Probeer de demo</button>
 					</div>
 
         </div>
       </div>
     </section>
 
+		<modal-license v-if="showModal" @close="showModal = false"></modal-license>
+
   </div>
 </template>
 
 <script>
+import ModalLicense from './ModalLicense'
 export default {
-  data () {
-    return {
-      showModal: false
-    }
+  components: {
+    ModalLicense
   },
-  props: ['showModal']
+  data: () => ({
+    showModal: false
+  })
 }
 </script>

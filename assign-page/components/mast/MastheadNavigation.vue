@@ -1,10 +1,10 @@
 <template>
-	<div class="row">
+	<div class="row-masthead">
 
-		<section class="brand-nav">
+		<section class="brand-nav masthead-nav">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12 col-lg-10 col-lg-offset-1">
+					<div class="col-md-12 col-lg-10 col-lg-offset-1">
 
 						<nuxt-link :to="'/'" class="logo" title="Ga naar home">
 							<img class="logo-image" alt="Assign logo" src="/logo.png">
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import ModalLicense from './ModalLicense'
+import ModalLicense from '../ModalLicense'
 export default {
   components: {
     ModalLicense
