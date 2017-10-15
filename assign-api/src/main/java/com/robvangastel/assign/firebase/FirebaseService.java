@@ -237,6 +237,8 @@ public class FirebaseService implements Serializable {
         // Mutate body
         JSONObject json = new JSONObject(payload);
 
+        LOG.error(json);
+
         // Set headers
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
