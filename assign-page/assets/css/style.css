@@ -683,6 +683,16 @@ footer input[type="submit"].button-valid {
 
 
 /*
+ * Contact (like download)
+ */
+.component-contact {
+  border-top: 1px solid #e2e2e2;
+}
+
+
+
+
+/*
  * Banner
  */
 .banner {
