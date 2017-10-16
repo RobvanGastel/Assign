@@ -16,6 +16,7 @@
 								<!-- Change on launch -->
 								<!-- <li><nuxt-link class="lnk hidden-xs hidden-sm" title="Download" :to="'#appstore'">Download</nuxt-link></li> -->
 								<li><nuxt-link class="lnk hidden-xs hidden-sm" title="Contact" :to="'/contact'">Contact</nuxt-link></li>
+								<li><nuxt-link class="lnk hidden-xs hidden-sm" title="Voor Scholen" :to="'/voor-scholen'">Voor Scholen</nuxt-link></li>
 								<li class="dropdown-toggle hidden-xs hidden-sm"><p class="lnk dropdown-toggle" title="Functies">Functies</p>
 									<ul class="dropdown-nav">
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Hashtags" :to="'/functies/hashtags'">Hashtags</nuxt-link></li>

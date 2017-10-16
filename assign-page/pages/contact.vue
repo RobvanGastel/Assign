@@ -23,7 +23,7 @@ export default {
     title: 'Kom met ons in contact',
     description: 'Heb je vragen en/of suggesties? Laat het ons dan vooral weten! Alle vragen zijn welkom.',
     illustratie: 'contact',
-    firstbtn: 'Bekijk ons Twitter',
+    firstbtn: 'Stuur een tweet',
     firstbtnlnk: 'https://twitter.com/assignappnl',
     firstbtntrgt: '_blank',
     secondbtn: 'Mail ons',
