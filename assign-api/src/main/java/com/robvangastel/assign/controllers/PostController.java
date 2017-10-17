@@ -227,7 +227,7 @@ public class PostController {
         splittedArray = idsString.split("/,");
 
         for(int l = 0; l < splittedArray.length; l++) {
-            idsList.add(Integer.valueOf(splittedArray[l]));
+            idsList.add(Integer.parseInt(splittedArray[l]));
         }
 
         for(Integer id : idsList) {
