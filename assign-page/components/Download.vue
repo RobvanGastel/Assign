@@ -10,7 +10,7 @@
             <h2>Download de app</h2>
             <p>Als jouw school een Assign licentie heeft kan jij de app downloaden in de App Store voor iPhone. Heeft jouw school geen licentie? Laat jouw school dit weten.</p>
             <nuxt-link class="btn btn-primary" title="Download de app" :to="'#download'">Download de iOS App</nuxt-link>
-						<nuxt-link class="btn btn-secundary hidden-xs" title="Deel met jouw school" :to="'#delen'">Deel met jouw school</nuxt-link>
+						<button v-clipboard:copy="clipboardMessage" class="btn btn-secundary hidden-xs" title="Deel met jouw school" v-on:click="setNewValue">{{ btnMessage }}</button>
           </div>
 
         </div>
@@ -19,3 +19,18 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    showModal: false,
+    clipboardMessage: 'https://assignapp.nl/voor-scholen',
+    btnMessage: 'Deel met jouw school'
+  }),
+  methods: {
+    setNewValue: function () {
+      this.btnMessage = 'De link is gekopieerd'
+    }
+  }
+}
+</script>
