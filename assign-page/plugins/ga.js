@@ -2,6 +2,7 @@
 
 export default ({ app }) => {
   /*
+  ** Possible improvement: https://www.npmjs.com/package/@nuxtjs/google-analytics
   ** Only run on client-side and only in production mode
   */
   if (process.env.NODE_ENV !== 'production') return
