@@ -17,20 +17,25 @@
 							<div class="modal-license-content">
 								<p>Wij zullen een mailtje sturen met de benodigde informatie om de app te gaan gebruiken in jullie school omgeving.</p>
 
-								<form>
-									<label for="naam">naam</label>
-									<input type="text" name="naam" id="naam" placeholder="Vul hier uw naam in" class="modal-inputtext"/>
+								<!-- Begin MailChimp Signup Form -->
+								<!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"> -->
+								<form action="https://assignapp.us16.list-manage.com/subscribe/post?u=06ec3ad60c8473d5c82f6f977&amp;id=1ba02f2337" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+									<label for="mce-FNAME">Voornaam</label>
+									<input type="text" name="FNAME" id="mce-FNAME" placeholder="Vul hier uw voornaam in" class="modal-inputtext"/>
 
-									<label for="mail">E-mail</label>
-									<input type="email" name="mail" id="mail" placeholder="Vul hier uw e-mailadres in" class="modal-inputtext"/>
+									<label for="mce-LNAME">Achternaam</label>
+									<input type="text" name="LNAME" id="mce-LNAME" placeholder="Vul hier uw achternaam in" class="modal-inputtext"/>
 
-									<label for="school">schoolnaam</label>
-									<input type="text" name="school" id="school" placeholder="Vul hier de naam van uw school in" class="modal-inputtext"/>
+									<label for="mce-EMAIL">E-mail</label>
+									<input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Vul hier uw e-mailadres in" class="modal-inputtext"/>
+
+									<label for="mce-MMERGE4">schoolnaam</label>
+									<input type="text" name="MMERGE4" id="mce-MMERGE4" placeholder="Vul hier de naam van uw school in" class="modal-inputtext"/>
 
 									<label>School grootte</label>
 									<div class="modal-radiobox">
-										<input type="radio" name="grootte" id="grootte_1" value="tot 500" checked>
-										<label for="grootte_1">
+										<input type="radio" name="MMERGE3" id="mce-MMERGE3-0" value="tot 500">
+										<label for="mce-MMERGE3-0">
 											<img src="../assets/img/checkbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkbox">
 											<img src="../assets/img/checkedbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkedbox">
 											tot 500
@@ -38,8 +43,8 @@
 									</div>
 
 									<div class="modal-radiobox modal-radiobox-center">
-										<input type="radio" name="grootte" id="grootte_2" value="500 - 1500">
-										<label for="grootte_2">
+										<input type="radio" name="MMERGE3" id="mce-MMERGE3-1" value="500 - 1500">
+										<label for="mce-MMERGE3-1">
 											<img src="../assets/img/checkbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkbox">
 											<img src="../assets/img/checkedbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkedbox">
 											500 - 1500
@@ -47,24 +52,37 @@
 									</div>
 
 									<div class="modal-radiobox">
-										<input type="radio" name="grootte" id="grootte_3" value="1500+">
-										<label for="grootte_3">
+										<input type="radio" name="MMERGE3" id="mce-MMERGE3-2" value="1500+">
+										<label for="mce-MMERGE3-2">
 											<img src="../assets/img/checkbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkbox">
 											<img src="../assets/img/checkedbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkedbox">
 											1500+
 										</label>
 									</div>
 
-            			<nuxt-link class="btn btn-primary" type="submit" title="Vraag een licentie aan" :to="'#demo'">Vraag een licentie aan</nuxt-link>
+									<div id="mce-responses" class="clear">
+										<div class="response" id="mce-error-response" style="display:none"></div>
+										<div class="response" id="mce-success-response" style="display:none"></div>
+									</div><!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+									<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06ec3ad60c8473d5c82f6f977_1ba02f2337" tabindex="-1" value=""></div>
+									<div class="clear">
+										<input type="submit" value="Vraag een licentie aan" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary"/>
+									</div>
 
-									<label class="modal-checkbox">
-										<input type="checkbox" required="true" name="voorwaarden"/>
-										<img src="../assets/img/checkedbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkedbox">
-										<img src="../assets/img/checkbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkbox">
-									</label>
-									<p class="voorwaarden-text">Ik heb de <nuxt-link title="Bekijk de Gebruiksvoorwaarden" :to="'/gebruiksvoorwaarden'">Gebruiksvoorwaarden</nuxt-link> gelezen</p>
+									<div class="mc-field-group input-group">
+										<label class="modal-checkbox" for="mce-MMERGE5-0">
+											<input type="radio" value="Ik ga akkoord met de Gebruiksvoorwaarden" name="MMERGE5" id="mce-MMERGE5-0"/>
+											<img src="../assets/img/checkedbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkedbox">
+											<img src="../assets/img/checkbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkbox">
+										</label>
+										<p class="voorwaarden-text">Ik heb de <nuxt-link title="Bekijk de Gebruiksvoorwaarden" :to="'/gebruiksvoorwaarden'">Gebruiksvoorwaarden</nuxt-link> gelezen</p>
+									</div>
 
 								</form>
+
+								<!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> -->
+								<!-- End mc_embed_signup -->
+
 							</div>
 
 						</div>
