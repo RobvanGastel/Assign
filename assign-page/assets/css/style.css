@@ -742,6 +742,7 @@ footer input[type="submit"].button-valid {
   overflow-y: auto;
   height: calc(80vh - 178px);
   padding: 0 50px 37px;
+  max-height: 703px;
 }
 
 .modal-license-content form input.modal-inputtext {
