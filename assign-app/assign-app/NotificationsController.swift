@@ -113,7 +113,7 @@ class NotificationsController: UITableViewController {
             profileImage.af_setImage(withURL: url, filter: filter)
         }
         
-        if let isReadView = cell.viewWithTag(105) as? UIView {
+        if let isReadView = cell.viewWithTag(105) {
             if !notification.readNotification {
                 isReadView.layer.cornerRadius = isReadView.frame.size.width/2
                 isReadView.clipsToBounds = true
