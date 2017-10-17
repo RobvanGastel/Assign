@@ -36,6 +36,7 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#FF7F28' },
+  plugins: ['~/plugins/clipboard'],
   /*
   ** Add axios globally
   */
