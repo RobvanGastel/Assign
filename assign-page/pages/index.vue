@@ -16,7 +16,6 @@ import Features from '../components/Features'
 // import Download from '../components/Download'
 import Banner from '../components/Banner'
 import FooterPage from '../components/FooterPage'
-// import headway from '../assets/js/headway'
 export default {
   components: {
     Masthead,
@@ -28,15 +27,7 @@ export default {
   },
   data: () => ({
     showModal: false
-    // ,
-    // config: {
-    //   selector: '.headway-widget',
-    //   account: 'J5Kp6x'
-    // }
   }),
-  // created () {
-  //   headway.init(this.config)
-  // },
   head: () => ({
     title: 'Het middel voor een communicatieve leeromgeving',
     titleTemplate: 'Assign – %s',
