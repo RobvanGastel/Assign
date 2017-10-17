@@ -218,6 +218,7 @@ public class PostController {
      * @throws Exception when an invalid user makes the request.
      */
     @PUT
+    @Path("/all")
     public Response setDone(@QueryParam("ids") String idsString) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
