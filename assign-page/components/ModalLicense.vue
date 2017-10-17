@@ -34,11 +34,11 @@
 
 									<label>School grootte</label>
 									<div class="modal-radiobox">
-										<input type="radio" name="MMERGE3" id="mce-MMERGE3-0" value="tot 500">
+										<input type="radio" name="MMERGE3" id="mce-MMERGE3-0" value="Tot 500">
 										<label for="mce-MMERGE3-0">
 											<img src="../assets/img/checkbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkbox">
 											<img src="../assets/img/checkedbox.svg" alt="Ik accepteer de Gebruiksvoorwaarden" class="icon-checkedbox">
-											tot 500
+											Tot 500
 										</label>
 									</div>
 
