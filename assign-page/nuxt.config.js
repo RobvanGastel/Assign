@@ -41,7 +41,7 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/clipboard', ssr: false}, 
-    { src: '~plugins/ga.js', ssr: true }],
+    { src: '~plugins/ga.js', ssr: false }],
   /*
   ** Add axios globally
   */
