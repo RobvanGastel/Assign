@@ -6,8 +6,6 @@ sudo git pull
 cd ./assign-page/
 
 # Update docker with the new build
-cd ..
-
 docker build -t assign-page .
 
 cd ..
