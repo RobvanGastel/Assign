@@ -230,14 +230,15 @@ public class FirebaseService implements Serializable {
      * }
      *
      * @param payload
-     * @param id      of the User
+     * @param id of the User
      * @throws Exception When Firebase gives a invalid statuscode
      */
     private void notificationCall(Payload payload) {
         // Mutate body
         JSONObject json = new JSONObject(payload);
 
-        LOG.error(json);
+        // To debug on the server
+        LOG.info("Notification body: " + json);
 
         // Set headers
         Map<String, String> headers = new HashMap<>();
@@ -255,7 +256,7 @@ public class FirebaseService implements Serializable {
             if (response.getStatus() <= 200 && response.getStatus() < 300) {
 
 
-                LOG.error(response.getBody());
+                LOG.info("Notification request response: " + response.getBody());
 
             } else {
                 LOG.error("Send notification error on request.");
