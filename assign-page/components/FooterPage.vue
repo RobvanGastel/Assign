@@ -42,25 +42,30 @@
 						<ul>
 							<li><div class="lnk">Volg ons in onze nieuwsbrief!</div></li>
 						</ul>
+
 						<!-- Begin MailChimp Signup Form -->
-						<div id="mc_embed_signup">
-							<form action="//assignapp.us16.list-manage.com/subscribe/post?u=06ec3ad60c8473d5c82f6f977&amp;id=2d6c899cf6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-						    <div id="mc_embed_signup_scroll">
-									<div class="mc-field-group">
-										<input type="email" value="" required placeholder="Vul jouw e-mailadres in" name="EMAIL" class="required email" id="mce-EMAIL">
-										<input type="button" value="Ga verder" class="button button-invalid">
-										<input type="submit" value="Ga verder" name="subscribe" id="mc-embedded-subscribe" class="button button-valid">
-									</div>
-									<div id="mce-responses" class="clear">
-										<div class="response" id="mce-error-response" style="display:none"></div>
-										<div class="response" id="mce-success-response" style="display:none"></div>
-									</div>
-									<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-							    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06ec3ad60c8473d5c82f6f977_2d6c899cf6" tabindex="-1" value=""></div>
-						    </div>
-							</form>
-						</div>
+						<!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"> -->
+						<form action="//assignapp.us16.list-manage.com/subscribe/post?u=06ec3ad60c8473d5c82f6f977&amp;id=2d6c899cf6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+					    <div id="mc_embed_signup_scroll">
+
+								<div class="mc-field-group">
+									<input type="email" value="" required placeholder="Vul jouw e-mailadres in" name="EMAIL" class="required email" id="mce-EMAIL">
+									<input type="button" value="Ga verder" class="button button-invalid">
+									<input type="submit" value="Ga verder" name="subscribe" id="mc-embedded-subscribe" class="button button-valid">
+								</div>
+
+								<div id="mce-responses" class="clear">
+									<div class="response" id="mce-error-response" style="display:none"></div>
+									<div class="response" id="mce-success-response" style="display:none"></div>
+								</div>
+								<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+						    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06ec3ad60c8473d5c82f6f977_2d6c899cf6" tabindex="-1" value=""></div>
+					    </div>
+						</form>
+						<!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> -->
 						<!--End mc_embed_signup-->
+
 					</div>
 
 				</div>
