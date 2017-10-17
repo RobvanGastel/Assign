@@ -16,6 +16,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -216,10 +218,19 @@ public class PostController {
      * @throws Exception when an invalid user makes the request.
      */
     @PUT
-    public Response setDone(@QueryParam("ids") List<Long> ids) throws Exception {
+    public Response setDone(@QueryParam("ids") String idsString) throws Exception {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
 
-        for(Long id : ids) {
+        List<Integer> idsList = new ArrayList<>();
+        String[] splittedArray = new String[] {};
+
+        splittedArray = idsString.split("/,");
+
+        for(int l = 0; l < splittedArray.length; l++) {
+            idsList.add(Integer.valueOf(splittedArray[l]));
+        }
+
+        for(Integer id : idsList) {
             LOG.warning(id.toString());
         }
 
