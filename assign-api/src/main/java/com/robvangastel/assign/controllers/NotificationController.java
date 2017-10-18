@@ -16,7 +16,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * @author Rob van Gastel
@@ -26,6 +28,8 @@ import java.util.List;
 @Secured({Role.USER})
 @Produces({MediaType.APPLICATION_JSON})
 public class NotificationController {
+
+    private static final Logger LOG = Logger.getLogger(NotificationController.class.getSimpleName());
 
     @Inject
     private UserService userService;
@@ -74,14 +78,24 @@ public class NotificationController {
      * @return a matching id or a statuscode 404
      * when no notification is found.
      */
-    @POST
-    public Response readNotifications(List<Long> ids) {
+    @PUT
+    public Response readNotifications(@QueryParam("ids") String idsString) {
 
-        if (ids == null) {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        List<Long> idsList = new ArrayList<>();
+        List<String> splittedArray = Arrays.asList(idsString.split(","));
+
+
+        if (splittedArray == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
 
-        notificationService.readNotifications(ids);
+        for(String i : splittedArray) {
+            idsList.add(Long.parseLong(i));
+        }
+
+        notificationService.readNotifications(idsList);
         return Response.ok().build();
     }
 
