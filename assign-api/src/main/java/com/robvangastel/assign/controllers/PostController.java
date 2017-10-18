@@ -33,8 +33,6 @@ import java.util.logging.Logger;
 @Produces({MediaType.APPLICATION_JSON})
 public class PostController {
 
-    private static final Logger LOG = Logger.getLogger(PostController.class.getSimpleName());
-
     @Inject
     private PostService postService;
 
@@ -207,37 +205,6 @@ public class PostController {
             postService.setDone(post, true);
             return Response.noContent().build();
         }
-
-        return Response.status(Response.Status.BAD_REQUEST).build();
-    }
-
-    /***
-     * Set a post of the authenticated user to done
-     * @param id of the post
-     * @return a statuscode indicating success or failure.
-     * @throws Exception when an invalid user makes the request.
-     */
-    @PUT
-    public Response setDone(@QueryParam("ids") String idsString) throws Exception {
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
-
-        List<Integer> idsList = new ArrayList<>();
-        String[] splittedArray = new String[] {};
-
-        splittedArray = idsString.split("/,");
-
-        for(int l = 0; l < splittedArray.length; l++) {
-            idsList.add(Integer.parseInt(splittedArray[l]));
-        }
-
-        for(Integer id : idsList) {
-            LOG.warning(id.toString());
-        }
-
-//        if (user.getId() == post.getUser().getId()) {
-//            postService.setDone(post, true);
-//            return Response.noContent().build();
-//        }
 
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
