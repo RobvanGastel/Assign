@@ -30,6 +30,7 @@ public abstract class AbstractDao<T extends Serializable> {
 
     public void delete(final T entity) {
         entityManager.remove(entity);
+        entityManager.flush();
     }
 
     public void deleteById(final long id) {

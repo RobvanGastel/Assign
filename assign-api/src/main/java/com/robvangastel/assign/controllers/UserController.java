@@ -4,6 +4,7 @@ import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.UserException;
 import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.ReplyService;
@@ -144,6 +145,36 @@ public class UserController {
         return Response.ok().build();
     }
 
+    @POST
+    @Path("/tags")
+    @Secured({Role.USER})
+    public Response addTags(@QueryParam("tag") String tag) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        if (user.getTags().contains(tag)) {
+            throw new UserException("Tag already added.");
+        }
+
+        user.getTags().add(tag);
+        userService.update(user);
+        return Response.ok().build();
+    }
+
+    @DELETE
+    @Path("/tags")
+    @Secured({Role.USER})
+    public Response deleteTags(@QueryParam("tag") String tag) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        if (!user.getTags().contains(tag)) {
+            throw new UserException("Tag already added.");
+        }
+
+        user.getTags().remove(tag);
+        userService.update(user);
+        return Response.ok().build();
+    }
+
     /***
      * TODO Implement uniform update method
      *
@@ -163,8 +194,6 @@ public class UserController {
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-
-
 
         return Response.noContent().build();
     }
