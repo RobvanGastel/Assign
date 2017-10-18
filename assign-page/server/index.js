@@ -20,6 +20,9 @@ if (config.dev) {
   builder.build()
 }
 
+// Disable the x-powered-by of express
+app.disable('x-powered-by')
+
 // Give nuxt middleware to express
 app.use(nuxt.render)
 
