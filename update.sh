@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /opt/assign-app
+
 # Pull the new changes
 sudo git pull
 
