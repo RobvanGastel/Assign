@@ -18,7 +18,6 @@
 								<p>Wij zullen een mailtje sturen met de benodigde informatie om de app te gaan gebruiken in jullie school omgeving.</p>
 
 								<!-- Begin MailChimp Signup Form -->
-								<!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"> -->
 								<form action="https://assignapp.us16.list-manage.com/subscribe/post?u=06ec3ad60c8473d5c82f6f977&amp;id=1ba02f2337" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 									<label for="mce-FNAME">Voornaam</label>
 									<input type="text" name="FNAME" id="mce-FNAME" placeholder="Vul hier uw voornaam in" class="modal-inputtext"/>
@@ -32,7 +31,7 @@
 									<label for="mce-MMERGE4">schoolnaam</label>
 									<input type="text" name="MMERGE4" id="mce-MMERGE4" placeholder="Vul hier de naam van uw school in" class="modal-inputtext"/>
 
-									<label>School grootte</label>
+									<label>Aantal studenten</label>
 									<div class="modal-radiobox">
 										<input type="radio" name="MMERGE3" id="mce-MMERGE3-0" value="Tot 500">
 										<label for="mce-MMERGE3-0">
@@ -79,8 +78,6 @@
 									</div>
 
 								</form>
-
-								<!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> -->
 								<!-- End mc_embed_signup -->
 
 							</div>

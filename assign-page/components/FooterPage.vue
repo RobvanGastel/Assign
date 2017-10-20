@@ -44,7 +44,6 @@
 						</ul>
 
 						<!-- Begin MailChimp Signup Form -->
-						<!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"> -->
 						<form action="//assignapp.us16.list-manage.com/subscribe/post?u=06ec3ad60c8473d5c82f6f977&amp;id=2d6c899cf6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 					    <div id="mc_embed_signup_scroll">
 
@@ -63,7 +62,6 @@
 						    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06ec3ad60c8473d5c82f6f977_2d6c899cf6" tabindex="-1" value=""></div>
 					    </div>
 						</form>
-						<!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> -->
 						<!--End mc_embed_signup-->
 
 					</div>
