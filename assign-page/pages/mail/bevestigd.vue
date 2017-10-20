@@ -17,8 +17,8 @@ export default {
     FooterPage
   },
   data: () => ({
-    title: 'Abonnement Bevestigd',
-    description: 'Je aanmelding voor onze lijst is bevestigd. Dank voor uw aanmelding!',
+    title: 'Jouw niewsbrief inschrijving is bevestigd',
+    description: 'Je hebt je ingeschreven voor onze nieuwsbrief. Bedankt voor uw aanmelding!',
     illustratie: 'mailbevestigd',
     firstbtn: 'Ga door naar onze website',
     firstbtnlnk: '/',
