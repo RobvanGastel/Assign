@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <navigation></navigation>
     <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
-    <!-- <functie-content></functie-content> -->
     <footer-page></footer-page>
   </div>
 </template>
@@ -10,19 +9,17 @@
 <script>
 import Navigation from '../../components/Navigation'
 import MastheadSub from '../../components/mast/MastheadSub'
-import FunctieContent from '../../components/FunctieContent'
 import FooterPage from '../../components/FooterPage'
 export default {
   components: {
     Navigation,
     MastheadSub,
-    FunctieContent,
     FooterPage
   },
   data: () => ({
     title: 'Bijna klaar...',
     description: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.',
-    illustratie: 'dashboard',
+    illustratie: 'mailbijnaklaar',
     firstbtn: 'Ga terug naar onze website',
     firstbtnlnk: '/',
     firstbtntrgt: '',
@@ -31,14 +28,14 @@ export default {
     secondbtntrgt: ''
   }),
   head: () => ({
-    title: 'Persoonlijk Profiel',
+    title: 'Bijna klaar...',
     titleTemplate: 'Assign – %s',
     meta: [
       { name: 'language', content: 'nl_NL' },
-      { name: 'description', content: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.' },
+      { name: 'description', content: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.' },
       { property: 'og:title', content: 'Assign – Persoonlijk Profiel' },
       { property: 'og:site_name', content: 'assignapp.nl' },
-      { property: 'og:description', content: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.' },
+      { property: 'og:description', content: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.' },
       { property: 'og:url', content: 'https://assignapp.nl' },
       { property: 'og:locale', content: 'nl_NL' },
       { property: 'og:type', content: 'website' },
@@ -48,7 +45,7 @@ export default {
       { property: 'og:image:height', content: '512' },
       { name: 'twitter:title', content: 'Assign – Persoonlijk Profiel' },
       { name: 'twitter:site_name', content: 'Assign – Persoonlijk Profiel' },
-      { name: 'twitter:description', content: 'Het bekijken van een student zijn/haar vragen en activiteit kan bij hun profiel.' },
+      { name: 'twitter:description', content: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.' },
       { name: 'twitter:url', content: 'https://assignapp.nl' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:domain', content: 'assignapp.nl' },
