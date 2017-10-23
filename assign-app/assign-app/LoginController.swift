@@ -66,7 +66,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 if(success == true) {
                     
                     // TODO Handle check
-                    print(Messaging.messaging().fcmToken!)
+                    // print(Messaging.messaging().fcmToken!)
                     // TODO Handle possible exceptions
                     self.apiService?.registerDevice(token: Messaging.messaging().fcmToken!) { response in
                         

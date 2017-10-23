@@ -347,14 +347,13 @@ class ApiService {
         
         return sessionManager.request(URL, method: .post, parameters: parameters,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseString { response in
                                         
                 switch response.result {
                 case .success:
                     completionHandler(true)
                     
                 case .failure(let error):
-                    print("API: register token error")
                     completionHandler(false)
                     print(error)
                 }
@@ -427,22 +426,28 @@ class ApiService {
                  completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
+        var idsString = ""
+        
+        for id in ids {
+            idsString += String(id) + ","
+        }
+        
         let parameters: Parameters = [
-            "ids" : ids
+            "ids" : idsString
         ]
         
         let URL = Storage.getURL() + "/notifications"
 
-        return sessionManager.request(URL, method: .put,
+        return sessionManager.request(URL, method: .put, parameters: parameters,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseString { response in
                 
                 switch response.result {
                 case .success:
-                    print("API: set done post succesful.")
+                    print("API: set read notifications succesful.")
                     
                 case .failure(let error):
-                    print("API: set done post failed.")
+                    print("API: set read notifications failed.")
                     print(error)
                 }
         }
@@ -462,10 +467,10 @@ class ApiService {
                 
                 switch response.result {
                 case .success:
-                    print("API: set done post succesful.")
+                    print("API: set read notification succesful.")
                     
                 case .failure(let error):
-                    print("API: set done post failed.")
+                    print("API: set read notification failed.")
                     print(error)
                 }
         }
