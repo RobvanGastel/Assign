@@ -100,7 +100,7 @@ class NotificationsController: UITableViewController {
         }
         
         if let nameLabel = cell.viewWithTag(102) as? UILabel {
-            nameLabel.text = notification.sender.name + " wil helpen met: "
+            nameLabel.text = notification.title
         }
         
         if let dateLabel = cell.viewWithTag(103) as? UILabel {
