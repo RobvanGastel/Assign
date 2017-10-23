@@ -186,10 +186,11 @@ class ApiService {
                 
                 switch response.result {
                 case .success:
+                    print("API: delete post sucesful")
                     completionHandler(true)
                     
                 case .failure(let error):
-                    print("API: delete post failed.")
+                    print("API: delete post failed")
                     completionHandler(false)
                     print(error)
                 }
@@ -402,7 +403,7 @@ class ApiService {
                         completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let URL = Storage.getURL() + "/posts/"
+        let URL = Storage.getURL() + "/posts/" + String(id)
         
         return sessionManager.request(URL, method: .put,
                                       encoding: URLEncoding.queryString).validate()
@@ -413,7 +414,7 @@ class ApiService {
                     completionHandler(true)
                     
                 case .failure(let error):
-                    print("API: set done post failed.")
+                    print("API: set done post failed")
                     completionHandler(false)
                     print(error)
                 }
@@ -444,10 +445,10 @@ class ApiService {
                 
                 switch response.result {
                 case .success:
-                    print("API: set read notifications succesful.")
+                    print("API: set read notifications succesful")
                     
                 case .failure(let error):
-                    print("API: set read notifications failed.")
+                    print("API: set read notifications failed")
                     print(error)
                 }
         }
@@ -467,10 +468,42 @@ class ApiService {
                 
                 switch response.result {
                 case .success:
-                    print("API: set read notification succesful.")
+                    print("API: set read notification succesful")
                     
                 case .failure(let error):
-                    print("API: set read notification failed.")
+                    print("API: set read notification failed")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function returns a list of *Reply* objects for the user by id.
+    @discardableResult
+    func getRepliesByPost(id: Int,
+                          completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id) + "/replies"
+        
+        return sessionManager.request(URL, method: .get,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    var replyArray = [Reply]()
+                    
+                    if let replies = response.value as? [[String:Any]] {
+                        for reply in replies {
+                            replyArray.append(Reply(JSON: reply)!)
+                        }
+                    }
+                    
+                    print("API: Retrieve replies successful")
+                    completionHandler(replyArray)
+                    
+                case .failure(let error):
+                    print("API: Retrieve replies error")
                     print(error)
                 }
         }
