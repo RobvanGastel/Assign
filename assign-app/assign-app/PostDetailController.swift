@@ -55,6 +55,10 @@ class PostDetailController: UIViewController {
             self.helpButton.isHidden = true
             self.helpButtonBar.isHidden = true
         }
+        
+//        self.apiService?.getRepliesByPost(id: currentPost?.id) { replies in
+//            
+//        }
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.
