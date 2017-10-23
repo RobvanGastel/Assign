@@ -280,7 +280,7 @@ class ApiService {
         let postId = "\(id)"
         let URL = Storage.getURL() + "/posts/" + postId + "/replies"
         
-        return sessionManager.request(URL, method: .get,
+        return sessionManager.request(URL, method: .post,
                                       encoding: URLEncoding.queryString).validate()
         .responseJSON { response in
                 
