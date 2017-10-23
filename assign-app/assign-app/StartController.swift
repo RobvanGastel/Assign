@@ -25,6 +25,7 @@ class StartController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
 
         // Checks if the user has loggedin in the past
         if(Storage.getLoggedIn()) {

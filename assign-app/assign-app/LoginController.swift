@@ -62,7 +62,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if email == "" && password == "" {
             
             // Authenticate API call
-            authService?.authenticate(email: "rob@mail.nl", password: "rob") { success in
+            authService?.authenticate(email: "max@mail.nl", password: "max") { success in
                 if(success == true) {
                     
                     // TODO Handle check
