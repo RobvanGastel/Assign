@@ -10,7 +10,7 @@
 						<div class="modal-license">
 							<div class="modal-license-header">
 								<img src="../assets/img/close.svg" alt="Sluiten" id="close-modal-license" draggable="false" @click="$emit('close')">
-								<h5>Beta licentie aanvragen</h5>
+								<h5>Demo licentie aanvragen</h5>
 								<h2>Vul hier de gegevens in om een licentie aan te vragen.</h2>
 							</div>
 
