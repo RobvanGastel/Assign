@@ -12,8 +12,6 @@ class UIInput: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        layer.cornerRadius = 6
-//        layer.sublayerTransform = CATransform3DMakeTranslation(16, 0, 0);
         self.borderStyle = .none
         self.layer.backgroundColor = UIColor.white.cgColor
         
