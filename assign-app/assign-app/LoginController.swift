@@ -32,11 +32,35 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // Initializes the delegate
         self.password.delegate = self
     }
-
-    /// On the last return triggers the authenticate method.
+    
+    
+    // On typing inputs
+    @IBAction func emailBegin(_ sender: Any) {
+        email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+    }
+    @IBAction func emailEnd(_ sender: Any) {
+        email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+    
+    @IBAction func passwordBegin(_ sender: Any) {
+        password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+    }
+    @IBAction func passwordEnd(_ sender: Any) {
+        password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+    
+    
+    /// On the last return triggers the authenticate method and 'Next' will tab to password.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        authenticate(email: email.text!, password: password.text!)
+        if (textField == self.email) {
+            self.email.becomeFirstResponder()
+            print("pls yes")
+        }
+        else if (textField == self.password) {
+            textField.resignFirstResponder()
+            authenticate(email: email.text!, password: password.text!)
+            print("pls no")
+        }
         return true
     }
 

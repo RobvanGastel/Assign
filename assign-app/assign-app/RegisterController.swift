@@ -31,6 +31,37 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         self.nameField.delegate = self
     }
     
+    
+    // On typing inputs
+    @IBAction func nameFieldBegin(_ sender: Any) {
+        nameField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+    }
+    @IBAction func nameFieldEnd(_ sender: Any) {
+        nameField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+    
+    @IBAction func emailFieldBegin(_ sender: Any) {
+        emailField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+    }
+    @IBAction func emailFieldEnd(_ sender: Any) {
+        emailField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+    
+    @IBAction func passwordFieldBegin(_ sender: Any) {
+        passwordField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+    }
+    @IBAction func passwordFieldEnd(_ sender: Any) {
+        passwordField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+    
+    @IBAction func codeFieldBegin(_ sender: Any) {
+        codeField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+    }
+    @IBAction func codeFieldEnd(_ sender: Any) {
+        codeField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+    }
+    
+    
     /// On the last return triggers the register method.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
