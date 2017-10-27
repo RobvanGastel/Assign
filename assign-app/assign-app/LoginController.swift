@@ -33,46 +33,26 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.password.delegate = self
     }
     
-    
-    @IBOutlet weak var UIViewTest: UIScrollView!
-    
-    @IBAction func textFieldTestBegin(_ sender: Any) {
-        UIViewTest.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
-    }
-    @IBAction func textFieldTestEnd(_ sender: Any) {
-        UIViewTest.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-    }
-    
-    
-    
-    
+    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet var loginView: UIView!
     
     // On typing inputs
     @IBAction func emailBegin(_ sender: Any) {
         email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
-        UIView.animate(withDuration: 0.28) {
-            self.view.frame.origin.y -= 120
-        }
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
     }
     @IBAction func emailEnd(_ sender: Any) {
         email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
-        UIView.animate(withDuration: 0.28) {
-            self.view.frame.origin.y += 120
-        }
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     @IBAction func passwordBegin(_ sender: Any) {
         password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
-        UIView.animate(withDuration: 0.28) {
-            self.view.frame.origin.y -= 120
-        }
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
     }
     @IBAction func passwordEnd(_ sender: Any) {
         password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
-        UIView.animate(withDuration: 0.28) {
-            self.view.frame.origin.y += 120
-        }
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     
