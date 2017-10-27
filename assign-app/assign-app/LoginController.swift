@@ -15,7 +15,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var wachtwoordLabel: UILabel!
+    @IBOutlet weak var emailError: UILabel!
+    @IBOutlet weak var wachtwoordError: UILabel!
+    
     // The API & Auth service
     var apiService: ApiService?
     var authService: AuthService?
@@ -31,27 +36,34 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         // Initializes the delegate
         self.password.delegate = self
+        
+        // Hide Label and Error of input fields
+        emailLabel.layer.opacity = 0
+        wachtwoordLabel.layer.opacity = 0
+        emailError.layer.opacity = 0
+        wachtwoordError.layer.opacity = 0
     }
     
-    @IBOutlet weak var ScrollView: UIScrollView!
-    @IBOutlet var loginView: UIView!
-    
-    // On typing inputs
-    @IBAction func emailBegin(_ sender: Any) {
+    // Add style and scroll on typing
+    @IBAction func emailBegin(_ sender: UIInput) {
         email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        emailLabel.layer.opacity = 1
         ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
     }
-    @IBAction func emailEnd(_ sender: Any) {
+    @IBAction func emailEnd(_ sender: UIInput) {
         email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        emailLabel.layer.opacity = 0
         ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
-    @IBAction func passwordBegin(_ sender: Any) {
+    @IBAction func passwordBegin(_ sender: UIInput) {
         password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        wachtwoordLabel.layer.opacity = 1
         ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
     }
-    @IBAction func passwordEnd(_ sender: Any) {
+    @IBAction func passwordEnd(_ sender: UIInput) {
         password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        wachtwoordLabel.layer.opacity = 0
         ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
@@ -60,12 +72,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField == self.email) {
             self.email.becomeFirstResponder()
-            print("pls yes")
         }
         else if (textField == self.password) {
             textField.resignFirstResponder()
             authenticate(email: email.text!, password: password.text!)
-            print("pls no")
         }
         return true
     }
@@ -78,12 +88,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
         authenticate(email: email.text!, password: password.text!)
     }
     
-    /// Redirect to the register view.
-    ///
-    /// TODO add matching animation
-    @IBAction func registerRedirect(_ sender: Any) {
-        self.redirectViewController(identifier: "RegisterController")
-    }
+//    Redirect to the register view.
+//
+//    TODO add matching animation
+//    @IBAction func registerRedirect(_ sender: Any) {
+//        self.redirectViewController(identifier: "RegisterController")
+//    }
 
     /// Authenticates the user against the API.
     func authenticate(email: String, password : String) {
