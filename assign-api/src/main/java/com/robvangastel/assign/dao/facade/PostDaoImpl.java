@@ -96,4 +96,11 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     public void create(Post entity) throws PostException {
         entityManager.merge(entity);
     }
+
+    @Override
+    public void deleteByQuery(long id) throws PostException {
+        entityManager.createQuery("delete from Post where id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
 }

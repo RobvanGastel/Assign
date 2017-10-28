@@ -50,7 +50,7 @@ public class PostService implements Serializable {
     }
 
     public void delete(long id) throws Exception {
-        postDao.deleteById(id);
+        postDao.deleteByQuery(id);
     }
 
     public void updateContent(Post entity, User user) {

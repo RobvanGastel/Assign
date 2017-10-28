@@ -93,8 +93,16 @@ public interface IPostDao {
     void delete(Post entity) throws PostException;
 
     /***
+     * TODO Not working with current implementation
      * Delete Post by id
      * @param id id of the Post
      */
     void deleteById(long id) throws PostException;
+
+    /***
+     * Delete Post by entity
+     * @param id
+     * @throws PostException
+     */
+    void deleteByQuery(long id) throws PostException;
 }
