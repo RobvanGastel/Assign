@@ -51,16 +51,6 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     public List<Post> findByQuery(User user, String query, int start, int size) {
         query = "%" + query + "%";
 
-// SELECT * FROM Post p
-// INNER JOIN User u ON p.user_id = u.id
-// INNER JOIN Study s ON u.study_id = s.id
-// INNER JOIN School sc ON sc.id = s.school_id
-// WHERE LOWER(p.title) like LOWER('%max%')
-// OR LOWER(p.description) like LOWER('%max%')
-// OR LOWER(u.name) LIKE LOWER('%max%')
-// AND s.id = 2 AND sc.id = 1
-// ORDER BY p.dateCreated DESC
-
         String queryString = "SELECT * FROM Post p INNER JOIN User u ON p.user_id = u.id INNER JOIN Study s ON u.study_id = s.id INNER JOIN School sc ON sc.id = s.school_id WHERE LOWER(p.title) like LOWER(:query) OR LOWER(p.description) like LOWER(:query) OR LOWER(u.name) LIKE LOWER(:query) AND s.id = :study AND sc.id = :school ORDER BY p.dateCreated DESC";
         return (List<Post>) entityManager.createNativeQuery(queryString, Post.class)
                 .setFirstResult(start)

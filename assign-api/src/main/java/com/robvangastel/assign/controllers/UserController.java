@@ -6,6 +6,7 @@ import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
 import com.robvangastel.assign.exception.UserException;
 import com.robvangastel.assign.security.Secured;
+import com.robvangastel.assign.services.OverviewService;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
@@ -36,6 +37,9 @@ public class UserController {
 
     @Inject
     private ReplyService replyService;
+
+    @Inject
+    private OverviewService overviewService;
 
     @Context
     private SecurityContext securityContext;
@@ -106,6 +110,15 @@ public class UserController {
                                      @DefaultValue("20") @QueryParam("size") int size) {
         List<Reply> replies = replyService.findByUser(id, start, size);
         return Response.ok(replies).build();
+    }
+
+    @GET
+    @Path("/{id}/overview")
+    public Response getOverviewByUser(@PathParam("id") long id,
+                                      @DefaultValue("0") @QueryParam("start") int start,
+                                      @DefaultValue("20") @QueryParam("size") int size) {
+        List<OverviewService.Item> items = overviewService.findByUser(id, start, size);
+        return Response.ok(items).build();
     }
 
     /***
