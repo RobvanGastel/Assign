@@ -15,6 +15,11 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var codeField: UITextField!
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var wachtwoordLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
     
     // The Auth service
     var authService: AuthService?
@@ -29,36 +34,57 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         // Initializes the delegate
         self.nameField.delegate = self
+        
+        nameLabel.layer.opacity = 0
+        emailLabel.layer.opacity = 0
+        wachtwoordLabel.layer.opacity = 0
+        codeLabel.layer.opacity = 0
     }
     
     
     // On typing inputs
     @IBAction func nameFieldBegin(_ sender: Any) {
         nameField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        nameLabel.layer.opacity = 1
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 80), animated: true)
     }
     @IBAction func nameFieldEnd(_ sender: Any) {
         nameField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        nameLabel.layer.opacity = 0
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     @IBAction func emailFieldBegin(_ sender: Any) {
         emailField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        emailLabel.layer.opacity = 1
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
     }
     @IBAction func emailFieldEnd(_ sender: Any) {
         emailField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        emailLabel.layer.opacity = 0
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     @IBAction func passwordFieldBegin(_ sender: Any) {
         passwordField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        wachtwoordLabel.layer.opacity = 1
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
     }
     @IBAction func passwordFieldEnd(_ sender: Any) {
         passwordField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        wachtwoordLabel.layer.opacity = 0
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     @IBAction func codeFieldBegin(_ sender: Any) {
         codeField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        codeLabel.layer.opacity = 1
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 140), animated: true)
     }
     @IBAction func codeFieldEnd(_ sender: Any) {
         codeField.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        codeLabel.layer.opacity = 0
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     
