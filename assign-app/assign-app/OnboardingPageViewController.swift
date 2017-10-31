@@ -13,8 +13,11 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
     lazy var orderedViewControllers: [UIViewController] = {
         return [self.newVc(viewController: "StepOne"),
                 self.newVc(viewController: "StepTwo"),
-                self.newVc(viewController: "StepThree")]
+                self.newVc(viewController: "StepThree"),
+                self.newVc(viewController: "StepFour")]
     }()
+    
+    var pageControl = UIPageControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,22 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
                                animated: true,
                                completion: nil)
         }
+        
+        self.delegate = self
+        configurePageControl()
+        
+        self.view.backgroundColor = UIColor.white
+    }
+    
+    // Styling of pageControls
+    func configurePageControl() {
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 50, width: UIScreen.main.bounds.width, height: 50))
+        pageControl.numberOfPages = orderedViewControllers.count
+        pageControl.currentPage = 0
+        pageControl.tintColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1)
+        pageControl.pageIndicatorTintColor = UIColor(red: 0.88, green: 0.88, blue: 0.88, alpha: 1)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1)
+        self.view.addSubview(pageControl)
     }
 
     func newVc(viewController: String) -> UIViewController {
@@ -39,8 +58,10 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
         
         let previousIndex = viewControllerIndex - 1
         
+        // This will run before the first page
         guard previousIndex >= 0 else {
-            return orderedViewControllers.last
+            //return orderedViewControllers.last
+            return nil
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -57,8 +78,10 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
         
         let nextIndex = viewControllerIndex + 1
         
+        // This will run after the last page
         guard orderedViewControllers.count != nextIndex else {
-            return orderedViewControllers.first
+            //return orderedViewControllers.first
+            return nil
         }
         
         guard orderedViewControllers.count > nextIndex else {
@@ -66,6 +89,11 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
         }
         
         return orderedViewControllers[nextIndex]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        let pageContentViewController = pageViewController.viewControllers![0]
+        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
     }
     
     override func didReceiveMemoryWarning() {
