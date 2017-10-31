@@ -1348,7 +1348,19 @@
                     <view key="view" contentMode="scaleToFill" id="u5n-lS-WAi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nR-Ry-YPg">
+                                <rect key="frame" x="183.33333333333334" y="358" width="47.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4nR-Ry-YPg" firstAttribute="centerY" secondItem="u5n-lS-WAi" secondAttribute="centerY" id="5dM-wY-Yrn"/>
+                            <constraint firstItem="4nR-Ry-YPg" firstAttribute="centerX" secondItem="u5n-lS-WAi" secondAttribute="centerX" id="vyp-we-XlF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTx-u0-sTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1366,7 +1378,19 @@
                     <view key="view" contentMode="scaleToFill" id="2Kb-rn-uaG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pg-GM-vqE">
+                                <rect key="frame" x="182" y="358" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Pg-GM-vqE" firstAttribute="centerY" secondItem="2Kb-rn-uaG" secondAttribute="centerY" id="kfl-LK-e0g"/>
+                            <constraint firstItem="1Pg-GM-vqE" firstAttribute="centerX" secondItem="2Kb-rn-uaG" secondAttribute="centerX" id="vQJ-1f-ns2"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKm-qc-k4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1384,12 +1408,54 @@
                     <view key="view" contentMode="scaleToFill" id="zYd-fe-Mxv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdD-5U-CKW">
+                                <rect key="frame" x="182" y="358" width="50.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="YdD-5U-CKW" firstAttribute="centerX" secondItem="zYd-fe-Mxv" secondAttribute="centerX" id="ir8-ih-X5b"/>
+                            <constraint firstItem="YdD-5U-CKW" firstAttribute="centerY" secondItem="zYd-fe-Mxv" secondAttribute="centerY" id="jli-GE-qlK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9f-qH-FAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="462" y="1793"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aOS-Te-4Pc">
+            <objects>
+                <viewController storyboardIdentifier="StepFour" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lmN-Lf-8KC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mlt-33-Pdj"/>
+                        <viewControllerLayoutGuide type="bottom" id="aTX-Sq-X4v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="46H-pw-zpC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWM-ir-uct">
+                                <rect key="frame" x="181.66666666666666" y="358" width="50.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DWM-ir-uct" firstAttribute="centerX" secondItem="46H-pw-zpC" secondAttribute="centerX" id="8qg-i4-igu"/>
+                            <constraint firstItem="DWM-ir-uct" firstAttribute="centerY" secondItem="46H-pw-zpC" secondAttribute="centerY" id="qYX-u8-wRh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xv9-wN-hh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="1790"/>
         </scene>
         <!--Notificaties-->
         <scene sceneID="NG6-jq-wmo">
