@@ -28,6 +28,7 @@
 		B28E0A7E1F14181A0007F9DE /* logo-trans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28E0A7C1F14181A0007F9DE /* logo-trans@2x.png */; };
 		B28E0A7F1F14181A0007F9DE /* app-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28E0A7D1F14181A0007F9DE /* app-logo@2x.png */; };
 		B2B56D481F0EE595003A561A /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2B56D471F0EE595003A561A /* profile@2x.jpg */; };
+		B2B957421FA9048500A61013 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B957411FA9048500A61013 /* OnboardingPageViewController.swift */; };
 		B2D37C621F07DDFA00C3A0BA /* icon-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C5D1F07DDFA00C3A0BA /* icon-settings@2x.png */; };
 		B2D37C631F07DDFA00C3A0BA /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C5E1F07DDFA00C3A0BA /* icon-back@2x.png */; };
 		B2D37C641F07DDFA00C3A0BA /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C5F1F07DDFA00C3A0BA /* icon-share@2x.png */; };
@@ -113,6 +114,7 @@
 		B28E0A7C1F14181A0007F9DE /* logo-trans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-trans@2x.png"; sourceTree = "<group>"; };
 		B28E0A7D1F14181A0007F9DE /* app-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-logo@2x.png"; sourceTree = "<group>"; };
 		B2B56D471F0EE595003A561A /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile@2x.jpg"; sourceTree = "<group>"; };
+		B2B957411FA9048500A61013 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		B2D37C5D1F07DDFA00C3A0BA /* icon-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings@2x.png"; sourceTree = "<group>"; };
 		B2D37C5E1F07DDFA00C3A0BA /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		B2D37C5F1F07DDFA00C3A0BA /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 		D41955811ECF3E6A009575DE /* JWTHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHandler.swift; sourceTree = "<group>"; };
 		D41955831ECF4288009575DE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D41955851ECF627C009575DE /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
-		D44ABAE01F9E790800BE3E0B /* icon-read@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-read@2x.png"; sourceTree = "<group>"; };
 		D45D2FE81F018FD8002FEBE7 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -244,6 +245,7 @@
 				D4C828741F03A54000A87D40 /* Extensions */,
 				20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */,
 				20CC17CA1E17E1DB006D5A13 /* Main.storyboard */,
+				B2B957411FA9048500A61013 /* OnboardingPageViewController.swift */,
 				20CC17D01E17E1DB006D5A13 /* Assets.xcassets */,
 				20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */,
 				D419557E1ECF1BCD009575DE /* Bridging.h */,
@@ -607,6 +609,7 @@
 				D4C828801F06D4B500A87D40 /* ProfileDetailController.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
 				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
+				B2B957421FA9048500A61013 /* OnboardingPageViewController.swift in Sources */,
 				D40192A01F3A2DD900879B8C /* UISegmentedControl.swift in Sources */,
 				D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */,
 				D4EF900E1F083CA300211F04 /* NotificationsController.swift in Sources */,
