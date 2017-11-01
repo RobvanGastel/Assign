@@ -107,9 +107,13 @@ class ApiService {
                  completionHandler: @escaping (Bool) -> ()) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
 
+        let titleEncoded = String().encode(title)
+        let descriptionEncoded = String().encode(description)
+        
+        
         let parameters: Parameters = [
-            "title": title,
-            "description": description
+            "title": titleEncoded,
+            "description": descriptionEncoded
         ]
 
         let URL = Storage.getURL() + "/posts"
@@ -139,8 +143,10 @@ class ApiService {
                      completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
+        let queryEncoded = String().encode(query)
+        
         let parameters: Parameters = [
-            "query": query,
+            "query": queryEncoded,
             "size" : size,
             "start" : start
         ]
