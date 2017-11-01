@@ -30,6 +30,20 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
                                completion: nil)
         }
         
+        // Display the skip button "Overslaan"
+        let skipButton = UIButton(frame: CGRect(x: 24, y: UIScreen.main.bounds.maxY - 76, width: UIScreen.main.bounds.width/2 - 32, height: 52))
+        skipButton.backgroundColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1)
+        skipButton.setTitle("Overslaan", for: [])
+        skipButton.layer.cornerRadius = 6
+        self.view.addSubview(skipButton)
+        
+        // Display the next button "Volgende"
+        let nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width/2 + 8, y: UIScreen.main.bounds.maxY - 76, width: UIScreen.main.bounds.width/2 - 32, height: 52))
+        nextButton.backgroundColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1)
+        nextButton.setTitle("Volgende", for: [])
+        nextButton.layer.cornerRadius = 6
+        self.view.addSubview(nextButton)
+        
         self.delegate = self
         configurePageControl()
         
@@ -38,7 +52,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
     
     // Styling of pageControls
     func configurePageControl() {
-        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 50, width: UIScreen.main.bounds.width, height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 108, width: UIScreen.main.bounds.width, height: 8))
         pageControl.numberOfPages = orderedViewControllers.count
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1)

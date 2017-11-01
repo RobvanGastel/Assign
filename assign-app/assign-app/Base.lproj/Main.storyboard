@@ -1195,6 +1195,7 @@
                             <constraint firstAttribute="trailing" secondItem="Jsi-c6-2v6" secondAttribute="trailing" id="rLH-xZ-rK9"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="736"/>
                     <connections>
                         <outlet property="ScrollView" destination="Jsi-c6-2v6" id="hS0-aG-IZ1"/>
                         <outlet property="codeField" destination="Jg7-18-ytS" id="IF5-B0-DCO"/>
