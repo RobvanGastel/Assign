@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		201F96ED1E3154BB0082702E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EC1E3154BB0082702E /* User.swift */; };
 		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
+		208A6B391FA9D7CE004DFB78 /* EmojiEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */; };
 		20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */; };
 		20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17CA1E17E1DB006D5A13 /* Main.storyboard */; };
 		20CC17CF1E17E1DB006D5A13 /* assign_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17CD1E17E1DB006D5A13 /* assign_app.xcdatamodeld */; };
@@ -90,6 +91,7 @@
 		15DBE38C839807CADA888864 /* Pods-assign-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-assign-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-assign-app/Pods-assign-app.release.xcconfig"; sourceTree = "<group>"; };
 		201F96EC1E3154BB0082702E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		201F96EE1E3154F10082702E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiEncoding.swift; sourceTree = "<group>"; };
 		20CC17C31E17E1DB006D5A13 /* assign-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assign-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20CC17CB1E17E1DB006D5A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 		D41955811ECF3E6A009575DE /* JWTHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHandler.swift; sourceTree = "<group>"; };
 		D41955831ECF4288009575DE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D41955851ECF627C009575DE /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
-		D44ABAE01F9E790800BE3E0B /* icon-read@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-read@2x.png"; sourceTree = "<group>"; };
 		D45D2FE81F018FD8002FEBE7 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -341,6 +342,7 @@
 				D4C55DF01F0AFFBB0029E285 /* UIButton.swift */,
 				D401929F1F3A2DD900879B8C /* UISegmentedControl.swift */,
 				D46FAADD1F5F3F0400C25344 /* UIColor.swift */,
+				208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -618,6 +620,7 @@
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				D46FAADE1F5F3F0400C25344 /* UIColor.swift in Sources */,
 				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,
+				208A6B391FA9D7CE004DFB78 /* EmojiEncoding.swift in Sources */,
 				D4C1947F1F1D31A7009A481B /* Reply.swift in Sources */,
 				D45D2FF41F02D485002FEBE7 /* Add.swift in Sources */,
 				D4D906531ECE541A0065B5A5 /* ApiService.swift in Sources */,
