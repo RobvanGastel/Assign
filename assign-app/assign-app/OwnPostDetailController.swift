@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view the details of a post.
-class OwnPostDetailController: UIViewController {
+class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,6 +24,8 @@ class OwnPostDetailController: UIViewController {
     // Provided data from the segue
     var currentPost:Post?
     
+    var replies: [Reply]?
+    
     var replied: Bool? = false
     
     override func viewDidLoad() {
@@ -31,7 +33,10 @@ class OwnPostDetailController: UIViewController {
         
         // Init API service
         apiService = ApiService()
-    
+        
+        apiService?.getRepliesByPost(id: currentPost!.id) { response in
+            self.replies = response
+        }
         
         self.initializePost()
     }
@@ -162,6 +167,34 @@ class OwnPostDetailController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Table view with Posts
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return replies!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
+        
+            let reply = replies?[indexPath.row] as! Reply
+            
+            if let titleLabel = cell.viewWithTag(401) as? UILabel {
+                titleLabel.text = reply.user.name + " wil helpen met: "
+            }
+            
+            if let textLabel = cell.viewWithTag(402) as? UILabel {
+                textLabel.text = reply.post.title
+            }
+            
+            if let dateLabel = cell.viewWithTag(403) as? UILabel {
+                dateLabel.text = reply.dateCreated.timeAgoSimple
+            }
+        
+        return cell
     }
 }
 
