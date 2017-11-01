@@ -11,10 +11,10 @@ import UIKit
 class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVc(viewController: "StepOne"),
-                self.newVc(viewController: "StepTwo"),
-                self.newVc(viewController: "StepThree"),
-                self.newVc(viewController: "StepFour")]
+        return [self.newViewController(viewController: "StepOne"),
+                self.newViewController(viewController: "StepTwo"),
+                self.newViewController(viewController: "StepThree"),
+                self.newViewController(viewController: "StepFour")]
     }()
     
     var pageControl = UIPageControl()
@@ -29,6 +29,11 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
                                animated: true,
                                completion: nil)
         }
+        
+        self.initializeButtons()
+    }
+    
+    func initializeButtons() {
         
         // Display the skip button "Overslaan"
         let skipButton = UIButton(frame: CGRect(x: 24, y: UIScreen.main.bounds.maxY - 76, width: UIScreen.main.bounds.width/2 - 32, height: 52))
@@ -66,6 +71,14 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
     // Action of the next button
     func nextButtonAction(sender: UIButton!) {
         print("Next Button Tapped")
+
+        if let currentViewController = viewControllers?[0] {
+            if let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) {
+                setViewControllers([nextPage], direction: .forward, animated: true) { result in
+                    pageControl.
+                }
+            }
+        }
     }
     
     // Styling of pageControls
@@ -79,11 +92,14 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
         self.view.addSubview(pageControl)
     }
 
-    func newVc(viewController: String) -> UIViewController {
+    func newViewController(viewController: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:viewController)
     }
     
+    // MARK: - Pager
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -127,21 +143,4 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

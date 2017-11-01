@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -293,7 +293,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="403" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfV-4K-UlT" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="361.33333333333331" y="12" width="26.666666666666686" height="21"/>
+                                                            <rect key="frame" x="361.33333333333326" y="12" width="26.666666666666686" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="kEJ-yj-sYV"/>
                                                             </constraints>
@@ -687,7 +687,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-load.png" translatesAutoresizingMaskIntoConstraints="NO" id="tIF-JT-eie">
-                                <rect key="frame" x="151.66666666666666" y="312.66666666666669" width="110.99999999999997" height="111"/>
+                                <rect key="frame" x="151.66666666666669" y="312.66666666666669" width="111.00000000000006" height="111"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1350,23 +1350,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nR-Ry-YPg">
-                                <rect key="frame" x="183.33333333333334" y="358" width="47.666666666666657" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-problem.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="a3k-aW-agY">
+                                <rect key="frame" x="36" y="80" width="360" height="360"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Je loopt vast bij een onderwerp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-3e-aLB">
+                                <rect key="frame" x="20" y="480" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.1957736545138889" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Het is jammer als je lang bij iets vast blijft lopen terwijl anderen je kunnen helpen." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMg-eC-Bhq">
+                                <rect key="frame" x="16" y="519" width="382" height="69"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="4nR-Ry-YPg" firstAttribute="centerY" secondItem="u5n-lS-WAi" secondAttribute="centerY" id="5dM-wY-Yrn"/>
-                            <constraint firstItem="4nR-Ry-YPg" firstAttribute="centerX" secondItem="u5n-lS-WAi" secondAttribute="centerX" id="vyp-we-XlF"/>
+                            <constraint firstItem="fWL-3e-aLB" firstAttribute="top" secondItem="a3k-aW-agY" secondAttribute="bottom" constant="40" id="0EO-K3-7Io"/>
+                            <constraint firstItem="xAL-j0-jya" firstAttribute="top" secondItem="SMg-eC-Bhq" secondAttribute="bottom" constant="148" id="0cs-aF-gL4"/>
+                            <constraint firstItem="fWL-3e-aLB" firstAttribute="leading" secondItem="u5n-lS-WAi" secondAttribute="leadingMargin" id="GIm-y6-FQn"/>
+                            <constraint firstItem="a3k-aW-agY" firstAttribute="top" secondItem="DeW-YT-YRo" secondAttribute="bottom" constant="60" id="O8s-UD-OMN"/>
+                            <constraint firstItem="SMg-eC-Bhq" firstAttribute="top" secondItem="fWL-3e-aLB" secondAttribute="bottom" constant="18" id="Z9R-r1-fpP"/>
+                            <constraint firstAttribute="trailing" secondItem="SMg-eC-Bhq" secondAttribute="trailing" constant="16" id="bYl-9X-S7R"/>
+                            <constraint firstItem="SMg-eC-Bhq" firstAttribute="leading" secondItem="u5n-lS-WAi" secondAttribute="leading" constant="16" id="dlC-z4-5HJ"/>
+                            <constraint firstItem="fWL-3e-aLB" firstAttribute="trailing" secondItem="u5n-lS-WAi" secondAttribute="trailingMargin" id="hVs-ov-twM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a3k-aW-agY" secondAttribute="trailing" constant="16" id="i15-XV-Iq0"/>
+                            <constraint firstItem="a3k-aW-agY" firstAttribute="leading" secondItem="u5n-lS-WAi" secondAttribute="leadingMargin" constant="16" id="v2l-qJ-k8j"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTx-u0-sTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-880" y="1795"/>
+            <point key="canvasLocation" x="-881.15942028985512" y="1794.2934782608697"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oeE-Qg-G6U">
@@ -1380,23 +1398,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pg-GM-vqE">
-                                <rect key="frame" x="182" y="358" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-chat.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="45V-pa-Fgf">
+                                <rect key="frame" x="36" y="80" width="342" height="360"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Je vraagt om hulp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTM-3E-aQ8">
+                                <rect key="frame" x="36" y="480" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.19577365450000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Het is jammer als je lang bij iets vast blijft lopen terwijl anderen je kunnen helpen." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2y2-z9-aj2">
+                                <rect key="frame" x="16" y="519" width="382" height="69"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1Pg-GM-vqE" firstAttribute="centerY" secondItem="2Kb-rn-uaG" secondAttribute="centerY" id="kfl-LK-e0g"/>
-                            <constraint firstItem="1Pg-GM-vqE" firstAttribute="centerX" secondItem="2Kb-rn-uaG" secondAttribute="centerX" id="vQJ-1f-ns2"/>
+                            <constraint firstItem="2y2-z9-aj2" firstAttribute="top" secondItem="QTM-3E-aQ8" secondAttribute="bottom" constant="18" id="5E6-fl-Bcu"/>
+                            <constraint firstItem="45V-pa-Fgf" firstAttribute="top" secondItem="o3l-F2-5Mi" secondAttribute="bottom" constant="60" id="9L8-3x-GXS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="45V-pa-Fgf" secondAttribute="trailing" constant="16" id="Nhm-Oa-p3p"/>
+                            <constraint firstItem="QTM-3E-aQ8" firstAttribute="top" secondItem="45V-pa-Fgf" secondAttribute="bottom" constant="40" id="Vbm-cM-NLb"/>
+                            <constraint firstItem="QTM-3E-aQ8" firstAttribute="trailing" secondItem="2Kb-rn-uaG" secondAttribute="trailingMargin" constant="16" id="WlA-vn-BGx"/>
+                            <constraint firstItem="QTM-3E-aQ8" firstAttribute="leading" secondItem="2Kb-rn-uaG" secondAttribute="leadingMargin" constant="16" id="Y3J-V5-AAl"/>
+                            <constraint firstItem="45V-pa-Fgf" firstAttribute="leading" secondItem="2Kb-rn-uaG" secondAttribute="leadingMargin" constant="16" id="fZF-gc-lLt"/>
+                            <constraint firstItem="QqP-TK-pAx" firstAttribute="top" secondItem="2y2-z9-aj2" secondAttribute="bottom" constant="148" id="gzq-Sw-NMc"/>
+                            <constraint firstAttribute="trailing" secondItem="2y2-z9-aj2" secondAttribute="trailing" constant="16" id="nhG-zv-LCx"/>
+                            <constraint firstItem="2y2-z9-aj2" firstAttribute="leading" secondItem="2Kb-rn-uaG" secondAttribute="leading" constant="16" id="soL-Zz-Yas"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKm-qc-k4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="1793"/>
+            <point key="canvasLocation" x="-217.39130434782609" y="1792.663043478261"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fqf-II-BMc">
@@ -1410,17 +1446,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdD-5U-CKW">
-                                <rect key="frame" x="182" y="358" width="50.333333333333343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-messages.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dGR-6v-hIG">
+                                <rect key="frame" x="36" y="80" width="342" height="360"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Je bepaalt zelf hoe je geholpen wordt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvC-YA-IjX">
+                                <rect key="frame" x="16" y="480" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.19577365450000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Het is jammer als je lang bij iets vast blijft lopen terwijl anderen je kunnen helpen." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xod-wM-QtL">
+                                <rect key="frame" x="16" y="519" width="382" height="69"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YdD-5U-CKW" firstAttribute="centerX" secondItem="zYd-fe-Mxv" secondAttribute="centerX" id="ir8-ih-X5b"/>
-                            <constraint firstItem="YdD-5U-CKW" firstAttribute="centerY" secondItem="zYd-fe-Mxv" secondAttribute="centerY" id="jli-GE-qlK"/>
+                            <constraint firstItem="dGR-6v-hIG" firstAttribute="leading" secondItem="zYd-fe-Mxv" secondAttribute="leadingMargin" constant="16" id="37I-v6-pRr"/>
+                            <constraint firstItem="dGR-6v-hIG" firstAttribute="top" secondItem="o20-xz-oVm" secondAttribute="bottom" constant="60" id="882-gs-lV3"/>
+                            <constraint firstItem="xod-wM-QtL" firstAttribute="top" secondItem="jvC-YA-IjX" secondAttribute="bottom" constant="18" id="F3h-g1-GsX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dGR-6v-hIG" secondAttribute="trailing" constant="16" id="OMl-1a-FM7"/>
+                            <constraint firstItem="Io6-4Z-Er8" firstAttribute="top" secondItem="xod-wM-QtL" secondAttribute="bottom" constant="148" id="Zn8-Ir-D7N"/>
+                            <constraint firstItem="xod-wM-QtL" firstAttribute="leading" secondItem="zYd-fe-Mxv" secondAttribute="leading" constant="16" id="efI-2Y-l1A"/>
+                            <constraint firstItem="jvC-YA-IjX" firstAttribute="top" secondItem="dGR-6v-hIG" secondAttribute="bottom" constant="40" id="ifC-ZY-j2I"/>
+                            <constraint firstAttribute="trailing" secondItem="jvC-YA-IjX" secondAttribute="trailing" constant="16" id="mzL-UR-qMk"/>
+                            <constraint firstItem="jvC-YA-IjX" firstAttribute="leading" secondItem="zYd-fe-Mxv" secondAttribute="leading" constant="16" id="nZe-4d-juN"/>
+                            <constraint firstAttribute="trailing" secondItem="xod-wM-QtL" secondAttribute="trailing" constant="16" id="pBi-2s-e8S"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1440,17 +1494,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWM-ir-uct">
-                                <rect key="frame" x="181.66666666666666" y="358" width="50.666666666666657" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-notification.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-57-znJ">
+                                <rect key="frame" x="36" y="80" width="342" height="360"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wees bereikbaar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzs-PY-ViD">
+                                <rect key="frame" x="16" y="480" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.19577365450000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Het is jammer als je lang bij iets vast blijft lopen terwijl anderen je kunnen helpen." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d0-15-nMB">
+                                <rect key="frame" x="16" y="519" width="382" height="69"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DWM-ir-uct" firstAttribute="centerX" secondItem="46H-pw-zpC" secondAttribute="centerX" id="8qg-i4-igu"/>
-                            <constraint firstItem="DWM-ir-uct" firstAttribute="centerY" secondItem="46H-pw-zpC" secondAttribute="centerY" id="qYX-u8-wRh"/>
+                            <constraint firstItem="aTX-Sq-X4v" firstAttribute="top" secondItem="8d0-15-nMB" secondAttribute="bottom" constant="148" id="4Sw-ua-4Xc"/>
+                            <constraint firstItem="8d0-15-nMB" firstAttribute="top" secondItem="Gzs-PY-ViD" secondAttribute="bottom" constant="18" id="4uQ-ap-8pB"/>
+                            <constraint firstItem="Gzs-PY-ViD" firstAttribute="leading" secondItem="46H-pw-zpC" secondAttribute="leading" constant="16" id="5Tj-ng-1ky"/>
+                            <constraint firstItem="Gzs-PY-ViD" firstAttribute="top" secondItem="GIr-57-znJ" secondAttribute="bottom" constant="40" id="HMy-x0-3lJ"/>
+                            <constraint firstItem="8d0-15-nMB" firstAttribute="leading" secondItem="46H-pw-zpC" secondAttribute="leading" constant="16" id="L6C-s7-b4y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GIr-57-znJ" secondAttribute="trailing" constant="16" id="P8U-W6-i7H"/>
+                            <constraint firstItem="GIr-57-znJ" firstAttribute="top" secondItem="mlt-33-Pdj" secondAttribute="bottom" constant="60" id="RXV-tS-Zc7"/>
+                            <constraint firstAttribute="trailing" secondItem="8d0-15-nMB" secondAttribute="trailing" constant="16" id="X7g-45-Sm0"/>
+                            <constraint firstItem="GIr-57-znJ" firstAttribute="leading" secondItem="46H-pw-zpC" secondAttribute="leadingMargin" constant="16" id="gt4-BX-Zl2"/>
+                            <constraint firstAttribute="trailing" secondItem="Gzs-PY-ViD" secondAttribute="trailing" constant="16" id="p3U-uo-COd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -2239,6 +2311,10 @@
         <image name="icon-settings-white.png" width="22" height="22"/>
         <image name="icon-settings.png" width="22" height="22"/>
         <image name="icon-share.png" width="18" height="20"/>
+        <image name="illustration-chat.jpg" width="360" height="360"/>
+        <image name="illustration-messages.jpg" width="360" height="360"/>
+        <image name="illustration-notification.jpg" width="360" height="360"/>
+        <image name="illustration-problem.jpg" width="360" height="360"/>
         <image name="logo-load.png" width="111" height="111"/>
         <image name="logo-login.png" width="51" height="51"/>
     </resources>
