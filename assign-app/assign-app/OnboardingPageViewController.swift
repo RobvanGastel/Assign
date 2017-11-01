@@ -32,22 +32,40 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
         
         // Display the skip button "Overslaan"
         let skipButton = UIButton(frame: CGRect(x: 24, y: UIScreen.main.bounds.maxY - 76, width: UIScreen.main.bounds.width/2 - 32, height: 52))
-        skipButton.backgroundColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1)
+        skipButton.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1)
+        skipButton.setTitleColor(UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1), for: .normal)
+        skipButton.setTitleColor(UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 0.7), for: .highlighted)
         skipButton.setTitle("Overslaan", for: [])
         skipButton.layer.cornerRadius = 6
+        skipButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        skipButton.addTarget(self, action: #selector(skipButtonAction), for: .touchUpInside)
         self.view.addSubview(skipButton)
         
         // Display the next button "Volgende"
         let nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width/2 + 8, y: UIScreen.main.bounds.maxY - 76, width: UIScreen.main.bounds.width/2 - 32, height: 52))
         nextButton.backgroundColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1)
+        nextButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        nextButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 0.7), for: .highlighted)
         nextButton.setTitle("Volgende", for: [])
         nextButton.layer.cornerRadius = 6
+        nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        nextButton.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
         self.view.addSubview(nextButton)
         
         self.delegate = self
         configurePageControl()
         
         self.view.backgroundColor = UIColor.white
+    }
+    
+    // Action of the skip button
+    func skipButtonAction(sender: UIButton!) {
+        print("Skip Button Tapped")
+    }
+    
+    // Action of the next button
+    func nextButtonAction(sender: UIButton!) {
+        print("Next Button Tapped")
     }
     
     // Styling of pageControls
