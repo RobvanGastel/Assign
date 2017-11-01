@@ -54,7 +54,7 @@ class Post:NSObject, JSONDecodable {
         let user = User(JSON: userString)
 
         // Init the Post
-        self.init(id: id, title: title, text: text, dateCreated: dateCreated, url: urlString, user: user!, done: done, tags: tags, replies: replies)
+        self.init(id: id, title: String().decode(title)!, text: String().decode(text)!, dateCreated: dateCreated, url: urlString, user: user!, done: done, tags: tags, replies: replies)
     }
 }
 
