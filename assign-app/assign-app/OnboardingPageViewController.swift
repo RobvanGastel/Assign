@@ -74,8 +74,8 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDe
 
         if let currentViewController = viewControllers?[0] {
             if let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) {
-                setViewControllers([nextPage], direction: .forward, animated: true) { result in
-                    pageControl.
+                setViewControllers([nextPage], direction: .forward, animated: true) {result in
+//                    pageControl.
                 }
             }
         }
