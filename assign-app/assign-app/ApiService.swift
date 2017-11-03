@@ -284,12 +284,12 @@ class ApiService {
                   completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let postId = "\(id)"
-        let URL = Storage.getURL() + "/posts/" + postId + "/replies"
+//        let postId = "\(id)"
+        let URL = Storage.getURL() + "/posts/" + String(id) + "/replies"
         
         return sessionManager.request(URL, method: .post,
                                       encoding: URLEncoding.queryString).validate()
-        .responseJSON { response in
+        .responseString { response in
                 
             switch response.result {
                 
