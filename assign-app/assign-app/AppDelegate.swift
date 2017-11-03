@@ -153,6 +153,11 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(UIBackgroundFetchResult.newData)
 }
 
+// The callback to handle data message received via FCM for devices running iOS 10 or above.
+func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+    print(remoteMessage.appData)
+}
+
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     // This method will be called when app received push notifications in foreground
