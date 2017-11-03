@@ -19,6 +19,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var replyCountLabel: UILabel!
     
     // The API service
     var apiService: ApiService?
@@ -45,6 +46,13 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.tableView.reloadData()
         }
         
+        // (TODO: replace reply count with 2 and make if statement with a single reply)
+        // Display reply count in text
+        replyCountLabel.text = "2 Mensen willen jou helpen"
+        
+        // If count = 1
+        // replyCountLabel.text = "Iemand wilt jou helpen"
+        
         self.initializePost()
     }
     
@@ -59,6 +67,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
     }
+    
     
     /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
@@ -175,15 +184,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
-    // Make height of tableView same as contentSize
-    @IBOutlet weak var tableHeight: NSLayoutConstraint!
-//    override func viewWillLayoutSubviews() {
-//        super.updateViewConstraints()
-//        self.tableHeight?.constant = self.tableView.contentSize.height
-//    }
-    
+
     
     // MARK: - Table view with Posts
     
@@ -203,18 +204,23 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         let reply = replies?[indexPath.row] as! Reply
         
         if let titleLabel = cell.viewWithTag(401) as? UILabel {
-            titleLabel.text = reply.user.name + " wil helpen met: "
+            titleLabel.text = reply.user.name
         }
         
         if let textLabel = cell.viewWithTag(402) as? UILabel {
             textLabel.text = reply.post.title
         }
         
-        if let dateLabel = cell.viewWithTag(403) as? UILabel {
-            dateLabel.text = reply.dateCreated.timeAgoSimple
-        }
-        
         return cell
     }
+    
+    
+    // Make height of tableView same as contentSize (TODO: replace reply count with 2)
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        tableHeight?.constant = 64 * 2;
+    }
+    
 }
 
