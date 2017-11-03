@@ -141,10 +141,6 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
         print("Message ID: \(messageID)")
     }
     
-    // Print full message.
-    print(userInfo)
-    
-    
     let alert = UIAlertController(title: "FireBase", message:"didReceiveRemoteNotification fetchCompletionHandler", preferredStyle: UIAlertControllerStyle.alert)
     
     // add an action (button)
