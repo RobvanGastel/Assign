@@ -40,8 +40,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        apiService?.getRepliesByPost(id: currentPost!.id) { response in
-            self.replies = response
+        apiService?.getRepliesByPost(id: currentPost!.id) { replies in
+            self.replies = replies
             self.tableView.reloadData()
         }
         
