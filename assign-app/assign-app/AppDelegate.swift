@@ -141,16 +141,17 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
         print("Message ID: \(messageID)")
     }
     
-    // Print full message.
-    print(userInfo)
-    
-    
     let alert = UIAlertController(title: "FireBase", message:"didReceiveRemoteNotification fetchCompletionHandler", preferredStyle: UIAlertControllerStyle.alert)
     
     // add an action (button)
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
     
     completionHandler(UIBackgroundFetchResult.newData)
+}
+
+// The callback to handle data message received via FCM for devices running iOS 10 or above.
+func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+    print(remoteMessage.appData)
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

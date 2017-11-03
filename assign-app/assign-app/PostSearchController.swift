@@ -34,7 +34,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         // Init API service
         apiService = ApiService()
         
-        // Initializes the delegate
+        // Initializes the delegates
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
