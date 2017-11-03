@@ -29,6 +29,10 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         // Hides the keyboard when tapping on the screen
         self.hideKeyboardWhenTappedAround()
         
+        // Enabled scroll
+        ScrollView.isScrollEnabled = true
+        ScrollView.alwaysBounceVertical = true
+        
         //Init of the services
         authService = AuthService()
         

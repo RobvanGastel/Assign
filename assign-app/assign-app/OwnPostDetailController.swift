@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view the details of a post.
-class OwnPostDetailController: UIViewController {
+class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,11 +18,15 @@ class OwnPostDetailController: UIViewController {
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     // The API service
     var apiService: ApiService?
     
     // Provided data from the segue
     var currentPost:Post?
+    
+    var replies: [Reply]? = []
     
     var replied: Bool? = false
     
@@ -31,7 +35,15 @@ class OwnPostDetailController: UIViewController {
         
         // Init API service
         apiService = ApiService()
-    
+        
+        // Initializes the delegates
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        apiService?.getRepliesByPost(id: currentPost!.id) { replies in
+            self.replies = replies
+            self.tableView.reloadData()
+        }
         
         self.initializePost()
     }
@@ -162,6 +174,47 @@ class OwnPostDetailController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    // Make height of tableView same as contentSize
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
+//    override func viewWillLayoutSubviews() {
+//        super.updateViewConstraints()
+//        self.tableHeight?.constant = self.tableView.contentSize.height
+//    }
+    
+    
+    // MARK: - Table view with Posts
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return replies!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath as IndexPath)
+        
+        let reply = replies?[indexPath.row] as! Reply
+        
+        if let titleLabel = cell.viewWithTag(401) as? UILabel {
+            titleLabel.text = reply.user.name + " wil helpen met: "
+        }
+        
+        if let textLabel = cell.viewWithTag(402) as? UILabel {
+            textLabel.text = reply.post.title
+        }
+        
+        if let dateLabel = cell.viewWithTag(403) as? UILabel {
+            dateLabel.text = reply.dateCreated.timeAgoSimple
+        }
+        
+        return cell
     }
 }
 
