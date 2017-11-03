@@ -85,6 +85,17 @@ class UIDescriptionDetail: UILabel {
     }
 }
 
+class DetailReply: UITableView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.borderWidth = 1
+        layer.cornerRadius = 12
+        layer.borderColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        self.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 10, right: 0)
+    }
+}
+
 
 // Profile page classes
 class UIProfilePage: UIImageView {

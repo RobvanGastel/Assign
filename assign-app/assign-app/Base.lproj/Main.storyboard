@@ -2232,11 +2232,11 @@
                                     <constraint firstItem="6QQ-WT-zZk" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" constant="20" id="qA1-Os-oaq"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-0H-SwX">
-                                <rect key="frame" x="14" y="177" width="386" height="180"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-0H-SwX" customClass="DetailReply" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="14" y="177" width="386" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="2qt-YQ-RvY"/>
+                                    <constraint firstAttribute="height" constant="192" id="2qt-YQ-RvY"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ReplyCell" rowHeight="64" id="hVu-6F-WOF">
