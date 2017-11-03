@@ -2353,6 +2353,7 @@
                         <outlet property="dateLabel" destination="75G-qo-wBD" id="0ve-Ik-3YA"/>
                         <outlet property="nameButton" destination="Cby-gT-kVr" id="H2Y-AU-PNj"/>
                         <outlet property="profileImage" destination="bWe-gQ-2cy" id="zRX-HX-tkU"/>
+                        <outlet property="replyCountLabel" destination="SuP-ta-jzi" id="1BS-mk-Lpf"/>
                         <outlet property="tableHeight" destination="2qt-YQ-RvY" id="vPG-zD-VER"/>
                         <outlet property="tableView" destination="Dv1-0H-SwX" id="q4F-oh-hzb"/>
                         <outlet property="titleLabel" destination="6QQ-WT-zZk" id="xaO-pc-ajs"/>
