@@ -176,6 +176,15 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    // Make height of tableView same as contentSize
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
+    override func viewWillLayoutSubviews() {
+        super.updateViewConstraints()
+        self.tableHeight?.constant = self.tableView.contentSize.height
+    }
+    
+    
     // MARK: - Table view with Posts
     
     func numberOfSections(in tableView: UITableView) -> Int {
