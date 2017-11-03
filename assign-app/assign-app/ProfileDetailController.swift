@@ -19,6 +19,11 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var twitterButton: UIButton!
+    @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var mailButton: UIButton!
+    
     // The API service
     var apiService: ApiService?
     
@@ -69,6 +74,19 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         // TODO set multiple fields
         self.nameLabel.text = currentUser?.name
         self.specialisationLabel.text = currentUser?.specialisation
+        
+        // Set social buttons
+        if currentUser?.social?.facebook == "" {
+            self.facebookButton.isEnabled = false
+        }
+        
+        if currentUser?.social?.twitter == "" {
+            self.twitterButton.isEnabled = false
+        }
+        
+        if currentUser?.social?.phonenumber == "" {
+            self.phoneButton.isEnabled = false
+        }
         
         let url = URL(string: (currentUser?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
