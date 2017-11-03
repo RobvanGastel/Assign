@@ -2009,7 +2009,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="Cell" id="hVu-6F-WOF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ReplyCell" id="hVu-6F-WOF">
                                         <rect key="frame" x="0.0" y="28" width="386" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" contentMode="center" tableViewCell="hVu-6F-WOF" id="vKg-nd-LSW">
@@ -2026,19 +2026,19 @@
                                                                 <constraint firstAttribute="width" constant="40" id="tlk-OL-6Db"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-yL-2HO" customClass="UIName" customModule="assign_app" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-yL-2HO" customClass="UIName" customModule="assign_app" customModuleProvider="target">
                                                             <rect key="frame" x="70" y="15" width="234" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vk-eQ-k01" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="401" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vk-eQ-k01" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
                                                             <rect key="frame" x="70" y="18" width="280" height="1.6666666666666679"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTt-ci-Tti" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="403" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTt-ci-Tti" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
                                                             <rect key="frame" x="341" y="12" width="27" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="XCF-AQ-Ft7"/>
@@ -2106,6 +2106,7 @@
                         <outlet property="dateLabel" destination="75G-qo-wBD" id="0ve-Ik-3YA"/>
                         <outlet property="nameButton" destination="Cby-gT-kVr" id="H2Y-AU-PNj"/>
                         <outlet property="profileImage" destination="bWe-gQ-2cy" id="zRX-HX-tkU"/>
+                        <outlet property="tableView" destination="Dv1-0H-SwX" id="q4F-oh-hzb"/>
                         <outlet property="titleLabel" destination="6QQ-WT-zZk" id="xaO-pc-ajs"/>
                         <outlet property="userLabel" destination="kkY-tQ-XCa" id="S54-4y-5ni"/>
                     </connections>
