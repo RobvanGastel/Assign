@@ -17,7 +17,7 @@ export default {
     FooterPage
   },
   data: () => ({
-    title: 'Bijna klaar...',
+    title: 'Bevestig je e-mailadres',
     description: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.',
     illustratie: 'mailbijnaklaar',
     firstbtn: 'Ga terug naar onze website',
@@ -28,12 +28,12 @@ export default {
     secondbtntrgt: ''
   }),
   head: () => ({
-    title: 'Bijna klaar...',
+    title: 'Bevestig je e-mailadres',
     titleTemplate: 'Assign – %s',
     meta: [
       { name: 'language', content: 'nl_NL' },
       { name: 'description', content: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.' },
-      { property: 'og:title', content: 'Assign – Persoonlijk Profiel' },
+      { property: 'og:title', content: 'Assign – Bevestig je e-mailadres' },
       { property: 'og:site_name', content: 'assignapp.nl' },
       { property: 'og:description', content: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.' },
       { property: 'og:url', content: 'https://assignapp.nl' },
@@ -43,8 +43,8 @@ export default {
       { property: 'og:image', content: 'https://assignapp.nl/share-image.jpg' },
       { property: 'og:image:width', content: '1024' },
       { property: 'og:image:height', content: '512' },
-      { name: 'twitter:title', content: 'Assign – Persoonlijk Profiel' },
-      { name: 'twitter:site_name', content: 'Assign – Persoonlijk Profiel' },
+      { name: 'twitter:title', content: 'Assign – Bevestig je e-mailadres' },
+      { name: 'twitter:site_name', content: 'Assign – Bevestig je e-mailadres' },
       { name: 'twitter:description', content: 'We moeten je e-mailadres bevestigen. Om het inschrijfproces te voltooien klik je op de link in de e-mail die we net naar je toe hebben gestuurd.' },
       { name: 'twitter:url', content: 'https://assignapp.nl' },
       { name: 'twitter:card', content: 'summary' },
