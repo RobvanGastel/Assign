@@ -209,8 +209,7 @@ class ApiService {
                   completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let idString = "\(id)"
-        let URL = Storage.getURL() + "/users/" + idString + "/posts"
+        let URL = Storage.getURL() + "/users/" + String(id) + "/posts"
         
         let parameters: Parameters = [
             "size" : size,
@@ -246,8 +245,7 @@ class ApiService {
                         completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let idString = "\(id)"
-        let URL = Storage.getURL() + "/users/" + idString + "/replies"
+        let URL = Storage.getURL() + "/users/" + String(id) + "/replies"
         
         let parameters: Parameters = [
             "size" : size,
@@ -311,8 +309,7 @@ class ApiService {
                   completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let postId = "\(id)"
-        let URL = Storage.getURL() + "/posts/" + postId + "/replied"
+        let URL = Storage.getURL() + "/posts/" + String(id) + "/replied"
         
         return sessionManager.request(URL, method: .get,
                                       encoding: URLEncoding.queryString).validate()
@@ -510,6 +507,43 @@ class ApiService {
                     
                 case .failure(let error):
                     print("API: Retrieve replies error")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function returns a list of *Items* objects for the overview for the authenticated user.
+    @discardableResult
+    func getItemsByUser(size: Int, start: Int, id: Int,
+                        completionHandler: @escaping (_ response: [Item]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/users/" + String(id) + "/overview"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    var itemArray = [Item]()
+                    
+                    if let items = response.value as? [[String:Any]] {
+                        for item in items {
+                            itemArray.append(Item(JSON: item)!)
+                        }
+                    }
+                    
+                    print("API: Retrieve items for overview successful")
+                    completionHandler(itemArray)
+                    
+                case .failure(let error):
+                    print("API: Retrieve items for overview error")
                     print(error)
                 }
         }

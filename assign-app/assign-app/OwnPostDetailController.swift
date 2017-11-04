@@ -180,7 +180,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
     
     // MARK: - Table view with replies
     
