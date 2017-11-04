@@ -31,7 +31,7 @@ class NotificationsController: UITableViewController {
         
         // On viewLoad get the posts from the API
         // Starting values of size is 20 and start 1
-        self.apiService?.getNotifications(size: 21, start: start) { notifications in
+        self.apiService?.getNotifications(size: size, start: start) { notifications in
             
             // TODO add Data to Core Data as cache
             // Sets the posts and refreshes the table
@@ -192,6 +192,7 @@ class NotificationsController: UITableViewController {
         }
     }
     
+    /// Read all notifications
     @IBAction func readNotifications(_ sender: Any) {
         
         var ids :[Int] = []
@@ -200,6 +201,8 @@ class NotificationsController: UITableViewController {
             ids.append(notification.id)
         }
         
-        self.apiService?.setRead(ids: ids) {}
+        self.apiService?.setRead(ids: ids) {
+            self.loadNotifications()
+        }
     }
 }
