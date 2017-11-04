@@ -29,7 +29,7 @@
 		B28E0A7E1F14181A0007F9DE /* logo-trans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28E0A7C1F14181A0007F9DE /* logo-trans@2x.png */; };
 		B28E0A7F1F14181A0007F9DE /* app-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28E0A7D1F14181A0007F9DE /* app-logo@2x.png */; };
 		B2B56D481F0EE595003A561A /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2B56D471F0EE595003A561A /* profile@2x.jpg */; };
-		B2B957421FA9048500A61013 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B957411FA9048500A61013 /* OnboardingPageViewController.swift */; };
+		B2B957421FA9048500A61013 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B957411FA9048500A61013 /* OnboardingController.swift */; };
 		B2D37C621F07DDFA00C3A0BA /* icon-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C5D1F07DDFA00C3A0BA /* icon-settings@2x.png */; };
 		B2D37C631F07DDFA00C3A0BA /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C5E1F07DDFA00C3A0BA /* icon-back@2x.png */; };
 		B2D37C641F07DDFA00C3A0BA /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D37C5F1F07DDFA00C3A0BA /* icon-share@2x.png */; };
@@ -128,7 +128,7 @@
 		B28E0A7C1F14181A0007F9DE /* logo-trans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-trans@2x.png"; sourceTree = "<group>"; };
 		B28E0A7D1F14181A0007F9DE /* app-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-logo@2x.png"; sourceTree = "<group>"; };
 		B2B56D471F0EE595003A561A /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile@2x.jpg"; sourceTree = "<group>"; };
-		B2B957411FA9048500A61013 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		B2B957411FA9048500A61013 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		B2D37C5D1F07DDFA00C3A0BA /* icon-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings@2x.png"; sourceTree = "<group>"; };
 		B2D37C5E1F07DDFA00C3A0BA /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		B2D37C5F1F07DDFA00C3A0BA /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
@@ -215,12 +215,12 @@
 		2013FC341E2D5C3200C85F5D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B2B957411FA9048500A61013 /* OnboardingPageViewController.swift */,
 				D4EF901C1F08FE1900211F04 /* Notifications */,
 				D4EF901B1F08FDCD00211F04 /* Profile */,
 				D4EF901A1F08FD9A00211F04 /* Posts */,
 				D45D2FE81F018FD8002FEBE7 /* StartController.swift */,
 				D4D9064E1ECE4A370065B5A5 /* LoginController.swift */,
+				B2B957411FA9048500A61013 /* OnboardingController.swift */,
 				D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */,
 				D4C828791F0501F000A87D40 /* TabBarController.swift */,
 			);
@@ -676,7 +676,7 @@
 				D4C828801F06D4B500A87D40 /* ProfileDetailController.swift in Sources */,
 				20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */,
 				D4D9064F1ECE4A370065B5A5 /* LoginController.swift in Sources */,
-				B2B957421FA9048500A61013 /* OnboardingPageViewController.swift in Sources */,
+				B2B957421FA9048500A61013 /* OnboardingController.swift in Sources */,
 				D40192A01F3A2DD900879B8C /* UISegmentedControl.swift in Sources */,
 				D41955861ECF627C009575DE /* JSONDecodable.swift in Sources */,
 				D4EF900E1F083CA300211F04 /* NotificationsController.swift in Sources */,
