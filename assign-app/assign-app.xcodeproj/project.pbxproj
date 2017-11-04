@@ -71,6 +71,7 @@
 		D44480AE1FAA6ECF0071374B /* illustration-messages@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D44480A61FAA6ECF0071374B /* illustration-messages@2x.jpg */; };
 		D44480AF1FAA6ECF0071374B /* illustration-notification@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D44480A71FAA6ECF0071374B /* illustration-notification@2x.jpg */; };
 		D44480B01FAA6ECF0071374B /* illustration-chat@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D44480A81FAA6ECF0071374B /* illustration-chat@3x.jpg */; };
+		D450AE8D1FAE4C95001B558F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450AE8C1FAE4C95001B558F /* Item.swift */; };
 		D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FE81F018FD8002FEBE7 /* StartController.swift */; };
 		D45D2FEB1F01AD8E002FEBE7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */; };
 		D45D2FED1F01ADBC002FEBE7 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */; };
@@ -172,6 +173,7 @@
 		D44480A61FAA6ECF0071374B /* illustration-messages@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "illustration-messages@2x.jpg"; sourceTree = "<group>"; };
 		D44480A71FAA6ECF0071374B /* illustration-notification@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "illustration-notification@2x.jpg"; sourceTree = "<group>"; };
 		D44480A81FAA6ECF0071374B /* illustration-chat@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "illustration-chat@3x.jpg"; sourceTree = "<group>"; };
+		D450AE8C1FAE4C95001B558F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D45D2FE81F018FD8002FEBE7 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D45D2FEA1F01AD8E002FEBE7 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D45D2FEC1F01ADBC002FEBE7 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				D4C1947E1F1D31A7009A481B /* Reply.swift */,
 				D4C194801F1FBAED009A481B /* Social.swift */,
 				D40192A11F574AAD00879B8C /* Notification.swift */,
+				D450AE8C1FAE4C95001B558F /* Item.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */,
 				D4C55DED1F0AC3F10029E285 /* PostsRefreshDelegate.swift in Sources */,
 				D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */,
+				D450AE8D1FAE4C95001B558F /* Item.swift in Sources */,
 				D45D2FEF1F01ADD1002FEBE7 /* AddPostController.swift in Sources */,
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
