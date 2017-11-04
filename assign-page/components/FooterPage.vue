@@ -17,7 +17,7 @@
 					</div>
 
 					<div class="col-xs-12 col-sm-2 col-md-2 footer-section">
-						<b>Legal</b>
+						<b>Juridisch</b>
 						<ul>
 							<!-- <li><nuxt-link class="lnk" title="Voorwaarden" :to="'/voorwaarden'">Voorwaarden</nuxt-link></li> -->
 							<!-- <li><nuxt-link class="lnk" title="Privacy" :to="'/privacy'">Privacy</nuxt-link></li> -->
@@ -50,8 +50,8 @@
 
 								<div class="mc-field-group">
 									<input type="email" value="" required placeholder="Vul jouw e-mailadres in" name="EMAIL" class="required email" id="mce-EMAIL">
-									<input type="button" value="Ga verder" class="button button-invalid">
-									<input type="submit" value="Ga verder" name="subscribe" id="mc-embedded-subscribe" class="button button-valid">
+									<input type="button" value="Aanmelden" class="button button-invalid">
+									<input type="submit" value="Aanmelden" name="subscribe" id="mc-embedded-subscribe" class="button button-valid">
 								</div>
 
 								<div id="mce-responses" class="clear">
