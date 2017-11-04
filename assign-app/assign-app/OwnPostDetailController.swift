@@ -20,16 +20,14 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var replyCountLabel: UILabel!
+    @IBOutlet weak var tableHeight: NSLayoutConstraint! // tableHeight of replies
     
     // The API service
     var apiService: ApiService?
     
     // Provided data from the segue
     var currentPost:Post?
-    
-    var replies: [Reply]? = []
-    
-    var replied: Bool? = false
+    var replies: [Reply] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +39,15 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        apiService?.getRepliesByPost(id: currentPost!.id) { replies in
-            self.replies = replies
-            self.tableView.reloadData()
+        if (currentPost?.done)! {
+            tableView.allowsSelection = false
         }
-        
-        // (TODO: replace reply count with 2 and make if statement with a single reply)
-        // Display reply count in text
-        replyCountLabel.text = "2 Mensen willen jou helpen"
-        
-        // If count = 1
-        // replyCountLabel.text = "Iemand wilt jou helpen"
+    
+        apiService?.getRepliesByPost(id: currentPost!.id) { replies in
+            self.replies = replies!
+            self.tableView.reloadData()
+            self.updateReplies()
+        }
         
         self.initializePost()
     }
@@ -186,40 +182,72 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     }
 
     
-    // MARK: - Table view with Posts
+    // MARK: - Table view with replies
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ReplyCell
+        let reply = replies[indexPath.row]
+        
+        if cell.checkboxImage.image == #imageLiteral(resourceName: "icon-reply-unchecked.png") {
+            cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
+            reply.helped = false
+        } else {
+            cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-unchecked.png")
+            reply.helped = true
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return replies!.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return replies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath as IndexPath)
         
-        let reply = replies?[indexPath.row] as! Reply
+        let reply = replies[indexPath.row]
         
-        if let titleLabel = cell.viewWithTag(401) as? UILabel {
+        if let studyLabel = cell.viewWithTag(401) as? UILabel {
+            studyLabel.text = reply.user.specialisation
+        }
+        
+        if let titleLabel = cell.viewWithTag(402) as? UILabel {
             titleLabel.text = reply.user.name
         }
         
-        if let textLabel = cell.viewWithTag(402) as? UILabel {
-            textLabel.text = reply.post.title
+        if let profileImage = cell.viewWithTag(404) as? UIImageView {
+            let url = URL(string: (reply.user?.profileImage)!)!
+            let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
+            profileImage.af_setImage(withURL: url, filter: filter)
+        }
+        
+        if let checkboxImage = cell.viewWithTag(405) as? UIImageView {
+            if reply.helped {
+                checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
+            }
         }
         
         return cell
     }
     
-    
-    // Make height of tableView same as contentSize (TODO: replace reply count with 2)
-    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        tableHeight?.constant = 64 * 2;
+        tableHeight?.constant = (CGFloat(64 * replies.count))
+    }
+    
+    func updateReplies() {
+        self.updateViewConstraints()
+        
+        if replies.count == 0 {
+            replyCountLabel.text = "Nog geen hulp aangeboden"
+        } else if replies.count == 1 {
+             replyCountLabel.text = "Iemand wilt jou helpen"
+        } else if replies.count >= 2 {
+            replyCountLabel.text =  String(replies.count) + " Mensen willen jou helpen"
+        }
     }
     
 }
