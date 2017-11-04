@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a896dbc-9ceb-435f-930f-6802f9271c14" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/OverviewService.java" afterPath="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/OverviewService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../assign-app/assign-app/ApiService.swift" afterPath="$PROJECT_DIR$/../assign-app/assign-app/ApiService.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../assign-app/assign-app/OwnPostDetailController.swift" afterPath="$PROJECT_DIR$/../assign-app/assign-app/OwnPostDetailController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../assign-app/assign-app/ProfileController.swift" afterPath="$PROJECT_DIR$/../assign-app/assign-app/ProfileController.swift" />
@@ -37,6 +37,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="OverviewService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/OverviewService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -57,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotificationSerializer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NotificationSerializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/domain/serializers/NotificationSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-45">
@@ -150,9 +160,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/INotificationDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/NotificationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/dao/facade/NotificationDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/NotificationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robvangastel/assign/services/OverviewService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
       </list>
     </option>
   </component>
@@ -1089,7 +1099,7 @@
       <workItem from="1506530789159" duration="9667000" />
       <workItem from="1507055847622" duration="1879000" />
       <workItem from="1508830704198" duration="1850000" />
-      <workItem from="1509828695351" duration="336000" />
+      <workItem from="1509828695351" duration="932000" />
     </task>
     <servers />
   </component>
@@ -1126,7 +1136,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230021000" />
+    <option name="totallyTimeSpent" value="230617000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1524,14 +1534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robvangastel/assign/controllers/PostController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1568,6 +1570,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding />
         </state>
       </provider>
