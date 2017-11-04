@@ -35,13 +35,16 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     var activityStart = 0 // Starting index of the activity
     var activityReachedEnd = false // Check if there a no new replies
     
+    var itemsStart = 0 // Starting index of the activity
+    var itemsReachedEnd = false // Check if there are no new items
+    
     var isLoading = false // Is currently loading posts
     
     // The provided data from the segue
     var currentUser: User?
     
     // TableView arrays
-    var overviewArray: [Post] = []
+    var itemsArray: [Item] = []
     var assignmentsArray: [Post] = []
     var activityArray: [Reply] = []
     
@@ -109,6 +112,12 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
             self.activityArray = replies!
             self.tableView.reloadData()
         }
+        
+        self.apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) {
+            items in
+            self.itemsArray = items!
+            self.tableView.reloadData()
+        }
     }
     
     /// Redirect to settings view.
@@ -158,7 +167,30 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
             switch(segmentedControl.selectedSegmentIndex) // Check for different tables
             {
             case 0:
+                if itemsArray.count >= 21
+                    && itemsReachedEnd == false { // Need atleast 21 posts
+                    
+                    self.isLoading = true
+                    self.tableView.tableFooterView?.isHidden = false
+                    
+                    // Add 20 to load the next posts
+                    self.itemsStart += 20
+                    apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) { i in
+                        
+                        if (i?.count)! < 20 { // Check if all replies found
+                            print("API: No new items")
+                            self.itemsReachedEnd = true
+                        }
+                        
+                        self.itemsArray += i!
+                        
+                        self.tableView.reloadData()
+                        self.isLoading = false
+                        self.tableView.tableFooterView?.isHidden = true
+                    }
+                }
                 break
+                
             case 1:
                 if activityArray.count >= 21
                     && activityReachedEnd == false { // Need atleast 21 posts
@@ -229,7 +261,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
-            returnValue = overviewArray.count
+            returnValue = itemsArray.count
             break
         case 1:
             returnValue = activityArray.count
@@ -254,6 +286,20 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
+            let item = itemsArray[indexPath.row] as Item
+            
+            if let titleLabel = cell.viewWithTag(401) as? UILabel {
+                titleLabel.text = item.title
+            }
+            
+            if let textLabel = cell.viewWithTag(402) as? UILabel {
+                textLabel.text = item.text
+            }
+            
+            if let dateLabel = cell.viewWithTag(403) as? UILabel {
+                dateLabel.text = item.dateCreated?.timeAgoSimple
+            }
+            
             break
             
         case 1:

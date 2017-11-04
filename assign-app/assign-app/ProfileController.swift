@@ -83,7 +83,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         // Retrieve User
         currentUser = Storage.getUser()
         
-        // TODO add more fields
         self.nameLabel.text = currentUser?.name
         self.specialisationLabel.text = currentUser?.specialisation
         
@@ -158,8 +157,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                 
                 // Add 20 to load the next posts
                 self.itemsStart += 20
-                apiService?.getItemsByUser(size: size, start: itemsStart,
-                                             id: currentUser!.id!) { i in
+                apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) { i in
                                                 
                         if (i?.count)! < 20 { // Check if all replies found
                             print("API: No new items")
@@ -171,8 +169,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                         self.tableView.reloadData()
                         self.isLoading = false
                         self.tableView.tableFooterView?.isHidden = true
+                    }
                 }
-            }
                 break
             case 1:
                 if activityArray.count >= 21
