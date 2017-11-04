@@ -393,11 +393,11 @@ class ApiService {
                     }
                 }
                 
-                print("API: Retrieve posts successful")
+                print("API: Retrieve notifications successful")
                 completionHandler(notificationsArray)
                 
             case .failure(let error):
-                print("API: Retrieve posts error")
+                print("API: Retrieve notifications error")
                 print(error)
             }
         }
