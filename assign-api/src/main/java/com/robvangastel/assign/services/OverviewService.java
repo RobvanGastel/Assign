@@ -1,5 +1,6 @@
 package com.robvangastel.assign.services;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.User;
@@ -63,6 +64,8 @@ public class OverviewService implements Serializable {
         private User user;
         private String title;
         private String description;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
         private Timestamp dateCreated;
 
         public Item(long id, User user, String title, String description, Timestamp dateCreated) {
