@@ -23,8 +23,6 @@ class AddPostController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Hides the keyboard when tapping on the screen
-        
 
         // Init API service
         apiService = ApiService()
@@ -94,10 +92,12 @@ class AddPostController: UIViewController, UITextViewDelegate {
 
             // Add post API call with the API Service
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
+                
                 if(success == true) {
                     // Navigate back to the previous view
                     self.delegate?.refreshPosts()
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
+//                    self.dismiss(animated: true, completion: nil)
                     
                     // TODO Add SUCCESS message
                 } else {
@@ -110,8 +110,8 @@ class AddPostController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func backClick(_ sender: Any) {
-        
         view.endEditing(true)
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }
