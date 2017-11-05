@@ -25,10 +25,13 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     // Pagination variables
     let size = 21 // Amount of Posts to load next
     var assignmentsStart = 0 // Starting index of the assignments
-    var assignmentsReachedEnd = false // Check if there a no new posts
+    var assignmentsReachedEnd = false // Check if there are no new posts
     
     var activityStart = 0 // Starting index of the activity
-    var activityReachedEnd = false // Check if there a no new replies
+    var activityReachedEnd = false // Check if there are no new replies
+    
+    var itemsStart = 0 // Starting index of the activity
+    var itemsReachedEnd = false // Check if there are no new items
     
     var isLoading = false // Is currently loading posts
     
@@ -36,7 +39,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     var currentUser: User?
     
     // TableView arrays
-    var overviewArray: [Post] = []
+    var itemsArray: [Item] = []
     var assignmentsArray: [Post] = []
     var activityArray: [Reply] = []
     
@@ -59,7 +62,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         settingsImage.addGestureRecognizer(tapRec)
         
         // Layout settings
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
@@ -69,12 +72,17 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    // Add some space to the TableView
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+    }
+    
     /// Set profile of the User.
     func setProfile() {
         // Retrieve User
         currentUser = Storage.getUser()
         
-        // TODO add more fields
         self.nameLabel.text = currentUser?.name
         self.specialisationLabel.text = currentUser?.specialisation
         
@@ -98,6 +106,12 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         self.apiService?.getRepliesByUser(size: size, start: activityStart, id: currentUser!.id!) {
             replies in
             self.activityArray = replies!
+            self.tableView.reloadData()
+        }
+        
+        self.apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) {
+            items in
+            self.itemsArray = items!
             self.tableView.reloadData()
         }
     }
@@ -135,10 +149,32 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             switch(segmentedControl.selectedSegmentIndex) // Check for different tables
             {
             case 0:
+                if itemsArray.count >= 21
+                    && itemsReachedEnd == false { // Need atleast 21 posts
+                
+                self.isLoading = true
+                self.tableView.tableFooterView?.isHidden = false
+                
+                // Add 20 to load the next posts
+                self.itemsStart += 20
+                apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) { i in
+                                                
+                        if (i?.count)! < 20 { // Check if all replies found
+                            print("API: No new items")
+                            self.itemsReachedEnd = true
+                        }
+                        
+                        self.itemsArray += i!
+                        
+                        self.tableView.reloadData()
+                        self.isLoading = false
+                        self.tableView.tableFooterView?.isHidden = true
+                    }
+                }
                 break
             case 1:
                 if activityArray.count >= 21
-                    && activityReachedEnd == false { // Need atleast 21 posts
+                    && activityReachedEnd == false { // Need atleast 21 replies
                     
                     self.isLoading = true
                     self.tableView.tableFooterView?.isHidden = false
@@ -205,7 +241,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
-            returnValue = overviewArray.count
+            returnValue = itemsArray.count
             break
         case 1:
             returnValue = activityArray.count
@@ -230,11 +266,20 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         switch(segmentedControl.selectedSegmentIndex)
         {
         case 0:
-            let post = overviewArray[indexPath.row] as Post
+            let item = itemsArray[indexPath.row] as Item
             
             if let titleLabel = cell.viewWithTag(401) as? UILabel {
-                titleLabel.text = post.title
+                titleLabel.text = item.title
             }
+            
+            if let textLabel = cell.viewWithTag(402) as? UILabel {
+                textLabel.text = item.text
+            }
+            
+            if let dateLabel = cell.viewWithTag(403) as? UILabel {
+                dateLabel.text = item.dateCreated?.timeAgoSimple
+            }
+            
             break
         case 1:
             let reply = activityArray[indexPath.row] as Reply

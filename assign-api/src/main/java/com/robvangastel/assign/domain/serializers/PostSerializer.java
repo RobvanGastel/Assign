@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -51,6 +49,11 @@ public class PostSerializer extends StdSerializer<Post> {
             }
 
             jgen.writeEndArray();
+        } else {
+
+            jgen.writeFieldName("tags");
+            jgen.writeStartArray();
+            jgen.writeEndArray();
         }
 
         // Replies serializer
@@ -65,7 +68,7 @@ public class PostSerializer extends StdSerializer<Post> {
             jgen.writeEndArray();
         } else {
 
-            jgen.writeFieldName("tags");
+            jgen.writeFieldName("replies");
             jgen.writeStartArray();
             jgen.writeEndArray();
         }

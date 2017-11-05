@@ -41,10 +41,12 @@ public class SchoolService implements Serializable {
         return schoolDao.findUsersBySchoolAndStudy(study, id, start, size);
     }
 
-    public Study addStudy(School entity, String study) {
-        if(!schoolDao.doesStudyAlreadyExist(entity.getId(), study)) {
-            Study s = schoolDao.createStudy(new Study(entity, study));
-            schoolDao.update(entity);
+    public Study addStudy(School school, String study) {
+        if (!schoolDao.doesStudyAlreadyExist(school.getId(), study)) {
+
+            Study s = schoolDao.createStudy(new Study(school, study));
+            schoolDao.update(school);
+
             return s;
         } else {
             throw new SchoolException("Study already exists");
@@ -56,12 +58,12 @@ public class SchoolService implements Serializable {
         // 916.132.832 different strings.
         String code = CodeGenerator.getInstance().getCode(5);
 
-        if (!schoolDao.isCodeUsed(code)) {
-            entity.setSchoolCode(code);
-            schoolDao.create(entity);
-        } else {
-            throw new SchoolException("Generated code already exists");
+        while (schoolDao.isCodeUsed(code)) {
+            code = CodeGenerator.getInstance().getCode(5);
         }
+
+        entity.setSchoolCode(code);
+        schoolDao.create(entity);
     }
 
     public void delete(long id) {

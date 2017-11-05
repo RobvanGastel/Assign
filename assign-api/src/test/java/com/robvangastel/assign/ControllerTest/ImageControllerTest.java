@@ -2,9 +2,7 @@ package com.robvangastel.assign.ControllerTest;
 
 /**
  * @author Rob van Gastel
- *
- * TODO create a non-static server
- * TODO Improve tests to include parsing response
+ *         TODO Add possible tests
  */
 public class ImageControllerTest {
 

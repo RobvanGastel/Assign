@@ -15,8 +15,9 @@
     "axios": "^0.16.2",
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
-    "nuxt": "^1.0.0-rc3",
-    "source-map-support": "^0.4.15"
+    "nuxt": "^1.0.0-rc11",
+    "source-map-support": "^0.4.15",
+    "vue-clipboard2": "0.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

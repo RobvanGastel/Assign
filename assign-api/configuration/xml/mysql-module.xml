@@ -13,12 +13,12 @@
   limitations under the License.
 -->
 <module xmlns="urn:jboss:module:1.0" name="com.mysql.jdbc">
-  <resources>
-    <resource-root path="mysql-connector-java-5.1.18.jar"/>
+    <resources>
+        <resource-root path="mysql-connector-java-5.1.18.jar"/>
         <!-- Insert resources here -->
-  </resources>
-  <dependencies>
-    <module name="javax.api"/>
-    <module name="javax.transaction.api"/>
-  </dependencies>
+    </resources>
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+    </dependencies>
 </module>

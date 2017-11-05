@@ -41,20 +41,26 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         }
         
         // Layout settings
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.popViewController(animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
     }
     
-    /// Set StatusBartStyle to default.
+    // Set StatusBartStyle to default.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
 
+    // Add some space to the TableView
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+    }
+    
     // MARK: - Table view with Posts
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,6 +95,22 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         }
         
         return cell
+    }
+    
+    /// Segue for Post Detail View
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if post.user!.id != Storage.getUser().id {
+            let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+            vc.currentPost = post
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+            vc.currentPost = post
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     /// Add data to the segue before triggering.
