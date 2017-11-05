@@ -5,7 +5,8 @@
       <post :post="post"></post>
       <div class="footer">
         <div class="overlay"></div>
-        <a href="#" class="button-open">Download app</a>
+        <!-- Change on launch -->
+        <!-- <nuxt-link class="btn-opencta" title="Open in app" :to="'#appstore'">Open in de Assign App</nuxt-link> -->
       </div>
     </div>
     <div v-else>
@@ -15,9 +16,9 @@
 </template>
 
 <script>
-import PostNavigation from '../components/PostNavigation.vue'
-import NotFound from '../components/NotFound.vue'
-import Post from '../components/Post.vue'
+import PostNavigation from '../components/PostNavigation'
+import NotFound from '../components/NotFound'
+import Post from '../components/Post'
 import axios from 'axios'
 
 export default {
@@ -26,15 +27,13 @@ export default {
     PostNavigation,
     NotFound
   },
-  data () {
-    return {
-      post: {
-        user: {
-          name: 'Name'
-        }
+  data: () => ({
+    post: {
+      user: {
+        name: 'Name'
       }
     }
-  },
+  }),
   asyncData ({ params }) {
     return axios.get(process.env.baseUrl + '/page/post', { params: {
       url: params.url
@@ -42,33 +41,27 @@ export default {
       .then((response) => {
         return { post: response.data }
       })
-      .catch(function (error) {
-        console.log(error)
+      .catch((error) => {
+        console.log(error.response.status)
       })
   },
   methods: {
     getPost (url) {
-      let self = this
-      axios.get(process.env.baseUrl + '/page/post', { params: {
-        url: url
-      }})
-        .then(function (response) {
-          self.post = response.data
-          // self.profileImage = self.$apiurl + '/img/' + self.post.user.profileImage
+      axios.get(process.env.baseUrl + '/page/post', { params: { url } })
+        .then((response) => {
+          this.post = response.data
         })
-        .catch(function (error) {
-          console.log(error)
+        .catch((error) => {
+          console.log(error.response.status)
         })
     }
   },
-  head () {
-    return {
-      title: 'Post',
-      titleTemplate: '%s — Assign',
-      link: [
-        { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
-      ]
-    }
-  }
+  head: () => ({
+    title: 'Post',
+    titleTemplate: 'Assign – %s',
+    link: [
+      { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' }
+    ]
+  })
 }
 </script>

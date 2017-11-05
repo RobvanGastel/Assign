@@ -28,4 +28,30 @@ extension UIButton {
         // perform hit test on larger frame
         return (largerFrame.contains(point)) ? self : nil
     }
+    
+    func loadingIndicator(show: Bool, text: String) {
+        if show {
+            let indicator = UIActivityIndicatorView()
+            indicator.color = UIColor(hexString: "#FFA92F")
+            
+            self.setTitle(text, for:.normal)
+            
+            let buttonHeight = self.bounds.size.height
+            let buttonWidth = self.bounds.size.width
+            indicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
+            self.addSubview(indicator)
+            indicator.startAnimating()
+        } else {
+            for view in self.subviews {
+                if let indicator = view as? UIActivityIndicatorView {
+                    
+                    self.setTitle(text, for:.normal)
+                    
+                    indicator.stopAnimating()
+                    indicator.removeFromSuperview()
+                }
+            }
+        }
+    }
 }
+

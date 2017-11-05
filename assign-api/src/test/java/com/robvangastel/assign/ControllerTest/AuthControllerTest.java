@@ -14,8 +14,6 @@ import javax.ws.rs.core.Response;
 
 /**
  * @author Rob van Gastel
- *
- * TODO create a non-static server
  */
 public class AuthControllerTest {
 
@@ -57,9 +55,11 @@ public class AuthControllerTest {
         Response response = target.request().post(Entity.json(jsonString));
 
         try {
+            // Read token
             String tokenString = response.readEntity(String.class);
             mapper.readValue(tokenString, IdToken.class);
 
+            // Check for expected response code
             Assert.assertEquals(200, response.getStatus());
         } catch (Exception e) {
 
@@ -95,9 +95,11 @@ public class AuthControllerTest {
         Response response = target.request().post(Entity.json(jsonString));
 
         try {
+            // Read token
             String tokenString = response.readEntity(String.class);
             mapper.readValue(tokenString, IdToken.class);
 
+            // Check for expected response code
             Assert.assertEquals(500, response.getStatus());
         } catch (Exception e) {
 

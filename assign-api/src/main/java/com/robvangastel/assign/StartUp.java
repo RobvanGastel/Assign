@@ -20,7 +20,7 @@ import javax.inject.Inject;
 @Startup
 public class StartUp {
 
-    private static final Logger LOG = Logger.getLogger(StartUp.class.getName());
+    private static final Logger LOG = Logger.getLogger(StartUp.class.getSimpleName());
 
     @Inject
     private UserService userService;
@@ -66,10 +66,10 @@ public class StartUp {
             admin.setRole(Role.ADMIN);
             userService.update(admin);
 
-            User max = userService.findById(8L);
-            User kees = userService.findById(10L);
-            User pieter = userService.findById(12L);
-            User rob = userService.findById(14L);
+            User max = userService.findById(9L);
+            User kees = userService.findById(12L);
+            User pieter = userService.findById(15L);
+            User rob = userService.findById(18L);
 
             // Creating posts
             postService.create(new Post(max, "Hoe werkt centreren in CSS?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec #eleifend ligula enim, #in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));
@@ -82,23 +82,23 @@ public class StartUp {
             postService.create(new Post(kees, "Hoe krijg ik die kinderen aan het werk?", "Lorem ipsum dolor sit amet, #consectetur adipiscing elit. Donec eleifend #ligula enim, in tempor sem interdum quis. Sed #bibendum ex neque, et dapibus nulla ullamcorper a."));
             postService.create(new Post(kees, "Hoe leg ik de jager/verzamelaar cultuur uit?", "Lorem ipsum dolor sit amet, #consectetur adipiscing elit. Donec eleifend #ligula enim, in tempor sem interdum quis. Sed #bibendum ex neque, et dapibus nulla ullamcorper a."));
 
-            Post post_max_1 = postService.findById(16L);
-            Post post_max_2 = postService.findById(17L);
-            Post post_max_3 = postService.findById(20L);
+            Post post_max_2 = postService.findById(21L);
+            Post post_max_3 = postService.findById(22L);
 
-            Post post_rob_1 = postService.findById(18L);
-            Post post_rob_2 = postService.findById(19L);
+            Post post_rob_1 = postService.findById(23L);
+            Post post_rob_2 = postService.findById(24L);
 
             // Creating replies
-            replyService.create(new Reply(max, post_rob_1));
-            replyService.create(new Reply(max, post_rob_2));
+            replyService.create(max, post_rob_1);
+            replyService.create(max, post_rob_2);
 
-            replyService.create(new Reply(rob, post_max_1));
-            replyService.create(new Reply(rob, post_max_2));
-            replyService.create(new Reply(rob, post_max_3));
+            replyService.create(rob, post_max_2);
+            replyService.create(rob, post_max_3);
+
+            LOG.info("Startup successfully executed.");
 
         } catch (Exception e) {
-            LOG.info("An exception occurred : " + e.getMessage());
+            LOG.warn("An exception occurred : " + e.getMessage());
         }
     }
 }

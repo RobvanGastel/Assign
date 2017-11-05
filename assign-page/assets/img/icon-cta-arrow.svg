@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-cta-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="🖥-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landingpage" transform="translate(-452.000000, -933.000000)">
+            <g id="Group-8" transform="translate(0.000000, 624.000000)">
+                <g id="content-copy" transform="translate(260.000000, 63.000000)">
+                    <g id="button-copy-2" transform="translate(0.000000, 246.000000)">
+                        <g id="icon-cta-arrow" transform="translate(192.000000, 0.000000)">
+                            <circle id="Oval" fill="#FFE5D4" cx="11" cy="11" r="11"></circle>
+                            <path d="M11.3555412,11.7077694 L15.6000727,7.46323795 L17.0142862,8.87745152 L11.357432,14.5343058 L11.3555412,14.532415 L11.3536505,14.5343058 L5.69679623,8.87745152 L7.11100979,7.46323795 L11.3555412,11.7077694 Z" id="Combined-Shape" fill="#FF7F28" transform="translate(11.355541, 10.998772) rotate(-90.000000) translate(-11.355541, -10.998772) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

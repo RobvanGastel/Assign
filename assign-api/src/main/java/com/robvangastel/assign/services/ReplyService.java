@@ -4,6 +4,11 @@ import com.robvangastel.assign.dao.IReplyDao;
 import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.ReplyException;
+import com.robvangastel.assign.firebase.FirebaseService;
+import com.robvangastel.assign.firebase.domain.Data;
+import com.robvangastel.assign.firebase.domain.Notification;
+import com.robvangastel.assign.firebase.domain.Payload;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -18,6 +23,9 @@ public class ReplyService implements Serializable {
 
     @Inject
     private IReplyDao replyDao;
+
+    @Inject
+    private FirebaseService firebaseService;
 
     public boolean DidUserReply(User user, Post post) {
         return replyDao.DidUserReply(user, post);
@@ -35,13 +43,44 @@ public class ReplyService implements Serializable {
         return replyDao.findByPost(id, start, size);
     }
 
-    public void create(Reply entity) throws Exception {
-        // TODO Add notification
-        replyDao.create(entity);
+    public void create(User user, Post post) {
+
+        // Check if he already replied to the post
+        if (!replyDao.DidUserReply(user, post)) {
+
+            // Send Notification on Reply
+            String title = user.getName() + " wil helpen met:";
+            String body = post.getTitle();
+
+            Payload payload = new Payload(
+                    new Notification(title, body),
+                    new Data(post.getId()),
+                    post.getUser()
+                            .getFirebase().getNotificationKey());
+
+            firebaseService.sendNotification(payload, post.getUser(), user);
+
+            replyDao.create(new Reply(user, post));
+
+        } else {
+            throw new ReplyException("User already replied to the post.");
+        }
     }
 
     public Reply setHelped(Reply entity, boolean done) {
-        // TODO Add notification
+
+        // Send Notification on Reply
+        String title = entity.getPost().getUser().getName() + " wil helpen met:";
+        String body = entity.getPost().getTitle();
+
+        Payload payload = new Payload(
+                new Notification(title, body),
+                new Data(entity.getPost().getId()),
+                entity.getPost().getUser()
+                        .getFirebase().getNotificationKey());
+
+        firebaseService.sendNotification(payload, entity.getPost().getUser(), entity.getUser());
+
         entity.setHelped(done);
         return replyDao.update(entity);
     }

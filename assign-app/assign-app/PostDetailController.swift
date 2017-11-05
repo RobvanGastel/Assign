@@ -34,15 +34,6 @@ class PostDetailController: UIViewController {
         
         // Init API service
         apiService = ApiService()
-
-        apiService?.checkReplied(id: (currentPost?.id)!) { response in
-            self.replied = response
-            
-            if self.replied! {
-                self.helpButton.isHidden = true
-                self.helpButtonBar.isHidden = true
-            }
-        }
         
         self.initializePost()
     }
@@ -69,10 +60,10 @@ class PostDetailController: UIViewController {
     /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
         
+        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
     
     /// Add data to the segue before triggering.
@@ -121,8 +112,8 @@ class PostDetailController: UIViewController {
         apiService?.addReply(id: (self.currentPost?.id)!) { success in
             
             if success {
-                self.helpButton.isHidden = false
-                self.helpButtonBar.isHidden = false
+                self.helpButton.isHidden = true
+                self.helpButtonBar.isHidden = true
                 
                 // Handle button clicked
                 
@@ -130,6 +121,10 @@ class PostDetailController: UIViewController {
                 // Error response
             }
         }
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

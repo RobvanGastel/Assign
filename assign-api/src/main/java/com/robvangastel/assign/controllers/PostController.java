@@ -16,9 +16,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
+ * TODO Implement uniform update method
+ *
  * @author Rob van Gastel
  */
 
@@ -67,7 +72,7 @@ public class PostController {
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         Post post = postService.findById(id);
 
-        if(post == null) {
+        if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
@@ -105,13 +110,8 @@ public class PostController {
         if (user.getId() != post.getUser().getId() && post != null) {
             // Check if the user creating reply isnt replying to his own post
 
-            if(!replyService.DidUserReply(user, post)) {
-                // Check if he already replied to the post
+            replyService.create(user, post);
 
-                replyService.create(new Reply(user, post));
-            } else {
-                throw new WebApplicationException(Response.Status.BAD_REQUEST);
-            }
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
@@ -129,9 +129,11 @@ public class PostController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         Post post = postService.findById(id);
+
         if (post == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(post).build();
     }
 
@@ -169,9 +171,21 @@ public class PostController {
     @POST
     public Response create(@QueryParam("title") String title,
                            @QueryParam("description") String description) throws Exception {
-
         User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
         postService.create(new Post(user, title, description));
+        return Response.ok().build();
+    }
+
+    @PUT
+    public Response update(Post post) {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        if (post == null) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
+        postService.updateContent(post, user);
+
         return Response.ok().build();
     }
 
@@ -216,6 +230,7 @@ public class PostController {
     }
 
     class DidReply {
+
         private boolean replied;
 
         public DidReply(boolean replied) {

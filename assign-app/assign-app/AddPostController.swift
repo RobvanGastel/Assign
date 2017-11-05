@@ -23,14 +23,15 @@ class AddPostController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Hides the keyboard when tapping on the screen
-        self.hideKeyboardWhenTappedAround()
 
         // Init API service
         apiService = ApiService()
         
         // Initializes the delegate
         descriptionText.delegate = self
+        
+        // Open up keyboard on load
+        titleField.becomeFirstResponder()
         
         // Layout settings
         view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -91,10 +92,12 @@ class AddPostController: UIViewController, UITextViewDelegate {
 
             // Add post API call with the API Service
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
+                
                 if(success == true) {
                     // Navigate back to the previous view
                     self.delegate?.refreshPosts()
                     self.navigationController?.popViewController(animated: true)
+//                    self.dismiss(animated: true, completion: nil)
                     
                     // TODO Add SUCCESS message
                 } else {
@@ -106,5 +109,9 @@ class AddPostController: UIViewController, UITextViewDelegate {
         }
     }
     
-    
+    @IBAction func backClick(_ sender: Any) {
+        view.endEditing(true)
+//        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
 }

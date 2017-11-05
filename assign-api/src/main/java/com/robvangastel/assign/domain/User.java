@@ -3,6 +3,7 @@ package com.robvangastel.assign.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.robvangastel.assign.CodeGenerator;
 import com.robvangastel.assign.domain.serializers.UserSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,9 +52,17 @@ public class User implements Serializable {
     @LazyCollection(LazyCollectionOption.TRUE)
     private List<Reply> replies = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    @LazyCollection(LazyCollectionOption.TRUE)
+    private List<Notification> notifications = new ArrayList<>();
+
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.PERSIST)
     private SocialLink socialLink;
+
+    @JsonManagedReference
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Firebase firebase;
 
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -94,6 +103,8 @@ public class User implements Serializable {
         this.socialLink = socialLink;
         this.profileImage = "default.png";
 
+        // Creates a Firebase Notification key name
+        this.firebase = new Firebase(name + CodeGenerator.getInstance().getCode(8));
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 
@@ -110,6 +121,8 @@ public class User implements Serializable {
         this.name = name;
         this.profileImage = "default.png";
 
+        // Creates a Firebase Notification key name
+        this.firebase = new Firebase(name + CodeGenerator.getInstance().getCode(8));
         this.lastLoggedIn = new java.sql.Timestamp(Calendar.getInstance().getTimeInMillis());
     }
 

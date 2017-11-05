@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import UserNotifications
+
+import Firebase
 import CoreData
 
 @UIApplicationMain
@@ -14,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Initialize NotificationCenter
+        UNUserNotificationCenter.current().delegate = self
+        
+        // Initialize Firebase
+        FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min) // Prevent from Console spam
+        FirebaseApp.configure()
+        
+        // Check if the App is stil allowed to get Push Notifications
+        registerForPushNotifications()
         
         return true
     }
@@ -89,6 +100,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    // MARK: - Push Notifications
+    
+    // Checks if the app still has authorization to get Push Notifications
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            
+            // Voorbeeld van een view actie op een Notificatie
+            let viewAction = UNNotificationAction(identifier: "NotificationController",
+                                                  title: "View",
+                                                  options: [.foreground])
+            
+            let notificationCategory = UNNotificationCategory(identifier: "Notification",
+                                                              actions: [viewAction],
+                                                              intentIdentifiers: [],
+                                                              options: [])
+            
+            UNUserNotificationCenter.current().setNotificationCategories([notificationCategory])
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    // If the app still has permissions get the Notifications
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
 }
+
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                 fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    
+    if let messageID = userInfo["gcm_message_id"] {
+        print("Message ID: \(messageID)")
+    }
+    
+    let alert = UIAlertController(title: "FireBase", message:"didReceiveRemoteNotification fetchCompletionHandler", preferredStyle: UIAlertControllerStyle.alert)
+    
+    // add an action (button)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    
+    completionHandler(UIBackgroundFetchResult.newData)
+}
+
+// The callback to handle data message received via FCM for devices running iOS 10 or above.
+func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+    print(remoteMessage.appData)
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    // This method will be called when app received push notifications in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let userInfo = notification.request.content.userInfo
+        let aps = userInfo as! [String: AnyObject]
+        
+        completionHandler([.alert, .badge, .sound])
+    }
+}
+
+
+
 
