@@ -51,8 +51,10 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.updateReplies()
         }
         
+        // PopupKit example
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        // Create witdh with constraint to make it as big as screen
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 410, height: 400))
         view.backgroundColor = .red
         view.layer.cornerRadius = 12.0
         

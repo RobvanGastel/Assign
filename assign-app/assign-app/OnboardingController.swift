@@ -23,7 +23,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Assign delegates
         self.dataSource = self
         self.delegate = self
@@ -121,6 +121,12 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+        
+        // First time check if the app is allowed to send notifications
+        if orderedViewControllers.index(of: pageContentViewController) == 3 {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.registerForPushNotifications()
+        }
     }
     
     // MARK: - Styling of controller
