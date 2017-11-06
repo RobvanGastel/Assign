@@ -38,6 +38,6 @@ class Item:NSObject, JSONDecodable {
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
 
         // Init the item
-        self.init(id: id, user: user!, title: title, text: text, dateCreated: dateCreated)
+        self.init(id: id, user: user!, title: String().decode(title)!, text: String().decode(text)!, dateCreated: dateCreated)
     }
 }
