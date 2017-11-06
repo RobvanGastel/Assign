@@ -98,7 +98,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     ///
     /// TODO Add calls for all tables
     func fillTables() {
-        self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) { posts in
+        self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) {
+            posts in
             self.assignmentsArray = posts!
             self.tableView.reloadData()
         }
@@ -157,7 +158,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                 
                 // Add 20 to load the next posts
                 self.itemsStart += 20
-                apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) { i in
+                apiService?.getItemsByUser(size: size, start: itemsStart, id: currentUser!.id!) {
+                    i in
                                                 
                         if (i?.count)! < 20 { // Check if all replies found
                             print("API: No new items")
@@ -181,8 +183,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                     
                     // Add 20 to load the next posts
                     self.activityStart += 20
-                    apiService?.getRepliesByUser(size: size, start: activityStart,
-                                               id: currentUser!.id!) { r in
+                    apiService?.getRepliesByUser(size: size, start: activityStart, id: currentUser!.id!) {
+                        r in
                                                 
                         if (r?.count)! < 20 { // Check if all replies found
                             print("API: No new replies")
@@ -207,8 +209,8 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                     
                     // Add 20 to load the next posts
                     self.assignmentsStart += 20
-                    apiService?.getPostsByUser(size: size, start: assignmentsStart,
-                                               id: currentUser!.id!) { p in
+                    apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) {
+                        p in
                                
                         if (p?.count)! < 20 { // Check if all posts found
                             print("API: No new posts")
