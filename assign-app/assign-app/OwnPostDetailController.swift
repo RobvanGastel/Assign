@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupKit
 import AlamofireImage
 
 /// Controller to view the details of a post.
@@ -21,6 +22,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var replyCountLabel: UILabel!
     @IBOutlet weak var tableHeight: NSLayoutConstraint! // tableHeight of replies
+    @IBOutlet weak var endAssignmentButton: UIButton!
     
     // The API service
     var apiService: ApiService?
@@ -49,6 +51,18 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.updateReplies()
         }
         
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        view.backgroundColor = .red
+        view.layer.cornerRadius = 12.0
+        
+        let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
+        
+        let popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        popupView.show(with: layout)
+        
         self.initializePost()
     }
     
@@ -62,6 +76,10 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         let url = URL(string: (currentPost?.user?.profileImage)!)!
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
+        
+        if (currentPost?.done)! {
+            self.endAssignmentButton.isEnabled = false
+        }
     }
     
     
@@ -101,15 +119,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             // Edit action
         }
         actionSheetController.addAction(editAction)
-        
-        // End assignment action
-        let endAction = UIAlertAction(title: "Beëindig de assignment", style: .default) { action -> Void in
-            // End assignment
-            self.apiService?.setDone(id: self.currentPost!.id) {_ in 
-                
-            }
-        }
-        actionSheetController.addAction(endAction)
         
         // Share your assignment action
         let shareAction = UIAlertAction(title: "Deel jouw assignment", style: .default) { action -> Void in
@@ -184,16 +193,10 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     // MARK: - Table view with replies
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! ReplyCell
-        let reply = replies[indexPath.row]
-        
-        if cell.checkboxImage.image == #imageLiteral(resourceName: "icon-reply-unchecked.png") {
-            cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
-            reply.helped = false
-        } else {
-            cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-unchecked.png")
-            reply.helped = true
-        }
+        // let cell = tableView.cellForRow(at: indexPath) as! ReplyCell
+        // let reply = replies[indexPath.row]
+    
+        // TODO: Do something with click on the cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -249,5 +252,12 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    @IBAction func endAssignment(_ sender: Any) {
+        // TODO: Create popup to assign user that helped
+        
+        // self.apiService?.setDone(id: self.currentPost!.id) {_ in
+            // Refresh the post
+        // }
+    }
 }
 
