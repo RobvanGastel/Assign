@@ -199,6 +199,22 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // TODO: Do something with click on the cell
     }
     
+    // TODO: Move this into the modal that pops up after choosing to end the assignment
+    //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //    let cell = tableView.cellForRow(at: indexPath) as! ReplyCell
+    //    let reply = replies[indexPath.row]
+    //
+    //
+    //     if cell.checkboxImage.image == #imageLiteral(resourceName: "icon-reply-unchecked.png") {
+    //         cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
+    //         reply.helped = false
+    //     } else {
+    //         cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-unchecked.png")
+    //         reply.helped = true
+    //     }
+    //}
+
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -226,11 +242,12 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             profileImage.af_setImage(withURL: url, filter: filter)
         }
         
-        if let checkboxImage = cell.viewWithTag(405) as? UIImageView {
-            if reply.helped {
-                checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
-            }
-        }
+        // TODO: Move this into the modal that pops up after choosing to end the assignment
+        // if let checkboxImage = cell.viewWithTag(405) as? UIImageView {
+        //     if reply.helped {
+        //         checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
+        //     }
+        // }
         
         return cell
     }
