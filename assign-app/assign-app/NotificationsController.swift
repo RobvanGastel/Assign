@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 
+/// TODO: Update pull to refresh to minimize (Abstract class)
 class NotificationsController: UITableViewController {
     
     // Posts array for tableview

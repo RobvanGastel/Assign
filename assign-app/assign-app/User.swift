@@ -14,11 +14,11 @@ class User:NSObject, JSONDecodable {
     var id:Int!
     var name:String!
     var email:String!
-    var profileImage: String?
+    var profileImage: String? // Image url of the profile
     var posts:[Post]?
     var social: Social?
-    var specialisation: String?
-    var dateCreated:Date?
+    var specialisation: String! // Study of the user
+    var dateCreated:Date!
 
 
     // Post user initializer
@@ -47,13 +47,18 @@ class User:NSObject, JSONDecodable {
         guard let email = JSON["email"] as? String else { return nil }
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
         guard let profileImage = JSON["profileImage"] as? String else { return nil }
+        guard let specilisation = JSON["specialisation"] as? String else { return nil }
         
+        // DateCreated
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
+        
+        // TODO: Set this in backend or Storage
+        // Profile image URL
         let profileImageString = Storage.getURL() + "/img/" + profileImage;
-            
+        
+        // Social links
         let socialString = JSON["socialLink"] as? [String: Any]
         let socialLink = Social(JSON: socialString!)
-        guard let specilisation = JSON["specialisation"] as? String else { return nil }
         
         self.init(id: id, name: String().decode(name)!, email: email, dateCreated: dateCreated, profileImage: profileImageString, social: socialLink!, specialisation: specilisation)
     }

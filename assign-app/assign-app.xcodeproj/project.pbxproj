@@ -235,14 +235,44 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		201962A01FB1AB39000A6925 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D46FAADD1F5F3F0400C25344 /* UIColor.swift */,
+				D4C55DEA1F0A8FF00029E285 /* UIImage.swift */,
+				D4C55DF01F0AFFBB0029E285 /* UIButton.swift */,
+				D45D2FF01F02CBA0002FEBE7 /* UIController.swift */,
+				D401929F1F3A2DD900879B8C /* UISegmentedControl.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		201962A11FB1AB43000A6925 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				D45D2FF61F02E8FF002FEBE7 /* View.swift */,
+				D45D2FF31F02D485002FEBE7 /* Input.swift */,
+				D45D2FF21F02D485002FEBE7 /* Add.swift */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		201962A21FB1AC11000A6925 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D4C8287D1F069A0B00A87D40 /* JSONParser.swift */,
+				D41955851ECF627C009575DE /* JSONDecodable.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		201F96EB1E31547C0082702E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				201962A21FB1AC11000A6925 /* JSON */,
 				201F96EC1E3154BB0082702E /* User.swift */,
 				201F96EE1E3154F10082702E /* Post.swift */,
 				D41955831ECF4288009575DE /* Credentials.swift */,
-				D4C8287D1F069A0B00A87D40 /* JSONParser.swift */,
-				D41955851ECF627C009575DE /* JSONDecodable.swift */,
 				D4C1947E1F1D31A7009A481B /* Reply.swift */,
 				D4C194801F1FBAED009A481B /* Social.swift */,
 				D40192A11F574AAD00879B8C /* Notification.swift */,
@@ -274,7 +304,6 @@
 			children = (
 				20E53ACB1F48866100F65FDE /* GoogleService-Info.plist */,
 				20E53ACA1F48708600F65FDE /* assign-app.entitlements */,
-				D4EB70AF1ED1E55F003895C4 /* UI */,
 				201F96EB1E31547C0082702E /* Models */,
 				2013FC341E2D5C3200C85F5D /* Controllers */,
 				D4D906511ECE53F50065B5A5 /* Services */,
@@ -396,24 +425,23 @@
 			path = onboarding;
 			sourceTree = "<group>";
 		};
-		D4BFC94B1FAE0D2A006C23CD /* cells */ = {
+		D4BFC94B1FAE0D2A006C23CD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				D4BFC94E1FAE0F5E006C23CD /* ReplyCell.swift */,
 			);
-			path = cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D4C828741F03A54000A87D40 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D45D2FF01F02CBA0002FEBE7 /* UIController.swift */,
+				D4EB70B01ED1E57B003895C4 /* Images */,
+				201962A11FB1AB43000A6925 /* Layout */,
+				201962A01FB1AB39000A6925 /* UI */,
+				D4BFC94B1FAE0D2A006C23CD /* Cells */,
 				D4C828751F03A59200A87D40 /* DateAgo.swift */,
-				D4C55DEA1F0A8FF00029E285 /* UIImage.swift */,
 				D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */,
-				D4C55DF01F0AFFBB0029E285 /* UIButton.swift */,
-				D401929F1F3A2DD900879B8C /* UISegmentedControl.swift */,
-				D46FAADD1F5F3F0400C25344 /* UIColor.swift */,
 				208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */,
 			);
 			name = Extensions;
@@ -431,19 +459,7 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		D4EB70AF1ED1E55F003895C4 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D4BFC94B1FAE0D2A006C23CD /* cells */,
-				D4EB70B01ED1E57B003895C4 /* img */,
-				D45D2FF61F02E8FF002FEBE7 /* View.swift */,
-				D45D2FF21F02D485002FEBE7 /* Add.swift */,
-				D45D2FF31F02D485002FEBE7 /* Input.swift */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		D4EB70B01ED1E57B003895C4 /* img */ = {
+		D4EB70B01ED1E57B003895C4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				B2F3725C1FADEC9000CFEA13 /* icon-reply */,
@@ -454,7 +470,7 @@
 				B2D4FA0E1F9E75BA009D3BDF /* socials */,
 				B2D4FA0F1F9E75CD009D3BDF /* icon-navbar */,
 			);
-			name = img;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		D4EF901A1F08FD9A00211F04 /* Posts */ = {
@@ -634,7 +650,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		41C035827BD3E0E0E4B8F7C3 /* [CP] Copy Pods Resources */ = {
@@ -662,6 +678,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupKit/PopupKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -670,6 +687,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

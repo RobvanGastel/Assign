@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Extension for colors of the Tabbar
 extension UIImage {
     
     /// UIImage extension to change the color of the TabBar Items.

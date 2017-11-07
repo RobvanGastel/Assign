@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// TODO: Add descriptive name or comments
 class UIInput: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()

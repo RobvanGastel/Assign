@@ -8,8 +8,8 @@
 
 import UIKit
 
-
-// Standard classes
+/// TODO: Add descriptive name or comments
+/// Standard classes
 class UIOverview: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +43,6 @@ class UITitle: UILabel {
         super.awakeFromNib()
         
         self.textColor = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 1)
-        
     }
 }
 
@@ -85,7 +84,6 @@ class UIDescriptionDetail: UILabel {
     }
 }
 
-
 // Profile page classes
 class UIProfilePage: UIImageView {
     override func awakeFromNib() {
@@ -100,7 +98,6 @@ class UIProfilePage: UIImageView {
         self.layer.shadowRadius = 16
     }
 }
-
 
 class UIProfilePageShadow: UIView {
     override func awakeFromNib() {

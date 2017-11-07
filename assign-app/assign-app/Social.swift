@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// TODO: Check if there are more variables in the backend.
+/// The Social class of a User.
 class Social:NSObject, JSONDecodable {
     
     var phonenumber: String?

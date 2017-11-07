@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// TODO: Add descriptive name or comments
 class UIAddDesc: UITextView {
     override func awakeFromNib() {
         super.awakeFromNib()

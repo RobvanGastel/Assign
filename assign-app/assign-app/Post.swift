@@ -13,14 +13,14 @@ class Post:NSObject, JSONDecodable {
 
     var id:Int!
     var title:String!
-    var text:String!
-    var url: String!
+    var text:String! // Description of the post
+    var url: String! // Share url of the post
     var user:User?
     var tags:[String]?
     var replies: [Int]?
     var done:Bool?
     var dateCreated:Date?
-    var dateDone:Date?
+    var dateDone:Date? // Date the post was set to done
 
     init(id:Int, title:String,  text:String, dateCreated:Date, url: String,
          user: User, done: Bool, tags: [String], replies: [Int]) {
@@ -46,10 +46,14 @@ class Post:NSObject, JSONDecodable {
         let tags = JSON["tags"] as! [String]
         let replies = JSON["replies"] as! [Int]
         
+        // set dateCreated
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
+        
+        // TODO: Set url in backend or Storage
+        // Url of the post
         let urlString = "https://assignapp.nl/" + url;
         
-        // User
+        // Init the User
         let userString = JSON["user"] as! [String: Any]
         let user = User(JSON: userString)
 
