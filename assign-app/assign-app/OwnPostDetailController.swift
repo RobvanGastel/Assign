@@ -17,6 +17,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var ScrollView: UIScrollView!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var replyCountLabel: UILabel!
@@ -48,6 +49,10 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.tableView.reloadData()
             self.updateReplies()
         }
+        
+        // Enabled scroll
+        ScrollView.isScrollEnabled = true
+        ScrollView.alwaysBounceVertical = true
         
         self.initializePost()
     }
