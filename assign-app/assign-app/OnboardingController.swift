@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
-    // Pager list
+    // Pager viewcontrollers
     lazy var orderedViewControllers: [UIViewController] = {
         return [self.newViewController(viewController: "StepOne"),
                 self.newViewController(viewController: "StepTwo"),

@@ -5,7 +5,6 @@
 //  Created by Rob Van Gastel on 26/06/2017.
 //  Copyright © 2017 Assign. All rights reserved.
 //
-
  
 import UIKit
 import AlamofireImage
@@ -68,7 +67,7 @@ class PostDetailController: UIViewController {
     
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProfileDetailSegue" {
             let nextView = segue.destination as? ProfileDetailController

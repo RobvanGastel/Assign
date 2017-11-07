@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 
 /// TODO: Update pull to refresh to minimize (Abstract class)
+/// TODO: add Data to Core Data as cache
 class NotificationsController: UITableViewController {
     
     // Posts array for tableview
@@ -34,7 +35,6 @@ class NotificationsController: UITableViewController {
         // Starting values of size is 20 and start 1
         self.apiService?.getNotifications(size: size, start: start) { notifications in
             
-            // TODO add Data to Core Data as cache
             // Sets the posts and refreshes the table
             self.notifications = notifications!
             self.tableView.reloadData()
@@ -193,7 +193,7 @@ class NotificationsController: UITableViewController {
         }
     }
     
-    /// Read all notifications
+    /// Read all notifications API call
     @IBAction func readNotifications(_ sender: Any) {
         
         var ids :[Int] = []

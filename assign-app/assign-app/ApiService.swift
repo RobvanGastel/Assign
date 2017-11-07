@@ -9,8 +9,6 @@
 import Foundation
 
 /// Manages the API calls.
-///
-/// TODO Add check if user is connected to Network.
 class ApiService {
 
     /// This function returns the *User* object of the authenticated user.
