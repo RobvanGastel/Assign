@@ -45,6 +45,6 @@ class Notification:NSObject, JSONDecodable {
         let user = User(JSON: userString)
         
         // Init the Notification
-        self.init(id: id, title: title, body: body, sender: user!, readNotification: readNotification, postId: postId, dateCreated: dateCreated)
+        self.init(id: id, title: String().decode(title)!, body: String().decode(body)!, sender: user!, readNotification: readNotification, postId: postId, dateCreated: dateCreated)
     }
 }

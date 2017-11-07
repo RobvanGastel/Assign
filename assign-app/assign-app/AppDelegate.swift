@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // Check if the App is stil allowed to get Push Notifications
-        registerForPushNotifications()
+        if Storage.getFirstLaunchTime() {
+            registerForPushNotifications()
+        }
         
         return true
     }
@@ -123,6 +125,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard granted else { return }
             self.getNotificationSettings()
         }
+        
+//        if #available(iOS 10.0, *) {
+//            let center  = UNUserNotificationCenter.current()
+//
+//            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+//                if error == nil {
+//                    UIApplication.shared.registerForRemoteNotifications()
+//                }
+//            }
+//        }
+//        else {
+//            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+//            UIApplication.shared.registerForRemoteNotifications()
+//        }
     }
     
     // If the app still has permissions get the Notifications
