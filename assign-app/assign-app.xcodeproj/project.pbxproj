@@ -25,6 +25,8 @@
 		B22ED2381F1E06420058D7C0 /* icon-phone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22ED22C1F1E06420058D7C0 /* icon-phone@3x.png */; };
 		B22ED23A1F1E06420058D7C0 /* icon-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22ED22E1F1E06420058D7C0 /* icon-twitter@2x.png */; };
 		B22ED23B1F1E06420058D7C0 /* icon-twitter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22ED22F1F1E06420058D7C0 /* icon-twitter@3x.png */; };
+		B247D49D1FB21BB400506739 /* ReplyModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B247D49C1FB21BB400506739 /* ReplyModalView.xib */; };
+		B247D49F1FB222ED00506739 /* ReplyModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247D49E1FB222ED00506739 /* ReplyModalView.swift */; };
 		B25D56FC1FB0F3C600F982BF /* icon-reply-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25D56FA1FB0F3C500F982BF /* icon-reply-arrow@3x.png */; };
 		B25D56FD1FB0F3C600F982BF /* icon-reply-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25D56FB1FB0F3C600F982BF /* icon-reply-arrow@2x.png */; };
 		B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */; };
@@ -128,6 +130,8 @@
 		B22ED22C1F1E06420058D7C0 /* icon-phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone@3x.png"; sourceTree = "<group>"; };
 		B22ED22E1F1E06420058D7C0 /* icon-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter@2x.png"; sourceTree = "<group>"; };
 		B22ED22F1F1E06420058D7C0 /* icon-twitter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter@3x.png"; sourceTree = "<group>"; };
+		B247D49C1FB21BB400506739 /* ReplyModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyModalView.xib; sourceTree = "<group>"; };
+		B247D49E1FB222ED00506739 /* ReplyModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyModalView.swift; sourceTree = "<group>"; };
 		B25D56FA1FB0F3C500F982BF /* icon-reply-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-reply-arrow@3x.png"; sourceTree = "<group>"; };
 		B25D56FB1FB0F3C600F982BF /* icon-reply-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-reply-arrow@2x.png"; sourceTree = "<group>"; };
 		B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross@2x.png"; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 				D4C828741F03A54000A87D40 /* Extensions */,
 				20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */,
 				20CC17CA1E17E1DB006D5A13 /* Main.storyboard */,
+				B247D49C1FB21BB400506739 /* ReplyModalView.xib */,
+				B247D49E1FB222ED00506739 /* ReplyModalView.swift */,
 				20CC17D01E17E1DB006D5A13 /* Assets.xcassets */,
 				20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */,
 				D419557E1ECF1BCD009575DE /* Bridging.h */,
@@ -596,6 +602,7 @@
 				B22ED23B1F1E06420058D7C0 /* icon-twitter@3x.png in Resources */,
 				B2D37C661F07DDFA00C3A0BA /* icon-search@2x.png in Resources */,
 				B25D56FC1FB0F3C600F982BF /* icon-reply-arrow@3x.png in Resources */,
+				B247D49D1FB21BB400506739 /* ReplyModalView.xib in Resources */,
 				B2D4FA131F9E7B51009D3BDF /* logo-login@2x.png in Resources */,
 				B2E801221F0C1D780005980B /* icon-bar-notifications@2x.png in Resources */,
 				B2E801261F0C1D780005980B /* icon-bar-notifications@3x.png in Resources */,
@@ -730,6 +737,7 @@
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				D46FAADE1F5F3F0400C25344 /* UIColor.swift in Sources */,
 				D45D2FF11F02CBA0002FEBE7 /* UIController.swift in Sources */,
+				B247D49F1FB222ED00506739 /* ReplyModalView.swift in Sources */,
 				208A6B391FA9D7CE004DFB78 /* EmojiEncoding.swift in Sources */,
 				D4C1947F1F1D31A7009A481B /* Reply.swift in Sources */,
 				D45D2FF41F02D485002FEBE7 /* Add.swift in Sources */,

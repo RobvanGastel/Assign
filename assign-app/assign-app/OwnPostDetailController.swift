@@ -59,8 +59,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // PopupKit example
         
         // Create witdh with constraint to make it as big as screen
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 410, height: 400))
-        view.backgroundColor = .red
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
+        view.backgroundColor = .white
         view.layer.cornerRadius = 12.0
         
         let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
