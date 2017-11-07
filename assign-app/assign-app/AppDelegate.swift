@@ -105,7 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Push Notifications
     
-    // Checks if the app still has authorization to get Push Notifications
+    /// TODO: Add check for different iOS versions
+    /// Checks if the app still has authorization to get Push Notifications
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in

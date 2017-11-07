@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The User class
+/// The Notification class
 class Notification:NSObject, JSONDecodable {
     
     var id:Int!
@@ -36,15 +36,14 @@ class Notification:NSObject, JSONDecodable {
         guard let readNotification = JSON["readNotification"] as? Bool else { return nil }
         guard let postId = JSON["postId"] as? Int else { return nil }
         
-        // Date created
+        // set DateCreated
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
-        // User
+        // Init User
         let userString = JSON["sender"] as! [String: Any]
         let user = User(JSON: userString)
         
-        // Init the Notification
         self.init(id: id, title: String().decode(title)!, body: String().decode(body)!, sender: user!, readNotification: readNotification, postId: postId, dateCreated: dateCreated)
     }
 }

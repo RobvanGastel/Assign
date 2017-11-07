@@ -1,5 +1,5 @@
 //
-//  DateTimeAgo.swift
+//  DateAgo.swift
 //  assign-app
 //
 //  Created by Rob Van Gastel on 28/06/2017.
@@ -7,10 +7,6 @@
 //
 
 import Foundation
-
-func NSDateTimeAgoLocalizedStrings(_ key: String) -> String {
-    return key
-}
 
 /// Date extension to get the time ago string.
 extension Date {
@@ -127,5 +123,9 @@ extension Date {
     fileprivate func string(fromFormat format: String, withValue value: Int) -> String {
         let localeFormat = String(format: format)
         return String(format: NSDateTimeAgoLocalizedStrings(localeFormat), value)
+    }
+    
+    fileprivate func NSDateTimeAgoLocalizedStrings(_ key: String) -> String {
+        return key
     }
 }
