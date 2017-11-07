@@ -97,7 +97,9 @@ class AddPostController: UIViewController, UITextViewDelegate {
                     // Navigate back to the previous view
                     self.delegate?.refreshPosts()
                     self.navigationController?.popViewController(animated: true)
-//                    self.dismiss(animated: true, completion: nil)
+                    
+                    // To dissmiss page with navigationbar
+                    // self.dismiss(animated: true, completion: nil)
                     
                     // TODO Add SUCCESS message
                 } else {
@@ -111,7 +113,8 @@ class AddPostController: UIViewController, UITextViewDelegate {
     
     @IBAction func backClick(_ sender: Any) {
         view.endEditing(true)
-//        dismiss(animated: true, completion: nil)
+        // To dissmiss page with navigationbar
+        // dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
 }
