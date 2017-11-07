@@ -52,11 +52,10 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.updateReplies()
         }
         
-<<<<<<< HEAD
         // Enabled scroll
         ScrollView.isScrollEnabled = true
         ScrollView.alwaysBounceVertical = true
-=======
+        
         // PopupKit example
         
         // Create witdh with constraint to make it as big as screen
@@ -70,7 +69,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view, typically from a nib.
         
         popupView.show(with: layout)
->>>>>>> 20f5145cda7e7df66129d49f2e146f8c8686b5da
         
         self.initializePost()
     }
