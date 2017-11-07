@@ -89,7 +89,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
     /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

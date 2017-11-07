@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ReplyCell" rowHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-wo-3k7" customClass="ReplyCell" customModule="assign_app" customModuleProvider="target">
+                    <rect key="frame" x="-138" y="-7" width="386" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <tableViewCellContentView key="contentView" contentMode="center" tableViewCell="OaG-wo-3k7" id="Yot-C8-8ET">
+                        <rect key="frame" x="0.0" y="0.0" width="386" height="63.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSZ-vg-KiG" customClass="UIName" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="77" y="11" width="41" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hq1-oN-aor"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="401" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Study" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07y-bm-G9a" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="77" y="32" width="38" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="i6k-0N-Y7u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" tag="404" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e0x-vE-nCW" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="11" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="ZCV-c1-viR"/>
+                                    <constraint firstAttribute="height" constant="42" id="kMZ-Hz-G9W"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-reply-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-D8-Y6d">
+                                <rect key="frame" x="362" y="25" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="7IS-Ie-xOE"/>
+                                    <constraint firstAttribute="width" constant="8" id="iu9-Bz-Rqf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="e0x-vE-nCW" firstAttribute="top" secondItem="Yot-C8-8ET" secondAttribute="top" constant="11" id="0hA-l3-l7D"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KSZ-vg-KiG" secondAttribute="trailing" constant="60" id="3Zk-WF-Ive"/>
+                            <constraint firstItem="KSZ-vg-KiG" firstAttribute="leading" secondItem="e0x-vE-nCW" secondAttribute="trailing" constant="15" id="5Tk-c7-xJ3"/>
+                            <constraint firstItem="07y-bm-G9a" firstAttribute="top" secondItem="KSZ-vg-KiG" secondAttribute="bottom" id="73A-iZ-2QV"/>
+                            <constraint firstAttribute="trailing" secondItem="ilt-D8-Y6d" secondAttribute="trailing" constant="16" id="BGS-wQ-4UC"/>
+                            <constraint firstItem="e0x-vE-nCW" firstAttribute="leading" secondItem="Yot-C8-8ET" secondAttribute="leading" constant="20" id="KVn-XD-0NN"/>
+                            <constraint firstItem="KSZ-vg-KiG" firstAttribute="top" secondItem="Yot-C8-8ET" secondAttribute="top" constant="11" id="XnR-m6-Osh"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="07y-bm-G9a" secondAttribute="trailing" constant="60" id="dsS-HY-XaB"/>
+                            <constraint firstItem="ilt-D8-Y6d" firstAttribute="top" secondItem="Yot-C8-8ET" secondAttribute="top" constant="25" id="fpA-ss-lDM"/>
+                            <constraint firstItem="07y-bm-G9a" firstAttribute="leading" secondItem="e0x-vE-nCW" secondAttribute="trailing" constant="15" id="i6i-yB-D5d"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="KSZ-vg-KiG" id="UIX-16-XR3"/>
+                        <outlet property="profileImage" destination="e0x-vE-nCW" id="Fmf-1r-6Rg"/>
+                        <outlet property="studyLabel" destination="07y-bm-G9a" id="8rS-DZ-43b"/>
+                    </connections>
+                </tableViewCell>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="-228.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-reply-arrow.png" width="8" height="13"/>
+    </resources>
+</document>
