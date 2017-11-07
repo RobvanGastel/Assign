@@ -2179,7 +2179,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AlC-KC-Yxu">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlC-KC-Yxu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVm-zw-Qbl" customClass="UIOverviewDetail" customModule="assign_app" customModuleProvider="target">
@@ -2188,6 +2188,9 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkY-tQ-XCa" customClass="UITitleDetail" customModule="assign_app" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="87" width="346" height="24"/>
                                                 <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="z0B-k9-LhF"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
                                                 <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="highlightedColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
@@ -2202,6 +2205,9 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QQ-WT-zZk" customClass="UIDescriptionDetail" customModule="assign_app" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="129" width="346" height="19"/>
                                                 <color key="tintColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="Nko-gl-Sjf"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="16"/>
                                                 <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2371,15 +2377,16 @@
                                     <constraint firstItem="aVm-zw-Qbl" firstAttribute="centerX" secondItem="AlC-KC-Yxu" secondAttribute="centerX" id="OLZ-zP-hXx"/>
                                     <constraint firstAttribute="trailing" secondItem="aVm-zw-Qbl" secondAttribute="trailing" constant="14" id="QKU-5v-14q"/>
                                     <constraint firstItem="aVm-zw-Qbl" firstAttribute="leading" secondItem="AlC-KC-Yxu" secondAttribute="leading" constant="14" id="bjy-sP-cS5"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aVm-zw-Qbl" secondAttribute="bottom" constant="14" id="fwC-ta-tvc"/>
+                                    <constraint firstAttribute="bottom" secondItem="aVm-zw-Qbl" secondAttribute="bottom" constant="14" id="fwC-ta-tvc"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yy8-k9-qaj" firstAttribute="top" secondItem="AlC-KC-Yxu" secondAttribute="bottom" id="Qrx-OA-aIi"/>
-                            <constraint firstItem="AlC-KC-Yxu" firstAttribute="top" secondItem="pvg-Fq-m0k" secondAttribute="bottom" id="Wj5-pz-WwU"/>
                             <constraint firstAttribute="trailing" secondItem="AlC-KC-Yxu" secondAttribute="trailing" id="a7x-oU-yYY"/>
+                            <constraint firstItem="AlC-KC-Yxu" firstAttribute="top" secondItem="pvg-Fq-m0k" secondAttribute="bottom" id="fS8-DE-Lok"/>
+                            <constraint firstItem="yy8-k9-qaj" firstAttribute="top" secondItem="AlC-KC-Yxu" secondAttribute="bottom" id="q9q-BF-8kf"/>
+                            <constraint firstItem="AlC-KC-Yxu" firstAttribute="centerX" secondItem="Z2K-QV-uc2" secondAttribute="centerX" id="wxV-0A-95k"/>
                             <constraint firstItem="AlC-KC-Yxu" firstAttribute="leading" secondItem="Z2K-QV-uc2" secondAttribute="leading" id="yac-lZ-g1P"/>
                         </constraints>
                     </view>
