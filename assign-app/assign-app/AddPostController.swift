@@ -48,19 +48,17 @@ class AddPostController: UIViewController, UITextViewDelegate {
         let amount = maxCharacter - counter
         
         // Makes sure the counter doesnt drop below 0
-        if(amount >= 12) {
+        switch amount {
+        case 15 ..< 255:
             counterField.textColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 1)
             counterField.text = String(maxCharacter - counter)
-        } else if(amount >= 6) {
+        case 7 ..< 15:
             counterField.textColor = UIColor.orange
             counterField.text = String(maxCharacter - counter)
-        } else if(amount >= 3) {
+        case 1 ..< 7:
             counterField.textColor = UIColor.red
             counterField.text = String(maxCharacter - counter)
-        } else if(amount >= 0) {
-            counterField.textColor = UIColor.red
-            counterField.text = String(maxCharacter - counter)
-        } else {
+        default:
             counterField.textColor = UIColor.red
             counterField.text = "0"
         }

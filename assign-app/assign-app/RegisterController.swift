@@ -44,9 +44,9 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         wachtwoordLabel.layer.opacity = 0
         codeLabel.layer.opacity = 0
     }
-    
-    
+
     // On typing inputs
+    // TODO: Add abstract class for on type effect
     @IBAction func nameFieldBegin(_ sender: Any) {
         nameField.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
         nameLabel.layer.opacity = 1

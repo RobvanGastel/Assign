@@ -14,7 +14,7 @@ class SettingsController: UITableViewController {
         super.viewDidLoad()
     }
     
-    /// Set StatusBartStyle to default.
+    /// Set StatusBartStyle to default
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default

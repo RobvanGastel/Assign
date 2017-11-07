@@ -42,10 +42,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.password.delegate = self
         
         // Hide Label and Error of input fields
-        emailLabel.layer.opacity = 0
-        wachtwoordLabel.layer.opacity = 0
-        emailError.layer.opacity = 0
-        wachtwoordError.layer.opacity = 0
+        emailLabel.isHidden = true
+        wachtwoordLabel.isHidden = true
+        emailError.isHidden = true
+        wachtwoordError.isHidden = true
     }
     
     // Add style and scroll on typing
@@ -71,7 +71,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
-    
     /// On the last return triggers the authenticate method and 'Next' will tab to password.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField == self.email) {
@@ -91,13 +90,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         authenticate(email: email.text!, password: password.text!)
     }
-    
-//    Redirect to the register view.
-//
-//    TODO add matching animation
-//    @IBAction func registerRedirect(_ sender: Any) {
-//        self.redirectViewController(identifier: "RegisterController")
-//    }
 
     /// Authenticates the user against the API.
     func authenticate(email: String, password : String) {
@@ -109,18 +101,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
             authService?.authenticate(email: "max@mail.nl", password: "max") { success in
                 if(success == true) {
                     
-                    // TODO Handle check
+                    // Debug messageToken
                     // print(Messaging.messaging().fcmToken!)
-                    // TODO Handle possible exceptions
-                    self.apiService?.registerDevice(token: Messaging.messaging().fcmToken!) { response in
-                        
-                    }
+                    
+                    self.apiService?.registerDevice(token: Messaging.messaging().fcmToken!) { response in }
                     
                     // Get the logged in user
                     self.apiService?.getCurrentUser() { response in
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
-                    
                     
                     self.loginButton.loadingIndicator(show: false, text: "Login")
                     
@@ -131,12 +120,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.present(vc, animated: true, completion: nil)
                     
                 } else {
-                    
                     // TODO return ERROR message
                 }
             }
         } else {
-            
             // TODO return ERROR message.
         }
 
