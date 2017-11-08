@@ -8,9 +8,8 @@
 
 import Foundation
 
-protocol PostsRefreshDelegate: class {
+protocol RefreshViewDelegate: class {
     
-    /// Refreshes the posts in the controller.
-    func refreshPosts()
-    
+    /// Refreshes the view in the controller.
+    func refreshView()
 }

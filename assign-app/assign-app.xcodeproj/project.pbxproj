@@ -11,7 +11,6 @@
 		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
 		206F2BBB1FB277C000EA9965 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 206F2BBA1FB277C000EA9965 /* ReplyCell.xib */; };
 		2074937C1FB2F9B7002CA347 /* ReplyModalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2074937B1FB2F9B7002CA347 /* ReplyModalCell.swift */; };
-		2074937E1FB30E18002CA347 /* PopupDoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2074937D1FB30E18002CA347 /* PopupDoneController.swift */; };
 		208A6B391FA9D7CE004DFB78 /* EmojiEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */; };
 		20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */; };
 		20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17CA1E17E1DB006D5A13 /* Main.storyboard */; };
@@ -29,7 +28,7 @@
 		B22ED2381F1E06420058D7C0 /* icon-phone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22ED22C1F1E06420058D7C0 /* icon-phone@3x.png */; };
 		B22ED23A1F1E06420058D7C0 /* icon-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22ED22E1F1E06420058D7C0 /* icon-twitter@2x.png */; };
 		B22ED23B1F1E06420058D7C0 /* icon-twitter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22ED22F1F1E06420058D7C0 /* icon-twitter@3x.png */; };
-		B247D49D1FB21BB400506739 /* ReplyModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B247D49C1FB21BB400506739 /* ReplyModalView.xib */; };
+		B247D49D1FB21BB400506739 /* PopupReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B247D49C1FB21BB400506739 /* PopupReplyView.xib */; };
 		B25D56FC1FB0F3C600F982BF /* icon-reply-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25D56FA1FB0F3C500F982BF /* icon-reply-arrow@3x.png */; };
 		B25D56FD1FB0F3C600F982BF /* icon-reply-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25D56FB1FB0F3C600F982BF /* icon-reply-arrow@2x.png */; };
 		B2816EAC1ECAE8D100A63186 /* icon-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */; };
@@ -93,7 +92,7 @@
 		D4C1947F1F1D31A7009A481B /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1947E1F1D31A7009A481B /* Reply.swift */; };
 		D4C194811F1FBAED009A481B /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C194801F1FBAED009A481B /* Social.swift */; };
 		D4C55DEB1F0A8FF00029E285 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEA1F0A8FF00029E285 /* UIImage.swift */; };
-		D4C55DED1F0AC3F10029E285 /* PostsRefreshDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */; };
+		D4C55DED1F0AC3F10029E285 /* RefreshViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DEC1F0AC3F10029E285 /* RefreshViewDelegate.swift */; };
 		D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C55DF01F0AFFBB0029E285 /* UIButton.swift */; };
 		D4C828761F03A59200A87D40 /* DateAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828751F03A59200A87D40 /* DateAgo.swift */; };
 		D4C828781F0445B800A87D40 /* PostSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C828771F0445B800A87D40 /* PostSearchController.swift */; };
@@ -115,7 +114,6 @@
 		201F96EE1E3154F10082702E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		206F2BBA1FB277C000EA9965 /* ReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		2074937B1FB2F9B7002CA347 /* ReplyModalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyModalCell.swift; sourceTree = "<group>"; };
-		2074937D1FB30E18002CA347 /* PopupDoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDoneController.swift; sourceTree = "<group>"; };
 		208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiEncoding.swift; sourceTree = "<group>"; };
 		20CC17C31E17E1DB006D5A13 /* assign-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assign-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +135,7 @@
 		B22ED22C1F1E06420058D7C0 /* icon-phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone@3x.png"; sourceTree = "<group>"; };
 		B22ED22E1F1E06420058D7C0 /* icon-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter@2x.png"; sourceTree = "<group>"; };
 		B22ED22F1F1E06420058D7C0 /* icon-twitter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter@3x.png"; sourceTree = "<group>"; };
-		B247D49C1FB21BB400506739 /* ReplyModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyModalView.xib; sourceTree = "<group>"; };
+		B247D49C1FB21BB400506739 /* PopupReplyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupReplyView.xib; sourceTree = "<group>"; };
 		B25D56FA1FB0F3C500F982BF /* icon-reply-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-reply-arrow@3x.png"; sourceTree = "<group>"; };
 		B25D56FB1FB0F3C600F982BF /* icon-reply-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-reply-arrow@2x.png"; sourceTree = "<group>"; };
 		B2816EAB1ECAE8D100A63186 /* icon-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cross@2x.png"; sourceTree = "<group>"; };
@@ -202,7 +200,7 @@
 		D4C1947E1F1D31A7009A481B /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		D4C194801F1FBAED009A481B /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		D4C55DEA1F0A8FF00029E285 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsRefreshDelegate.swift; sourceTree = "<group>"; };
+		D4C55DEC1F0AC3F10029E285 /* RefreshViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshViewDelegate.swift; sourceTree = "<group>"; };
 		D4C55DF01F0AFFBB0029E285 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		D4C828751F03A59200A87D40 /* DateAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAgo.swift; sourceTree = "<group>"; };
 		D4C828771F0445B800A87D40 /* PostSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSearchController.swift; sourceTree = "<group>"; };
@@ -294,7 +292,7 @@
 		2074937F1FB30E3D002CA347 /* Reply */ = {
 			isa = PBXGroup;
 			children = (
-				B247D49C1FB21BB400506739 /* ReplyModalView.xib */,
+				B247D49C1FB21BB400506739 /* PopupReplyView.xib */,
 				206F2BBA1FB277C000EA9965 /* ReplyCell.xib */,
 			);
 			name = Reply;
@@ -351,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				20E3E9161FB24F1A00735007 /* PopupReplyController.swift */,
-				2074937D1FB30E18002CA347 /* PopupDoneController.swift */,
 			);
 			name = Popup;
 			sourceTree = "<group>";
@@ -479,7 +476,7 @@
 				201962A01FB1AB39000A6925 /* UI */,
 				D4BFC94B1FAE0D2A006C23CD /* Cells */,
 				D4C828751F03A59200A87D40 /* DateAgo.swift */,
-				D4C55DEC1F0AC3F10029E285 /* PostsRefreshDelegate.swift */,
+				D4C55DEC1F0AC3F10029E285 /* RefreshViewDelegate.swift */,
 				208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */,
 			);
 			name = Extensions;
@@ -635,7 +632,7 @@
 				B22ED23B1F1E06420058D7C0 /* icon-twitter@3x.png in Resources */,
 				B2D37C661F07DDFA00C3A0BA /* icon-search@2x.png in Resources */,
 				B25D56FC1FB0F3C600F982BF /* icon-reply-arrow@3x.png in Resources */,
-				B247D49D1FB21BB400506739 /* ReplyModalView.xib in Resources */,
+				B247D49D1FB21BB400506739 /* PopupReplyView.xib in Resources */,
 				B2D4FA131F9E7B51009D3BDF /* logo-login@2x.png in Resources */,
 				B2E801221F0C1D780005980B /* icon-bar-notifications@2x.png in Resources */,
 				B2E801261F0C1D780005980B /* icon-bar-notifications@3x.png in Resources */,
@@ -747,7 +744,7 @@
 				D45D2FF51F02D485002FEBE7 /* Input.swift in Sources */,
 				20E3E9171FB24F1A00735007 /* PopupReplyController.swift in Sources */,
 				D41955821ECF3E6A009575DE /* JWTHandler.swift in Sources */,
-				D4C55DED1F0AC3F10029E285 /* PostsRefreshDelegate.swift in Sources */,
+				D4C55DED1F0AC3F10029E285 /* RefreshViewDelegate.swift in Sources */,
 				D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */,
 				D450AE8D1FAE4C95001B558F /* Item.swift in Sources */,
 				D45D2FEF1F01ADD1002FEBE7 /* AddPostController.swift in Sources */,
@@ -769,7 +766,6 @@
 				D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
-				2074937E1FB30E18002CA347 /* PopupDoneController.swift in Sources */,
 				D40192A21F574AAD00879B8C /* Notification.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				D46FAADE1F5F3F0400C25344 /* UIColor.swift in Sources */,

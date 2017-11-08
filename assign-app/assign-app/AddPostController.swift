@@ -20,7 +20,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
     var apiService: ApiService?
     
     // Refreshing Posts delegate
-    weak var delegate: PostsRefreshDelegate?
+    weak var delegate: RefreshViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +94,7 @@ class AddPostController: UIViewController, UITextViewDelegate {
                 
                 if(success == true) {
                     // Navigate back to the previous view
-                    self.delegate?.refreshPosts()
+                    self.delegate?.refreshView()
                     self.navigationController?.popViewController(animated: true)
                     
                     // To dissmiss page with navigationbar

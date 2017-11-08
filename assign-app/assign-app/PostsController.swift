@@ -12,7 +12,7 @@ import AlamofireImage
 /// Controller to view all the relevant posts.
 /// TODO: add Data to Core Data as cache
 /// TODO: Modify so it works with push and pop
-class PostsController: UITableViewController, PostsRefreshDelegate {
+class PostsController: UITableViewController, RefreshViewDelegate {
     
     // Posts array for tableview
     var posts = [Post]()
@@ -135,12 +135,12 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
     
     /// Pull and refesh function on the tableView.
     @IBAction func refreshAction(_ sender: Any) {
-        self.refreshPosts()
+        self.refreshView()
     }
     
     /// Refreshes the posts in the view.
     /// Starting values of size is 20 and start 1.
-    func refreshPosts() {
+    func refreshView() {
         // Reset infinite loading variables
         self.start = 0
         self.reachedEnd = false
