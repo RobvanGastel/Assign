@@ -9,6 +9,8 @@
 import UIKit
 
 /// Controller to register the user.
+/// TODO: add matching animation to Login.
+/// TODO: Add abstract class for on type effect.
 class RegisterController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailField: UITextField!
@@ -119,7 +121,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                     self.redirectViewController(identifier: "LoginController")
                     
                 } else {
-                    // TODO return ERROR message
+                    // TODO: return ERROR message
                 }
             }
         }
@@ -127,7 +129,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     /// Redirects the view to login.
     ///
-    /// TODO add matching animation
+    /// TODO: add matching animation
     @IBAction func loginRedirect(_ sender: Any) {
         self.redirectViewController(identifier: "LoginController")
     }

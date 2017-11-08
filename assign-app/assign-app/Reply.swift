@@ -30,6 +30,9 @@ class Reply:NSObject, JSONDecodable {
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
         guard let helped = JSON["helped"] as? Bool else { return nil }
         
+        // Set dateCreated
+        let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
+        
         // Init User
         let userString = JSON["user"] as! [String: Any]
         let user = User(JSON: userString)
@@ -37,9 +40,6 @@ class Reply:NSObject, JSONDecodable {
         // Init Post
         let postString = JSON["post"] as! [String: Any]
         let post = Post(JSON: postString)
-        
-        // Set dateCreated
-        let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
         self.init(id: id, post: post!, user: user!, dateCreated: dateCreated, helped: helped)
     }

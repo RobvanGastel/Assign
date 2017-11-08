@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// TODO: Add descriptive name or comments
 /// Standard classes
+/// TODO: Add descriptive name or comments
 class UIOverview: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()

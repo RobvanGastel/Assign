@@ -9,6 +9,7 @@
 import Foundation
 
 /// The Post class for the posts of users.
+// TODO: Set url in backend or Storage
 class Post:NSObject, JSONDecodable {
 
     var id:Int!
@@ -46,7 +47,7 @@ class Post:NSObject, JSONDecodable {
         let tags = JSON["tags"] as! [String]
         let replies = JSON["replies"] as! [Int]
         
-        // set dateCreated
+        // Set dateCreated
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
         // TODO: Set url in backend or Storage

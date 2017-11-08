@@ -2353,7 +2353,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="helpAction:" destination="yny-p8-2xX" eventType="touchUpInside" id="FYH-az-jnr"/>
+                                                    <action selector="endAssignment:" destination="tgV-B6-jGp" eventType="touchUpInside" id="Ute-34-3Ol"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2420,6 +2420,7 @@
                     <connections>
                         <outlet property="ScrollView" destination="AlC-KC-Yxu" id="vMB-dx-Vhg"/>
                         <outlet property="dateLabel" destination="75G-qo-wBD" id="0ve-Ik-3YA"/>
+                        <outlet property="endAssignmentButton" destination="j4N-JL-0og" id="1c1-S8-T3h"/>
                         <outlet property="nameButton" destination="Cby-gT-kVr" id="H2Y-AU-PNj"/>
                         <outlet property="profileImage" destination="bWe-gQ-2cy" id="zRX-HX-tkU"/>
                         <outlet property="replyCountLabel" destination="SuP-ta-jzi" id="1BS-mk-Lpf"/>

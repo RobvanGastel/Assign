@@ -11,6 +11,7 @@
 		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
 		206F2BBB1FB277C000EA9965 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 206F2BBA1FB277C000EA9965 /* ReplyCell.xib */; };
 		2074937C1FB2F9B7002CA347 /* ReplyModalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2074937B1FB2F9B7002CA347 /* ReplyModalCell.swift */; };
+		2074937E1FB30E18002CA347 /* PopupDoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2074937D1FB30E18002CA347 /* PopupDoneController.swift */; };
 		208A6B391FA9D7CE004DFB78 /* EmojiEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */; };
 		20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */; };
 		20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17CA1E17E1DB006D5A13 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		201F96EE1E3154F10082702E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		206F2BBA1FB277C000EA9965 /* ReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		2074937B1FB2F9B7002CA347 /* ReplyModalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyModalCell.swift; sourceTree = "<group>"; };
+		2074937D1FB30E18002CA347 /* PopupDoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDoneController.swift; sourceTree = "<group>"; };
 		208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiEncoding.swift; sourceTree = "<group>"; };
 		20CC17C31E17E1DB006D5A13 /* assign-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assign-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +291,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		2074937F1FB30E3D002CA347 /* Reply */ = {
+			isa = PBXGroup;
+			children = (
+				B247D49C1FB21BB400506739 /* ReplyModalView.xib */,
+				206F2BBA1FB277C000EA9965 /* ReplyCell.xib */,
+			);
+			name = Reply;
+			sourceTree = "<group>";
+		};
 		20CC17BA1E17E1D9006D5A13 = {
 			isa = PBXGroup;
 			children = (
@@ -329,10 +340,9 @@
 		20E3E9121FB24A3D00735007 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2074937F1FB30E3D002CA347 /* Reply */,
 				20CC17D21E17E1DB006D5A13 /* LaunchScreen.storyboard */,
 				20CC17CA1E17E1DB006D5A13 /* Main.storyboard */,
-				B247D49C1FB21BB400506739 /* ReplyModalView.xib */,
-				206F2BBA1FB277C000EA9965 /* ReplyCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -341,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				20E3E9161FB24F1A00735007 /* PopupReplyController.swift */,
+				2074937D1FB30E18002CA347 /* PopupDoneController.swift */,
 			);
 			name = Popup;
 			sourceTree = "<group>";
@@ -758,6 +769,7 @@
 				D4C8287E1F069A0B00A87D40 /* JSONParser.swift in Sources */,
 				D419557B1ECF0367009575DE /* Storage.swift in Sources */,
 				D45D2FE91F018FD8002FEBE7 /* StartController.swift in Sources */,
+				2074937E1FB30E18002CA347 /* PopupDoneController.swift in Sources */,
 				D40192A21F574AAD00879B8C /* Notification.swift in Sources */,
 				D41955791ECF023C009575DE /* AuthService.swift in Sources */,
 				D46FAADE1F5F3F0400C25344 /* UIColor.swift in Sources */,

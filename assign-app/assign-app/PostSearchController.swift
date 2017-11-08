@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 
+/// TODO: Modify so it works with push and pop
 class PostSearchController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -113,7 +114,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostDetailSegueSearch" ,
             let nextView = segue.destination as? PostDetailController,

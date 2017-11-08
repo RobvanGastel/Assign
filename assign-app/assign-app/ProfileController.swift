@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 
+/// TODO: improve gesture for settings
 class ProfileController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -56,7 +57,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         self.setProfile() // Set profile values
         self.fillTables() // Set table values
 
-        // TODO improve gesture for settings
+        // TODO: improve gesture for settings
         let tapRec = UITapGestureRecognizer()
         tapRec.addTarget(self, action: #selector(ProfileController.settingsTap))
         settingsImage.addGestureRecognizer(tapRec)
@@ -95,8 +96,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     /// API call to fill all the profile tables.
-    ///
-    /// TODO Add calls for all tables
     func fillTables() {
         self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) {
             posts in
@@ -240,8 +239,7 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         var returnValue = 0
         
         // Check for different tables
-        switch(segmentedControl.selectedSegmentIndex)
-        {
+        switch(segmentedControl.selectedSegmentIndex) {
         case 0:
             returnValue = itemsArray.count
             break
@@ -256,7 +254,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             break
             
         }
-        
         return returnValue
     }
     

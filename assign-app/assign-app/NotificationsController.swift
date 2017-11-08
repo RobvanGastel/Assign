@@ -195,7 +195,6 @@ class NotificationsController: UITableViewController {
     
     /// Read all notifications API call
     @IBAction func readNotifications(_ sender: Any) {
-        
         var ids :[Int] = []
         
         for notification in notifications {

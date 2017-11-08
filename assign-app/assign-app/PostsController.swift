@@ -10,6 +10,8 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view all the relevant posts.
+/// TODO: add Data to Core Data as cache
+/// TODO: Modify so it works with push and pop
 class PostsController: UITableViewController, PostsRefreshDelegate {
     
     // Posts array for tableview
@@ -48,14 +50,14 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
 
     }
     
-    // Set StatusBartStyle to default.
+    /// Set StatusBartStyle to default
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
 
-    // Add some space to the TableView
+    /// Add some space to the TableView
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
@@ -115,7 +117,7 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
     
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostDetailSegue",
             let nextView = segue.destination as? PostDetailController,
@@ -145,7 +147,7 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         
         self.apiService?.getPosts(size: 21, start: start) { posts in
             
-            // TODO add Data to Core Data as cache
+            // TODO: add Data to Core Data as cache
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
