@@ -9,6 +9,8 @@
 import UIKit
 import AlamofireImage
 
+/// TODO: improve gesture for settings
+/// TODO: set multiple fields
 class ProfileDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -99,8 +101,6 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     /// API call to fill all the profile tables.
-    ///
-    /// TODO Add calls for all tables
     func fillTables() {
         self.apiService?.getPostsByUser(size: size, start: assignmentsStart, id: currentUser!.id!) { posts in
             self.assignmentsArray = posts!

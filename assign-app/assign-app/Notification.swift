@@ -36,7 +36,7 @@ class Notification:NSObject, JSONDecodable {
         guard let readNotification = JSON["readNotification"] as? Bool else { return nil }
         guard let postId = JSON["postId"] as? Int else { return nil }
         
-        // set DateCreated
+        // Set DateCreated
         guard let dateCreatedString = JSON["dateCreated"] as? String else { return nil }
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         

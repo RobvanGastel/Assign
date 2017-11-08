@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 /// Controller to let the user authenticate.
+/// TODO: return ERROR message.
 class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
@@ -120,11 +121,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.present(vc, animated: true, completion: nil)
                     
                 } else {
-                    // TODO return ERROR message
+                    // TODO: return ERROR message
                 }
             }
         } else {
-            // TODO return ERROR message.
+            // TODO: return ERROR message.
         }
 
     }

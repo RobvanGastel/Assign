@@ -9,6 +9,7 @@
 import UIKit
 
 /// Controller to create new Posts
+/// TODO: Add ERROR/SUCCESS message
 class AddPostController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var titleField: UITextField!
@@ -99,13 +100,13 @@ class AddPostController: UIViewController, UITextViewDelegate {
                     // To dissmiss page with navigationbar
                     // self.dismiss(animated: true, completion: nil)
                     
-                    // TODO Add SUCCESS message
+                    // TODO: Add SUCCESS message
                 } else {
-                    // TODO Add ERROR message
+                    // TODO: Add ERROR message
                 }
             }
         } else {
-            // TODO Add fill in the fields message
+            // TODO: Add ERROR/SUCCESS message
         }
     }
     

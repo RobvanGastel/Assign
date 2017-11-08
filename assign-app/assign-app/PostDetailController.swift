@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view the details of a post.
+/// TODO: Modify so it works with push and pop
 class PostDetailController: UIViewController {
     
     @IBOutlet weak var userLabel: UILabel!

@@ -9,6 +9,7 @@
 import Foundation
 
 /// The User class
+// TODO: Add URL to backend
 class User:NSObject, JSONDecodable {
 
     var id:Int!
@@ -49,7 +50,7 @@ class User:NSObject, JSONDecodable {
         guard let profileImage = JSON["profileImage"] as? String else { return nil }
         guard let specilisation = JSON["specialisation"] as? String else { return nil }
         
-        // DateCreated
+        // Set DateCreated
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
         // TODO: Set this in backend or Storage

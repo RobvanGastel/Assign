@@ -43,25 +43,14 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         tableView.dataSource = self
         
         if (currentPost?.done)! {
-            tableView.allowsSelection = false
+            // TODO: Improve UI disabled button
+            endAssignmentButton.isEnabled = false
         }
     
         apiService?.getRepliesByPost(id: currentPost!.id) { replies in
             self.replies = replies!
             self.tableView.reloadData()
             self.updateReplies()
-            
-            // Create witdh with constraint to make it as big as screen
-            let view = PopupReplyController.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
-            
-            view.setData(replies: replies!, post: self.currentPost!)
-            
-            let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
-            
-            let popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
-            // Do any additional setup after loading the view, typically from a nib.
-            
-            popupView.show(with: layout)
         }
         
         // Enabled scroll
@@ -98,7 +87,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProfileDetailSegue" {
             let nextView = segue.destination as? ProfileDetailController
@@ -244,6 +233,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         
         if replies.count == 0 {
             replyCountLabel.text = "Nog geen hulp aangeboden"
+            endAssignmentButton.isEnabled = false
         } else if replies.count == 1 {
              replyCountLabel.text = "Iemand wilt jou helpen"
         } else if replies.count >= 2 {
@@ -252,11 +242,22 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func endAssignment(_ sender: Any) {
-        // TODO: Create popup to assign user that helped
         
-        // self.apiService?.setDone(id: self.currentPost!.id) {_ in
-            // Refresh the post
-        // }
+        // Create witdh with constraint to make it as big as screen
+        let view = PopupReplyController.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
+        
+        view.setData(replies: self.replies, post: self.currentPost!)
+        
+        let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
+        
+        let popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        popupView.show(with: layout)
     }
 }
 
+// TODO: Create popup to assign user that helped
+// self.apiService?.setDone(id: self.currentPost!.id) {_ in
+// Refresh the post
+// }

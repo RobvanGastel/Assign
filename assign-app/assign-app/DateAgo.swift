@@ -9,6 +9,7 @@
 import Foundation
 
 /// Date extension to get the time ago string.
+/// TODO: localize for other calanders
 extension Date {
     
     // shows 1 or two letter abbreviation for units.

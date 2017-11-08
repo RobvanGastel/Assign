@@ -6,7 +6,8 @@
 //  Copyright © 2017 Assign. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import PopupKit
 import AlamofireImage
 
 class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
@@ -15,6 +16,7 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    // Replies in popup
     var replies: [Reply] = []
     var post: Post?
  
@@ -22,12 +24,15 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         super.init(frame: frame)
         commonInit()
         
+        // Set delegates
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        // Init xib file
         self.tableView.register(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyModalCell")
     }
     
+    /// Set data for the Popup
     func setData(replies: [Reply], post: Post) {
         self.replies = replies
         self.post = post
@@ -49,6 +54,8 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
+    // MARK: - Tableview with Replies
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -57,6 +64,8 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         return replies.count
     }
     
+    // Check selected in tableview after selected create popup
+    // to check if the user selected the right person.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ReplyModalCell
         let reply = replies[indexPath.row]
