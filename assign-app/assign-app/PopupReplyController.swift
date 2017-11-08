@@ -17,11 +17,16 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var doneView: UIView!
     
+    // Done view
+    @IBOutlet weak var helpedLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     // Refreshing Post delegate
     weak var delegate: RefreshViewDelegate?
     
     // Replies in popup
     var replies: [Reply] = []
+    var selectedReply: Reply?
     var post: Post?
     
     // The API Service
@@ -84,17 +89,15 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as! ReplyModalCell
         let reply = replies[indexPath.row]
     
-         if cell.checkboxImage.image == #imageLiteral(resourceName: "icon-reply-unchecked.png") {
-            cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
-            reply.helped = true
-            
+        cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
+        reply.helped = true
+        selectedReply = reply
+        
+        // TODO: Add animation to show doneView
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                self.doneView.isHidden = false
-            })
-         } else {
-             cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-unchecked.png")
-             reply.helped = false
-         }
+            self.showDoneView()
+        })
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,13 +116,23 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    // MARK: - Done view buttons
+    // MARK: - Done view actions
+    
+    func showDoneView() {
+        self.helpedLabel.text = "Heeft " + (selectedReply?.user.name)! + " jou geholpen?"
+        self.descriptionLabel.text = "Jouw assignment zal gesloten worden en " + (selectedReply?.user.name)! + " zal bedankt worden voor het helpen."
+        
+        self.doneView.isHidden = false
+    }
+    
+    func hideDoneView() {
+        // Reset selected in tableView
+        self.doneView.isHidden = true
+        self.tableView.reloadData()
+    }
     
     @IBAction func backAction(_ sender: Any) {
-        
-        if !doneView.isHidden {
-            doneView.isHidden = true
-        }
+        hideDoneView()
     }
     
     @IBAction func doneAction(_ sender: Any) {
