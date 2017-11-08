@@ -75,7 +75,10 @@ class NotificationsController: UITableViewController {
         let notification = notifications[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        apiService?.setRead(id: notification.id) {}
+        apiService?.setRead(id: notification.id) {
+            notification.readNotification = true
+            self.tableView.reloadData()
+        }
         
         apiService?.getPostById(id: notification.postId!) { post in
             

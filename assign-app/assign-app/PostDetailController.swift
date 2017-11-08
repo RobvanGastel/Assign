@@ -27,6 +27,8 @@ class PostDetailController: UIViewController {
     // Provided data from the segue
     var currentPost:Post?
     
+    var delegate: RefreshPostsDelegate?
+    
     var replied: Bool? = false
     
     override func viewDidLoad() {
@@ -115,6 +117,7 @@ class PostDetailController: UIViewController {
                 self.helpButton.isHidden = true
                 self.helpButtonBar.isHidden = true
                 
+                self.delegate?.refreshPosts()
                 // TODO: Handle button clicked
                 
             } else {

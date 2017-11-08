@@ -161,6 +161,6 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         self.apiService?.setDone(id: self.post!.id) {_ in }
         
         // Call protocol to refresh the Post and set Done
-        
+        delegate?.refreshView()
     }
 }

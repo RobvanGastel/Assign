@@ -11,6 +11,7 @@
 		201F96EF1E3154F10082702E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F96EE1E3154F10082702E /* Post.swift */; };
 		206F2BBB1FB277C000EA9965 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 206F2BBA1FB277C000EA9965 /* ReplyCell.xib */; };
 		2074937C1FB2F9B7002CA347 /* ReplyModalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2074937B1FB2F9B7002CA347 /* ReplyModalCell.swift */; };
+		207493851FB391EE002CA347 /* RefreshPostsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207493841FB391EE002CA347 /* RefreshPostsDelegate.swift */; };
 		208A6B391FA9D7CE004DFB78 /* EmojiEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */; };
 		20CC17C71E17E1DB006D5A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */; };
 		20CC17CC1E17E1DB006D5A13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CC17CA1E17E1DB006D5A13 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		201F96EE1E3154F10082702E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		206F2BBA1FB277C000EA9965 /* ReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		2074937B1FB2F9B7002CA347 /* ReplyModalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyModalCell.swift; sourceTree = "<group>"; };
+		207493841FB391EE002CA347 /* RefreshPostsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshPostsDelegate.swift; sourceTree = "<group>"; };
 		208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiEncoding.swift; sourceTree = "<group>"; };
 		20CC17C31E17E1DB006D5A13 /* assign-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "assign-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CC17C61E17E1DB006D5A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				D4C828751F03A59200A87D40 /* DateAgo.swift */,
 				D4C55DEC1F0AC3F10029E285 /* RefreshViewDelegate.swift */,
 				208A6B381FA9D7CE004DFB78 /* EmojiEncoding.swift */,
+				207493841FB391EE002CA347 /* RefreshPostsDelegate.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				D4C55DF11F0AFFBB0029E285 /* UIButton.swift in Sources */,
 				D450AE8D1FAE4C95001B558F /* Item.swift in Sources */,
 				D45D2FEF1F01ADD1002FEBE7 /* AddPostController.swift in Sources */,
+				207493851FB391EE002CA347 /* RefreshPostsDelegate.swift in Sources */,
 				201F96EF1E3154F10082702E /* Post.swift in Sources */,
 				D4EB70AE1ED1D3A4003895C4 /* NetworkManager.swift in Sources */,
 				D4C8287C1F05240800A87D40 /* ProfileController.swift in Sources */,
