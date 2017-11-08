@@ -26,7 +26,17 @@ class UIProfile: UIImageView {
         
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        // self.image = #imageLiteral(resourceName: "profile.jpg")
+    }
+}
+
+class UIProfileBorderd: UIImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderWidth = 2
     }
 }
 
