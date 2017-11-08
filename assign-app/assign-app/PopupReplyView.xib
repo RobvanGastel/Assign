@@ -34,19 +34,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="363"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geef aan wie jou heeft geholpen met:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqt-uy-Y1j">
-                                            <rect key="frame" x="40" y="30" width="241" height="17"/>
+                                            <rect key="frame" x="40" y="40" width="241" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titel assignment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZn-VB-5Ka">
-                                            <rect key="frame" x="40" y="51" width="142.5" height="24"/>
+                                            <rect key="frame" x="40" y="61" width="142.5" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-0H-SwX">
-                                            <rect key="frame" x="0.0" y="86" width="375" height="197"/>
+                                            <rect key="frame" x="0.0" y="96" width="375" height="187"/>
                                         </tableView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-UE-sWv">
                                             <rect key="frame" x="0.0" y="274" width="375" height="89"/>
@@ -54,6 +54,7 @@
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWx-t5-V89">
                                             <rect key="frame" x="0.0" y="273" width="375" height="1"/>
+                                            <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="AwI-lC-ZmE"/>
                                             </constraints>
@@ -62,7 +63,7 @@
                                             <rect key="frame" x="30" y="298" width="315" height="43"/>
                                             <string key="text">De persoon die jou heeft geholpen wordt beloond voor zijn of haar hulp, jij krijgt ook een beloning voor het aangeven van deze persoon.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -71,7 +72,7 @@
                                         <constraint firstItem="RWx-t5-V89" firstAttribute="centerX" secondItem="Ggo-FY-e0Z" secondAttribute="centerX" id="4e6-ro-vN7"/>
                                         <constraint firstAttribute="centerX" secondItem="86T-pq-Var" secondAttribute="centerX" id="5a6-uO-LAh"/>
                                         <constraint firstItem="aqt-uy-Y1j" firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" constant="40" id="7mi-VS-9QO"/>
-                                        <constraint firstItem="aqt-uy-Y1j" firstAttribute="top" secondItem="86T-pq-Var" secondAttribute="top" constant="30" id="CS7-CC-X3r"/>
+                                        <constraint firstItem="aqt-uy-Y1j" firstAttribute="top" secondItem="86T-pq-Var" secondAttribute="top" constant="40" id="CS7-CC-X3r"/>
                                         <constraint firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" id="Ebk-Mk-d4X"/>
                                         <constraint firstItem="MZn-VB-5Ka" firstAttribute="top" secondItem="aqt-uy-Y1j" secondAttribute="bottom" constant="4" id="H9b-5A-K38"/>
                                         <constraint firstItem="Ggo-FY-e0Z" firstAttribute="top" secondItem="Dv1-0H-SwX" secondAttribute="bottom" constant="15" id="IsU-Yr-Zng"/>
@@ -188,6 +189,11 @@
                                         <constraint firstAttribute="width" constant="64" id="IGU-eY-hdf"/>
                                         <constraint firstAttribute="height" constant="64" id="Oqe-pk-L5E"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="22"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OGv-Dh-oBV">
                                     <rect key="frame" x="41" y="0.0" width="64" height="64"/>
@@ -195,6 +201,11 @@
                                         <constraint firstAttribute="height" constant="64" id="Yhm-Bt-ich"/>
                                         <constraint firstAttribute="width" constant="64" id="oaJ-06-C35"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="22"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                             </subviews>
                             <constraints>
