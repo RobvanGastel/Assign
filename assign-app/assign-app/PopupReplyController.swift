@@ -17,9 +17,15 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var doneView: UIView!
     
+    // Refreshing Post delegate
+    weak var delegate: RefreshViewDelegate?
+    
     // Replies in popup
     var replies: [Reply] = []
     var post: Post?
+    
+    // The API Service
+    var apiService: ApiService?
  
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +34,9 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         // Set delegates
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        // Init API service
+        apiService = ApiService()
         
         // Init xib file
         self.tableView.register(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyModalCell")
@@ -50,9 +59,10 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     /// Set data for the Popup
-    func setData(replies: [Reply], post: Post) {
+    func setData(replies: [Reply], post: Post, delegate: RefreshViewDelegate) {
         self.replies = replies
         self.post = post
+        self.delegate = delegate
         self.tableView.reloadData()
         
         titleLabel.text = post.title
@@ -75,8 +85,12 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         let reply = replies[indexPath.row]
     
          if cell.checkboxImage.image == #imageLiteral(resourceName: "icon-reply-unchecked.png") {
-             cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
-             reply.helped = true
+            cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
+            reply.helped = true
+            
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.doneView.isHidden = false
+            })
          } else {
              cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-unchecked.png")
              reply.helped = false
@@ -97,5 +111,23 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.profileImage.af_setImage(withURL: url, filter: filter)
         
         return cell
+    }
+    
+    // MARK: - Done view buttons
+    
+    @IBAction func backAction(_ sender: Any) {
+        
+        if !doneView.isHidden {
+            doneView.isHidden = true
+        }
+    }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        
+        // TODO:
+        // Set done of the assignment
+        // Set helped with reply
+        // Call protocol to refresh the Post
+        self.apiService?.setDone(id: self.post!.id) {_ in }
     }
 }
