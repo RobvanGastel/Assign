@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz2-uh-8TZ" customClass="UIName" customModule="assign_app" customModuleProvider="target">
-                        <rect key="frame" x="77" y="11" width="41" height="21"/>
+                        <rect key="frame" x="97" y="11" width="41" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="pCe-55-g3Q"/>
                         </constraints>
@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="401" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Study" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-gS-vam" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
-                        <rect key="frame" x="77" y="32" width="38" height="21"/>
+                        <rect key="frame" x="97" y="32" width="38" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="prT-w0-dvN"/>
                         </constraints>
@@ -37,14 +37,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" tag="404" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h3u-lN-JYA" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
-                        <rect key="frame" x="20" y="11" width="42" height="42"/>
+                        <rect key="frame" x="40" y="11" width="42" height="42"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="42" id="4Rd-Tr-GVX"/>
                             <constraint firstAttribute="height" constant="42" id="baP-wW-oXM"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-reply-unchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="1YR-bk-TaD">
-                        <rect key="frame" x="331" y="23" width="20" height="20"/>
+                        <rect key="frame" x="326" y="22" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="BsD-Vk-GBv"/>
                             <constraint firstAttribute="height" constant="20" id="YEi-Kc-lly"/>
@@ -53,12 +53,12 @@
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="1YR-bk-TaD" secondAttribute="trailing" constant="35" id="0uo-5z-Rgz"/>
+                    <constraint firstAttribute="trailing" secondItem="1YR-bk-TaD" secondAttribute="trailing" constant="40" id="0uo-5z-Rgz"/>
                     <constraint firstItem="Hz2-uh-8TZ" firstAttribute="leading" secondItem="h3u-lN-JYA" secondAttribute="trailing" constant="15" id="5tf-03-30M"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GOF-gS-vam" secondAttribute="trailing" constant="60" id="Ghj-JM-KHW"/>
-                    <constraint firstItem="1YR-bk-TaD" firstAttribute="top" secondItem="4fz-bh-oIS" secondAttribute="top" constant="23" id="SBe-By-d8z"/>
+                    <constraint firstItem="1YR-bk-TaD" firstAttribute="top" secondItem="4fz-bh-oIS" secondAttribute="top" constant="22" id="SBe-By-d8z"/>
                     <constraint firstItem="h3u-lN-JYA" firstAttribute="top" secondItem="4fz-bh-oIS" secondAttribute="top" constant="11" id="WS9-jW-Pup"/>
-                    <constraint firstItem="h3u-lN-JYA" firstAttribute="leading" secondItem="4fz-bh-oIS" secondAttribute="leading" constant="20" id="YVM-Zs-mdo"/>
+                    <constraint firstItem="h3u-lN-JYA" firstAttribute="leading" secondItem="4fz-bh-oIS" secondAttribute="leading" constant="40" id="YVM-Zs-mdo"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hz2-uh-8TZ" secondAttribute="trailing" constant="60" id="Yn4-Ys-pVT"/>
                     <constraint firstItem="Hz2-uh-8TZ" firstAttribute="top" secondItem="4fz-bh-oIS" secondAttribute="top" constant="11" id="dF1-fR-do0"/>
                     <constraint firstItem="GOF-gS-vam" firstAttribute="top" secondItem="Hz2-uh-8TZ" secondAttribute="bottom" id="liK-ES-CDM"/>
