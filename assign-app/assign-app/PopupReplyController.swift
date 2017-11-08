@@ -10,6 +10,7 @@ import UIKit
 import PopupKit
 import AlamofireImage
 
+/// TODO: Improve scaling
 class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var contentView: UIView!
@@ -20,6 +21,8 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     // Done view
     @IBOutlet weak var helpedLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var leftImage: UIImageView!
+    @IBOutlet weak var rightImage: UIImageView!
     
     // Refreshing Post delegate
     weak var delegate: RefreshViewDelegate?
@@ -92,12 +95,7 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
         reply.helped = true
         selectedReply = reply
-        
-        // TODO: Add animation to show doneView
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.showDoneView()
-        })
-        
+        self.showDoneView()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,16 +117,35 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Done view actions
     
     func showDoneView() {
+        // Set text and images
         self.helpedLabel.text = "Heeft " + (selectedReply?.user.name)! + " jou geholpen?"
         self.descriptionLabel.text = "Jouw assignment zal gesloten worden en " + (selectedReply?.user.name)! + " zal bedankt worden voor het helpen."
         
+        // Set left image
+        let leftUrl = URL(string: (self.selectedReply?.post.user?.profileImage)!)!
+        let leftFilter = AspectScaledToFillSizeFilter(size: self.leftImage.frame.size)
+        self.leftImage.af_setImage(withURL: leftUrl, filter: leftFilter)
+        
+        // Set right image
+        let rightUrl = URL(string: (selectedReply?.user?.profileImage)!)!
+        let rightFilter = AspectScaledToFillSizeFilter(size: self.leftImage.frame.size)
+        self.rightImage.af_setImage(withURL: rightUrl, filter: rightFilter)
+        
+        self.doneView.alpha = 0
         self.doneView.isHidden = false
+        UIView.animate(withDuration: 0.4) {
+            self.doneView.alpha = 1
+        }
     }
     
     func hideDoneView() {
-        // Reset selected in tableView
-        self.doneView.isHidden = true
         self.tableView.reloadData()
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.doneView.alpha = 0
+        }) { (finished) in
+            self.doneView.isHidden = finished
+        }
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -137,10 +154,13 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func doneAction(_ sender: Any) {
         
-        // TODO:
-        // Set done of the assignment
         // Set helped with reply
-        // Call protocol to refresh the Post
+        self.apiService?.setHelped(id: self.selectedReply!.id) { _ in }
+        
+        // Set done of the assignment
         self.apiService?.setDone(id: self.post!.id) {_ in }
+        
+        // Call protocol to refresh the Post and set Done
+        
     }
 }

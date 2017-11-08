@@ -94,6 +94,13 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             let nextView = segue.destination as? ProfileDetailController
             nextView?.currentUser = currentPost?.user
         }
+        
+        if segue.identifier == "ProfileSegue",
+            let nextView = segue.destination as? ProfileDetailController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            let reply = self.replies[indexPath.row]
+            nextView.currentUser = reply.user
+        }
     }
     
     /// To share a post with Facebook, Twitter etc.
@@ -179,16 +186,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     // MARK: - Table view with replies
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // let cell = tableView.cellForRow(at: indexPath) as! ReplyCell
-        // let reply = replies[indexPath.row]
-    
-        // TODO: Do something with click on the cell
-        // Forward to user profile
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -255,5 +254,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     
     func refreshView() {
         // TODO: Update the post that is now completed
+        PopupView.dismissAllPopups()
     }
 }

@@ -478,6 +478,29 @@ class ApiService {
         }
     }
     
+    /// This function sets a post to done.
+    @discardableResult
+    func setHelped(id: Int,
+                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/replies/" + String(id)
+        
+        return sessionManager.request(URL, method: .put,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    print("API: set helped reply succesful")
+                    
+                case .failure(let error):
+                    print("API: set helped reply failed")
+                    print(error)
+                }
+        }
+    }
+    
     /// This function returns a list of *Reply* objects for the user by id.
     @discardableResult
     func getRepliesByPost(id: Int,

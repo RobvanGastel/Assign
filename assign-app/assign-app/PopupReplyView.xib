@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +17,8 @@
                 <outlet property="descriptionLabel" destination="kOt-Dl-Ual" id="AKR-8g-ON7"/>
                 <outlet property="doneView" destination="Kzb-U4-aSe" id="5D5-4q-vxc"/>
                 <outlet property="helpedLabel" destination="lPg-6j-mA0" id="sRg-0t-nDN"/>
+                <outlet property="leftImage" destination="0Ok-cJ-E5b" id="13i-8o-MJ9"/>
+                <outlet property="rightImage" destination="OGv-Dh-oBV" id="eSg-l2-DC1"/>
                 <outlet property="tableView" destination="Dv1-0H-SwX" id="bZi-yZ-xh0"/>
                 <outlet property="titleLabel" destination="lPg-6j-mA0" id="arv-gm-xON"/>
             </connections>
@@ -185,7 +187,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="-23" translatesAutoresizingMaskIntoConstraints="NO" id="0Pv-FN-rvn">
                             <rect key="frame" x="135" y="43" width="105" height="64"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ok-cJ-E5b">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ok-cJ-E5b" customClass="UIProfileBorderd" customModule="assign_app" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="64" id="IGU-eY-hdf"/>
@@ -197,7 +199,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OGv-Dh-oBV">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OGv-Dh-oBV" customClass="UIProfileBorderd" customModule="assign_app" customModuleProvider="target">
                                     <rect key="frame" x="41" y="0.0" width="64" height="64"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="64" id="Yhm-Bt-ich"/>

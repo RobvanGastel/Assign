@@ -115,10 +115,10 @@ class PostDetailController: UIViewController {
                 self.helpButton.isHidden = true
                 self.helpButtonBar.isHidden = true
                 
-                // Handle button clicked
+                // TODO: Handle button clicked
                 
             } else {
-                // Error response
+                // TODO: Error response
             }
         }
     }
