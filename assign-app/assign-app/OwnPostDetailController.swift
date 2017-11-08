@@ -11,7 +11,8 @@ import PopupKit
 import AlamofireImage
 
 /// Controller to view the details of a post.
-class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+/// TODO: Add edit functionality
+class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, RefreshViewDelegate {
     
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -116,7 +117,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // Share your assignment action
         let shareAction = UIAlertAction(title: "Deel jouw assignment", style: .default) { action -> Void in
             
-            
             let postText = (self.currentPost?.user?.name)! + " vraagt om hulp bij " + (self.currentPost?.title)!
             let postUrl : NSURL = NSURL(string: self.currentPost!.url)!
             
@@ -147,7 +147,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         }
         actionSheetController.addAction(shareAction)
         
-        
         // Delete assignment action
         let deleteAction = UIAlertAction(title: "Verwijder de assignment", style: .destructive) { action -> Void in
             
@@ -156,11 +155,9 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             let clearAction = UIAlertAction(title: "Verwijder", style: .destructive) { (alert: UIAlertAction!) -> Void in
                 
                 self.apiService?.deletePost(id: self.currentPost!.id) {_ in }
-                
             }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
-                
-            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in }
             
             alert.addAction(clearAction)
             alert.addAction(cancelAction)
@@ -246,7 +243,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // Create witdh with constraint to make it as big as screen
         let view = PopupReplyController.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
         
-        view.setData(replies: self.replies, post: self.currentPost!)
+        view.setData(replies: self.replies, post: self.currentPost!, delegate: self)
         
         let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
         
@@ -255,9 +252,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         
         popupView.show(with: layout)
     }
+    
+    func refreshView() {
+        // TODO: Update the post that is now completed
+    }
 }
-
-// TODO: Create popup to assign user that helped
-// self.apiService?.setDone(id: self.currentPost!.id) {_ in
-// Refresh the post
-// }
