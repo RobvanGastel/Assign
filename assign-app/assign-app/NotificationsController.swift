@@ -12,7 +12,7 @@ import AlamofireImage
 /// TODO: Update pull to refresh to minimize (Abstract class)
 /// TODO: add Data to Core Data as cache
 class NotificationsController: UITableViewController {
-    
+
     // Posts array for tableview
     var notifications = [Notification]()
     
@@ -75,8 +75,11 @@ class NotificationsController: UITableViewController {
         let notification = notifications[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        apiService?.setRead(id: notification.id) {
-            notification.readNotification = true
+        if !notification.readNotification {
+            apiService?.setRead(id: notification.id) {}
+            
+            // Read notification
+            notifications[indexPath.row].readNotification = true
             self.tableView.reloadData()
         }
         
@@ -85,10 +88,12 @@ class NotificationsController: UITableViewController {
             if notification.sender!.id != Storage.getUser().id {
                 let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
                 vc.currentPost = post
+//                vc.delegate = self
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
                 let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
                 vc.currentPost = post
+//                vc.delegate = self
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
