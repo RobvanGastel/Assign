@@ -8,8 +8,7 @@
 
 import Foundation
 
-/// The Post class for the posts of users.
-// TODO: Set url in backend or Storage
+/// The Post class for the posts of users
 class Post:NSObject, JSONDecodable {
 
     var id:Int!
@@ -50,9 +49,8 @@ class Post:NSObject, JSONDecodable {
         // Set dateCreated
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
-        // TODO: Set url in backend or Storage
         // Url of the post
-        let urlString = "https://assignapp.nl/" + url;
+        let urlString = Storage.getPostShareUrl() + url;
         
         // Init the User
         let userString = JSON["user"] as! [String: Any]

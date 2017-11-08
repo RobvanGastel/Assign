@@ -9,7 +9,6 @@
 import Foundation
 
 /// The User class
-// TODO: Add URL to backend
 class User:NSObject, JSONDecodable {
 
     var id:Int!
@@ -53,7 +52,6 @@ class User:NSObject, JSONDecodable {
         // Set DateCreated
         let dateCreated = JSONParser.dateFromString(dateString: dateCreatedString)
         
-        // TODO: Set this in backend or Storage
         // Profile image URL
         let profileImageString = Storage.getURL() + "/img/" + profileImage;
         
