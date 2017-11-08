@@ -19,14 +19,11 @@ class SettingsController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
-    }
-    
-    @IBAction func backAction(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PostsTabBarController") as! UITabBarController
-        vc.selectedIndex = 2
-        self.present(vc, animated: true, completion: nil)
-        
+        // Layout settings
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 }
