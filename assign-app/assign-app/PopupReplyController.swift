@@ -11,10 +11,11 @@ import PopupKit
 import AlamofireImage
 
 class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
-    
+
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var doneView: UIView!
     
     // Replies in popup
     var replies: [Reply] = []
@@ -30,6 +31,22 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         
         // Init xib file
         self.tableView.register(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyModalCell")
+        
+        // Hide done view
+        doneView.isHidden = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        Bundle.main.loadNibNamed("PopupReplyView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.layer.cornerRadius = 12.0
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     /// Set data for the Popup
@@ -39,19 +56,6 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         self.tableView.reloadData()
         
         titleLabel.text = post.title
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        Bundle.main.loadNibNamed("ReplyModalView", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.layer.cornerRadius = 12.0
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     // MARK: - Tableview with Replies
