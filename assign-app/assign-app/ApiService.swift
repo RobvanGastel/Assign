@@ -408,7 +408,7 @@ class ApiService {
         
         return sessionManager.request(URL, method: .put,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseString { response in
                 
                 switch response.result {
                 case .success:
@@ -465,7 +465,7 @@ class ApiService {
         
         return sessionManager.request(URL, method: .put,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseString { response in
                 
                 switch response.result {
                 case .success:
@@ -488,7 +488,7 @@ class ApiService {
         
         return sessionManager.request(URL, method: .put,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseString { response in
                 
                 switch response.result {
                 case .success:
@@ -511,7 +511,7 @@ class ApiService {
         
         return sessionManager.request(URL, method: .get,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseJSON { response in
                 
                 switch response.result {
                 case .success:
@@ -548,7 +548,7 @@ class ApiService {
         
         return sessionManager.request(URL, method: .get, parameters: parameters,
                                       encoding: URLEncoding.queryString).validate()
-            .responseJSON{ response in
+            .responseJSON { response in
                 
                 switch response.result {
                 case .success:

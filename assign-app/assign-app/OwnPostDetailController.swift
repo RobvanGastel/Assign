@@ -12,6 +12,7 @@ import AlamofireImage
 
 /// Controller to view the details of a post.
 /// TODO: Add edit functionality
+/// TODO: Add refresh to posts
 class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, RefreshViewDelegate {
     
     @IBOutlet weak var userLabel: UILabel!
@@ -24,6 +25,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var replyCountLabel: UILabel!
     @IBOutlet weak var tableHeight: NSLayoutConstraint! // tableHeight of replies
+    
+    @IBOutlet weak var endAssignmentButtonBar: UIView!
     @IBOutlet weak var endAssignmentButton: UIButton!
     
     // The API service
@@ -32,6 +35,9 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     // Provided data from the segue
     var currentPost:Post?
     var replies: [Reply] = []
+    var popupView: PopupView?
+    
+    var delegate: RefreshPostsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +48,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // Initializes the delegates
         tableView.delegate = self
         tableView.dataSource = self
-        
-        if (currentPost?.done)! {
-            // TODO: Improve UI disabled button
-            endAssignmentButton.isEnabled = false
-        }
-    
+
         apiService?.getRepliesByPost(id: currentPost!.id) { replies in
             self.replies = replies!
             self.tableView.reloadData()
@@ -73,7 +74,9 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         profileImage.af_setImage(withURL: url, filter: filter)
         
         if (currentPost?.done)! {
-            self.endAssignmentButton.isEnabled = false
+            // TODO: Improve UI disabled button
+            self.endAssignmentButtonBar.isHidden = true
+            self.endAssignmentButton.isHidden = true
         }
     }
     
@@ -246,14 +249,19 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         
         let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
         
-        let popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
+        popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
         // Do any additional setup after loading the view, typically from a nib.
         
-        popupView.show(with: layout)
+        popupView?.show(with: layout)
     }
     
     func refreshView() {
         // TODO: Update the post that is now completed
-        PopupView.dismissAllPopups()
+        popupView?.dismiss(animated: true)
+
+        self.endAssignmentButtonBar.isHidden = true
+        self.endAssignmentButton.isHidden = true
+        
+        delegate?.refreshPosts()
     }
 }
