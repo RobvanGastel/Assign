@@ -57,6 +57,11 @@ class Storage {
     class func getURL() -> String {
         return "https://api.assignapp.nl/v0.1"
     }
+    
+    /// This function returns the Post Share url.
+    class func getPostShareUrl() -> String {
+        return "https://assignapp.nl/"
+    }
 
     /// This function returns the *User* object of this authenticated user.
     class func setToken(token: String) {

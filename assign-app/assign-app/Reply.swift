@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The Reply class between Post and User.
+/// The Reply class between Post and User
 class Reply:NSObject, JSONDecodable {
     
     var id:Int!

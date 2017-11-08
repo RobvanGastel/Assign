@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The Item class for the overview in a profile.
+/// The Item class for the overview in a profile
 class Item:NSObject, JSONDecodable {
     
     var id:Int!
