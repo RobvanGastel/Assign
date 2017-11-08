@@ -56,21 +56,20 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         
         self.setProfile() // Set profile values
         self.fillTables() // Set table values
-
-        // TODO: improve gesture for settings
-        let tapRec = UITapGestureRecognizer()
-        tapRec.addTarget(self, action: #selector(ProfileController.settingsTap))
-        settingsImage.addGestureRecognizer(tapRec)
         
-        // Layout settings
-        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// Set StatusBartStyle to .lightContent.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+//        view.backgroundColor = UIColor(red: 255/255, green: 127/255, blue: 40/255, alpha: 1)
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 127/255, blue: 40/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     // Add some space to the TableView
@@ -115,14 +114,6 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             self.tableView.reloadData()
         }
     }
-    
-    /// Redirect to settings view.
-    func settingsTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
-        self.present(vc, animated: true, completion: nil)
-    }
-    
     
     /// When changed to another tableView.
     @IBAction func segmentedControlActionChanged(_ sender: Any) {
