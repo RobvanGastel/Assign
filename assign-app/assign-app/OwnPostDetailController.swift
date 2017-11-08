@@ -50,25 +50,23 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.replies = replies!
             self.tableView.reloadData()
             self.updateReplies()
+            
+            // Create witdh with constraint to make it as big as screen
+            let view = PopupReplyController.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
+            
+            view.setData(replies: replies!, post: self.currentPost!)
+            
+            let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
+            
+            let popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
+            // Do any additional setup after loading the view, typically from a nib.
+            
+            popupView.show(with: layout)
         }
         
         // Enabled scroll
         ScrollView.isScrollEnabled = true
         ScrollView.alwaysBounceVertical = true
-        
-        // PopupKit example
-        
-        // Create witdh with constraint to make it as big as screen
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 12.0
-        
-        let layout = PopupView.Layout.init(horizontal: PopupView.HorizontalLayout.center, vertical: PopupView.VerticalLayout.bottom)
-        
-        let popupView = PopupView(contentView: view, showType: PopupView.ShowType.slideInFromBottom, dismissType: PopupView.DismissType.slideOutToBottom, maskType: PopupView.MaskType.dimmed, shouldDismissOnBackgroundTouch: true, shouldDismissOnContentTouch: false)
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        popupView.show(with: layout)
         
         self.initializePost()
     }
@@ -203,23 +201,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // let reply = replies[indexPath.row]
     
         // TODO: Do something with click on the cell
+        // Forward to user profile
     }
-    
-    // TODO: Move this into the modal that pops up after choosing to end the assignment
-    //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //    let cell = tableView.cellForRow(at: indexPath) as! ReplyCell
-    //    let reply = replies[indexPath.row]
-    //
-    //
-    //     if cell.checkboxImage.image == #imageLiteral(resourceName: "icon-reply-unchecked.png") {
-    //         cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
-    //         reply.helped = false
-    //     } else {
-    //         cell.checkboxImage.image = #imageLiteral(resourceName: "icon-reply-unchecked.png")
-    //         reply.helped = true
-    //     }
-    //}
-
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -247,13 +230,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
             profileImage.af_setImage(withURL: url, filter: filter)
         }
-        
-        // TODO: Move this into the modal that pops up after choosing to end the assignment
-        // if let checkboxImage = cell.viewWithTag(405) as? UIImageView {
-        //     if reply.helped {
-        //         checkboxImage.image = #imageLiteral(resourceName: "icon-reply-checked.png")
-        //     }
-        // }
         
         return cell
     }
