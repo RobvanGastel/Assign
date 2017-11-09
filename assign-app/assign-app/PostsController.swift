@@ -12,6 +12,7 @@ import AlamofireImage
 /// Controller to view all the relevant posts.
 /// TODO: add Data to Core Data as cache
 /// TODO: Modify so it works with push and pop
+/// TODO: Set placeholder images before posts have been loaded
 class PostsController: UITableViewController, RefreshPostsDelegate {
     
     // Posts array for tableview
@@ -41,20 +42,18 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
             self.posts = posts!
             self.tableView.reloadData()
         }
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Layout settings
+        UIApplication.shared.statusBarStyle = .default
         view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-
-    }
-    
-    /// Set StatusBartStyle to default
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
 
     /// Add some space to the TableView

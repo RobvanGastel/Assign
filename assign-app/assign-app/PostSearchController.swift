@@ -39,16 +39,15 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // Layout settings
-        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     

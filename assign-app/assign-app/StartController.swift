@@ -48,12 +48,12 @@ class StartController: UIViewController {
                 }
             }
 
+        // Redirect to onboarding
         } else if !Storage.getFirstLaunchTime() {
-            // Redirect to onboarding
             self.redirectViewController(identifier: "OnboardingController")
             
+        // Redirect to login view
         } else {
-            // Redirect to login view
             self.redirectViewController(identifier: "LoginController")
         }
     }

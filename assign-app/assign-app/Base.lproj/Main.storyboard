@@ -494,7 +494,7 @@
                                         <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uep-CF-ssd" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
                                             <rect key="frame" x="14" y="8" width="386" height="66"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Fw-4I9" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Fw-4I9" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="16" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="gry-bz-Auw"/>
@@ -2453,6 +2453,7 @@
         <image name="illustration-problem.jpg" width="360" height="360"/>
         <image name="logo-load.png" width="111" height="111"/>
         <image name="logo-login.png" width="51" height="51"/>
+        <image name="profile.jpg" width="103" height="103"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Yxs-Gc-6XC"/>

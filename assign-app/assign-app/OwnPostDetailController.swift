@@ -62,6 +62,16 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         self.initializePost()
     }
     
+    /// Set StatusBartStyle to .default and sets navigationbar.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
+        
+        // Layout settings
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+    }
+    
     func initializePost() {
         // Set the data to the labels in the view
         self.userLabel.text = currentPost?.title
@@ -78,15 +88,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.endAssignmentButtonBar.isHidden = true
             self.endAssignmentButton.isHidden = true
         }
-    }
-    
-    /// Set StatusBartStyle to .default and sets navigationbar.
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
     
     /// Add data to the segue before triggering.
