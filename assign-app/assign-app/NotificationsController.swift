@@ -39,19 +39,18 @@ class NotificationsController: UITableViewController {
             self.notifications = notifications!
             self.tableView.reloadData()
         }
-        
-        // Layout settings
-        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// Set StatusBartStyle to default.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Layout settings
         UIApplication.shared.statusBarStyle = .default
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.popViewController(animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     // Add some space to the TableView
@@ -72,28 +71,27 @@ class NotificationsController: UITableViewController {
     
     /// Segue for Post Detail View
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let notification = notifications[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let notification = notifications[indexPath.row]
         
+        // Read notification before entering new controller
         if !notification.readNotification {
             apiService?.setRead(id: notification.id) {}
             
-            // Read notification
             notifications[indexPath.row].readNotification = true
             self.tableView.reloadData()
         }
         
+        // Get post and redirect when retrieved
         apiService?.getPostById(id: notification.postId!) { post in
             
             if notification.sender!.id != Storage.getUser().id {
                 let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
                 vc.currentPost = post
-//                vc.delegate = self
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
                 let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
                 vc.currentPost = post
-//                vc.delegate = self
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

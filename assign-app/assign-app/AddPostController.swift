@@ -33,6 +33,11 @@ class AddPostController: UIViewController, UITextViewDelegate {
         
         // Open up keyboard on load
         titleField.becomeFirstResponder()
+    }
+    
+    /// Set StatusBartStyle to .default and sets navigationbar.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Layout settings
         view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)

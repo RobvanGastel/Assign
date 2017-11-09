@@ -10,7 +10,7 @@ import UIKit
 import PopupKit
 import AlamofireImage
 
-/// TODO: Improve scaling
+/// TODO: Improve table scroll and flexible height
 class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var contentView: UIView!
