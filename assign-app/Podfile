@@ -6,8 +6,10 @@ target 'assign-app' do
   # Pods for assign-app
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireImage', '~> 3.1'
+  pod 'PopupKit'  
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  pod 'PopupKit'
+  pod 'Firebase/Performance'
+  pod 'Firebase/AdMob'
 
 end
