@@ -401,7 +401,7 @@ nav ul li .lnk {
  * Footer Regular
  */
 footer {
-  padding: 40px 0 100px;
+  padding: 40px 0 150px;
   background-color: white;
 }
 
@@ -474,9 +474,8 @@ footer input[type="button"] {
   padding: 10px 25px;
   position: absolute;
   text-align: right;
-  right: 15px;
   display: block;
-  margin-top: 72px;
+  margin-top: 132px;
   -webkit-transition: all .16s ease;
   transition: all .16s ease;
   box-shadow: 0 4px 6px 0 rgba(255,127,40,.1);
@@ -942,8 +941,9 @@ input[type="radio"]:checked ~ label {
 
 /* Activate the modal */
 /*body { overflow-y: hidden; }*/
-#modal-license { display: block; }
-
+#modal-license {
+  display: block;
+}
 
 
 
@@ -1046,6 +1046,11 @@ input[type="radio"]:checked ~ label {
 
   .modal-radiobox-center {
     margin: 0 2%;
+  }
+
+  footer input[type="submit"],
+  footer input[type="button"] {
+    right: 15px;
   }
 
 
