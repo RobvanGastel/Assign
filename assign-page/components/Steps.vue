@@ -54,9 +54,9 @@
 					</div>
 
           <div class="step-text col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
-            <h5>Voor elk student</h5>
+            <h5>Voor elke leerling</h5>
             <h2>Iedereen kan helpen</h2>
-            <p>Elk student heeft unieke eigenschappen en kennis die een ander niet heeft en andersom ook. Door Assign kunnen studenten elkaar gemakkelijk zelfstandig helpen.</p>
+            <p>Elke leerling heeft unieke eigenschappen en kennis die een ander niet heeft en andersom ook. Door Assign kunnen studenten elkaar gemakkelijk zelfstandig helpen.</p>
 						<!-- <nuxt-link class="lnk lnk-primary" title="Lees over coöperatief leren" :to="'/blog/cooperatief-leren'">
 							Lees over coöperatief leren
 							<img src="../assets/img/icon-cta-arrow.svg" alt="Lees meer" class="cta-arrow" draggable="false">

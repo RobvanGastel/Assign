@@ -8,10 +8,10 @@
 				<div class="row">
 
 					<div class="col-md-12 col-lg-10 col-lg-offset-1 text-center">
-            <h1>Het middel voor een communicatieve leeromgeving</h1>
+            <h1>Assign maakt samen leren leuk en makkelijk</h1>
           </div>
           <div class="col-md-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 text-center">
-            <h3>Assign App helpt bij het creëren van een communicatieve leeromgeving waar studenten zelfstandig en samenwerkend leren doormiddel van een iOS App.</h3>
+            <h3>Elke leerling heeft unieke eigenschappen en kennis die een ander niet heeft. Met Assign brengen wij leerlingen bij elkaar om elkaar te helpen en van elkaar te leren.</h3>
             <button class="btn btn-primary" title="Vraag een demo versie aan" @click="showModal = true">Vraag een demo versie aan</button>
             <button v-clipboard:copy="clipboardMessage" class="btn btn-secundary hidden-xs" title="Deel de gekopieerde link met jouw school" v-on:click="setNewValue">{{ btnMessage }}</button>
             <h4>Licht jouw school in door dit te delen.</h4>
