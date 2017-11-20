@@ -6,17 +6,19 @@
 				<div class="row">
 
           <div class="step-text col-xs-12 col-sm-8 col-lg-offset-1">
-            <h2>notificaties</h2>
-            <p>Jouw gegevens, activiteit en vragen (Assignments) staan weergegeven in jouw profiel. Deze zijn te zien door anderen om met jou in contact te komen.<br><br>Wat er op jouw profiel staat kan jij zelf aanpassen door naar de instellingen te gaan. In de instellingen kan jij jouw profielfoto, opleiding/klas en social media accounts aanpassen. Lees meer over <nuxt-link class="lnk lnk-secondary" title="Lees over Communicatie manieren" :to="'/functies/communicatie'">hoe jij in contact komt met anderen.</nuxt-link><br><br>De vragen waar iemand hulp bij wilt zijn ook te vinden op iemand zijn/haar profiel, zo kun je meteen kijken of je bij meerdere vragen kunt helpen. Je kunt een vraag/assignment ook delen om jouw vragen of de vragen van een vriend/vriendin onder de aandacht te brengen in een bestaande groepsgesprek zodat je sneller wordt geholpen. Misschien weet jij wel iemand die bij iemand zijn vraag kan helpen. Lees meer over <nuxt-link class="lnk lnk-secondary" title="Lees over het delen van vragen/assignments" :to="'/functies/delen'">delen van vragen/assignments.</nuxt-link></p>
+            <h2>Mis niks met meldingen</h2>
+            <p>Soms heb je binnen een bepaalde tijd hulp nodig. Je krijgt bericht meldingen van de app zodat jij niks mist en die deadline haalt! Deze meldingen, of wel notificaties komen tevoorschijn op jouw telefoon wanneer iemand jou wilt helpen zodat jij zo snel mogelijk hulp kunt vragen aan deze persoon.</p>
+						<p>Wil je weten wanneer jij iemand kunt helpen met een goede eigenschap van jou? Stel deze goede eigenschappen in als <nuxt-link class="lnk lnk-secondary" title="Lees over Hashtags" :to="'/functies/hashtags'">hashtags</nuxt-link> zodat jij notificaties ontvangt wanneer iemand met een specifiek onderwerp hulp nodig heeft.</p>
+						<p>Je kunt deze notificaties ook uit zetten, de meldingen komen ook in de app zelf te staan. Dit doe je in de instellingen van jouw <nuxt-link class="lnk lnk-secondary" title="Lees over jouw Profiel" :to="'/functies/profiel'">profiel</nuxt-link>.</p>
 
 						<!-- simple link -->
 						<!-- <nuxt-link class="lnk lnk-secondary" title="Lees over Notificaties" :to="'/functies/notificaties'">ullamcorper</nuxt-link> -->
 
 						<!-- CTA -->
-            <nuxt-link class="lnk lnk-primary" title="Lees meer over vastlopen" :to="'/functies/hashtags'">
+            <!-- <nuxt-link class="lnk lnk-primary" title="Lees meer over vastlopen" :to="'/functies/hashtags'">
 							Weten hoe jij sneller geholpen kunt worden?
 							<img src="../../assets/img/icon-cta-arrow.svg" alt="Lees meer" class="cta-arrow" draggable="false">
-						</nuxt-link>
+						</nuxt-link> -->
           </div>
 
         </div>
