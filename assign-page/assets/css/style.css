@@ -622,6 +622,18 @@ footer input[type="submit"].button-valid {
 }
 
 
+
+/*
+ * Content
+ */
+ .content {
+   padding: 40px 0;
+   background-color: white;
+ }
+
+
+
+
 /*
  * Features
  */
@@ -1134,7 +1146,7 @@ input[type="radio"]:checked ~ label {
       }
 
       .masthead-sub {
-        padding: 50px 0 70px;
+        padding: 50px 0;
       }
 
       .masthead-sub .content-text {

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <navigation></navigation>
     <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
-    <content-hashtags></content-hashtags>
+    <content-delen></content-delen>
     <footer-page></footer-page>
   </div>
 </template>
@@ -10,19 +10,19 @@
 <script>
 import Navigation from '../../components/Navigation'
 import MastheadSub from '../../components/mast/MastheadSub'
-import ContentHashtags from '../../components/content/ContentHashtags'
+import ContentDelen from '../../components/content/ContentDelen'
 import FooterPage from '../../components/FooterPage'
 export default {
   components: {
     Navigation,
     MastheadSub,
-    ContentHashtags,
+    ContentDelen,
     FooterPage
   },
   data: () => ({
-    title: 'Hashtags',
-    description: 'Plaats een vraag op het overzicht van jouw school met #hashtags om gericht hulp te vragen.',
-    illustratie: 'messages',
+    title: 'Het delen van vragen',
+    description: 'Deel vragen van jou of een ander om sneller geholpen te worden of om in een groepsgesprek hulp te vragen.',
+    illustratie: 'contact',
     firstbtn: '',
     firstbtnlnk: '',
     firstbtntrgt: '',
@@ -31,14 +31,14 @@ export default {
     secondbtntrgt: ''
   }),
   head: () => ({
-    title: 'Hashtags',
+    title: 'Het delen van vragen',
     titleTemplate: 'Assign – %s',
     meta: [
       { name: 'language', content: 'nl_NL' },
-      { name: 'description', content: 'Plaats een vraag op het overzicht van jouw school met #hashtags om gericht hulp te vragen.' },
-      { property: 'og:title', content: 'Assign – Hashtags' },
+      { name: 'description', content: 'Deel vragen van jou of een ander om sneller geholpen te worden of om in een groepsgesprek hulp te vragen.' },
+      { property: 'og:title', content: 'Assign – Het delen van vragen' },
       { property: 'og:site_name', content: 'assignapp.nl' },
-      { property: 'og:description', content: 'Plaats een vraag op het overzicht van jouw school met #hashtags om gericht hulp te vragen.' },
+      { property: 'og:description', content: 'Deel vragen van jou of een ander om sneller geholpen te worden of om in een groepsgesprek hulp te vragen.' },
       { property: 'og:url', content: 'https://assignapp.nl' },
       { property: 'og:locale', content: 'nl_NL' },
       { property: 'og:type', content: 'website' },
@@ -46,9 +46,9 @@ export default {
       { property: 'og:image', content: 'https://assignapp.nl/share-image.jpg' },
       { property: 'og:image:width', content: '1024' },
       { property: 'og:image:height', content: '512' },
-      { name: 'twitter:title', content: 'Assign – Hashtags' },
-      { name: 'twitter:site_name', content: 'Assign – Hashtags' },
-      { name: 'twitter:description', content: 'Plaats een vraag op het overzicht van jouw school met #hashtags om gericht hulp te vragen.' },
+      { name: 'twitter:title', content: 'Assign – Het delen van vragen' },
+      { name: 'twitter:site_name', content: 'Assign – Het delen van vragen' },
+      { name: 'twitter:description', content: 'Deel vragen van jou of een ander om sneller geholpen te worden of om in een groepsgesprek hulp te vragen.' },
       { name: 'twitter:url', content: 'https://assignapp.nl' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:domain', content: 'assignapp.nl' },
