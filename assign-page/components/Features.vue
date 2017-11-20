@@ -14,7 +14,7 @@
 						<div class="col-xs-12 col-sm-6">
 							<ul>
 								<li><img src="../assets/img/checkmark.svg" alt="Assign feature checkmark" class="features-checkmark"><p>Plaats een vraag op het overzicht van jouw school met <nuxt-link class="lnk lnk-secondary" title="Lees over Hashtags" :to="'/functies/hashtags'">#hashtags</nuxt-link> om gericht hulp te vragen</p></li>
-								<li><img src="../assets/img/checkmark.svg" alt="Assign feature checkmark" class="features-checkmark"><p>Krijg <nuxt-link class="lnk lnk-secondary" title="Lees over Notificaties" :to="'/functies/notificaties'">notificaties</nuxt-link> wanneer iemand jou wilt helpen</p></li>
+								<li><img src="../assets/img/checkmark.svg" alt="Assign feature checkmark" class="features-checkmark"><p>Ontvang <nuxt-link class="lnk lnk-secondary" title="Lees over Notificaties" :to="'/functies/notificaties'">notificaties</nuxt-link> wanneer iemand jou wilt helpen of iemand jouw hulp goed kan gebruiken</p></li>
 								<li><img src="../assets/img/checkmark.svg" alt="Assign feature checkmark" class="features-checkmark"><p><nuxt-link class="lnk lnk-secondary" title="Lees over Delen" :to="'/functies/delen'">Deel</nuxt-link> een vraag van jou of een ander om sneller geholpen te worden</p></li>
 							</ul>
 						</div>

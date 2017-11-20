@@ -21,7 +21,7 @@ export default {
   },
   data: () => ({
     title: 'Notificaties',
-    description: 'Krijg notificaties wanneer iemand jou wilt helpen.',
+    description: 'Ontvang meldingen wanneer iemand jou wilt helpen of iemand jouw hulp goed kan gebruiken.',
     illustratie: 'notification',
     firstbtn: '',
     firstbtnlnk: '',
