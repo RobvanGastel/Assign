@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <navigation></navigation>
     <masthead-sub :title="title" :description="description" :illustratie="illustratie" :firstbtn="firstbtn" :firstbtnlnk="firstbtnlnk" :firstbtntrgt="firstbtntrgt" :secondbtn="secondbtn" :secondbtnlnk="secondbtnlnk" :secondbtntrgt="secondbtntrgt"></masthead-sub>
-    <!-- <functie-content></functie-content> -->
+    <content-notificaties></content-notificaties>
     <footer-page></footer-page>
   </div>
 </template>
@@ -10,13 +10,13 @@
 <script>
 import Navigation from '../../components/Navigation'
 import MastheadSub from '../../components/mast/MastheadSub'
-import FunctieContent from '../../components/FunctieContent'
+import ContentNotificaties from '../../components/content/ContentNotificaties'
 import FooterPage from '../../components/FooterPage'
 export default {
   components: {
     Navigation,
     MastheadSub,
-    FunctieContent,
+    ContentNotificaties,
     FooterPage
   },
   data: () => ({
