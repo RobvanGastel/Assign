@@ -48,19 +48,19 @@ public class StartUp {
             Study informatica = schoolService.addStudy(avans, "ICT");
 
             // Fontys ICT studie
-            userService.create(new User("admin@mail.nl", "admin", "Jan Pieter", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
-            userService.create(new User("max@mail.nl", "max", "Max Wammels", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
+            userService.create(new User("admin@mail.nl", "admin", "Jan Jansen", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
+            userService.create(new User("max@mail.nl", "max", "Max Wammes", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
 
             // Fontys PABO studie
-            userService.create(new User("kees@mail.nl", "kees", "Kees Chinees", pabo, "Geschiedenis opleiding", new SocialLink("Keeskee", "Seesjeee", "0612312351")));
+            userService.create(new User("kees@mail.nl", "kees", "Kees Alders", pabo, "Geschiedenis opleiding", new SocialLink("Keeskee", "Seesjeee", "0612312351")));
 
             // Avans ICT studie
-            userService.create(new User("pieter@mail.nl", "pieter", "Pieter de Zwart", informatica, "BIM", new SocialLink("Pietertjee", "Pietertjee", "06123511")));
+            userService.create(new User("pieter@mail.nl", "pieter", "Pieter Nieuwkoop", informatica, "BIM", new SocialLink("Pietertjee", "Pietertjee", "06123511")));
 
             // Social network without facebook and phonenumber
             SocialLink social = new SocialLink();
             social.setTwitter("TwitterKoning");
-            userService.create(new User("rob@mail.nl", "rob", "Rob Schwarzenegger", ict, "Software Engineering", social));
+            userService.create(new User("rob@mail.nl", "rob", "Rob van Gastel", ict, "Software Engineering", social));
 
             User admin = userService.findById(6L);
             admin.setRole(Role.ADMIN);
