@@ -165,7 +165,11 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             
             let clearAction = UIAlertAction(title: "Verwijder", style: .destructive) { (alert: UIAlertAction!) -> Void in
                 
-                self.apiService?.deletePost(id: self.currentPost!.id) {_ in }
+                self.apiService?.deletePost(id: self.currentPost!.id) {_ in
+                
+                    self.navigationController?.popViewController(animated: true)
+                    self.delegate?.refreshPosts()
+                }
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in }
@@ -174,9 +178,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             alert.addAction(cancelAction)
             
             self.present(alert, animated: true, completion: nil)
-            // Delete assignment
-                
         }
+        
         actionSheetController.addAction(deleteAction)
     
         // We need to provide a popover sourceView when using it on iPad
@@ -184,7 +187,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         
         // Present the AlertController
         self.present(actionSheetController, animated: true, completion: nil)
-        
     }
     
     @IBAction func backAction(_ sender: Any) {

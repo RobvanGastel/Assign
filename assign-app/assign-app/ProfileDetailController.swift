@@ -17,7 +17,6 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var specialisationLabel: UILabel!
     
-    @IBOutlet weak var backImage: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
@@ -64,13 +63,22 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         self.fillTables() // Set table values
         
         // TODO improve gesture for settings
-        let tapRec = UITapGestureRecognizer()
-        tapRec.addTarget(self, action: #selector(ProfileDetailController.backTap))
-        backImage.addGestureRecognizer(tapRec)
-        
+//        let tapRec = UITapGestureRecognizer()
+//        tapRec.addTarget(self, action: #selector(ProfileDetailController.backTap))
+//        backImage.addGestureRecognizer(tapRec)
+    }
+    
+    
+    /// Set StatusBartStyle to .lightContent.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
         // Layout settings
-        // Set navigationbar hidden with animation
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        UIApplication.shared.statusBarStyle = .lightContent
+//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 127/255, blue: 40/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// Set profile of the User.
@@ -120,9 +128,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    /// Redirect to settings view.
-    func backTap() {
-        // Does a back check
+    @IBAction func backAction(_ sender: Any) {
         if let nav = self.navigationController {
             nav.popViewController(animated: true)
         } else {
@@ -133,12 +139,6 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
     /// When changed to another tableView.
     @IBAction func segmentedControlActionChanged(_ sender: Any) {
         self.tableView.reloadData()
-    }
-    
-    /// Set StatusBartStyle to .lightContent.
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     /// ScrollView for infinite scroll.
@@ -272,14 +272,65 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
             
         default:
             break
-            
         }
         
         return returnValue
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        switch(segmentedControl.selectedSegmentIndex)
+        {
+        case 0:
+            let item = itemsArray[indexPath.row] as Item
+            // Momenteel nog niet mogelijk geen id word mee gestuurd.
+//            if item.user!.id != Storage.getUser().id {
+//                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+//                vc.currentPost = item.id
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            } else {
+//                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+//                vc.currentPost = item.id
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+            break
+            
+        case 1:
+            let reply = activityArray[indexPath.row] as Reply
+            if reply.user!.id != Storage.getUser().id {
+                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+                vc.currentPost = reply.post
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+                vc.currentPost = reply.post
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            break
+            
+        case 2:
+            let post = assignmentsArray[indexPath.row] as Post
+            if post.user!.id != Storage.getUser().id {
+                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+                vc.currentPost = post
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+                vc.currentPost = post
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            break
+            
+        default:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
         
         // Check for different tables
