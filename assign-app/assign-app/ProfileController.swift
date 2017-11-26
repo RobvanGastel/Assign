@@ -309,6 +309,59 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        switch(segmentedControl.selectedSegmentIndex)
+        {
+        case 0:
+            let item = itemsArray[indexPath.row] as Item
+            // Momenteel nog niet mogelijk geen id word mee gestuurd.
+            //            if item.user!.id != Storage.getUser().id {
+            //                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+            //                vc.currentPost = item.id
+            //                self.navigationController?.pushViewController(vc, animated: true)
+            //            } else {
+            //                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+            //                vc.currentPost = item.id
+            //                self.navigationController?.pushViewController(vc, animated: true)
+            //            }
+            break
+            
+        case 1:
+            let reply = activityArray[indexPath.row] as Reply
+            if reply.user!.id != Storage.getUser().id {
+                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+                vc.currentPost = reply.post
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+                vc.currentPost = reply.post
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            break
+            
+        case 2:
+            let post = assignmentsArray[indexPath.row] as Post
+            if post.user!.id != Storage.getUser().id {
+                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+                vc.currentPost = post
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+                vc.currentPost = post
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            break
+            
+        default:
+            break
+        }
+    }
 }
 
 
