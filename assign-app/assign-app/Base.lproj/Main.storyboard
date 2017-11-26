@@ -414,8 +414,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="N2f-QX-6fY">
-                        <barButtonItem key="backBarButtonItem" title="ll;" id="UdG-KQ-ZxX"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icon-cross-white.png" id="U9v-Wa-dgZ">
+                            <color key="tintColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="backAction:" destination="MWW-f3-Nrd" id="ZdH-ly-z5l"/>
                             </connections>
