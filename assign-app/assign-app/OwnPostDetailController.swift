@@ -235,7 +235,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         
         if replies.count == 0 {
             replyCountLabel.text = "Nog geen hulp aangeboden"
-            endAssignmentButton.isEnabled = false
+            endAssignmentButtonBar.isHidden = true
+            endAssignmentButton.isHidden = true
         } else if replies.count == 1 {
              replyCountLabel.text = "Iemand wilt jou helpen"
         } else if replies.count >= 2 {
