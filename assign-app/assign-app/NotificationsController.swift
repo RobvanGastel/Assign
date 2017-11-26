@@ -209,6 +209,7 @@ class NotificationsController: UITableViewController {
         
         self.apiService?.setRead(ids: ids) {
             self.loadNotifications()
+            self.tableView.reloadData()
         }
     }
 }
