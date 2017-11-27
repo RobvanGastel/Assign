@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -169,17 +169,20 @@
                                 <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="hwu-2b-Rng"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jouw assignment zal gesloten worden en [gebruiker] zal bedankt worden voor het helpen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Dl-Ual">
-                            <rect key="frame" x="24" y="167" width="327" height="72"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jouw assignment zal gesloten worden en [gebruiker] zal bedankt worden voor het helpen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Dl-Ual">
+                            <rect key="frame" x="24" y="167" width="327" height="57.5"/>
                             <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="VsQ-Tb-mGm"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="VsQ-Tb-mGm"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heeft [gebruiker] jou geholpen?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPg-6j-mA0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="756" text="Heeft [gebruiker] jou geholpen?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPg-6j-mA0">
                             <rect key="frame" x="24" y="131" width="327" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="l94-cp-pSO"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -230,7 +233,9 @@
                         <constraint firstAttribute="bottom" secondItem="Iu8-kX-wKV" secondAttribute="bottom" constant="24" id="QIA-E6-5C4"/>
                         <constraint firstAttribute="trailing" secondItem="kOt-Dl-Ual" secondAttribute="trailing" constant="24" id="bKi-jF-UiP"/>
                         <constraint firstItem="7qH-wg-iHF" firstAttribute="centerX" secondItem="Kzb-U4-aSe" secondAttribute="centerX" id="brw-0i-php"/>
+                        <constraint firstItem="lPg-6j-mA0" firstAttribute="top" secondItem="0Pv-FN-rvn" secondAttribute="bottom" constant="24" id="dEF-tq-Llf"/>
                         <constraint firstItem="0Pv-FN-rvn" firstAttribute="centerX" secondItem="Kzb-U4-aSe" secondAttribute="centerX" id="fyZ-3c-dAi"/>
+                        <constraint firstItem="0Pv-FN-rvn" firstAttribute="top" secondItem="Kzb-U4-aSe" secondAttribute="top" constant="43" id="jWJ-fa-liM"/>
                         <constraint firstItem="kOt-Dl-Ual" firstAttribute="top" secondItem="lPg-6j-mA0" secondAttribute="bottom" constant="12" id="mvr-F0-1LC"/>
                         <constraint firstItem="lPg-6j-mA0" firstAttribute="leading" secondItem="Kzb-U4-aSe" secondAttribute="leading" constant="24" id="prw-IJ-dra"/>
                         <constraint firstItem="Iu8-kX-wKV" firstAttribute="leading" secondItem="Tlj-Xf-ql8" secondAttribute="trailing" constant="16" id="r9M-7t-yun"/>
@@ -238,7 +243,7 @@
                         <constraint firstItem="Tlj-Xf-ql8" firstAttribute="width" secondItem="Iu8-kX-wKV" secondAttribute="width" id="xod-Dp-O5F"/>
                         <constraint firstItem="0Pv-FN-rvn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Kzb-U4-aSe" secondAttribute="top" constant="43" id="yOw-Ab-AfO"/>
                         <constraint firstAttribute="trailing" secondItem="Iu8-kX-wKV" secondAttribute="trailing" constant="24" id="ySH-UF-aMx"/>
-                        <constraint firstItem="Tlj-Xf-ql8" firstAttribute="top" secondItem="kOt-Dl-Ual" secondAttribute="bottom" constant="48" id="zvd-pH-eau"/>
+                        <constraint firstItem="Tlj-Xf-ql8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kOt-Dl-Ual" secondAttribute="bottom" constant="24" id="zvd-pH-eau"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

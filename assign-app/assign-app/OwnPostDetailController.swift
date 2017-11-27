@@ -246,8 +246,8 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func endAssignment(_ sender: Any) {
         
-        // Create witdh with constraint to make it as big as screen
-        let view = PopupReplyController.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*3)))
+        // Create height with constraint to make it as big as screen
+        let view = PopupReplyController.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 248 + (64*2)))
         
         view.setData(replies: self.replies, post: self.currentPost!, delegate: self)
         

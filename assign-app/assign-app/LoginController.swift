@@ -99,7 +99,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if email == "" && password == "" {
             
             // Authenticate API call
-            authService?.authenticate(email: "max@mail.nl", password: "max") { success in
+            authService?.authenticate(email: "rob@mail.nl", password: "rob") { success in
                 if(success == true) {
                     
                     // Debug messageToken
