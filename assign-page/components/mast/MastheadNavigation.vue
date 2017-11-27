@@ -22,7 +22,8 @@
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Hashtags" :to="'/functies/hashtags'">Hashtags</nuxt-link></li>
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Profielen" :to="'/functies/profiel'">Profielen</nuxt-link></li>
 										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Notificaties" :to="'/functies/notificaties'">Notificaties</nuxt-link></li>
-										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Communicatie manieren" :to="'/functies/communicatie'">Communicatie manieren</nuxt-link></li>
+										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over Communicatie manieren" :to="'/functies/communicatie'">Communicatie Manieren</nuxt-link></li>
+										<li><nuxt-link class="lnk lnk-dropdown" title="Lees over het Delen van vragen" :to="'/functies/delen'">Vragen Delen</nuxt-link></li>
 									</ul>
 								</li>
 								<li><button class="btn-navcta" title="Vraag een demo aan" @click="showModal = true">Vraag demo aan</button></li>
