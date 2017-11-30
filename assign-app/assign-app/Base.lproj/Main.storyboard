@@ -299,24 +299,24 @@
                                     <constraint firstItem="GIj-Qe-qLn" firstAttribute="centerX" secondItem="ASt-BW-Qce" secondAttribute="centerX" id="ufO-US-Dlt"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F44-DN-eAe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F44-DN-eAe">
                                 <rect key="frame" x="4" y="404" width="406" height="332"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="NmT-76-ton">
-                                        <rect key="frame" x="0.0" y="28" width="406" height="96"/>
+                                        <rect key="frame" x="0.0" y="28" width="406" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" contentMode="center" tableViewCell="NmT-76-ton" id="URG-Aa-vOH">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="400" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeH-dE-iMO" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
-                                                    <rect key="frame" x="9" y="7" width="388" height="82"/>
+                                                    <rect key="frame" x="9" y="7" width="388" height="67"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Name en nog meer van dat soort gezeik, als ik maar op een extra regel uit kom." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="21" translatesAutoresizingMaskIntoConstraints="NO" id="PMN-if-Mqw" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="35" width="352" height="33"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Name en nog meer van dat soort gezeik, als ik maar op een extra regel uit kom." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="21" translatesAutoresizingMaskIntoConstraints="NO" id="PMN-if-Mqw" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="35" width="352" height="19"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -335,13 +335,25 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="404" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wil helpen met:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPV-va-tha" customClass="UINameActivity" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="52.999999999999993" y="14" width="103.33333333333331" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="OsU-ct-gMp"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="HfV-4K-UlT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fD4-ff-zIf" secondAttribute="trailing" constant="37" id="6MB-jb-KbY"/>
-                                                        <constraint firstAttribute="bottom" secondItem="PMN-if-Mqw" secondAttribute="bottom" constant="14" id="8ta-WL-gOa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PMN-if-Mqw" secondAttribute="bottom" constant="13" id="8ta-WL-gOa"/>
                                                         <constraint firstItem="fD4-ff-zIf" firstAttribute="leading" secondItem="IeH-dE-iMO" secondAttribute="leading" constant="18" id="9lX-iz-J8x"/>
+                                                        <constraint firstItem="OPV-va-tha" firstAttribute="leading" secondItem="fD4-ff-zIf" secondAttribute="trailing" constant="4" id="E2d-Y7-pgI"/>
                                                         <constraint firstItem="fD4-ff-zIf" firstAttribute="top" secondItem="IeH-dE-iMO" secondAttribute="top" constant="14" id="KFA-dT-Y29"/>
+                                                        <constraint firstItem="HfV-4K-UlT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OPV-va-tha" secondAttribute="trailing" constant="6" id="ZYe-1d-g4g"/>
+                                                        <constraint firstItem="OPV-va-tha" firstAttribute="top" secondItem="IeH-dE-iMO" secondAttribute="top" constant="14" id="cnd-lc-9FE"/>
                                                         <constraint firstAttribute="trailing" secondItem="PMN-if-Mqw" secondAttribute="trailing" constant="18" id="eO1-5R-XZ6"/>
                                                         <constraint firstAttribute="trailing" secondItem="HfV-4K-UlT" secondAttribute="trailing" constant="14" id="gOn-k7-YnD"/>
                                                         <constraint firstItem="PMN-if-Mqw" firstAttribute="top" secondItem="fD4-ff-zIf" secondAttribute="bottom" constant="3" id="gmw-VE-X1l"/>
@@ -1632,7 +1644,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLd-ex-dD0" customClass="UIName" customModule="assign_app" customModuleProvider="target">
-                                                    <rect key="frame" x="70" y="15" width="238" height="16"/>
+                                                    <rect key="frame" x="70" y="15" width="38.666666666666657" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="9zB-LG-Ywg"/>
                                                     </constraints>
@@ -1664,17 +1676,25 @@
                                                     <color key="backgroundColor" red="1" green="0.45269212209999998" blue="0.057201121940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" red="1" green="0.45490196078431372" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="404" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wil helpen met:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-p4-BTh" customClass="UINameActivity" customModule="assign_app" customModuleProvider="target">
+                                                    <rect key="frame" x="112.66666666666666" y="15" width="97.666666666666657" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="dSF-13-niV" firstAttribute="leading" secondItem="9ou-0e-KSY" secondAttribute="leading" constant="16" id="2dr-q7-OGW"/>
                                                 <constraint firstAttribute="trailing" secondItem="nIy-YU-twt" secondAttribute="trailing" constant="32" id="6TP-dY-Cjx"/>
                                                 <constraint firstItem="IyT-I1-ATH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9ou-0e-KSY" secondAttribute="leading" constant="20" symbolic="YES" id="AsB-G5-EBC"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kZM-p4-BTh" secondAttribute="trailing" constant="40" id="C8C-6M-cki"/>
                                                 <constraint firstItem="jLd-ex-dD0" firstAttribute="top" secondItem="9ou-0e-KSY" secondAttribute="top" constant="15" id="JRI-mW-xZZ"/>
                                                 <constraint firstItem="IyT-I1-ATH" firstAttribute="top" secondItem="9ou-0e-KSY" secondAttribute="top" constant="12" id="TcM-Op-mYB"/>
                                                 <constraint firstItem="nIy-YU-twt" firstAttribute="leading" secondItem="dSF-13-niV" secondAttribute="trailing" constant="14" id="UMV-lg-6Yt"/>
                                                 <constraint firstItem="nIy-YU-twt" firstAttribute="top" secondItem="jLd-ex-dD0" secondAttribute="bottom" constant="3" id="Z7W-Vq-rsA"/>
-                                                <constraint firstAttribute="trailing" secondItem="jLd-ex-dD0" secondAttribute="trailing" constant="78" id="h7p-zc-X5h"/>
+                                                <constraint firstItem="kZM-p4-BTh" firstAttribute="top" secondItem="9ou-0e-KSY" secondAttribute="top" constant="15" id="dlL-BX-Dc2"/>
+                                                <constraint firstItem="kZM-p4-BTh" firstAttribute="leading" secondItem="jLd-ex-dD0" secondAttribute="trailing" constant="4" id="mEf-E4-QHz"/>
                                                 <constraint firstItem="jLd-ex-dD0" firstAttribute="leading" secondItem="dSF-13-niV" secondAttribute="trailing" constant="14" id="ndm-DU-B8d"/>
                                                 <constraint firstItem="dSF-13-niV" firstAttribute="top" secondItem="9ou-0e-KSY" secondAttribute="top" constant="16" id="ooP-sI-hHn"/>
                                                 <constraint firstAttribute="bottom" secondItem="nIy-YU-twt" secondAttribute="bottom" constant="13" id="wnX-g2-8mu"/>
@@ -1796,24 +1816,24 @@
                                     <constraint firstItem="PxP-eO-EBB" firstAttribute="top" secondItem="hLa-Rn-vHT" secondAttribute="bottom" constant="26" id="qpo-Zd-71o"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQ9-GU-7gd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQ9-GU-7gd">
                                 <rect key="frame" x="4" y="356" width="406" height="331"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="plP-ZD-J3U">
-                                        <rect key="frame" x="0.0" y="28" width="406" height="96"/>
+                                        <rect key="frame" x="0.0" y="28" width="406" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" contentMode="center" tableViewCell="plP-ZD-J3U" id="4YF-zW-iCO">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="400" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmU-BL-UKY" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
-                                                    <rect key="frame" x="9" y="7" width="388" height="82"/>
+                                                    <rect key="frame" x="9" y="7" width="388" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Name en nog meer van dat soort gezeik, als ik maar op een extra regel uit kom." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="21" translatesAutoresizingMaskIntoConstraints="NO" id="eiP-Ld-zjV" customClass="UIName" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="35" width="352" height="33"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="18" y="35" width="352" height="19"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1832,6 +1852,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="404" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wil helpen met:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrZ-3E-TDq" customClass="UINameActivity" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="52.999999999999993" y="14" width="103.33333333333331" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="lJA-Zp-EP5"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -1841,8 +1870,10 @@
                                                         <constraint firstItem="MDS-Uc-nDY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bcy-1n-ld1" secondAttribute="trailing" constant="39" id="Q6O-aq-JE5"/>
                                                         <constraint firstItem="eiP-Ld-zjV" firstAttribute="leading" secondItem="cmU-BL-UKY" secondAttribute="leading" constant="18" id="Sqh-fv-zpZ"/>
                                                         <constraint firstItem="MDS-Uc-nDY" firstAttribute="top" secondItem="cmU-BL-UKY" secondAttribute="top" constant="12" id="T8e-Ee-aPh"/>
+                                                        <constraint firstItem="YrZ-3E-TDq" firstAttribute="leading" secondItem="Bcy-1n-ld1" secondAttribute="trailing" constant="4" id="Vpl-ue-sht"/>
                                                         <constraint firstAttribute="trailing" secondItem="eiP-Ld-zjV" secondAttribute="trailing" constant="18" id="Wlx-XN-d3A"/>
                                                         <constraint firstItem="Bcy-1n-ld1" firstAttribute="leading" secondItem="cmU-BL-UKY" secondAttribute="leading" constant="18" id="Wyw-Wo-sn1"/>
+                                                        <constraint firstItem="YrZ-3E-TDq" firstAttribute="top" secondItem="cmU-BL-UKY" secondAttribute="top" constant="14" id="c9J-nN-0jh"/>
                                                         <constraint firstAttribute="bottom" secondItem="eiP-Ld-zjV" secondAttribute="bottom" constant="14" id="ySy-gD-ZY6"/>
                                                     </constraints>
                                                 </view>
