@@ -268,12 +268,16 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
                 dateLabel.text = item.dateCreated?.timeAgoSimple
             }
             
+            if let titleLabelActivity = cell.viewWithTag(404) as? UILabel {
+                titleLabelActivity.text = ""
+            }
+            
             break
         case 1:
             let reply = activityArray[indexPath.row] as Reply
             
             if let titleLabel = cell.viewWithTag(401) as? UILabel {
-                titleLabel.text = reply.user.name + " wil helpen met: "
+                titleLabel.text = reply.user.name
             }
             
             if let textLabel = cell.viewWithTag(402) as? UILabel {
@@ -282,6 +286,10 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             
             if let dateLabel = cell.viewWithTag(403) as? UILabel {
                 dateLabel.text = reply.dateCreated.timeAgoSimple
+            }
+            
+            if let titleLabelActivity = cell.viewWithTag(404) as? UILabel {
+                titleLabelActivity.text = "wil helpen met:"
             }
             
             break
@@ -300,6 +308,11 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
             if let dateLabel = cell.viewWithTag(403) as? UILabel {
                 dateLabel.text = post.dateCreated?.timeAgoSimple
             }
+            
+            if let titleLabelActivity = cell.viewWithTag(404) as? UILabel {
+                titleLabelActivity.text = ""
+            }
+            
             break
             
         default:

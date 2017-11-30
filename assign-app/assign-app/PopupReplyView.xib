@@ -49,9 +49,6 @@
                                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-0H-SwX">
-                                            <rect key="frame" x="0.0" y="96" width="375" height="187"/>
-                                        </tableView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-UE-sWv">
                                             <rect key="frame" x="0.0" y="274" width="375" height="89"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,14 +76,10 @@
                                         <constraint firstItem="aqt-uy-Y1j" firstAttribute="top" secondItem="86T-pq-Var" secondAttribute="top" constant="40" id="CS7-CC-X3r"/>
                                         <constraint firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" id="Ebk-Mk-d4X"/>
                                         <constraint firstItem="MZn-VB-5Ka" firstAttribute="top" secondItem="aqt-uy-Y1j" secondAttribute="bottom" constant="4" id="H9b-5A-K38"/>
-                                        <constraint firstItem="Ggo-FY-e0Z" firstAttribute="top" secondItem="Dv1-0H-SwX" secondAttribute="bottom" constant="15" id="IsU-Yr-Zng"/>
-                                        <constraint firstItem="Dv1-0H-SwX" firstAttribute="top" secondItem="MZn-VB-5Ka" secondAttribute="bottom" constant="11" id="NMf-Ra-VAx"/>
                                         <constraint firstAttribute="trailing" secondItem="K8o-UE-sWv" secondAttribute="trailing" id="Pbg-jG-IMf"/>
                                         <constraint firstAttribute="bottom" secondItem="K8o-UE-sWv" secondAttribute="bottom" id="Qb0-QX-c6J"/>
-                                        <constraint firstItem="RWx-t5-V89" firstAttribute="leading" secondItem="Dv1-0H-SwX" secondAttribute="leading" id="ZZD-zu-nej"/>
                                         <constraint firstAttribute="trailing" secondItem="Ggo-FY-e0Z" secondAttribute="trailing" constant="30" id="a1q-Um-Oi3"/>
                                         <constraint firstItem="K8o-UE-sWv" firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" id="cAU-ru-kb3"/>
-                                        <constraint firstItem="RWx-t5-V89" firstAttribute="trailing" secondItem="Dv1-0H-SwX" secondAttribute="trailing" id="cx9-bi-o87"/>
                                         <constraint firstAttribute="bottom" secondItem="Ggo-FY-e0Z" secondAttribute="bottom" constant="22" id="eAE-qn-3BI"/>
                                         <constraint firstItem="Ggo-FY-e0Z" firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" constant="30" id="eLS-dH-Wkp"/>
                                         <constraint firstItem="RWx-t5-V89" firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" id="hnZ-aZ-Ksl"/>
@@ -95,11 +88,18 @@
                                         <constraint firstItem="MZn-VB-5Ka" firstAttribute="leading" secondItem="86T-pq-Var" secondAttribute="leading" constant="40" id="yze-Yx-NL6"/>
                                     </constraints>
                                 </view>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-0H-SwX">
+                                    <rect key="frame" x="0.0" y="105" width="375" height="144"/>
+                                </tableView>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="86T-pq-Var" firstAttribute="top" secondItem="Uaj-Sw-2MZ" secondAttribute="top" id="08q-0g-EJf"/>
+                                <constraint firstItem="Dv1-0H-SwX" firstAttribute="top" secondItem="MZn-VB-5Ka" secondAttribute="bottom" constant="20" id="3O7-st-1sa"/>
                                 <constraint firstAttribute="bottom" secondItem="86T-pq-Var" secondAttribute="bottom" id="6k1-Ch-6i4"/>
+                                <constraint firstItem="RWx-t5-V89" firstAttribute="top" secondItem="Dv1-0H-SwX" secondAttribute="bottom" constant="24" id="HBp-Vs-Ijx"/>
+                                <constraint firstItem="RWx-t5-V89" firstAttribute="trailing" secondItem="Dv1-0H-SwX" secondAttribute="trailing" id="JOL-XO-19E"/>
                                 <constraint firstAttribute="trailing" secondItem="86T-pq-Var" secondAttribute="trailing" id="RBi-Ey-J3Z"/>
+                                <constraint firstItem="RWx-t5-V89" firstAttribute="leading" secondItem="Dv1-0H-SwX" secondAttribute="leading" id="Sc7-cA-geQ"/>
                                 <constraint firstItem="86T-pq-Var" firstAttribute="leading" secondItem="Uaj-Sw-2MZ" secondAttribute="leading" id="Tcn-YU-xaZ"/>
                                 <constraint firstItem="86T-pq-Var" firstAttribute="centerX" secondItem="Uaj-Sw-2MZ" secondAttribute="centerX" id="UNi-Gj-7CL"/>
                                 <constraint firstItem="86T-pq-Var" firstAttribute="centerY" secondItem="Uaj-Sw-2MZ" secondAttribute="centerY" id="sQv-a6-H6Y"/>
