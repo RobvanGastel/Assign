@@ -43,10 +43,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.password.delegate = self
         
         // Hide Label and Error of input fields
-        emailLabel.isHidden = true
-        wachtwoordLabel.isHidden = true
-        emailError.isHidden = true
-        wachtwoordError.isHidden = true
+        emailLabel.layer.opacity = 0
+        wachtwoordLabel.layer.opacity = 0
+        emailError.layer.opacity = 0
+        wachtwoordError.layer.opacity = 0
     }
     
     // Add style and scroll on typing

@@ -132,6 +132,7 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
             let nextView = segue.destination as? AddPostController {
                 nextView.delegate = self
         }
+        
     }
     
     /// Pull and refesh function on the tableView.
