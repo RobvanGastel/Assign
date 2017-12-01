@@ -11,12 +11,9 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "express-session": "^1.15.5",
-    "nuxt": "0.10.7",
-    "vue-server-renderer": "latest",
-    "vuetify": "^0.13.0"
+    "nuxt": "^1.0.0-rc11",
+    "vuetify": "^0.17.3",
+    "vue-server-renderer": "latest"
   },
   "devDependencies": {
     "stylus": "^0.54.5",
