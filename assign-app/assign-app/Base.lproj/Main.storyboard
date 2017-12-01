@@ -572,7 +572,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Overzicht" id="P2w-tc-tfZ" userLabel="Overview">
+                    <navigationItem key="navigationItem" title="Overzicht" largeTitleDisplayMode="never" id="P2w-tc-tfZ" userLabel="Overview">
                         <barButtonItem key="leftBarButtonItem" image="icon-search.png" id="viY-dN-mNm">
                             <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -582,7 +582,7 @@
                         <barButtonItem key="rightBarButtonItem" image="icon-add.png" id="M2c-KH-RwY">
                             <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="nqU-Wi-bqa" kind="show" identifier="PostAddSegue" id="E7U-u8-aG6"/>
+                                <segue destination="nqU-Wi-bqa" kind="custom" identifier="PostAddSegue" id="E7U-u8-aG6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -829,10 +829,10 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHn-XL-XAM">
                                                 <rect key="frame" x="23.999999999999996" y="255" width="35.666666666666657" height="17"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dit e-mailadres bestaat niet" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPn-Rd-ilW">
                                                 <rect key="frame" x="206.33333333333337" y="255" width="183.66666666666663" height="17"/>
@@ -872,17 +872,6 @@
                                                 <color key="textColor" red="0.92549019607843142" green="0.18823529411764706" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-BR-SIc">
-                                                <rect key="frame" x="24" y="587" width="366" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="ffc-NM-OyG"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                <state key="normal" title="Wachtwoord vergeten?">
-                                                    <color key="titleColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyZ-e1-3E0">
                                                 <rect key="frame" x="215" y="640" width="175" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -931,6 +920,17 @@
                                                 <color key="textColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-BR-SIc">
+                                                <rect key="frame" x="237" y="393" width="153" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="ffc-NM-OyG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" title="Wachtwoord vergeten?">
+                                                    <color key="titleColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -944,8 +944,10 @@
                                             <constraint firstItem="JHn-XL-XAM" firstAttribute="top" secondItem="I6g-oY-EFU" secondAttribute="bottom" constant="48" id="9Ei-VG-MBU"/>
                                             <constraint firstItem="xh9-3D-aSx" firstAttribute="top" secondItem="zbh-00-TLA" secondAttribute="top" multiplier="0.6" constant="44" id="9yG-ua-MwW"/>
                                             <constraint firstItem="xh9-3D-aSx" firstAttribute="leading" secondItem="zbh-00-TLA" secondAttribute="leading" constant="24" id="Ex4-9F-gaw"/>
+                                            <constraint firstItem="W9a-BR-SIc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zbh-00-TLA" secondAttribute="leading" constant="24" id="Gvj-RM-R3c"/>
                                             <constraint firstItem="pdI-A9-ifK" firstAttribute="top" secondItem="gja-Qg-GvH" secondAttribute="bottom" constant="16" id="Ik3-WG-YVU"/>
                                             <constraint firstAttribute="trailing" secondItem="DyZ-e1-3E0" secondAttribute="trailing" constant="24" id="M02-fB-x2P"/>
+                                            <constraint firstItem="W9a-BR-SIc" firstAttribute="top" secondItem="Qxf-gD-y79" secondAttribute="bottom" constant="16" id="NFw-T3-CbC"/>
                                             <constraint firstItem="DyZ-e1-3E0" firstAttribute="width" secondItem="pNz-Np-fZX" secondAttribute="width" id="Qo8-7b-Fgk"/>
                                             <constraint firstItem="gja-Qg-GvH" firstAttribute="top" secondItem="JHn-XL-XAM" secondAttribute="bottom" id="Qrz-9o-2dh"/>
                                             <constraint firstAttribute="bottom" secondItem="DyZ-e1-3E0" secondAttribute="bottom" constant="24" id="SgP-T6-U9z"/>
@@ -961,10 +963,8 @@
                                             <constraint firstItem="oYO-V8-Wga" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pdI-A9-ifK" secondAttribute="trailing" constant="16" id="oX1-TT-gFp"/>
                                             <constraint firstAttribute="trailing" secondItem="sPn-Rd-ilW" secondAttribute="trailing" constant="24" id="ryP-2P-tOQ"/>
                                             <constraint firstItem="DyZ-e1-3E0" firstAttribute="leading" secondItem="pNz-Np-fZX" secondAttribute="trailing" constant="16" id="spA-FT-OCS"/>
-                                            <constraint firstItem="pNz-Np-fZX" firstAttribute="top" secondItem="W9a-BR-SIc" secondAttribute="bottom" constant="24" id="tHm-at-TMs"/>
                                             <constraint firstItem="GHq-AE-y7L" firstAttribute="top" secondItem="xh9-3D-aSx" secondAttribute="bottom" constant="24" id="tu4-8R-Lwy"/>
                                             <constraint firstAttribute="trailing" secondItem="Qxf-gD-y79" secondAttribute="trailing" constant="24" id="uqM-03-hBO"/>
-                                            <constraint firstItem="W9a-BR-SIc" firstAttribute="leading" secondItem="zbh-00-TLA" secondAttribute="leading" constant="24" id="v7h-bl-Pqh"/>
                                             <constraint firstItem="I6g-oY-EFU" firstAttribute="leading" secondItem="zbh-00-TLA" secondAttribute="leading" constant="24" id="vKO-j4-bJd"/>
                                             <constraint firstItem="JHn-XL-XAM" firstAttribute="leading" secondItem="zbh-00-TLA" secondAttribute="leading" constant="24" id="yhx-RL-Xq1"/>
                                             <constraint firstItem="GHq-AE-y7L" firstAttribute="leading" secondItem="zbh-00-TLA" secondAttribute="leading" constant="24" id="zz3-dw-luc"/>
@@ -1280,11 +1280,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Uab-9e-uuS"/>
                     </layoutGuides>
                     <view key="view" contentMode="top" id="KNc-1Y-YEG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Waar heb je hulp mee nodig?" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-QL-mVh">
-                                <rect key="frame" x="44" y="57" width="326" height="30"/>
+                                <rect key="frame" x="44" y="77" width="326" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XwV-p9-ZYZ"/>
                                 </constraints>
@@ -1298,7 +1298,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvU-E0-4Lu" customClass="UIAddDesc" customModule="assign_app" customModuleProvider="target">
-                                <rect key="frame" x="40" y="104" width="334" height="223"/>
+                                <rect key="frame" x="40" y="124" width="334" height="223"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="223" id="cpe-Ds-vsQ"/>
                                 </constraints>
@@ -1307,7 +1307,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frJ-4Q-knz">
-                                <rect key="frame" x="20" y="423" width="374" height="17"/>
+                                <rect key="frame" x="20" y="487" width="374" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2481,7 +2481,7 @@
         <image name="profile.jpg" width="103" height="103"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yxs-Gc-6XC"/>
+        <segue reference="Uth-nG-Moh"/>
         <segue reference="lIc-Nk-6xF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
