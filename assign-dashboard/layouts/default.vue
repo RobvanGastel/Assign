@@ -1,13 +1,12 @@
 <template>
   <v-app light toolbar footer>
     <v-navigation-drawer 
-      v-if="$store.state.authUser"
       persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
       :enable-resize-watcher= "enableResize"
-      v-model="drawer"
-    >
+      v-model="drawer">
+    <!--       v-if="$store.state.authUser" -->
       <v-list>
         <v-list-tile 
           router
@@ -25,8 +24,8 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar 
-      v-if="$store.state.authUser"
-      fixed class="orange-highlight">
+      fixed class="orange-highlight"> 
+      <!-- v-if="$store.state.authUser" -->
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn class="white--text" 
         icon
@@ -36,17 +35,16 @@
       </v-btn>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
     </v-toolbar>
-    <main
-      v-if="$store.state.authUser"
-      >
+    <main> 
+      <!-- v-if="$store.state.authUser" -->
       <v-container fluid>
         <nuxt />
       </v-container>
     </main>
-    <nuxt v-if="!$store.state.authUser" />
+    <!-- <nuxt  />  v-if="!$store.state.authUser" -->
     <v-footer 
-      v-if="$store.state.authUser"
       :fixed="fixed">
+          <!-- v-if="$store.state.authUser" -->
       <v-spacer></v-spacer>
       <span>&copy; 2017 - Assign</span>
     </v-footer>

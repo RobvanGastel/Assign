@@ -11,6 +11,10 @@ RUN mkdir -p /opt/assign-app/assign-dashboard
 COPY . /opt/assign-app/assign-dashboard
 WORKDIR /opt/assign-app/assign-dashboard
 RUN npm install
+
+# Set env to production
+ARG APP_NODE_ENV=production
+ENV NODE_ENV ${NODE_ENV}
 RUN npm run build
 
 # Choose port to expose

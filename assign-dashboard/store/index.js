@@ -21,7 +21,7 @@ export const actions = {
     }
   },
   login ({ commit, redirect }, { username, password }) {
-    return axios.post('http://localhost:9080/v0.1/auth?email=' + username + '&password=' + password)
+    return axios.post('https://api.assignapp.nl/v0.1/auth?email=' + username + '&password=' + password)
     .then((res) => {
       commit('SET_USER', res.data)
     })
