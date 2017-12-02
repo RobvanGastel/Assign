@@ -49,7 +49,6 @@
   </v-app>
 </template>
 
-
     <!--       v-if="$store.state.authUser" -->
 <script>
   export default {
