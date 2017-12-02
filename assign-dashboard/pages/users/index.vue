@@ -3,7 +3,7 @@
     <v-flex xs11 sm11 md11>
       <v-card>
         <v-card-title>
-          <h6>Users</h6>
+          <h6>Leerlingen</h6>
           <v-spacer></v-spacer>
           <v-text-field
             append-icon="search"
