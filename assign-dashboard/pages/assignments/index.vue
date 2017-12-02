@@ -70,7 +70,9 @@ export default {
       var self = this
       self.loading = false
 
-      axios.get('http://84.26.134.115:8080/v0.1/dashboard/posts',{ params: {
+      console.log(this.env)
+
+      axios.get('/dashboard/posts', { params: {
         start: self.totalPosts
       }})
         .then((response) => {
