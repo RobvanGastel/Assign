@@ -1,6 +1,6 @@
 <template>
   <v-app light toolbar footer>
-    <v-navigation-drawer 
+    <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -8,7 +8,7 @@
       v-model="drawer"
     >
       <v-list>
-        <v-list-tile 
+        <v-list-tile
           router
           v-for="(item, i) in items"
           :key="i"
@@ -23,10 +23,10 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar 
+    <v-toolbar
       fixed class="orange-highlight">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn class="white--text" 
+      <v-btn class="white--text"
         icon
         @click.native.stop="miniVariant = !miniVariant"
       >
@@ -39,7 +39,7 @@
         <nuxt />
       </v-container>
     </main>
-    <v-footer 
+    <v-footer
       :fixed="fixed">
       <v-spacer></v-spacer>
       <span>&copy; 2017 - Assign</span>
@@ -55,10 +55,10 @@
         drawer: true,
         fixed: false,
         items: [
-          { icon: 'home', title: 'Home', to: '/' },
+          { icon: 'home', title: 'Overzicht', to: '/' },
           { icon: 'network_check', title: 'Analytics', to: '/analytics' },
-          { icon: 'school', title: 'Schools', to: '/schools' },
-          { icon: 'people', title: 'Users', to: '/users' },
+          { icon: 'school', title: 'Scholen', to: '/schools' },
+          { icon: 'people', title: 'Leerlingen', to: '/users' },
           { icon: 'assignment', title: 'Assignments', to: '/assignments' }
         ],
         miniVariant: false,
