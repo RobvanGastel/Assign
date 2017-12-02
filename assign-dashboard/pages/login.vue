@@ -1,44 +1,38 @@
-<template>  
-    <div id="login">
-        <v-layout row justify-center>
-            <v-flex xs10 sm6 md4>
-                <v-card height="100%">
-                    <v-card-text>
-                        <v-layout row justify-center>    
-                            <v-flex xs8>
-                                <br />
-                                <p>Welcome to the Webpack Assign dashboard.</p> 
-                                <div v-if="errorMessage">
-                                    <v-alert error value="true">
-                                    {{ errorMessage }}
-                                    </v-alert>
-                                </div>
-                                <br />         
-                                <v-text-field
-                                name="username"
-                                label="email"
-                                id="username"
-                                v-model="email"
-                                ></v-text-field>
-                                <v-text-field
-                                type="password"
-                                name="password"
-                                label="password"
-                                id="password"
-                                v-model="password"
-                                ></v-text-field>
-                            </v-flex>
-                        </v-layout>
-                        <div class="float-right">
-                            <nuxt-link :to="'/'">
-                                <v-btn class="btn-no-margin" @click.native="login()" primary flat router nuxt>Login</v-btn>
-                            </nuxt-link>
-                        </div>
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
-    </div>
+<template>
+  <div id="login">
+    <v-layout row justify-center>
+      <v-flex xs12 sm12 md10 lg8 xl6>
+        <v-card height="100%">
+          <v-card-text>
+            <v-layout row>
+              <v-flex xs6 hidden-sm-and-down>
+    						<img src="/illustratie/illustration-dashboard.svg" alt="Assign Dashboard" draggable="false">
+              </v-flex>
+              <v-flex xs12 md6>
+                <br />
+                <h1 class="login-title">Assign School Dashboard</h1>
+                <p class="login-message">Log in om alle gegevens en statistieken te bekijken en overzicht te krijgen.</p>
+                <div v-if="errorMessage">
+                  <v-alert error value="true">
+                  {{ errorMessage }}
+                  </v-alert>
+                </div>
+                <br />
+                <v-text-field name="username" label="Email" id="username" v-model="email"></v-text-field>
+                <v-text-field type="password" name="password" label="Wachtwoord" id="password" v-model="password"></v-text-field>
+              </v-flex>
+            </v-layout>
+            <div class="float-right">
+              <nuxt-link :to="'/'">
+                <v-btn class="" @click.native="login()" flat router nuxt>Hulp bij inloggen?</v-btn>
+                <v-btn class="btn-no-margin" @click.native="login()" primary router nuxt>Log in</v-btn>
+              </nuxt-link>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
 <script>
@@ -80,15 +74,24 @@ export default {
 }
 
 #login {
-    padding-top: 300px;
-    background-image: url( "../assets/img/esecqzP.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+  padding-top: calc(50vh - 300px);
 }
+
+.login-title {
+  font-size: 28px;
+  color: #4A4A4A;
+  font-weight: 500;
+}
+
+.login-message {
+  font-size: 18px;
+  color: #5E5E5E;
+}
+
+@media screen and (min-width: 480px) {
+  #login .card__text {
+    padding: 80px 40px;
+  }
+}
+
 </style>

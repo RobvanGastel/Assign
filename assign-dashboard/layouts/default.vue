@@ -1,13 +1,15 @@
 <template>
   <v-app light>
-    <v-navigation-drawer 
+    <v-navigation-drawer
+      persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
+      :temporary="temporary"
       v-model="drawer"
-      fixed
-      app>
+      app
+    >
       <v-list>
-        <v-list-tile 
+        <v-list-tile
           router
           :to="item.to"
           :key="i"
@@ -22,19 +24,17 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar 
-        fixed 
-        app  
-        :clipped-left="clipped" 
-        class="orange-highlight"> 
-      <v-toolbar-side-icon 
-        class="white--text"  @
-        click="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn class="white--text" 
+    <v-toolbar
+        persistent
+        app
+        :clipped-left="clipped"
+        class="orange-highlight">
+      <v-toolbar-side-icon class="white--text" @click="drawer = !drawer"></v-toolbar-side-icon>
+      <!-- <v-btn class="white--text"
         icon
         @click.native.stop="miniVariant = !miniVariant">
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
     </v-toolbar>
     <v-content>
@@ -42,7 +42,7 @@
         <nuxt />
       </v-container>
     </v-content>
-        <v-footer :fixed="fixed" app>
+    <v-footer :fixed="fixed" app>
       <v-spacer></v-spacer>
       <span>&copy; 2017 - Assign</span>
     </v-footer>
@@ -56,7 +56,7 @@
       return {
         clipped: true,
         drawer: true,
-        fixed: false,
+        fixed: true,
         items: [
           { icon: 'home', title: 'Home', to: '/' },
           { icon: 'network_check', title: 'Analytics', to: '/analytics' },
@@ -64,7 +64,7 @@
           { icon: 'people', title: 'Users', to: '/users' },
           { icon: 'assignment', title: 'Assignments', to: '/assignments' }
         ],
-        miniVariant: false,
+        miniVariant: true,
         right: false,
         rightDrawer: false,
         enableResize: true,

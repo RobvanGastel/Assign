@@ -3,30 +3,28 @@
     <v-flex xs11 sm11 md11>
       <div id="analytics">
         <v-layout row wrap>
-          <v-flex xs12 sm12 md6>
-            <v-card height="100%">
-              <v-card-title>
-                <h6>Firebase</h6>
-              </v-card-title>
+          <v-flex xs12 sm6 md4>
+            <v-card height="100%" class="orange darken-2 white--text">
               <v-card-text>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Phasellus et magna et lectus finibus molestie. Fusce eu lorem lacinia, scelerisque est eu, varius libero. 
-                  Morbi interdum euismod ligula quis vestibulum. Aenean et malesuada nulla, quis finibus ex. 
-                </p>
+                <h4 class="white--text">42</h4>
+                <p>Daily Users</p>
+                <v-divider></v-divider>
               </v-card-text>
-            </v-card>
+              <v-card-actions>
+                <v-btn class="white--text" primary flat router nuxt>View users</v-btn>
+              </v-card-actions>
+              </v-card>
           </v-flex>
-          <v-flex xs12 sm12 md6>
-            <v-card height="100%">
-              <v-card-title>
-                <h6>Fabric</h6>
-              </v-card-title>
+          <v-flex xs12 sm6 md4>
+            <v-card height="100%" class="orange darken-2 white--text">
               <v-card-text>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Phasellus et magna et lectus finibus molestie. Fusce eu lorem lacinia, scelerisque est eu, varius libero. 
-                  Morbi interdum euismod ligula quis vestibulum. Aenean et malesuada nulla, quis finibus ex. 
-                </p>
+                <h4 class="white--text">63</h4>
+                <p>Daily posts created</p>
+                <v-divider></v-divider>
               </v-card-text>
+              <v-card-actions>
+                <v-btn class="white--text" right primary flat router nuxt>View posts</v-btn>
+              </v-card-actions>
             </v-card>
           </v-flex>
         </v-layout>
