@@ -1,19 +1,18 @@
 <template>
-  <v-app light toolbar footer>
+  <v-app light>
     <v-navigation-drawer 
-      persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
-      :enable-resize-watcher= "enableResize"
-      v-model="drawer">
-    <!--       v-if="$store.state.authUser" -->
+      v-model="drawer"
+      fixed
+      app>
       <v-list>
         <v-list-tile 
           router
-          v-for="(item, i) in items"
-          :key="i"
           :to="item.to"
-        >
+          :key="i"
+          v-for="(item, i) in items"
+          exact>
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
           </v-list-tile-action>
@@ -24,33 +23,34 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar 
-      fixed class="orange-highlight"> 
-      <!-- v-if="$store.state.authUser" -->
-      <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+        fixed 
+        app  
+        :clipped-left="clipped" 
+        class="orange-highlight"> 
+      <v-toolbar-side-icon 
+        class="white--text"  @
+        click="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn class="white--text" 
         icon
-        @click.native.stop="miniVariant = !miniVariant"
-      >
+        @click.native.stop="miniVariant = !miniVariant">
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
     </v-toolbar>
-    <main> 
-      <!-- v-if="$store.state.authUser" -->
-      <v-container fluid>
+    <v-content>
+      <v-container>
         <nuxt />
       </v-container>
-    </main>
-    <!-- <nuxt  />  v-if="!$store.state.authUser" -->
-    <v-footer 
-      :fixed="fixed">
-          <!-- v-if="$store.state.authUser" -->
+    </v-content>
+        <v-footer :fixed="fixed" app>
       <v-spacer></v-spacer>
       <span>&copy; 2017 - Assign</span>
     </v-footer>
   </v-app>
 </template>
 
+
+    <!--       v-if="$store.state.authUser" -->
 <script>
   export default {
     data () {
