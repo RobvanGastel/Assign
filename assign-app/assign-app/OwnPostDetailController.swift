@@ -88,6 +88,16 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.endAssignmentButtonBar.isHidden = true
             self.endAssignmentButton.isHidden = true
         }
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OwnPostDetailController.nameClick))
+        nameButton.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func nameClick() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PostsTabBarController") as! TabBarController
+        vc.selectedIndex = 2
+        self.present(vc, animated: true, completion: nil)
     }
     
     /// Add data to the segue before triggering.
