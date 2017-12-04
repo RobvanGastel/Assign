@@ -2230,9 +2230,6 @@
                                                 <state key="normal" title="Name">
                                                     <color key="titleColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="MWW-f3-Nrd" kind="show" identifier="ProfileDetailSegue" id="RrB-uu-BiR"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75G-qo-wBD" customClass="UIDateDetail" customModule="assign_app" customModuleProvider="target">
                                                 <rect key="frame" x="82" y="47" width="284" height="21"/>

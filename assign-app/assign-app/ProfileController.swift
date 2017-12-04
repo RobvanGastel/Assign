@@ -333,16 +333,17 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         {
         case 0:
             let item = itemsArray[indexPath.row] as Item
-            // Momenteel nog niet mogelijk geen id word mee gestuurd.
-            //            if item.user!.id != Storage.getUser().id {
-            //                let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
-            //                vc.currentPost = item.id
-            //                self.navigationController?.pushViewController(vc, animated: true)
-            //            } else {
-            //                let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
-            //                vc.currentPost = item.id
-            //                self.navigationController?.pushViewController(vc, animated: true)
-            //            }
+            self.apiService?.getPostById(id: item.id!) { post in
+                if item.user!.id != Storage.getUser().id {
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+                    vc.currentPost = post
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+                    vc.currentPost = post
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
             break
             
         case 1:
