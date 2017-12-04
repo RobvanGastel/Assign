@@ -553,12 +553,10 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="uep-CF-ssd" firstAttribute="centerX" secondItem="FKO-Py-Tqr" secondAttribute="centerX" id="Ao6-ds-Pl0"/>
-                                        <constraint firstItem="uep-CF-ssd" firstAttribute="centerY" secondItem="FKO-Py-Tqr" secondAttribute="centerY" id="Pkg-CX-LhY"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="uep-CF-ssd" secondAttribute="trailing" constant="-6" id="RGN-xQ-QO8"/>
-                                        <constraint firstItem="uep-CF-ssd" firstAttribute="top" secondItem="FKO-Py-Tqr" secondAttribute="topMargin" constant="-3" id="VRu-ai-G07"/>
-                                        <constraint firstItem="uep-CF-ssd" firstAttribute="leading" secondItem="FKO-Py-Tqr" secondAttribute="leadingMargin" constant="-6" id="Y76-6O-x5y"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="uep-CF-ssd" secondAttribute="bottom" constant="-3" id="xWO-vD-EZY"/>
+                                        <constraint firstAttribute="bottom" secondItem="uep-CF-ssd" secondAttribute="bottom" constant="8" id="Rdd-Ji-JdC"/>
+                                        <constraint firstItem="uep-CF-ssd" firstAttribute="top" secondItem="FKO-Py-Tqr" secondAttribute="top" constant="8" id="Yyn-RS-JuN"/>
+                                        <constraint firstAttribute="trailing" secondItem="uep-CF-ssd" secondAttribute="trailing" constant="14" id="dzt-UZ-tcl"/>
+                                        <constraint firstItem="uep-CF-ssd" firstAttribute="leading" secondItem="FKO-Py-Tqr" secondAttribute="leading" constant="14" id="svY-2l-Cdo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -587,7 +585,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <refreshControl key="refreshControl" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="gjx-WU-sh2">
+                    <refreshControl key="refreshControl" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="top" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="top" id="gjx-WU-sh2">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
@@ -1703,12 +1701,10 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="9ou-0e-KSY" secondAttribute="bottom" constant="-3" id="9Sa-ns-Nqm"/>
-                                        <constraint firstItem="9ou-0e-KSY" firstAttribute="top" secondItem="eXo-ob-5qL" secondAttribute="topMargin" constant="-3" id="KIM-Fx-mJj"/>
-                                        <constraint firstItem="9ou-0e-KSY" firstAttribute="centerX" secondItem="eXo-ob-5qL" secondAttribute="centerX" id="Nrl-WF-6C0"/>
-                                        <constraint firstItem="9ou-0e-KSY" firstAttribute="centerY" secondItem="eXo-ob-5qL" secondAttribute="centerY" id="Vdb-PB-AtI"/>
-                                        <constraint firstItem="9ou-0e-KSY" firstAttribute="leading" secondItem="eXo-ob-5qL" secondAttribute="leadingMargin" constant="-6" id="Z1R-9g-k4Y"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="9ou-0e-KSY" secondAttribute="trailing" constant="-6" id="lTP-Od-BsG"/>
+                                        <constraint firstAttribute="bottom" secondItem="9ou-0e-KSY" secondAttribute="bottom" constant="8" id="JXA-JX-ifH"/>
+                                        <constraint firstItem="9ou-0e-KSY" firstAttribute="top" secondItem="eXo-ob-5qL" secondAttribute="top" constant="8" id="ayr-7n-Mxg"/>
+                                        <constraint firstItem="9ou-0e-KSY" firstAttribute="leading" secondItem="eXo-ob-5qL" secondAttribute="leading" constant="14" id="hVp-iD-is9"/>
+                                        <constraint firstAttribute="trailing" secondItem="9ou-0e-KSY" secondAttribute="trailing" constant="14" id="pSu-7m-G9L"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
