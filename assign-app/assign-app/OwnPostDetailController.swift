@@ -88,17 +88,22 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             self.endAssignmentButtonBar.isHidden = true
             self.endAssignmentButton.isHidden = true
         }
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OwnPostDetailController.nameClick))
+        nameButton.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func nameClick() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PostsTabBarController") as! TabBarController
+        vc.selectedIndex = 2
+        self.present(vc, animated: true, completion: nil)
     }
     
     /// Add data to the segue before triggering.
     ///
     /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProfileDetailSegue" {
-            let nextView = segue.destination as? ProfileDetailController
-            nextView?.currentUser = currentPost?.user
-        }
-        
         if segue.identifier == "ProfileSegue",
             let nextView = segue.destination as? ProfileDetailController,
             let indexPath = self.tableView.indexPathForSelectedRow {
@@ -223,6 +228,16 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let reply = replies[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProfileDetailController") as! ProfileDetailController
+        vc.currentUser = reply.user
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func updateViewConstraints() {
