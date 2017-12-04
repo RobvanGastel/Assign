@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    baseUrl: process.env.BASE_URL || 'https://api.assignapp.nl/v.01/'
+    baseUrl: 'https://api.assignapp.nl/v0.1/'
   },
   /*
   ** Headers of the page

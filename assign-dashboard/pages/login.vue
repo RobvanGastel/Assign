@@ -23,10 +23,8 @@
               </v-flex>
             </v-layout>
             <div class="float-right">
-              <nuxt-link :to="'/'">
-                <v-btn class="" @click.native="login()" flat router nuxt>Hulp bij inloggen?</v-btn>
-                <v-btn class="btn-no-margin" @click.native="login()" primary router nuxt>Log in</v-btn>
-              </nuxt-link>
+              <v-btn flat router nuxt>Hulp bij inloggen?</v-btn>
+              <v-btn class="btn-no-margin" @click.native="login()" primary router nuxt>Log in</v-btn>
             </div>
           </v-card-text>
         </v-card>
@@ -47,7 +45,7 @@ export default {
   methods: {
     async login () {
       try {
-        await this.$store.dispatch('login', {
+      await this.$store.dispatch('login', {
           username: this.email,
           password: this.password
         })
@@ -55,6 +53,8 @@ export default {
         this.email = ''
         this.password = ''
         this.errorMessage = null
+        this.$router.replace({ path: '/' })
+
       } catch(e) {
         this.errorMessage = e.message
       }

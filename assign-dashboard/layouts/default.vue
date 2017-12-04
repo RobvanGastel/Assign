@@ -28,8 +28,7 @@
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn class="white--text" 
         icon
-        @click.native.stop="miniVariant = !miniVariant"
-      >
+        @click.native.stop="miniVariant = !miniVariant">
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
@@ -57,9 +56,7 @@
         items: [
           { icon: 'home', title: 'Home', to: '/' },
           { icon: 'network_check', title: 'Analytics', to: '/analytics' },
-          { icon: 'school', title: 'Schools', to: '/schools' },
-          { icon: 'people', title: 'Users', to: '/users' },
-          { icon: 'assignment', title: 'Assignments', to: '/assignments' }
+          { icon: 'school', title: 'Schools', to: '/schools' }
         ],
         miniVariant: false,
         right: false,
