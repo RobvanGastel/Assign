@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I2f-aY-m96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I2f-aY-m96">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -320,15 +320,6 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="403" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfV-4K-UlT" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="347.33333333333331" y="12" width="26.666666666666686" height="21"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="kEJ-yj-sYV"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="401" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD4-ff-zIf" customClass="UIName" customModule="assign_app" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="14" width="31" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -339,24 +330,33 @@
                                                             <rect key="frame" x="52.999999999999993" y="14" width="103.33333333333331" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="OsU-ct-gMp"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103.33333333333331" id="zZJ-LI-ORV"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="403" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfV-4K-UlT" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
+                                                            <rect key="frame" x="353.33333333333331" y="12" width="26.666666666666686" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="kEJ-yj-sYV"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="HfV-4K-UlT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fD4-ff-zIf" secondAttribute="trailing" constant="37" id="6MB-jb-KbY"/>
                                                         <constraint firstAttribute="bottom" secondItem="PMN-if-Mqw" secondAttribute="bottom" constant="13" id="8ta-WL-gOa"/>
                                                         <constraint firstItem="fD4-ff-zIf" firstAttribute="leading" secondItem="IeH-dE-iMO" secondAttribute="leading" constant="18" id="9lX-iz-J8x"/>
                                                         <constraint firstItem="OPV-va-tha" firstAttribute="leading" secondItem="fD4-ff-zIf" secondAttribute="trailing" constant="4" id="E2d-Y7-pgI"/>
                                                         <constraint firstItem="fD4-ff-zIf" firstAttribute="top" secondItem="IeH-dE-iMO" secondAttribute="top" constant="14" id="KFA-dT-Y29"/>
-                                                        <constraint firstItem="HfV-4K-UlT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OPV-va-tha" secondAttribute="trailing" constant="6" id="ZYe-1d-g4g"/>
+                                                        <constraint firstAttribute="trailing" secondItem="HfV-4K-UlT" secondAttribute="trailing" constant="8" id="MFq-bn-45c"/>
                                                         <constraint firstItem="OPV-va-tha" firstAttribute="top" secondItem="IeH-dE-iMO" secondAttribute="top" constant="14" id="cnd-lc-9FE"/>
                                                         <constraint firstAttribute="trailing" secondItem="PMN-if-Mqw" secondAttribute="trailing" constant="18" id="eO1-5R-XZ6"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HfV-4K-UlT" secondAttribute="trailing" constant="14" id="gOn-k7-YnD"/>
                                                         <constraint firstItem="PMN-if-Mqw" firstAttribute="top" secondItem="fD4-ff-zIf" secondAttribute="bottom" constant="3" id="gmw-VE-X1l"/>
+                                                        <constraint firstItem="HfV-4K-UlT" firstAttribute="leading" secondItem="OPV-va-tha" secondAttribute="trailing" constant="197" id="rC9-uT-bP4"/>
                                                         <constraint firstItem="HfV-4K-UlT" firstAttribute="top" secondItem="IeH-dE-iMO" secondAttribute="top" constant="12" id="w2A-fz-ue8"/>
                                                         <constraint firstItem="PMN-if-Mqw" firstAttribute="leading" secondItem="IeH-dE-iMO" secondAttribute="leading" constant="18" id="xa2-A2-h6R"/>
                                                     </constraints>
@@ -498,7 +498,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uep-CF-ssd" customClass="UIOverview" customModule="assign_app" customModuleProvider="target">
-                                            <rect key="frame" x="14" y="8" width="386" height="66"/>
+                                            <rect key="frame" x="14" y="5" width="386" height="72"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Fw-4I9" customClass="UIProfile" customModule="assign_app" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="16" width="40" height="40"/>
@@ -508,25 +508,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-B2-0xt" customClass="UIName" customModule="assign_app" customModuleProvider="target">
-                                                    <rect key="frame" x="70" y="15" width="238" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="ZxP-vz-bF4"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="70" y="15" width="238" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jka-Vr-dha" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
-                                                    <rect key="frame" x="70" y="34" width="284" height="19"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="19" id="Hzf-kA-3qy"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="70" y="35" width="284" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziw-IA-nBC" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
-                                                    <rect key="frame" x="345" y="12" width="27" height="21"/>
+                                                    <rect key="frame" x="324" y="12" width="48" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Cqn-1H-HXh"/>
                                                     </constraints>
@@ -542,21 +536,23 @@
                                                 <constraint firstAttribute="bottom" secondItem="jka-Vr-dha" secondAttribute="bottom" constant="13" id="8K8-Nj-h8p"/>
                                                 <constraint firstAttribute="trailing" secondItem="ziw-IA-nBC" secondAttribute="trailing" constant="14" id="9JO-Bj-AaL"/>
                                                 <constraint firstItem="jka-Vr-dha" firstAttribute="top" secondItem="Eae-B2-0xt" secondAttribute="bottom" constant="3" id="CH7-r2-8qH"/>
-                                                <constraint firstAttribute="trailing" secondItem="Eae-B2-0xt" secondAttribute="trailing" constant="78" id="ChE-a3-pX4"/>
                                                 <constraint firstItem="jka-Vr-dha" firstAttribute="leading" secondItem="OeW-Fw-4I9" secondAttribute="trailing" constant="14" id="Orr-mk-iBD"/>
                                                 <constraint firstItem="Eae-B2-0xt" firstAttribute="top" secondItem="uep-CF-ssd" secondAttribute="top" constant="15" id="VTo-qc-QI8"/>
+                                                <constraint firstItem="ziw-IA-nBC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Eae-B2-0xt" secondAttribute="trailing" constant="16" id="YWU-mi-o11"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eae-B2-0xt" secondAttribute="trailing" constant="78" id="cfc-tD-4if"/>
                                                 <constraint firstItem="OeW-Fw-4I9" firstAttribute="top" secondItem="uep-CF-ssd" secondAttribute="top" constant="16" id="epG-Ho-UIZ"/>
                                                 <constraint firstItem="OeW-Fw-4I9" firstAttribute="leading" secondItem="uep-CF-ssd" secondAttribute="leading" constant="16" id="fBJ-jR-j4H"/>
-                                                <constraint firstItem="ziw-IA-nBC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Eae-B2-0xt" secondAttribute="trailing" constant="8" symbolic="YES" id="jjU-MJ-C3z"/>
                                                 <constraint firstItem="Eae-B2-0xt" firstAttribute="leading" secondItem="OeW-Fw-4I9" secondAttribute="trailing" constant="14" id="u2a-Ju-Gtk"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="uep-CF-ssd" secondAttribute="bottom" constant="8" id="Rdd-Ji-JdC"/>
-                                        <constraint firstItem="uep-CF-ssd" firstAttribute="top" secondItem="FKO-Py-Tqr" secondAttribute="top" constant="8" id="Yyn-RS-JuN"/>
+                                        <constraint firstItem="uep-CF-ssd" firstAttribute="centerX" secondItem="FKO-Py-Tqr" secondAttribute="centerX" id="3MW-zf-ih5"/>
+                                        <constraint firstAttribute="bottom" secondItem="uep-CF-ssd" secondAttribute="bottom" constant="5" id="Rdd-Ji-JdC"/>
+                                        <constraint firstItem="uep-CF-ssd" firstAttribute="top" secondItem="FKO-Py-Tqr" secondAttribute="top" constant="5" id="Yyn-RS-JuN"/>
                                         <constraint firstAttribute="trailing" secondItem="uep-CF-ssd" secondAttribute="trailing" constant="14" id="dzt-UZ-tcl"/>
                                         <constraint firstItem="uep-CF-ssd" firstAttribute="leading" secondItem="FKO-Py-Tqr" secondAttribute="leading" constant="14" id="svY-2l-Cdo"/>
+                                        <constraint firstItem="uep-CF-ssd" firstAttribute="centerY" secondItem="FKO-Py-Tqr" secondAttribute="centerY" id="wgL-ER-36A"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -635,19 +631,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="202" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcZ-qG-uPZ" customClass="UIName" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="70" y="15" width="240" height="16"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="16" id="Svm-uR-rgJ"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="70" y="15" width="240" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="21" translatesAutoresizingMaskIntoConstraints="NO" id="L32-Ri-SdS" customClass="UITitle" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="70" y="34" width="32" height="19"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="19" id="UfJ-Nh-akx"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="70" y="35" width="32" height="19"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -674,7 +664,6 @@
                                                         <constraint firstItem="L32-Ri-SdS" firstAttribute="leading" secondItem="c9K-R0-JeZ" secondAttribute="trailing" constant="14" id="osv-PO-yTo"/>
                                                         <constraint firstItem="c9K-R0-JeZ" firstAttribute="leading" secondItem="Be6-eu-pE1" secondAttribute="leading" constant="16" id="pjF-16-xb1"/>
                                                         <constraint firstItem="UOM-id-etV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TcZ-qG-uPZ" secondAttribute="trailing" constant="20" id="smd-N5-E9o"/>
-                                                        <constraint firstAttribute="bottom" secondItem="L32-Ri-SdS" secondAttribute="bottom" constant="13" id="tQu-cC-IjM"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L32-Ri-SdS" secondAttribute="trailing" constant="32" id="wVF-N0-viN"/>
                                                     </constraints>
                                                 </view>

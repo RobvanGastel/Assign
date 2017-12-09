@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import AlamofireImage
 
 /// TODO: Modify so it works with push and pop
@@ -63,9 +64,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         self.start = 0
         self.reachedEnd = false
         
-        self.apiService?.searchPosts(size: size, start: start,
-                                     query: searchBar.text!)
-        { posts in
+        self.apiService?.searchPosts(size: size, start: start, query: searchBar.text!) { posts in
             // Sets the posts and refreshes the table
             self.posts = posts!
             self.tableView.reloadData()
@@ -77,8 +76,27 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Table view data source
 
+    class TableViewHelper {
+        class func EmptyStateView(message: String, viewController: PostSearchController) {
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height))
+            messageLabel.text = message
+            // messageLabel.textColor = UIColor.blackColor()
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = .center;
+            messageLabel.font = UIFont(name: "", size: 15)
+            messageLabel.sizeToFit()
+            viewController.tableView.backgroundView = messageLabel;
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if posts.count > 0 {
+            return 1
+        } else {
+            print("Empty state: Search")
+            TableViewHelper.EmptyStateView(message: "Er is momenteel geen vraag met deze zoekterm. Probeer iets anders.", viewController: self)
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
