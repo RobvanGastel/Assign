@@ -75,18 +75,25 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     
     // MARK: - Table view data source
-
-    class TableViewHelper {
-        class func EmptyStateView(message: String, viewController: PostSearchController) {
-            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height))
-            messageLabel.text = message
-            // messageLabel.textColor = UIColor.blackColor()
-            messageLabel.numberOfLines = 0;
-            messageLabel.textAlignment = .center;
-            messageLabel.font = UIFont(name: "", size: 15)
-            messageLabel.sizeToFit()
-            viewController.tableView.backgroundView = messageLabel;
-        }
+    
+    func EmptyStateView(message: String, title: String, viewController: PostSearchController) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 200, width: viewController.view.bounds.size.width, height: 40))
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 140, width: viewController.view.bounds.size.width, height: 40))
+        messageLabel.text = message
+        titleLabel.text = title
+        // messageLabel.textColor = UIColor.blackColor()
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "", size: 15)
+        messageLabel.sizeToFit()
+        
+        titleLabel.numberOfLines = 0;
+        titleLabel.textAlignment = .center;
+        titleLabel.font = UIFont(name: "", size: 15)
+        titleLabel.sizeToFit()
+        
+        viewController.tableView.addSubview(messageLabel);
+        viewController.tableView.addSubview(titleLabel);
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,7 +101,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
             return 1
         } else {
             print("Empty state: Search")
-            TableViewHelper.EmptyStateView(message: "Er is momenteel geen vraag met deze zoekterm. Probeer iets anders.", viewController: self)
+            EmptyStateView(message: "Er is momenteel geen vraag met deze zoekterm. Probeer iets anders.", title: "Geen assignment gevonden", viewController: self)
             return 0
         }
     }
