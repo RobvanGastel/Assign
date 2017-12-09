@@ -77,23 +77,35 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - Table view data source
     
     func EmptyStateView(message: String, title: String, viewController: PostSearchController) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 200, width: viewController.view.bounds.size.width, height: 40))
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 140, width: viewController.view.bounds.size.width, height: 40))
-        messageLabel.text = message
+        // Image
+//        let imageName = "images/empty-state/illustration-search-empty.png"
+//        let image = UIImage(named: imageName)
+//        let imageView = UIImageView(image: image!)
+//        imageView.frame = CGRect(x: viewController.view.bounds.size.width/2-90, y: 0, width: 180, height: 180)
+//        view.addSubview(imageView)
+        var imageView : UIImageView
+        imageView  = UIImageView(frame: CGRect(x: viewController.view.bounds.size.width/2-90, y: viewController.view.bounds.size.height/2-180, width: 180, height: 180));
+        imageView.image = UIImage(named: "illustration-search-empty.png")
+        self.view.addSubview(imageView)
+        
+        // Title
+        let titleLabel = UILabel(frame: CGRect(x: 24, y: viewController.view.bounds.size.height/2-40, width: viewController.view.bounds.size.width-48, height: 40))
         titleLabel.text = title
+        titleLabel.numberOfLines = 1;
+        titleLabel.textAlignment = .center;
+        titleLabel.font = UIFont(name: "System", size: 18)
+//        titleLabel.sizeToFit()
+        viewController.tableView.addSubview(titleLabel);
+        
+        // Message/Description
         // messageLabel.textColor = UIColor.blackColor()
+        let messageLabel = UILabel(frame: CGRect(x: 24, y: viewController.view.bounds.size.height/2, width: viewController.view.bounds.size.width-48, height: 40))
+        messageLabel.text = message
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = .center;
-        messageLabel.font = UIFont(name: "", size: 15)
+        messageLabel.font = UIFont(name: "System", size: 16)
         messageLabel.sizeToFit()
-        
-        titleLabel.numberOfLines = 0;
-        titleLabel.textAlignment = .center;
-        titleLabel.font = UIFont(name: "", size: 15)
-        titleLabel.sizeToFit()
-        
         viewController.tableView.addSubview(messageLabel);
-        viewController.tableView.addSubview(titleLabel);
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
