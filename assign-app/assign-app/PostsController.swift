@@ -44,7 +44,7 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
         }
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
