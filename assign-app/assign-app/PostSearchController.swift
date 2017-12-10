@@ -76,44 +76,47 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Table view data source
     
-    func EmptyStateView(message: String, title: String, viewController: PostSearchController) {
+    func EmptyStateView(viewController: PostSearchController) {
+        // backgroundView
+        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height));
+        
         // Image
-//        let imageName = "images/empty-state/illustration-search-empty.png"
-//        let image = UIImage(named: imageName)
-//        let imageView = UIImageView(image: image!)
-//        imageView.frame = CGRect(x: viewController.view.bounds.size.width/2-90, y: 0, width: 180, height: 180)
-//        view.addSubview(imageView)
         var imageView : UIImageView
-        imageView  = UIImageView(frame: CGRect(x: viewController.view.bounds.size.width/2-90, y: viewController.view.bounds.size.height/2-180, width: 180, height: 180));
+        imageView  = UIImageView(frame: CGRect(x: viewController.view.bounds.size.width/2-90, y: viewController.view.bounds.size.height/2-220, width: 180, height: 180));
         imageView.image = UIImage(named: "illustration-search-empty.png")
-        self.view.addSubview(imageView)
         
         // Title
-        let titleLabel = UILabel(frame: CGRect(x: 24, y: viewController.view.bounds.size.height/2-40, width: viewController.view.bounds.size.width-48, height: 40))
-        titleLabel.text = title
-        titleLabel.numberOfLines = 1;
+        let titleLabel = UILabel(frame: CGRect(x: 24, y: viewController.view.bounds.size.height/2-40, width: viewController.view.bounds.size.width-48, height: 40));
+        titleLabel.textColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1);
+        titleLabel.text = "Geen assignment gevonden";
+        titleLabel.numberOfLines = 0;
         titleLabel.textAlignment = .center;
-        titleLabel.font = UIFont(name: "System", size: 18)
-//        titleLabel.sizeToFit()
-        viewController.tableView.addSubview(titleLabel);
+        titleLabel.font = UIFont(name: "System", size: 18);
         
         // Message/Description
-        // messageLabel.textColor = UIColor.blackColor()
-        let messageLabel = UILabel(frame: CGRect(x: 24, y: viewController.view.bounds.size.height/2, width: viewController.view.bounds.size.width-48, height: 40))
-        messageLabel.text = message
+        let messageLabel = UILabel(frame: CGRect(x: 24, y: viewController.view.bounds.size.height/2, width: viewController.view.bounds.size.width-48, height: 40));
+        messageLabel.text = "Er is momenteel geen vraag met deze zoekterm. Probeer iets anders.";
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = .center;
-        messageLabel.font = UIFont(name: "System", size: 16)
-        messageLabel.sizeToFit()
-        viewController.tableView.addSubview(messageLabel);
+        messageLabel.font = UIFont(name: "System", size: 16);
+        messageLabel.sizeToFit();
+        
+        imageView.isHidden = false
+        titleLabel.isHidden = false
+        messageLabel.isHidden = false
+        
+        backgroundView.addSubview(imageView);
+        backgroundView.addSubview(titleLabel);
+        backgroundView.addSubview(messageLabel);
+        
+        viewController.tableView.backgroundView = backgroundView;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if posts.count > 0 {
+            EmptyStateView(viewController: self)
             return 1
         } else {
-            print("Empty state: Search")
-            EmptyStateView(message: "Er is momenteel geen vraag met deze zoekterm. Probeer iets anders.", title: "Geen assignment gevonden", viewController: self)
             return 0
         }
     }
