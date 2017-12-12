@@ -18,11 +18,13 @@ extension Date {
         let components = self.dateComponents()
         
         if components.year! > 0 {
-            return self.string(fromFormat: "%%dyr", withValue: components.year!)
+            return self.string(fromFormat: "%%djr", withValue: components.year!)
+//            return self.string(fromFormat: "%%dyr", withValue: components.year!)
         }
         
         if components.month! > 0 {
-            return self.string(fromFormat: "%%dmo", withValue: components.month!)
+            return self.string(fromFormat: "%%dmn", withValue: components.month!)
+//            return self.string(fromFormat: "%%dmo", withValue: components.month!)
         }
         
         // TODO: localize for other calanders
@@ -36,7 +38,8 @@ extension Date {
         }
         
         if components.hour! > 0 {
-            return self.string(fromFormat: "%%dh", withValue: components.hour!)
+            return self.string(fromFormat: "%%du", withValue: components.hour!)
+//            return self.string(fromFormat: "%%dh", withValue: components.hour!)
         }
         
         if components.minute! > 0 {
@@ -44,11 +47,7 @@ extension Date {
         }
         
         if components.second! > 0 {
-            if components.second! < 5 {
-                return "Just now"
-            } else {
-                return self.string(fromFormat: "%%ds", withValue: components.second! )
-            }
+            return self.string(fromFormat: "%%ds", withValue: components.second! )
         }
         
         return ""
@@ -56,64 +55,78 @@ extension Date {
     
     public var timeAgo: String {
         let components = self.dateComponents()
-        
+
         if components.year! > 0 {
             if components.year! < 2 {
-                return "Last year"
+                return "Vorig jaar"
+//                return "Last year"
             } else {
-                return self.string(fromFormat: "%%d years ago", withValue: components.year!)
+                return self.string(fromFormat: "%%d jaar geleden", withValue: components.year!)
+//                return self.string(fromFormat: "%%d years ago", withValue: components.year!)
             }
         }
-        
+
         if components.month! > 0 {
             if components.month! < 2 {
-                return "Last month"
+                return "vorige maand!"
+//                return "Last month"
             } else {
-                return self.string(fromFormat: "%%d months ago", withValue: components.month!)
+                return self.string(fromFormat: "%%d maanden geleden!", withValue: components.month!)
+//                return self.string(fromFormat: "%%d months ago", withValue: components.month!)
             }
         }
-        
+
         if components.day! >= 7 {
             let week = components.day!/7
             if week < 2 {
-                return "Last week"
+                return "Vorige week"
+//                return "Last week"
             } else {
-                return self.string(fromFormat: "%%d weeks ago", withValue: week)
+                return self.string(fromFormat: "%%d weken geleden", withValue: week)
+//                return self.string(fromFormat: "%%d weeks ago", withValue: week)
             }
         }
-        
+
         if components.day! > 0 {
             if components.day! < 2 {
-                return "Yesterday"
+                return "Gisteren"
+//                return "Yesterday"
             } else  {
-                return self.string(fromFormat: "%%d days ago", withValue: components.day!)
+                return self.string(fromFormat: "%%d dagen geleden", withValue: components.day!)
+//                return self.string(fromFormat: "%%d days ago", withValue: components.day!)
             }
         }
-        
+
         if components.hour! > 0 {
             if components.hour! < 2 {
-                return "An hour ago"
+                return "Een uur geleden"
+//                return "An hour ago"
             } else  {
-                return self.string(fromFormat: "%%d hours ago", withValue: components.hour!)
+                return self.string(fromFormat: "%%d uur geleden", withValue: components.hour!)
+//                return self.string(fromFormat: "%%d hours ago", withValue: components.hour!)
             }
         }
-        
+
         if components.minute! > 0 {
             if components.minute! < 2 {
-                return "A minute ago"
+                return "Een minuute geleden"
+//                return "A minute ago"
             } else {
-                return self.string(fromFormat: "%%d minutes ago", withValue: components.minute!)
+                return self.string(fromFormat: "%%d minuten geleden", withValue: components.minute!)
+//                return self.string(fromFormat: "%%d minutes ago", withValue: components.minute!)
             }
         }
-        
+
         if components.second! > 0 {
             if components.second! < 5 {
-                return "Just now"
+                return "Zo net"
+//                return "Just now"
             } else {
-                return self.string(fromFormat: "%%d seconds ago", withValue: components.second!)
+                return self.string(fromFormat: "%%d seconden geleden", withValue: components.second!)
+//                return self.string(fromFormat: "%%d seconds ago", withValue: components.second!)
             }
         }
-        
+
         return ""
     }
     
