@@ -337,9 +337,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="403" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfV-4K-UlT" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="352" y="12" width="28" height="21"/>
+                                                            <rect key="frame" x="353.33333333333331" y="12" width="26.666666666666686" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="28" id="KpX-0M-jCX"/>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="28" id="KpX-0M-jCX"/>
                                                                 <constraint firstAttribute="height" constant="21" id="kEJ-yj-sYV"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -611,7 +611,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="016-RM-dRN">
                                 <rect key="frame" x="4" y="56" width="406" height="616"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="SearchCell" id="qfo-lk-lYQ">
@@ -678,7 +678,7 @@
                                                 <constraint firstItem="Be6-eu-pE1" firstAttribute="centerX" secondItem="BSO-48-C7Q" secondAttribute="centerX" id="xeW-F2-IoN"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
@@ -687,6 +687,47 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view tag="206" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9C-nA-NRe">
+                                <rect key="frame" x="0.0" y="194.66666666666669" width="414" height="283"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-search-empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="x1o-U4-xQX">
+                                        <rect key="frame" x="117" y="0.0" width="180" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="K8e-jh-zCy"/>
+                                            <constraint firstAttribute="height" constant="180" id="xne-1Y-pMX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geen assignment gevonden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hle-EF-7kf">
+                                        <rect key="frame" x="92.000000000000014" y="196" width="230.33333333333337" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="Jhv-B1-JjA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Er is momenteel geen vraag met deze zoekterm. Probeer iets anders." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGY-KQ-erH">
+                                        <rect key="frame" x="68.666666666666686" y="227" width="277" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="AHk-Uc-6wv"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="Hzj-FT-OhH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="JGY-KQ-erH" firstAttribute="top" secondItem="Hle-EF-7kf" secondAttribute="bottom" constant="10" id="E0U-qn-hCK"/>
+                                    <constraint firstItem="Hle-EF-7kf" firstAttribute="centerX" secondItem="z9C-nA-NRe" secondAttribute="centerX" id="G4d-Hx-0Zh"/>
+                                    <constraint firstItem="x1o-U4-xQX" firstAttribute="top" secondItem="z9C-nA-NRe" secondAttribute="top" id="XiU-i7-sYn"/>
+                                    <constraint firstAttribute="bottom" secondItem="JGY-KQ-erH" secondAttribute="bottom" constant="16" id="baD-QD-FuZ"/>
+                                    <constraint firstItem="x1o-U4-xQX" firstAttribute="centerX" secondItem="z9C-nA-NRe" secondAttribute="centerX" id="eJh-Dp-ohc"/>
+                                    <constraint firstItem="Hle-EF-7kf" firstAttribute="top" secondItem="x1o-U4-xQX" secondAttribute="bottom" constant="16" id="fVu-Iu-Z0z"/>
+                                    <constraint firstItem="JGY-KQ-erH" firstAttribute="centerX" secondItem="z9C-nA-NRe" secondAttribute="centerX" id="yua-Ay-RSH"/>
+                                </constraints>
+                            </view>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Zoeken..." translatesAutoresizingMaskIntoConstraints="NO" id="gXk-If-sV8" customClass="UISearch" customModule="assign_app" customModuleProvider="target">
                                 <rect key="frame" x="3" y="0.0" width="408" height="56"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -699,8 +740,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gXk-If-sV8" secondAttribute="trailing" constant="-17" id="8dy-BT-EwG"/>
                             <constraint firstItem="fWf-eC-tT2" firstAttribute="top" secondItem="016-RM-dRN" secondAttribute="bottom" id="9wS-JQ-Cxs"/>
                             <constraint firstItem="016-RM-dRN" firstAttribute="centerX" secondItem="9qL-rU-jXU" secondAttribute="centerX" id="B5j-wp-Bjv"/>
+                            <constraint firstAttribute="trailing" secondItem="z9C-nA-NRe" secondAttribute="trailing" id="Bfh-d8-VlR"/>
                             <constraint firstItem="gXk-If-sV8" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leadingMargin" constant="-17" id="GZk-BP-MIz"/>
                             <constraint firstItem="016-RM-dRN" firstAttribute="top" secondItem="gXk-If-sV8" secondAttribute="bottom" id="J3F-O8-HM5"/>
+                            <constraint firstItem="z9C-nA-NRe" firstAttribute="centerY" secondItem="9qL-rU-jXU" secondAttribute="centerY" id="UCq-oN-bBG"/>
+                            <constraint firstItem="z9C-nA-NRe" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leading" id="jqC-hv-cFT"/>
                             <constraint firstItem="gXk-If-sV8" firstAttribute="top" secondItem="5SM-bX-Y12" secondAttribute="bottom" id="rJB-9q-cUw"/>
                             <constraint firstItem="016-RM-dRN" firstAttribute="leading" secondItem="9qL-rU-jXU" secondAttribute="leading" constant="4" id="usF-Zp-VNO"/>
                         </constraints>
@@ -1316,14 +1360,20 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qzd-bv-tUj">
+                        <barButtonItem key="leftBarButtonItem" image="icon-cross.png" id="TBk-Xy-3jO">
+                            <connections>
+                                <action selector="backClick:" destination="nqU-Wi-bqa" id="YmN-Fj-UVt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="IoR-v9-Hk5">
-                            <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addPost:" destination="nqU-Wi-bqa" id="kEP-2L-7Ug"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPostButton" destination="IoR-v9-Hk5" id="pby-xM-MzH"/>
                         <outlet property="counterField" destination="frJ-4Q-knz" id="3Yg-pF-SL5"/>
                         <outlet property="descriptionText" destination="JvU-E0-4Lu" id="oz8-m8-G57"/>
                         <outlet property="titleField" destination="MGo-QL-mVh" id="e3Q-P7-p3J"/>
@@ -1831,9 +1881,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="403" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDS-Uc-nDY" customClass="UIDate" customModule="assign_app" customModuleProvider="target">
-                                                            <rect key="frame" x="346" y="12" width="28" height="21"/>
+                                                            <rect key="frame" x="347.33333333333331" y="12" width="26.666666666666686" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="BQw-x6-HXA"/>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="28" id="BQw-x6-HXA"/>
                                                                 <constraint firstAttribute="height" constant="21" id="tmF-Ib-W0v"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -2465,13 +2515,14 @@
         <image name="illustration-messages.jpg" width="360" height="360"/>
         <image name="illustration-notification.jpg" width="360" height="360"/>
         <image name="illustration-problem.jpg" width="360" height="360"/>
+        <image name="illustration-search-empty.png" width="180" height="180"/>
         <image name="logo-load.png" width="111" height="111"/>
         <image name="logo-login.png" width="51" height="51"/>
         <image name="profile.jpg" width="103" height="103"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Yxs-Gc-6XC"/>
-        <segue reference="lIc-Nk-6xF"/>
+        <segue reference="fBX-gg-7Ni"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -15,7 +15,8 @@ class AddPostController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var counterField: UITitle!
-
+    @IBOutlet weak var addPostButton: UIBarButtonItem!
+    
     // API service
     var apiService: ApiService?
     
@@ -55,9 +56,14 @@ class AddPostController: UIViewController, UITextViewDelegate {
         
         // Makes sure the counter doesnt drop below 0
         switch amount {
-        case 15 ..< 255:
+        case 246 ..< 256:
             counterField.textColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 1)
             counterField.text = String(maxCharacter - counter)
+            addPostButton.tintColor = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1)
+        case 15 ..< 246:
+            counterField.textColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 1)
+            counterField.text = String(maxCharacter - counter)
+            addPostButton.tintColor = UIColor(red: 1.0, green: 0.6, blue: 0.16, alpha: 1)
         case 7 ..< 15:
             counterField.textColor = UIColor.orange
             counterField.text = String(maxCharacter - counter)
@@ -88,12 +94,12 @@ class AddPostController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1)
         }
     }
-
+    
     /// Add post function
     @IBAction func addPost(_ sender: Any) {
         // Check if the fields are filled
-        if titleField.text != "" && descriptionText.text != "" {
-
+        if titleField.text != "" && descriptionText.text != "" && descriptionText.text != "Geef een beschrijving" {
+            
             // Add post API call with the API Service
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
                 
@@ -101,9 +107,6 @@ class AddPostController: UIViewController, UITextViewDelegate {
                     // Navigate back to the previous view
                     self.delegate?.refreshPosts()
                     self.navigationController?.popViewController(animated: true)
-                    
-                    // To dissmiss page with navigationbar
-                    // self.dismiss(animated: true, completion: nil)
                     
                     // TODO: Add SUCCESS message
                 } else {
@@ -117,8 +120,6 @@ class AddPostController: UIViewController, UITextViewDelegate {
     
     @IBAction func backClick(_ sender: Any) {
         view.endEditing(true)
-        // To dissmiss page with navigationbar
-        // dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
 }
