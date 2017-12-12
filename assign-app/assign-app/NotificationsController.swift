@@ -123,13 +123,16 @@ class NotificationsController: UITableViewController {
         if let isReadView = cell.viewWithTag(105) {
             if !notification.readNotification {
                 isReadView.layer.cornerRadius = isReadView.frame.size.width/2
-                isReadView.clipsToBounds = true
-                isReadView.layer.borderWidth = 2.5
-                isReadView.layer.borderColor = UIColor.white.cgColor
-                isReadView.layer.shadowOpacity = 1.0
-                
             } else {
                 isReadView.isHidden = true
+            }
+        }
+        
+        if let isReadViewDot = cell.viewWithTag(106) {
+            if !notification.readNotification {
+                isReadViewDot.layer.cornerRadius = isReadViewDot.frame.size.width/2
+            } else {
+                isReadViewDot.isHidden = true
             }
         }
         

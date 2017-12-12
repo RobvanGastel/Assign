@@ -23,7 +23,7 @@ extension Date {
         }
         
         if components.month! > 0 {
-            return self.string(fromFormat: "%%dmn", withValue: components.month!)
+            return self.string(fromFormat: "%%dmd", withValue: components.month!)
 //            return self.string(fromFormat: "%%dmo", withValue: components.month!)
         }
         
@@ -68,7 +68,7 @@ extension Date {
 
         if components.month! > 0 {
             if components.month! < 2 {
-                return "vorige maand!"
+                return "Vorige maand"
 //                return "Last month"
             } else {
                 return self.string(fromFormat: "%%d maanden geleden!", withValue: components.month!)
