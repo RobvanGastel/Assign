@@ -50,7 +50,7 @@ public class StartUp {
             // Fontys ICT studie
             userService.create(new User("admin@mail.nl", "admin", "Jan Jansen", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
             userService.create(new User("max@mail.nl", "max", "Max Wammes", ict, "Interactief Vormgeving 3IVV", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
-
+            
             // Fontys PABO studie
             userService.create(new User("kees@mail.nl", "kees", "Kees Alders", pabo, "Geschiedenis opleiding", new SocialLink("Keeskee", "Seesjeee", "0612312351")));
 
@@ -67,9 +67,11 @@ public class StartUp {
             userService.update(admin);
 
             User max = userService.findById(9L);
+            max.setProfileImage("max.jpg");
             User kees = userService.findById(12L);
             User pieter = userService.findById(15L);
             User rob = userService.findById(18L);
+            rob.setProfileImage("rob.png");
 
             // Creating posts
             postService.create(new Post(max, "Hoe werkt centreren in CSS?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec #eleifend ligula enim, #in tempor sem interdum quis. Sed bibendum ex neque, et dapibus nulla ullamcorper a."));
