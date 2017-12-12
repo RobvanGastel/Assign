@@ -49,7 +49,7 @@ public class StartUp {
 
             // Fontys ICT studie
             userService.create(new User("admin@mail.nl", "admin", "Jan Jansen", ict, "Media vormgeving", new SocialLink("JanPieterJeWeet", "FacebookenMeneer", "06380013")));
-            userService.create(new User("max@mail.nl", "max", "Max Wammes", ict, "Technology", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
+            userService.create(new User("max@mail.nl", "max", "Max Wammes", ict, "Interactief Vormgeving 3IVV", new SocialLink("MaxWammelsWieeehoo", "MeneerDePeer", "06123111")));
 
             // Fontys PABO studie
             userService.create(new User("kees@mail.nl", "kees", "Kees Alders", pabo, "Geschiedenis opleiding", new SocialLink("Keeskee", "Seesjeee", "0612312351")));
@@ -60,7 +60,7 @@ public class StartUp {
             // Social network without facebook and phonenumber
             SocialLink social = new SocialLink();
             social.setTwitter("TwitterKoning");
-            userService.create(new User("rob@mail.nl", "rob", "Rob van Gastel", ict, "Software Engineering", social));
+            userService.create(new User("rob@mail.nl", "rob", "Rob van Gastel", ict, "Software Engineering 3SED", social));
 
             User admin = userService.findById(6L);
             admin.setRole(Role.ADMIN);
