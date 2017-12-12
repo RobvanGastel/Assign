@@ -68,7 +68,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         UIApplication.shared.statusBarStyle = .default
         
         // Layout settings
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
     
@@ -228,16 +228,6 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         }
         
         return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let reply = replies[indexPath.row]
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ProfileDetailController") as! ProfileDetailController
-        vc.currentUser = reply.user
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func updateViewConstraints() {

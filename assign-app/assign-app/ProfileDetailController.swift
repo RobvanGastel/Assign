@@ -78,6 +78,7 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 127/255, blue: 40/255, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+//        self.navigationController?.navigationBar.backItem?.title = "Anything Else"
     }
     
     /// Set profile of the User.
@@ -280,7 +281,6 @@ class ProfileDetailController: UIViewController, UITableViewDataSource, UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath as IndexPath)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         
         switch(segmentedControl.selectedSegmentIndex)
         {
