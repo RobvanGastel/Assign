@@ -104,6 +104,13 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if post.user!.id != Storage.getUser().id {
+            
+//            let transition = CATransition()
+//            transition.duration = 0.3
+//            transition.type = kCATransitionMoveIn
+//            transition.subtype = kCATransitionFromRight
+//            self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+
             let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
             vc.currentPost = post
             vc.delegate = self
