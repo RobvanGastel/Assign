@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I2f-aY-m96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I2f-aY-m96">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -576,7 +576,7 @@
                         <barButtonItem key="rightBarButtonItem" image="icon-add.png" id="M2c-KH-RwY">
                             <color key="tintColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="nqU-Wi-bqa" kind="custom" identifier="PostAddSegue" id="E7U-u8-aG6"/>
+                                <segue destination="nqU-Wi-bqa" kind="show" identifier="PostAddSegue" id="E7U-u8-aG6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1267,11 +1267,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Uab-9e-uuS"/>
                     </layoutGuides>
                     <view key="view" contentMode="top" id="KNc-1Y-YEG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Waar heb je hulp mee nodig?" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-QL-mVh">
-                                <rect key="frame" x="44" y="77" width="326" height="30"/>
+                                <rect key="frame" x="44" y="57" width="326" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XwV-p9-ZYZ"/>
                                 </constraints>
@@ -1285,7 +1285,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvU-E0-4Lu" customClass="UIAddDesc" customModule="assign_app" customModuleProvider="target">
-                                <rect key="frame" x="40" y="124" width="334" height="223"/>
+                                <rect key="frame" x="40" y="104" width="334" height="223"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="223" id="cpe-Ds-vsQ"/>
                                 </constraints>
@@ -1294,7 +1294,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frJ-4Q-knz">
-                                <rect key="frame" x="20" y="487" width="374" height="17"/>
+                                <rect key="frame" x="20" y="423" width="374" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
