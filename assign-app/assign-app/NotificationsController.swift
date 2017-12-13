@@ -11,8 +11,10 @@ import AlamofireImage
 
 /// TODO: Update pull to refresh to minimize (Abstract class)
 /// TODO: add Data to Core Data as cache
-class NotificationsController: UITableViewController {
-
+class NotificationsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     // Posts array for tableview
     var notifications = [Notification]()
     
@@ -22,6 +24,16 @@ class NotificationsController: UITableViewController {
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(NotificationsController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor(hexString: "#FFA92F")
+        
+        return refreshControl
+    }()
+    
     // API service
     var apiService: ApiService?
     
@@ -30,6 +42,11 @@ class NotificationsController: UITableViewController {
         
         // Init API service
         apiService = ApiService()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        self.tableView.backgroundView = self.refreshControl
         
         // On viewLoad get the posts from the API
         // Starting values of size is 20 and start 1
@@ -61,16 +78,16 @@ class NotificationsController: UITableViewController {
     
     // MARK: - Table view with Posts
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifications.count
     }
     
     /// Segue for Post Detail View
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let notification = notifications[indexPath.row]
         
@@ -97,7 +114,7 @@ class NotificationsController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath)
         
         let notification = notifications[indexPath.row] as Notification
@@ -139,9 +156,12 @@ class NotificationsController: UITableViewController {
         return cell
     }
     
+    
     /// Pull and refesh function on the tableView.
-    @IBAction func refreshAction(_ sender: Any) {
-        self.refreshNotifications()
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.refreshNotifications()
+        }
     }
     
     /// Refreshes the posts in the view.
@@ -157,12 +177,12 @@ class NotificationsController: UITableViewController {
             // Reloads the tableView and stops the refresh animation
             self.notifications = notifications!
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            self.refreshControl.endRefreshing()
         }
     }
     
     /// ScrollView infinite scroll.
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         // calculate scrollView size
         let currentOffset = scrollView.contentOffset.y
