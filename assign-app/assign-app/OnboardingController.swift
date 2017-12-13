@@ -63,10 +63,6 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
             if let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) {
                 setViewControllers([nextPage], direction: .forward, animated: true) { result in
                     
-                    if let nextButton = self.view.viewWithTag(251) as? UIButton {
-                        nextButton.setTitle("Volgende", for: [])
-                    }
-                    
                     // First time check if the app is allowed to send notifications
                     if self.orderedViewControllers.index(of: nextPage) == 3 {
                         self.registerAndChangeButton()
@@ -136,10 +132,6 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
-        
-        if let nextButton = view.viewWithTag(251) as? UIButton {
-            nextButton.setTitle("Volgende", for: [])
-        }
         
         // First time check if the app is allowed to send notifications
         if orderedViewControllers.index(of: pageContentViewController) == 3 {
