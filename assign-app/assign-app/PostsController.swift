@@ -59,7 +59,6 @@ class PostsController: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.posts = posts!
             self.tableView.reloadData()
         }
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +67,7 @@ class PostsController: UIViewController, UITableViewDelegate, UITableViewDataSou
         // Layout settings
         UIApplication.shared.statusBarStyle = .default
         view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
@@ -150,7 +149,6 @@ class PostsController: UIViewController, UITableViewDelegate, UITableViewDataSou
             let nextView = segue.destination as? AddPostController {
                 nextView.delegate = self
         }
-        
     }
     
     /// Pull and refesh function on the tableView.
