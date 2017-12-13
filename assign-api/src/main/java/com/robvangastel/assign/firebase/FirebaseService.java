@@ -275,8 +275,8 @@ public class FirebaseService implements Serializable {
         // Persist the Notification
         notificationDao.create(
                 new Notification(
-                        receiver,
                         sender,
+                        receiver,
                         payload.getData().getPostId(),
                         payload.getNotification().getTitle(),
                         payload.getNotification().getBody()));
