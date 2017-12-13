@@ -43,7 +43,12 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     
     // Action of the skip button
     func skipButtonAction(sender: UIButton!) {
-        self.redirectViewController(animated: false, identifier: "LoginController")
+//        let transition = CATransition()
+//        transition.duration = 0.1
+//        transition.type = kCATransitionMoveIn
+//        transition.subtype = kCATransitionFromRight
+//        self.view.layer.add(transition, forKey: kCATransition)
+        self.redirectViewController(animated: true, identifier: "LoginController")
     }
     
     // Action of the next button
@@ -52,11 +57,17 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
             
             if self.orderedViewControllers.count - 1 == self.pageControl.currentPage {
                 Storage.setFirstLaunchTime()
-                self.redirectViewController(animated: false, identifier: "LoginController")
+                self.redirectViewController(animated: true, identifier: "LoginController")
             }
             
             if let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) {
                 setViewControllers([nextPage], direction: .forward, animated: true) { result in
+                    
+                    // First time check if the app is allowed to send notifications
+                    if self.orderedViewControllers.index(of: nextPage) == 3 {
+                        self.registerAndChangeButton()
+                    }
+                    
                     self.pageControl.currentPage = self.orderedViewControllers.index(of: nextPage)!
                 }
             }
@@ -100,7 +111,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-            self.redirectViewController(animated: false, identifier: "LoginController")
+            self.redirectViewController(animated: true, identifier: "LoginController")
             return nil
         }
         
@@ -124,8 +135,16 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         
         // First time check if the app is allowed to send notifications
         if orderedViewControllers.index(of: pageContentViewController) == 3 {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.registerForPushNotifications()
+            registerAndChangeButton()
+        }
+    }
+    
+    func registerAndChangeButton() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.registerForPushNotifications()
+        
+        if let nextButton = view.viewWithTag(251) as? UIButton {
+            nextButton.setTitle("Begrepen", for: [])
         }
     }
     
@@ -154,6 +173,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         skipButton.layer.cornerRadius = 6
         skipButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         skipButton.addTarget(self, action: #selector(skipButtonAction), for: .touchUpInside)
+        skipButton.tag = 250
         self.view.addSubview(skipButton)
         
         // Display the next button "Volgende"
@@ -165,6 +185,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         nextButton.layer.cornerRadius = 6
         nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         nextButton.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
+        nextButton.tag = 251
         self.view.addSubview(nextButton)
         
         self.view.backgroundColor = UIColor.white

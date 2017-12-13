@@ -73,7 +73,7 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         self.delegate = delegate
         self.tableView.reloadData()
         
-        titleLabel.text = post.title
+        self.titleLabel.text = post.title
     }
     
     // MARK: - Tableview with Replies
@@ -120,6 +120,8 @@ class PopupReplyController: UIView, UITableViewDataSource, UITableViewDelegate {
         // Set text and images
         self.helpedLabel.text = "Heeft " + (selectedReply?.user.name)! + " jou geholpen?"
         self.descriptionLabel.text = "Jouw assignment zal gesloten worden en " + (selectedReply?.user.name)! + " zal bedankt worden voor het helpen."
+        self.descriptionLabel.sizeToFit()
+        self.descriptionLabel.layoutMarginsDidChange()
         
         // Set left image
         let leftUrl = URL(string: (self.selectedReply?.post.user?.profileImage)!)!
