@@ -49,7 +49,7 @@ class StartController: UIViewController {
             }
 
         // Redirect to onboarding
-        } else if !Storage.getFirstLaunchTime() {
+        } else if Storage.getFirstLaunchTime() {
             self.redirectViewController(identifier: "OnboardingController")
             
         // Redirect to login view

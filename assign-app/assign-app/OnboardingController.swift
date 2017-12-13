@@ -43,11 +43,6 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     
     // Action of the skip button
     func skipButtonAction(sender: UIButton!) {
-        //        let transition = CATransition()
-        //        transition.duration = 0.1
-        //        transition.type = kCATransitionMoveIn
-        //        transition.subtype = kCATransitionFromRight
-        //        self.view.layer.add(transition, forKey: kCATransition)
         self.redirectViewController(animated: true, identifier: "LoginController")
     }
     
