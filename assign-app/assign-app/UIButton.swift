@@ -34,7 +34,7 @@ extension UIButton {
         if show {
             // Init indicator
             let indicator = UIActivityIndicatorView()
-            indicator.color = UIColor(hexString: "#FFFFFF")
+            indicator.color = UIColor(hexString: "#FFA92F")
             self.setTitle(text, for:.normal)
             
             // Set center
