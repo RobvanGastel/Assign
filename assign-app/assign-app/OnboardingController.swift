@@ -9,7 +9,7 @@
 import UIKit
 
 class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-
+    
     // Pager viewcontrollers
     lazy var orderedViewControllers: [UIViewController] = {
         return [self.newViewController(viewController: "StepOne"),
@@ -43,11 +43,11 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     
     // Action of the skip button
     func skipButtonAction(sender: UIButton!) {
-//        let transition = CATransition()
-//        transition.duration = 0.1
-//        transition.type = kCATransitionMoveIn
-//        transition.subtype = kCATransitionFromRight
-//        self.view.layer.add(transition, forKey: kCATransition)
+        //        let transition = CATransition()
+        //        transition.duration = 0.1
+        //        transition.type = kCATransitionMoveIn
+        //        transition.subtype = kCATransitionFromRight
+        //        self.view.layer.add(transition, forKey: kCATransition)
         self.redirectViewController(animated: true, identifier: "LoginController")
     }
     
@@ -62,6 +62,10 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
             
             if let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) {
                 setViewControllers([nextPage], direction: .forward, animated: true) { result in
+                    
+                    if let nextButton = self.view.viewWithTag(251) as? UIButton {
+                        nextButton.setTitle("Volgende", for: [])
+                    }
                     
                     // First time check if the app is allowed to send notifications
                     if self.orderedViewControllers.index(of: nextPage) == 3 {
@@ -80,7 +84,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         let vc = storyboard.instantiateViewController(withIdentifier: identifier)
         self.present(vc, animated: animated, completion: nil)
     }
-
+    
     /// Instatiate ViewController
     func newViewController(viewController: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:viewController)
@@ -116,12 +120,12 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         }
         
         let nextIndex = viewControllerIndex + 1
-
+        
         // This will run after the last page
         guard orderedViewControllers.count != nextIndex else {
             return nil
         }
-
+        
         guard orderedViewControllers.count > nextIndex else {
             return nil
         }
@@ -132,6 +136,10 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+        
+        if let nextButton = view.viewWithTag(251) as? UIButton {
+            nextButton.setTitle("Volgende", for: [])
+        }
         
         // First time check if the app is allowed to send notifications
         if orderedViewControllers.index(of: pageContentViewController) == 3 {
