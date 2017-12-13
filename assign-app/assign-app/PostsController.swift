@@ -13,7 +13,9 @@ import AlamofireImage
 /// TODO: add Data to Core Data as cache
 /// TODO: Modify so it works with push and pop
 /// TODO: Set placeholder images before posts have been loaded
-class PostsController: UITableViewController, RefreshPostsDelegate {
+class PostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RefreshPostsDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     // Posts array for tableview
     var posts = [Post]()
@@ -24,6 +26,16 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(PostsController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor(hexString: "#FFA92F")
+        
+        return refreshControl
+    }()
+    
     // API service
     var apiService: ApiService?
     
@@ -33,6 +45,11 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
         // Init API service
         apiService = ApiService()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        self.tableView.backgroundView = self.refreshControl
+        
         // On viewLoad get the posts from the API
         // Starting values of size is 20 and start 1
         self.apiService?.getPosts(size: 21, start: start) { posts in
@@ -64,15 +81,15 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
     
     // MARK: - Table view with Posts
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         let post = posts[indexPath.row] as Post
@@ -99,7 +116,7 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
     }
     
     /// Segue for Post Detail View
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -137,8 +154,10 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
     }
     
     /// Pull and refesh function on the tableView.
-    @IBAction func refreshAction(_ sender: Any) {
-        self.refreshPosts()
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.refreshPosts()
+        }
     }
     
     /// Refreshes the posts in the view.
@@ -147,19 +166,19 @@ class PostsController: UITableViewController, RefreshPostsDelegate {
         // Reset infinite loading variables
         self.start = 0
         self.reachedEnd = false
-        
+
         self.apiService?.getPosts(size: 21, start: start) { posts in
-            
+
             // TODO: add Data to Core Data as cache
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            self.refreshControl.endRefreshing()
         }
     }
     
     /// ScrollView infinite scroll.
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         // calculate scrollView size
         let currentOffset = scrollView.contentOffset.y
