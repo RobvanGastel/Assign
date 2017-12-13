@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Foundation
 import AlamofireImage
 
+/// TODO: Modify so it works with push and pop
 class PostSearchController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -34,21 +36,26 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         // Init API service
         apiService = ApiService()
         
-        // Initializes the delegate
+        // Initializes the delegates
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // Layout settings
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Layout settings
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    // Add some space to the TableView
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -57,9 +64,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
         self.start = 0
         self.reachedEnd = false
         
-        self.apiService?.searchPosts(size: size, start: start,
-                                     query: searchBar.text!)
-        { posts in
+        self.apiService?.searchPosts(size: size, start: start, query: searchBar.text!) { posts in
             // Sets the posts and refreshes the table
             self.posts = posts!
             self.tableView.reloadData()
@@ -69,10 +74,15 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    // MARK: - Table view data source
-
+    // MARK: - Table view data source    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if posts.count > 0 {
+            self.view.viewWithTag(206)?.isHidden = true
+            return 1
+        } else {
+            self.view.viewWithTag(206)?.isHidden = false
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,7 +117,7 @@ class PostSearchController: UIViewController, UITableViewDataSource, UITableView
     
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostDetailSegueSearch" ,
             let nextView = segue.destination as? PostDetailController,

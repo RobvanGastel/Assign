@@ -30,19 +30,33 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     @Override
     public Post findByUrl(String url) {
         Query q = entityManager.createQuery(
-                "FROM Post p WHERE p.url = :url ORDER BY p.dateCreated DESC")
+                "FROM Post p WHERE p.url = :url")
                 .setParameter("url", url);
         return (Post) q.getSingleResult();
     }
 
     @Override
+    public Boolean isUrlUsed(String url) {
+        Query q = entityManager.createQuery(
+                "FROM Post p WHERE p.url = :url")
+                .setParameter("url", url);
+        if (q.getResultList().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
     public List<Post> findByQuery(User user, String query, int start, int size) {
         query = "%" + query + "%";
-        String queryString = "SELECT * FROM Post p JOIN User u ON p.user_id = u.id JOIN Study s ON u.study_id = s.id JOIN School sc ON sc.id = s.school_id WHERE sc.id = :school AND LOWER(p.title) like LOWER(:query) OR LOWER(p.description) like LOWER(:query) OR LOWER(u.name) LIKE LOWER(:query) ORDER BY p.dateCreated DESC";
+
+        String queryString = "SELECT * FROM Post p INNER JOIN User u ON p.user_id = u.id INNER JOIN Study s ON u.study_id = s.id INNER JOIN School sc ON sc.id = s.school_id WHERE LOWER(p.title) like LOWER(:query) OR LOWER(p.description) like LOWER(:query) OR LOWER(u.name) LIKE LOWER(:query) AND s.id = :study AND sc.id = :school ORDER BY p.dateCreated DESC";
         return (List<Post>) entityManager.createNativeQuery(queryString, Post.class)
                 .setFirstResult(start)
                 .setMaxResults(size)
                 .setParameter("query", query)
+                .setParameter("study", user.getStudy().getId())
                 .setParameter("school", user.getStudy().getSchool().getId())
                 .getResultList();
     }
@@ -69,7 +83,24 @@ public class PostDaoImpl extends AbstractDao<Post> implements IPostDao {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
+    public List<Post> findAll(int start, int size) {
+        String queryString = "SELECT * FROM Post p ORDER BY p.dateCreated DESC";
+        return entityManager.createNativeQuery(queryString, Post.class)
+                .setFirstResult(start)
+                .setMaxResults(size)
+                .getResultList();
+    }
+
+    @Override
     public void create(Post entity) throws PostException {
         entityManager.merge(entity);
+    }
+
+    @Override
+    public void deleteByQuery(long id) throws PostException {
+        entityManager.createQuery("delete from Post where id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
     }
 }

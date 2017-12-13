@@ -25,16 +25,17 @@ class StartController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
 
         // Checks if the user has loggedin in the past
-        if(Storage.getLoggedIn()) {
+        if Storage.getLoggedIn() {
 
             // Authenticate the user with storage variables
             authService?.authenticate(email: Storage.getCredentials().email!,
                                       password: Storage.getCredentials().password!) { success in
 
                 // If authentication succeded redirect to next view
-                if(success == true) {
+                if success == true {
                     self.redirectViewController(identifier: "PostsNavigationController")
 
                     // Retrieve the logged user info
@@ -47,8 +48,12 @@ class StartController: UIViewController {
                 }
             }
 
+        // Redirect to onboarding
+        } else if Storage.getFirstLaunchTime() {
+            self.redirectViewController(identifier: "OnboardingController")
+            
+        // Redirect to login view
         } else {
-            // Redirect to login view
             self.redirectViewController(identifier: "LoginController")
         }
     }

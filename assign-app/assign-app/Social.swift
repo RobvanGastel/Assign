@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// The Social class of a User
 class Social:NSObject, JSONDecodable {
     
     var phonenumber: String?

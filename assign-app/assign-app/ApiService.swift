@@ -9,8 +9,6 @@
 import Foundation
 
 /// Manages the API calls.
-///
-/// TODO Add check if user is connected to Network.
 class ApiService {
 
     /// This function returns the *User* object of the authenticated user.
@@ -77,6 +75,29 @@ class ApiService {
             }
         }
     }
+    
+    /// This function returns Post by given Id.
+    @discardableResult
+    func getPostById(id: Int, completionHandler: @escaping (_ response: Post?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .get,
+                                      encoding: URLEncoding.queryString).validate().responseJSON { response in
+                
+            switch response.result {
+            case .success:
+                let post = Post(JSON: response.value as! [String : Any])
+                print("API: Retrieve post successful")
+                completionHandler(post)
+
+            case .failure(let error):
+                print("API: Retrieve post error")
+                print(error)
+            }
+        }
+    }
 
     /// This function posts a *Post* for the authenticated user.
     @discardableResult
@@ -84,9 +105,13 @@ class ApiService {
                  completionHandler: @escaping (Bool) -> ()) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
 
+        let titleEncoded = String().encode(title)
+        let descriptionEncoded = String().encode(description)
+        
+        
         let parameters: Parameters = [
-            "title": title,
-            "description": description
+            "title": titleEncoded,
+            "description": descriptionEncoded
         ]
 
         let URL = Storage.getURL() + "/posts"
@@ -116,8 +141,10 @@ class ApiService {
                      completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
+        let queryEncoded = String().encode(query)
+        
         let parameters: Parameters = [
-            "query": query,
+            "query": queryEncoded,
             "size" : size,
             "start" : start
         ]
@@ -148,14 +175,39 @@ class ApiService {
         }
     }
     
+    
+    /// This function deletes a Post.
+    @discardableResult
+    func deletePost(id: Int,
+                    completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .delete,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success:
+                    print("API: delete post sucesful")
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: delete post failed")
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
+    
     /// This function returns a list of *Post* objects for the authenticated user.
     @discardableResult
     func getPostsByUser(size: Int, start: Int, id: Int,
                   completionHandler: @escaping (_ response: [Post]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let idString = "\(id)"
-        let URL = Storage.getURL() + "/users/" + idString + "/posts"
+        let URL = Storage.getURL() + "/users/" + String(id) + "/posts"
         
         let parameters: Parameters = [
             "size" : size,
@@ -191,8 +243,7 @@ class ApiService {
                         completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let idString = "\(id)"
-        let URL = Storage.getURL() + "/users/" + idString + "/replies"
+        let URL = Storage.getURL() + "/users/" + String(id) + "/replies"
         
         let parameters: Parameters = [
             "size" : size,
@@ -229,12 +280,12 @@ class ApiService {
                   completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let postId = "\(id)"
-        let URL = Storage.getURL() + "/posts/" + postId + "/replies"
+//        let postId = "\(id)"
+        let URL = Storage.getURL() + "/posts/" + String(id) + "/replies"
         
-        return sessionManager.request(URL, method: .get,
+        return sessionManager.request(URL, method: .post,
                                       encoding: URLEncoding.queryString).validate()
-        .responseJSON { response in
+        .responseString { response in
                 
             switch response.result {
                 
@@ -256,8 +307,7 @@ class ApiService {
                   completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
-        let postId = "\(id)"
-        let URL = Storage.getURL() + "/posts/" + postId + "/replied"
+        let URL = Storage.getURL() + "/posts/" + String(id) + "/replied"
         
         return sessionManager.request(URL, method: .get,
                                       encoding: URLEncoding.queryString).validate()
@@ -280,6 +330,241 @@ class ApiService {
                 case .failure(let error):
                     print("API: Create reply error")
                     completionHandler(false)
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function registerd the Firebase token in the API.
+    @discardableResult
+    func registerDevice(token: String,
+                        completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/firebase"
+        
+        let parameters: Parameters = [
+            "token" : token
+        ]
+        
+        return sessionManager.request(URL, method: .post, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseString { response in
+                                        
+                switch response.result {
+                case .success:
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function returns a list of *Notification* objects for the authenticated user.
+    @discardableResult
+    func getNotifications(size: Int, start: Int,
+                  completionHandler: @escaping (_ response: [Notification]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/notifications"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate().responseJSON{ response in
+                                        
+            switch response.result {
+            case .success:
+                var notificationsArray = [Notification]()
+                
+                if let notifications = response.value as? [[String:Any]] {
+                    for notification in notifications {
+                        notificationsArray.append(Notification(JSON: notification)!)
+                    }
+                }
+                
+                print("API: Retrieve notifications successful")
+                completionHandler(notificationsArray)
+                
+            case .failure(let error):
+                print("API: Retrieve notifications error")
+                print(error)
+            }
+        }
+    }
+    
+    /// This function sets a post to done.
+    @discardableResult
+    func setDone(id: Int,
+                        completionHandler: @escaping (_ response: Bool) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id)
+        
+        return sessionManager.request(URL, method: .put,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseString { response in
+                
+                switch response.result {
+                case .success:
+                    completionHandler(true)
+                    
+                case .failure(let error):
+                    print("API: set done post failed")
+                    completionHandler(false)
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function sets a post to done.
+    @discardableResult
+    func setRead(ids: [Int],
+                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        var idsString = ""
+        
+        for id in ids {
+            idsString += String(id) + ","
+        }
+        
+        let parameters: Parameters = [
+            "ids" : idsString
+        ]
+        
+        let URL = Storage.getURL() + "/notifications"
+
+        return sessionManager.request(URL, method: .put, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseString { response in
+                
+                switch response.result {
+                case .success:
+                    print("API: set read notifications succesful")
+                    
+                case .failure(let error):
+                    print("API: set read notifications failed")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function sets a post to done.
+    @discardableResult
+    func setRead(id: Int,
+                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/notifications/" + String(id)
+        
+        return sessionManager.request(URL, method: .put,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseString { response in
+                
+                switch response.result {
+                case .success:
+                    print("API: set read notification succesful")
+                    
+                case .failure(let error):
+                    print("API: set read notification failed")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function sets a post to done.
+    @discardableResult
+    func setHelped(id: Int,
+                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/replies/" + String(id)
+        
+        return sessionManager.request(URL, method: .put,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseString { response in
+                
+                switch response.result {
+                case .success:
+                    print("API: set helped reply succesful")
+                    
+                case .failure(let error):
+                    print("API: set helped reply failed")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function returns a list of *Reply* objects for the user by id.
+    @discardableResult
+    func getRepliesByPost(id: Int,
+                          completionHandler: @escaping (_ response: [Reply]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/posts/" + String(id) + "/replies"
+        
+        return sessionManager.request(URL, method: .get,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success:
+                    var replyArray = [Reply]()
+                    
+                    if let replies = response.value as? [[String:Any]] {
+                        for reply in replies {
+                            replyArray.append(Reply(JSON: reply)!)
+                        }
+                    }
+                    
+                    print("API: Retrieve replies successful")
+                    completionHandler(replyArray)
+                    
+                case .failure(let error):
+                    print("API: Retrieve replies error")
+                    print(error)
+                }
+        }
+    }
+    
+    /// This function returns a list of *Items* objects for the overview for the authenticated user.
+    @discardableResult
+    func getItemsByUser(size: Int, start: Int, id: Int,
+                        completionHandler: @escaping (_ response: [Item]?) -> Void) -> Alamofire.DataRequest {
+        let sessionManager = NetworkManager.shared()
+        
+        let URL = Storage.getURL() + "/users/" + String(id) + "/overview"
+        
+        let parameters: Parameters = [
+            "size" : size,
+            "start" : start
+        ]
+        
+        return sessionManager.request(URL, method: .get, parameters: parameters,
+                                      encoding: URLEncoding.queryString).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success:
+                    var itemArray = [Item]()
+                    
+                    if let items = response.value as? [[String:Any]] {
+                        for item in items {
+                            itemArray.append(Item(JSON: item)!)
+                        }
+                    }
+                    
+                    print("API: Retrieve items for overview successful")
+                    completionHandler(itemArray)
+                    
+                case .failure(let error):
+                    print("API: Retrieve items for overview error")
                     print(error)
                 }
         }

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" height="360" viewBox="0 0 360 360">
+  <defs>
+    <rect id="illustration-messages-a" width="360" height="360"/>
+    <path id="illustration-messages-c" d="M21.6551666,20.7792597 C86.6551666,-32.7207403 198.155167,26.2792597 196.155167,93.7792597 C194.155167,161.27926 230.223526,156.253869 245.155167,218.27926 C260.086807,280.30465 170.977138,317.048275 102.663227,312.396776 C34.3493155,307.745277 -28.5457579,258.976854 17.3077577,202.029589 C63.1612734,145.082323 -43.3448334,74.2792597 21.6551666,20.7792597 Z M210.712157,94.7443283 C215.336441,81.823512 223.155167,48.7792597 260.655167,60.2792597 C288.579102,68.8425998 278.901256,94.4008836 282.155167,118.352961 C285.02851,139.503679 300.155167,158.27926 285.326766,172.423532 C252.276685,203.948805 196.139602,135.461836 210.712157,94.7443283 Z"/>
+    <path id="illustration-messages-e" d="M79.6921118,201.257463 C94.375617,212.907019 126.102417,214.548323 144.188695,211.911536 C165.422752,208.815837 190.050907,187.672034 189.999921,167.926191 C189.905508,131.361666 146.626645,138.551843 147.637912,94.7907937 C148.649179,51.0297444 91.2020905,85.0402538 91.2671305,44.8679449 C91.3321705,4.69563606 39.0924767,-11.1087872 14.2136347,8.20608433 C-10.6652074,27.5209558 -1.06087778,62.991507 28.8728073,74.8241934 C58.8064924,86.6568798 25.7731235,121.725526 63.3502919,137.345857 C100.92746,152.966188 47.7695501,175.930836 79.6921118,201.257463 Z"/>
+    <path id="illustration-messages-g" d="M63.4817345,166.312718 C74.6102858,175.118251 94.5723578,166.170329 108.279853,164.177264 C124.373033,161.837323 143.038582,145.855387 142.99994,130.930125 C142.928385,103.292151 110.127563,108.72698 110.893997,75.6493793 C111.66043,42.5717787 70.2958988,69.6535201 70.3451922,39.2885355 C70.3944857,8.92355081 31.4606165,-8.4369195 12.6050731,6.16258431 C-6.25047041,20.7620881 -1.80403368,51.6132987 20.8825487,60.5572542 C43.5691311,69.5012096 15.0662484,94.6012272 43.5457866,106.408144 C72.0253247,118.215061 39.287793,147.169117 63.4817345,166.312718 Z"/>
+    <path id="illustration-messages-i" d="M225.499667,58.134356 C218.056697,-1.17459666 134.232367,-21.8059217 72.8448334,28.7207403 C7.84483344,82.2207403 -4,186.5 16.3077577,195.029589 C-29.5457579,251.976854 33.3493155,300.745277 101.663227,305.396776 C169.977138,310.048275 259.086807,273.30465 244.155167,211.27926 C239.421499,187.789606 235.484803,171.522253 232.477622,157.176084 C248.428208,173.058381 268.894353,180.143951 284.326766,165.423532 C299.155167,151.27926 284.02851,132.503679 281.155167,111.352961 C277.901256,87.4008836 287.579102,61.8425998 259.655167,53.2792597 C243.427013,48.3026259 232.757367,51.6679379 225.499667,58.134356 Z"/>
+    <rect id="illustration-messages-k" width="140" height="238" x=".914" y=".742" rx="2"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="illustration-messages-b" fill="#fff">
+      <use xlink:href="#illustration-messages-a"/>
+    </mask>
+    <use fill="#FFF" xlink:href="#illustration-messages-a"/>
+    <g mask="url(#illustration-messages-b)">
+      <g transform="translate(37 42)">
+        <mask id="illustration-messages-d" fill="#fff">
+          <use xlink:href="#illustration-messages-c"/>
+        </mask>
+        <use fill="#FFF8F4" xlink:href="#illustration-messages-c"/>
+        <g mask="url(#illustration-messages-d)">
+          <g transform="translate(-2 13)">
+            <rect width="22" height="11" x="148" y="14" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" x="232" y="235" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" x="46" y="132" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" x="44" y="278" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" x="215" y="66" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" x="263" y="144" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" y="222" fill="#FFE1CE" rx="2"/>
+            <rect width="22" height="11" x="134" fill="#FFF" rx="2"/>
+            <rect width="22" height="11" x="15" y="207" fill="#FFF" rx="2"/>
+            <rect width="22" height="11" y="77" fill="#FFF" rx="2"/>
+            <rect width="22" height="11" x="271" y="222" fill="#FFF" rx="2"/>
+            <rect width="22" height="11" x="276" y="129" fill="#FFF" rx="2"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g mask="url(#illustration-messages-b)">
+      <g transform="translate(1 78)">
+        <mask id="illustration-messages-f" fill="#fff">
+          <use xlink:href="#illustration-messages-e"/>
+        </mask>
+        <use fill="#FFD5BA" xlink:href="#illustration-messages-e"/>
+        <path stroke="#FFEFE5" stroke-linecap="round" stroke-width="2" d="M137,204 C112.825289,117.500222 78.1586227,58.5002217 33,27" mask="url(#illustration-messages-f)"/>
+        <path fill="#000" fill-opacity=".08" d="M81.8859853,225 L81.8859853,159.710565 L52,159.710565 L53.0024154,122.359232 L53.0024154,122.359232 C53.089633,119.10939 55.7492431,116.520199 59.0002558,116.520199 L81.8859853,116.520199 L81.8859853,43.1140147 L81.8859853,43.1140147 C81.8859853,28.6916426 93.5776279,17 108,17 L108,17 L108,225 L81.8859853,225 Z" mask="url(#illustration-messages-f)"/>
+      </g>
+    </g>
+    <g mask="url(#illustration-messages-b)">
+      <g transform="rotate(-7 1312.051 79.721)">
+        <mask id="illustration-messages-h" fill="#fff">
+          <use xlink:href="#illustration-messages-g"/>
+        </mask>
+        <use fill="#FFE5D4" xlink:href="#illustration-messages-g"/>
+        <path stroke="#FFF5EF" stroke-linecap="round" stroke-width="2" d="M103,158 C85.1014162,93.4916907 59.4347495,49.4916907 26,26" mask="url(#illustration-messages-h)"/>
+        <path fill="#000" fill-opacity=".08" d="M74.6923495,178.817204 L74.6923495,81.9303557 L47.8164932,81.9303557 L47.8164932,81.9303557 C44.5127189,81.9303557 41.8305602,79.2595494 41.8165472,75.9558048 L41.7219231,53.6469748 L41.7219231,53.6469748 C41.7078679,50.3332961 44.3827413,47.6356348 47.69642,47.6215796 C47.704903,47.6215437 47.713386,47.6215257 47.7218691,47.6215257 L74.6923495,47.6215257 L74.6923495,-18.228657 L74.6923495,-18.228657 C74.6923495,-28.0667429 82.6676939,-36.0420873 92.5057799,-36.0420873 L92.5057799,-36.0420873 L92.5057799,178.817204 L74.6923495,178.817204 Z" mask="url(#illustration-messages-h)" transform="rotate(7 67.114 71.388)"/>
+      </g>
+    </g>
+    <g mask="url(#illustration-messages-b)">
+      <g transform="translate(38 49)">
+        <mask id="illustration-messages-j" fill="#fff">
+          <use xlink:href="#illustration-messages-i"/>
+        </mask>
+        <g mask="url(#illustration-messages-j)">
+          <g transform="translate(51 53)">
+            <rect width="168" height="324" fill="#EB772A" rx="27"/>
+            <rect width="164" height="320" fill="#FF8736" rx="26"/>
+            <rect width="41.094" height="4.854" x="61.64" y="18.202" fill="#EB772A" rx="2"/>
+            <g transform="translate(11.086 40.258)">
+              <mask id="illustration-messages-l" fill="#fff">
+                <use xlink:href="#illustration-messages-k"/>
+              </mask>
+              <use fill="#FFEFE5" xlink:href="#illustration-messages-k"/>
+              <g mask="url(#illustration-messages-l)">
+                <g transform="translate(8.914 8.742)">
+                  <rect width="124" height="34" fill="#FFF" rx="3"/>
+                  <rect width="16.921" height="16.989" x="8.46" y="8.494" fill="#FF8937" rx="5"/>
+                  <rect width="15.712" height="3.64" x="30.216" y="8.494" fill="#FFD5BA" rx="1"/>
+                  <rect width="30.216" height="3.64" x="30.216" y="15.775" fill="#FFD5BA" rx="1"/>
+                  <rect width="20.547" height="3.64" x="30.216" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="33.842" height="3.64" x="49.554" y="8.494" fill="#FFD5BA" rx="1"/>
+                  <rect width="33.842" height="3.64" x="64.058" y="15.775" fill="#FFD5BA" rx="1"/>
+                  <rect width="9.669" height="3.64" x="54.388" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="21.755" height="3.64" x="67.683" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="13.295" height="3.64" x="101.525" y="8.494" fill="#FFD5BA" rx="1"/>
+                </g>
+              </g>
+              <g mask="url(#illustration-messages-l)">
+                <g transform="translate(8.914 134.742)">
+                  <rect width="124" height="33.978" x=".072" fill="#FFF" rx="3"/>
+                  <rect width="16.921" height="16.989" x="8.46" y="8.494" fill="#FF8937" rx="5"/>
+                  <rect width="15.712" height="3.64" x="30.216" y="8.494" fill="#FFD5BA" rx="1"/>
+                  <rect width="30.216" height="3.64" x="30.216" y="15.775" fill="#FFD5BA" rx="1"/>
+                  <rect width="20.547" height="3.64" x="30.216" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="33.842" height="3.64" x="49.554" y="8.494" fill="#FFD5BA" rx="1"/>
+                  <rect width="33.842" height="3.64" x="64.058" y="15.775" fill="#FFD5BA" rx="1"/>
+                  <rect width="9.669" height="3.64" x="54.388" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="21.755" height="3.64" x="67.683" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="13.295" height="3.64" x="101.525" y="8.494" fill="#FFD5BA" rx="1"/>
+                </g>
+              </g>
+              <g mask="url(#illustration-messages-l)">
+                <g transform="translate(8.914 176.742)">
+                  <rect width="124" height="33.978" x=".072" fill="#FFF" rx="3"/>
+                  <rect width="16.921" height="16.989" x="8.46" y="8.494" fill="#FF8937" rx="5"/>
+                  <rect width="15.712" height="3.64" x="30.216" y="8.494" fill="#FFD5BA" rx="1"/>
+                  <rect width="30.216" height="3.64" x="30.216" y="15.775" fill="#FFD5BA" rx="1"/>
+                  <rect width="20.547" height="3.64" x="30.216" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="33.842" height="3.64" x="49.554" y="8.494" fill="#FFD5BA" rx="1"/>
+                  <rect width="33.842" height="3.64" x="64.058" y="15.775" fill="#FFD5BA" rx="1"/>
+                  <rect width="9.669" height="3.64" x="54.388" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="21.755" height="3.64" x="67.683" y="21.843" fill="#FFD5BA" rx="1"/>
+                  <rect width="13.295" height="3.64" x="101.525" y="8.494" fill="#FFD5BA" rx="1"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g mask="url(#illustration-messages-j)">
+          <g transform="translate(89 186)">
+            <rect width="138" height="36" fill="#FFE2CE" rx="4"/>
+            <rect width="136" height="34" fill="#FFF" rx="3"/>
+            <rect width="16.921" height="16.989" x="8.46" y="8.494" fill="#FF8937" rx="5"/>
+            <rect width="15.712" height="3.64" x="32.216" y="8.494" fill="#FFD5BA" rx="1"/>
+            <rect width="30.216" height="3.64" x="32.216" y="15.775" fill="#FFD5BA" rx="1"/>
+            <rect width="20.547" height="3.64" x="32.216" y="21.843" fill="#FFD5BA" rx="1"/>
+            <rect width="33.842" height="3.64" x="53.554" y="8.494" fill="#FFD5BA" rx="1"/>
+            <rect width="33.842" height="3.64" x="68.058" y="15.775" fill="#FFD5BA" rx="1"/>
+            <rect width="9.669" height="3.64" x="57.388" y="21.843" fill="#FFD5BA" rx="1"/>
+            <rect width="21.755" height="3.64" x="71.683" y="21.843" fill="#FFD5BA" rx="1"/>
+            <rect width="13.295" height="3.64" x="113.525" y="8.494" fill="#FFD5BA" rx="1"/>
+          </g>
+        </g>
+        <g mask="url(#illustration-messages-j)">
+          <g transform="translate(15 144)">
+            <rect width="138" height="36" fill="#FFE2CE" rx="4"/>
+            <rect width="136" height="34" x="2" fill="#FFF" rx="3"/>
+            <rect width="16.921" height="16.989" x="10.46" y="8.494" fill="#FF8937" rx="5"/>
+            <rect width="15.712" height="3.64" x="34.216" y="8.494" fill="#FFD5BA" rx="1"/>
+            <rect width="30.216" height="3.64" x="34.216" y="15.775" fill="#FFD5BA" rx="1"/>
+            <rect width="20.547" height="3.64" x="34.216" y="21.843" fill="#FFD5BA" rx="1"/>
+            <rect width="33.842" height="3.64" x="55.554" y="8.494" fill="#FFD5BA" rx="1"/>
+            <rect width="33.842" height="3.64" x="70.058" y="15.775" fill="#FFD5BA" rx="1"/>
+            <rect width="9.669" height="3.64" x="59.388" y="21.843" fill="#FFD5BA" rx="1"/>
+            <rect width="21.755" height="3.64" x="73.683" y="21.843" fill="#FFD5BA" rx="1"/>
+            <rect width="13.295" height="3.64" x="115.525" y="8.494" fill="#FFD5BA" rx="1"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

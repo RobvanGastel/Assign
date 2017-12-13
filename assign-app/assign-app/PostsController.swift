@@ -10,7 +10,12 @@ import UIKit
 import AlamofireImage
 
 /// Controller to view all the relevant posts.
-class PostsController: UITableViewController, PostsRefreshDelegate {
+/// TODO: add Data to Core Data as cache
+/// TODO: Modify so it works with push and pop
+/// TODO: Set placeholder images before posts have been loaded
+class PostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RefreshPostsDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     // Posts array for tableview
     var posts = [Post]()
@@ -21,6 +26,16 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
     var isLoading = false // Is currently loading posts
     var reachedEnd = false // Check if there a no new posts
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(PostsController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor(hexString: "#FFA92F")
+        
+        return refreshControl
+    }()
+    
     // API service
     var apiService: ApiService?
     
@@ -30,6 +45,11 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         // Init API service
         apiService = ApiService()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        self.tableView.backgroundView = self.refreshControl
+        
         // On viewLoad get the posts from the API
         // Starting values of size is 20 and start 1
         self.apiService?.getPosts(size: 21, start: start) { posts in
@@ -39,33 +59,36 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
             self.posts = posts!
             self.tableView.reloadData()
         }
-        
-        // Layout settings
-        view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-
     }
-    
-    /// Set StatusBartStyle to default.
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Layout settings
         UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 
+    /// Add some space to the TableView
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+    }
+    
     // MARK: - Table view with Posts
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         let post = posts[indexPath.row] as Post
@@ -91,9 +114,28 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         return cell
     }
     
+    /// Segue for Post Detail View
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if post.user!.id != Storage.getUser().id {
+
+            let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailController") as! PostDetailController
+            vc.currentPost = post
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard.instantiateViewController(withIdentifier: "OwnPostDetailController") as! OwnPostDetailController
+            vc.currentPost = post
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostDetailSegue",
             let nextView = segue.destination as? PostDetailController,
@@ -110,8 +152,10 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
     }
     
     /// Pull and refesh function on the tableView.
-    @IBAction func refreshAction(_ sender: Any) {
-        self.refreshPosts()
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.refreshPosts()
+        }
     }
     
     /// Refreshes the posts in the view.
@@ -120,19 +164,19 @@ class PostsController: UITableViewController, PostsRefreshDelegate {
         // Reset infinite loading variables
         self.start = 0
         self.reachedEnd = false
-        
+
         self.apiService?.getPosts(size: 21, start: start) { posts in
-            
-            // TODO add Data to Core Data as cache
+
+            // TODO: add Data to Core Data as cache
             // Reloads the tableView and stops the refresh animation
             self.posts = posts!
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            self.refreshControl.endRefreshing()
         }
     }
     
     /// ScrollView infinite scroll.
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         // calculate scrollView size
         let currentOffset = scrollView.contentOffset.y

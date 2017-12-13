@@ -9,8 +9,8 @@ import java.security.SecureRandom;
 public class CodeGenerator {
 
     // Length of 62 characters
-    static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    static SecureRandom rnd = new SecureRandom();
+    private final static String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private final static SecureRandom rnd = new SecureRandom();
     private static CodeGenerator instance;
 
     public static CodeGenerator getInstance() {

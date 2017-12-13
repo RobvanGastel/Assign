@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+/// JSON Parser class to format JSON
 class JSONParser {
     
     /// Format the SimpleDateFormat to Swift Date.

@@ -5,12 +5,12 @@
 //  Created by Rob Van Gastel on 26/06/2017.
 //  Copyright © 2017 Assign. All rights reserved.
 //
-
  
 import UIKit
 import AlamofireImage
 
 /// Controller to view the details of a post.
+/// TODO: Modify so it works with push and pop
 class PostDetailController: UIViewController {
     
     @IBOutlet weak var userLabel: UILabel!
@@ -27,6 +27,8 @@ class PostDetailController: UIViewController {
     // Provided data from the segue
     var currentPost:Post?
     
+    var delegate: RefreshPostsDelegate?
+    
     var replied: Bool? = false
     
     override func viewDidLoad() {
@@ -34,15 +36,6 @@ class PostDetailController: UIViewController {
         
         // Init API service
         apiService = ApiService()
-
-        apiService?.checkReplied(id: (currentPost?.id)!) { response in
-            self.replied = response
-            
-            if self.replied! {
-                self.helpButton.isHidden = true
-                self.helpButtonBar.isHidden = true
-            }
-        }
         
         self.initializePost()
     }
@@ -58,28 +51,27 @@ class PostDetailController: UIViewController {
         let filter = AspectScaledToFillSizeFilter(size: profileImage.frame.size)
         profileImage.af_setImage(withURL: url, filter: filter)
         
-        
-        if (currentPost?.user?.id == Storage.getUser().id) {
+        // Handle own post settings
+        if (currentPost?.user?.id == Storage.getUser().id ||
+            (currentPost?.replies?.contains(Storage.getUser().id))!) {
             self.helpButton.isHidden = true
             self.helpButtonBar.isHidden = true
-            
-            // Handle own post settings
         }
-        
     }
     
     /// Set StatusBartStyle to .default and sets navigationbar.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
         
+        // Layout settings
+        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
     }
     
     /// Add data to the segue before triggering.
     ///
-    /// TODO Modify so it works with push and pop
+    /// TODO: Modify so it works with push and pop
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProfileDetailSegue" {
             let nextView = segue.destination as? ProfileDetailController
@@ -123,15 +115,20 @@ class PostDetailController: UIViewController {
         apiService?.addReply(id: (self.currentPost?.id)!) { success in
             
             if success {
-                self.helpButton.isHidden = false
-                self.helpButtonBar.isHidden = false
+                self.helpButton.isHidden = true
+                self.helpButtonBar.isHidden = true
                 
-                // Handle button clicked
+                self.delegate?.refreshPosts()
+                // TODO: Handle button clicked
                 
             } else {
-                // Error response
+                // TODO: Error response
             }
         }
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

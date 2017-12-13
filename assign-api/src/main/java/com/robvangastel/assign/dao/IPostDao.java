@@ -29,6 +29,14 @@ public interface IPostDao {
     Post findByUrl(String url);
 
     /***
+     * Find out if the url is used
+     * @param url
+     * @return True when a Post is found
+     * False when a Post isn't found
+     */
+    Boolean isUrlUsed(String url);
+
+    /***
      * Find Post(s) by query
      * @param query
      * @param start of the list
@@ -57,6 +65,14 @@ public interface IPostDao {
     List<Post> findAll(User user, int start, int size);
 
     /***
+     * Find all post(s)
+     * @param start of the list
+     * @param size of the list
+     * @return all the Post(s) within the start and size
+     */
+    List<Post> findAll(int start, int size);
+
+    /***
      * Create a Post
      * @param entity Post to create
      */
@@ -77,8 +93,16 @@ public interface IPostDao {
     void delete(Post entity) throws PostException;
 
     /***
+     * TODO Not working with current implementation
      * Delete Post by id
      * @param id id of the Post
      */
     void deleteById(long id) throws PostException;
+
+    /***
+     * Delete Post by entity
+     * @param id
+     * @throws PostException
+     */
+    void deleteByQuery(long id) throws PostException;
 }

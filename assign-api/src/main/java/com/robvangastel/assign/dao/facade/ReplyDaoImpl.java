@@ -35,7 +35,7 @@ public class ReplyDaoImpl extends AbstractDao<Reply> implements IReplyDao {
                 .setParameter("user_id", user.getId())
                 .setParameter("post_id", post.getId());
 
-        if(q.getResultList().size() > 0) {
+        if (q.getResultList().size() > 0) {
             return true;
         } else {
             return false;

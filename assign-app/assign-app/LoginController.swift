@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 /// Controller to let the user authenticate.
+/// TODO: return ERROR message.
 class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var wachtwoordLabel: UILabel!
+    @IBOutlet weak var emailError: UILabel!
+    @IBOutlet weak var wachtwoordError: UILabel!
+    
     // The API & Auth service
     var apiService: ApiService?
     var authService: AuthService?
@@ -22,48 +30,90 @@ class LoginController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Hides the keyboard when tapping on the screen
         self.hideKeyboardWhenTappedAround()
-
+        
+        // Enabled scroll
+        ScrollView.isScrollEnabled = true
+        ScrollView.alwaysBounceVertical = true
+        
         // Init of the services
         apiService = ApiService()
         authService = AuthService()
         
         // Initializes the delegate
         self.password.delegate = self
+        
+        // Hide Label and Error of input fields
+        emailLabel.layer.opacity = 0
+        wachtwoordLabel.layer.opacity = 0
+        emailError.layer.opacity = 0
+        wachtwoordError.layer.opacity = 0
     }
-
-    /// On the last return triggers the authenticate method.
+    
+    // Add style and scroll on typing
+    @IBAction func emailBegin(_ sender: UIInput) {
+        email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        emailLabel.layer.opacity = 1
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
+    }
+    @IBAction func emailEnd(_ sender: UIInput) {
+        email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        emailLabel.layer.opacity = 0
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    @IBAction func passwordBegin(_ sender: UIInput) {
+        password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        wachtwoordLabel.layer.opacity = 1
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
+    }
+    @IBAction func passwordEnd(_ sender: UIInput) {
+        password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        wachtwoordLabel.layer.opacity = 0
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    /// On the last return triggers the authenticate method and 'Next' will tab to password.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        authenticate(email: email.text!, password: password.text!)
+        
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            self.password.resignFirstResponder()
+            authenticate(email: email.text!, password: password.text!)
+        }
         return true
     }
 
     /// Login action from the view.
     @IBAction func login(_ sender: Any) {
+        // Set loading indicator true
+        loginButton.loadingIndicator(show: true, text: "")
+        
         authenticate(email: email.text!, password: password.text!)
-    }
-    
-    /// Redirect to the register view.
-    ///
-    /// TODO add matching animation
-    @IBAction func registerRedirect(_ sender: Any) {
-        self.redirectViewController(identifier: "RegisterController")
     }
 
     /// Authenticates the user against the API.
     func authenticate(email: String, password : String) {
         
         // Empty check on the fields
-        if email == "" && password == "" {
+        if email != "" && password != "" {
             
             // Authenticate API call
-            authService?.authenticate(email: "max@mail.nl", password: "max") { success in
+            authService?.authenticate(email: email, password: password) { success in // "rob@mail.nl" "max"
                 if(success == true) {
+                    self.emailError.layer.opacity = 0
+                    
+                    // Debug messageToken
+                    // print(Messaging.messaging().fcmToken!)
+                    
+                    self.apiService?.registerDevice(token: Messaging.messaging().fcmToken!) { response in }
                     
                     // Get the logged in user
                     self.apiService?.getCurrentUser() { response in
                         print("User: username: \(String(describing: response?.email)), id: \(String(describing: response?.id))")
                     }
+                    
+                    self.loginButton.loadingIndicator(show: false, text: "Login")
                     
                     // Redirect to overview
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -72,13 +122,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.present(vc, animated: true, completion: nil)
                     
                 } else {
-                    
-                    // TODO return ERROR message
+                    // TODO: return ERROR message
+                    self.loginButton.loadingIndicator(show: false, text: "Log in")
+                    self.emailError.layer.opacity = 100
                 }
             }
         } else {
-            
-            // TODO return ERROR message.
+            // TODO: return ERROR message.
+            self.loginButton.loadingIndicator(show: false, text: "Log in")
+            self.emailError.layer.opacity = 100
         }
 
     }

@@ -10,7 +10,7 @@ import Foundation
 
 extension UIButton {
     
-    
+    /// TODO: Overview how nessecary this still is.
     /// Increase the hitbox of buttons to 44 px.
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 
@@ -28,4 +28,35 @@ extension UIButton {
         // perform hit test on larger frame
         return (largerFrame.contains(point)) ? self : nil
     }
+    
+    /// Add loading indicator to the button.
+    func loadingIndicator(show: Bool, text: String) {
+        if show {
+            // Init indicator
+            let indicator = UIActivityIndicatorView()
+            indicator.color = UIColor(hexString: "#FFA92F")
+            self.setTitle(text, for:.normal)
+            
+            // Set center
+            let buttonHeight = self.bounds.size.height
+            let buttonWidth = self.bounds.size.width
+            indicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
+            self.addSubview(indicator)
+            
+            // Start indicator
+            indicator.startAnimating()
+        } else {
+            for view in self.subviews {
+                if let indicator = view as? UIActivityIndicatorView {
+                    
+                    self.setTitle(text, for:.normal)
+                    
+                    // End indicator
+                    indicator.stopAnimating()
+                    indicator.removeFromSuperview()
+                }
+            }
+        }
+    }
 }
+

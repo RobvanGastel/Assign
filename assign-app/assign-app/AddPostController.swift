@@ -9,22 +9,22 @@
 import UIKit
 
 /// Controller to create new Posts
+/// TODO: Add ERROR/SUCCESS message
 class AddPostController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var counterField: UITitle!
-
+    @IBOutlet weak var addPostButton: UIBarButtonItem!
+    
     // API service
     var apiService: ApiService?
     
     // Refreshing Posts delegate
-    weak var delegate: PostsRefreshDelegate?
+    weak var delegate: RefreshPostsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Hides the keyboard when tapping on the screen
-        self.hideKeyboardWhenTappedAround()
 
         // Init API service
         apiService = ApiService()
@@ -32,9 +32,17 @@ class AddPostController: UIViewController, UITextViewDelegate {
         // Initializes the delegate
         descriptionText.delegate = self
         
+        // Open up keyboard on load
+        titleField.becomeFirstResponder()
+    }
+    
+    /// Set StatusBartStyle to .default and sets navigationbar.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Layout settings
-        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
@@ -47,19 +55,22 @@ class AddPostController: UIViewController, UITextViewDelegate {
         let amount = maxCharacter - counter
         
         // Makes sure the counter doesnt drop below 0
-        if(amount >= 12) {
+        switch amount {
+        case 246 ..< 256:
             counterField.textColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 1)
             counterField.text = String(maxCharacter - counter)
-        } else if(amount >= 6) {
+            addPostButton.tintColor = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1)
+        case 15 ..< 246:
+            counterField.textColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 1)
+            counterField.text = String(maxCharacter - counter)
+            addPostButton.tintColor = UIColor(red: 1.0, green: 0.6, blue: 0.16, alpha: 1)
+        case 7 ..< 15:
             counterField.textColor = UIColor.orange
             counterField.text = String(maxCharacter - counter)
-        } else if(amount >= 3) {
+        case 1 ..< 7:
             counterField.textColor = UIColor.red
             counterField.text = String(maxCharacter - counter)
-        } else if(amount >= 0) {
-            counterField.textColor = UIColor.red
-            counterField.text = String(maxCharacter - counter)
-        } else {
+        default:
             counterField.textColor = UIColor.red
             counterField.text = "0"
         }
@@ -83,28 +94,32 @@ class AddPostController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1)
         }
     }
-
+    
     /// Add post function
     @IBAction func addPost(_ sender: Any) {
         // Check if the fields are filled
-        if titleField.text != "" && descriptionText.text != "" {
-
+        if titleField.text != "" && descriptionText.text != "" && descriptionText.text != "Geef een beschrijving" {
+            
             // Add post API call with the API Service
             apiService?.addPost(title: titleField.text!, description: descriptionText.text!) { success in
+                
                 if(success == true) {
                     // Navigate back to the previous view
                     self.delegate?.refreshPosts()
                     self.navigationController?.popViewController(animated: true)
                     
-                    // TODO Add SUCCESS message
+                    // TODO: Add SUCCESS message
                 } else {
-                    // TODO Add ERROR message
+                    // TODO: Add ERROR message
                 }
             }
         } else {
-            // TODO Add fill in the fields message
+            // TODO: Add ERROR/SUCCESS message
         }
     }
     
-    
+    @IBAction func backClick(_ sender: Any) {
+        view.endEditing(true)
+        self.navigationController?.popViewController(animated: true)
+    }
 }

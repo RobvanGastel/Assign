@@ -23,6 +23,9 @@ if (config.dev) {
 // Give nuxt middleware to express
 app.use(nuxt.render)
 
+// Disable the x-powered-by of express
+app.disable('x-powered-by')
+
 // Listen the server
 app.listen(port, host)
 console.log('Server listening on ' + host + ':' + port) // eslint-disable-line no-console

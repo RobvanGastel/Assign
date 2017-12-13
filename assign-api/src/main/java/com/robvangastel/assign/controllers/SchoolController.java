@@ -1,10 +1,8 @@
 package com.robvangastel.assign.controllers;
 
-import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.School;
 import com.robvangastel.assign.domain.Study;
 import com.robvangastel.assign.domain.User;
-import com.robvangastel.assign.security.Secured;
 import com.robvangastel.assign.services.SchoolService;
 
 import javax.enterprise.context.RequestScoped;
@@ -22,7 +20,7 @@ import java.util.List;
 
 @RequestScoped // Request scoped for the Filters
 @Path("/schools")
-@Secured({Role.ADMIN})
+//@Secured({Role.ADMIN})
 @Produces({MediaType.APPLICATION_JSON})
 public class SchoolController {
 
@@ -42,7 +40,8 @@ public class SchoolController {
     public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
-        return Response.ok(schoolService.findAll(start, size)).build();
+        List<School> schools = schoolService.findAll(start, size);
+        return Response.ok(schools).build();
     }
 
     /***
@@ -55,9 +54,11 @@ public class SchoolController {
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
         School school = schoolService.findById(id);
+
         if (school == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(school).build();
     }
 
@@ -127,7 +128,6 @@ public class SchoolController {
         if (!name.equals(null)) {
             schoolService.create(new School(name));
             return Response.ok().build();
-
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
@@ -146,6 +146,7 @@ public class SchoolController {
         if (school == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         Study study = schoolService.addStudy(school, name);
         return Response.ok(study).build();
     }

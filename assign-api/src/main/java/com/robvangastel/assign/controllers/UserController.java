@@ -4,7 +4,9 @@ import com.robvangastel.assign.domain.Post;
 import com.robvangastel.assign.domain.Reply;
 import com.robvangastel.assign.domain.Role;
 import com.robvangastel.assign.domain.User;
+import com.robvangastel.assign.exception.UserException;
 import com.robvangastel.assign.security.Secured;
+import com.robvangastel.assign.services.OverviewService;
 import com.robvangastel.assign.services.PostService;
 import com.robvangastel.assign.services.ReplyService;
 import com.robvangastel.assign.services.UserService;
@@ -36,6 +38,9 @@ public class UserController {
     @Inject
     private ReplyService replyService;
 
+    @Inject
+    private OverviewService overviewService;
+
     @Context
     private SecurityContext securityContext;
 
@@ -47,7 +52,7 @@ public class UserController {
      * when no users are found.
      */
     @GET
-    @Secured({Role.USER})
+    @Secured({Role.ADMIN})
     public Response get(
             @DefaultValue("0") @QueryParam("start") int start,
             @DefaultValue("20") @QueryParam("size") int size) {
@@ -65,9 +70,11 @@ public class UserController {
     @Secured({Role.USER})
     public Response getById(@PathParam("id") long id) {
         User user = userService.findById(id);
+
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(user).build();
     }
 
@@ -99,10 +106,19 @@ public class UserController {
     @GET
     @Path("/{id}/replies")
     public Response getRepliesByUser(@PathParam("id") long id,
-                              @DefaultValue("0") @QueryParam("start") int start,
-                              @DefaultValue("20") @QueryParam("size") int size) {
+                                     @DefaultValue("0") @QueryParam("start") int start,
+                                     @DefaultValue("20") @QueryParam("size") int size) {
         List<Reply> replies = replyService.findByUser(id, start, size);
         return Response.ok(replies).build();
+    }
+
+    @GET
+    @Path("/{id}/overview")
+    public Response getOverviewByUser(@PathParam("id") long id,
+                                      @DefaultValue("0") @QueryParam("start") int start,
+                                      @DefaultValue("20") @QueryParam("size") int size) {
+        List<OverviewService.Item> items = overviewService.findByUser(id, start, size);
+        return Response.ok(items).build();
     }
 
     /***
@@ -116,9 +132,11 @@ public class UserController {
     @Secured({Role.USER})
     public Response getByEmail(@QueryParam("email") String email) {
         User user = userService.findByEmail(email);
+
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.ok(user).build();
     }
 
@@ -140,7 +158,39 @@ public class UserController {
         return Response.ok().build();
     }
 
+    @POST
+    @Path("/tags")
+    @Secured({Role.USER})
+    public Response addTags(@QueryParam("tag") String tag) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        if (user.getTags().contains(tag)) {
+            throw new UserException("Tag already added.");
+        }
+
+        user.getTags().add(tag);
+        userService.update(user);
+        return Response.ok().build();
+    }
+
+    @DELETE
+    @Path("/tags")
+    @Secured({Role.USER})
+    public Response deleteTags(@QueryParam("tag") String tag) throws Exception {
+        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
+        if (!user.getTags().contains(tag)) {
+            throw new UserException("Tag already added.");
+        }
+
+        user.getTags().remove(tag);
+        userService.update(user);
+        return Response.ok().build();
+    }
+
     /***
+     * TODO Implement uniform update method
+     *
      * Update the authenticated user
      * @param location
      * @param websiteURL
@@ -151,14 +201,13 @@ public class UserController {
      */
     @PUT
     @Secured({Role.USER})
-    public Response update(@QueryParam("location") String location,
-                           @QueryParam("websiteURL") String websiteURL,
-                           @QueryParam("bio") String bio) throws Exception {
-        //TODO Update function
-        User user = userService.findByEmail(securityContext.getUserPrincipal().getName());
+    public Response update(User user) throws Exception {
+        User userAuth = userService.findByEmail(securityContext.getUserPrincipal().getName());
+
         if (user == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+
         return Response.noContent().build();
     }
 

@@ -44,10 +44,23 @@ class Storage {
         let defaults = UserDefaults.standard
         return defaults.bool(forKey: "loggedIn")
     }
+    
+    /// This function returns the *Bool* first time start up of the user.
+    /// False: means it is the first launch
+    /// True: means it's the second launch
+    class func getFirstLaunchTime() -> Bool {
+        let defaults = UserDefaults.standard
+        return defaults.bool(forKey: "firstTime")
+    }
 
     /// This function returns the API url.
     class func getURL() -> String {
-        return "http://84.26.134.115:8080/assign/api"
+        return "https://api.assignapp.nl/v0.1"
+    }
+    
+    /// This function returns the Post Share url.
+    class func getPostShareUrl() -> String {
+        return "https://assignapp.nl/"
     }
 
     /// This function returns the *User* object of this authenticated user.
@@ -78,5 +91,13 @@ class Storage {
     class func setLoggedIn(loggedIn: Bool) {
         let defaults = UserDefaults.standard
         defaults.set(loggedIn, forKey: "loggedIn")
+    }
+    
+    /// This function sets the *Bool* first time start up of the user.
+    /// False: means it is the first launch
+    /// True: means it's the second launch
+    class func setFirstLaunchTime() {
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "firstTime")
     }
 }
