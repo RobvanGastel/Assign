@@ -74,11 +74,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     /// On the last return triggers the authenticate method and 'Next' will tab to password.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField == self.email) {
-            self.email.becomeFirstResponder()
-        }
-        else if (textField == self.password) {
-            textField.resignFirstResponder()
+        
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            self.password.resignFirstResponder()
             authenticate(email: email.text!, password: password.text!)
         }
         return true
@@ -96,11 +96,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func authenticate(email: String, password : String) {
         
         // Empty check on the fields
-        if email == "" && password == "" {
+        if email != "" && password != "" {
             
             // Authenticate API call
-            authService?.authenticate(email: "rob@mail.nl", password: "rob") { success in
+            authService?.authenticate(email: email, password: password) { success in // "rob@mail.nl" "max"
                 if(success == true) {
+                    self.emailError.layer.opacity = 0
                     
                     // Debug messageToken
                     // print(Messaging.messaging().fcmToken!)
@@ -122,10 +123,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     
                 } else {
                     // TODO: return ERROR message
+                    self.loginButton.loadingIndicator(show: false, text: "Log in")
+                    self.emailError.layer.opacity = 100
                 }
             }
         } else {
             // TODO: return ERROR message.
+            self.loginButton.loadingIndicator(show: false, text: "Log in")
+            self.emailError.layer.opacity = 100
         }
 
     }
