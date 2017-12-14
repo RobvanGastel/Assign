@@ -132,7 +132,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
             self.loginButton.loadingIndicator(show: false, text: "Log in")
             self.emailError.layer.opacity = 100
         }
-
     }
     
     /// Redirect to another view.
