@@ -911,6 +911,7 @@
                         <outlet property="emailError" destination="sPn-Rd-ilW" id="jk4-QU-Cku"/>
                         <outlet property="emailLabel" destination="JHn-XL-XAM" id="FmT-Wi-Ruk"/>
                         <outlet property="loginButton" destination="DyZ-e1-3E0" id="uWd-tb-Sjo"/>
+                        <outlet property="mainView" destination="cy9-Tg-lhZ" id="beg-xm-Tcn"/>
                         <outlet property="password" destination="Qxf-gD-y79" id="1g0-ZX-7uV"/>
                         <outlet property="wachtwoordError" destination="oYO-V8-Wga" id="uhw-GJ-Q3D"/>
                         <outlet property="wachtwoordLabel" destination="pdI-A9-ifK" id="Eem-qJ-YCp"/>
