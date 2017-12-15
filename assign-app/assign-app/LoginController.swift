@@ -43,7 +43,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // Initializes the delegate
         self.password.delegate = self
         
-        // Hide Label and Error of input fields
+        // Hide Label and Error of input fields on start
         emailLabel.layer.opacity = 0
         wachtwoordLabel.layer.opacity = 0
         emailError.layer.opacity = 0
