@@ -21,6 +21,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var wachtwoordLabel: UILabel!
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var wachtwoordError: UILabel!
+    @IBOutlet var mainView: UIView!
     
     // The API & Auth service
     var apiService: ApiService?
@@ -51,44 +52,49 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     // Add style and scroll on typing
     @IBAction func emailBegin(_ sender: UIInput) {
-        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
         email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.25) {
             self.emailLabel.layer.opacity = 1
             self.emailError.layer.opacity = 0
+            self.mainView.window?.frame.origin.y = -120
         }
     }
     @IBAction func emailEnd(_ sender: UIInput) {
-        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        UIView.animate(withDuration: 0.25) {
+            self.mainView.window?.frame.origin.y = 0
+        }
         if email.text == "" {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.25) {
                 self.emailLabel.layer.opacity = 0
+                self.mainView.window?.frame.origin.y = 0
             }
         }
     }
     
     @IBAction func passwordBegin(_ sender: UIInput) {
-        self.ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
         self.password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.25) {
             self.wachtwoordLabel.layer.opacity = 1
             self.wachtwoordError.layer.opacity = 0
+            self.mainView.window?.frame.origin.y = -120
         }
     }
     @IBAction func passwordEnd(_ sender: UIInput) {
-        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        UIView.animate(withDuration: 0.25) {
+            self.mainView.window?.frame.origin.y = 0
+        }
         if password.text == "" {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.25) {
                 self.wachtwoordLabel.layer.opacity = 0
+                self.mainView.window?.frame.origin.y = 0
             }
         }
     }
     
-    /// On the last return triggers the authenticate method and 'Next' will tab to password.
+    // On the last return triggers the authenticate method and 'Next' will tab to password.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         } else {
@@ -98,7 +104,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    /// Login action from the view.
+    // Login action from the view.
     @IBAction func login(_ sender: Any) {
         // Set loading indicator true
         loginButton.loadingIndicator(show: true, text: "")
@@ -106,7 +112,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         authenticate(email: email.text!, password: password.text!)
     }
 
-    /// Authenticates the user against the API.
+    // Authenticates the user against the API.
     func authenticate(email: String, password : String) {
         UIView.animate(withDuration: 0.2) {
             self.emailError.layer.opacity = 0
