@@ -144,7 +144,11 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     
     func registerAndChangeButton() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.registerForPushNotifications()
+        let when = DispatchTime.now() + 2
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            appDelegate.registerForPushNotifications()
+        }
         
         if let nextButton = view.viewWithTag(251) as? UIButton {
             nextButton.setTitle("Begrepen", for: [])
