@@ -51,25 +51,39 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     // Add style and scroll on typing
     @IBAction func emailBegin(_ sender: UIInput) {
-        email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
-        emailLabel.layer.opacity = 1
         ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
+        email.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        UIView.animate(withDuration: 0.3) {
+            self.emailLabel.layer.opacity = 1
+            self.emailError.layer.opacity = 0
+        }
     }
     @IBAction func emailEnd(_ sender: UIInput) {
-        email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
-        emailLabel.layer.opacity = 0
         ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        email.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        if email.text == "" {
+            UIView.animate(withDuration: 0.3) {
+                self.emailLabel.layer.opacity = 0
+            }
+        }
     }
     
     @IBAction func passwordBegin(_ sender: UIInput) {
-        password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
-        wachtwoordLabel.layer.opacity = 1
-        ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
+        self.ScrollView.setContentOffset(CGPoint(x: 0, y: 120), animated: true)
+        self.password.layer.shadowColor = UIColor(red: 1, green: 0.5, blue: 0.156, alpha: 1).cgColor
+        UIView.animate(withDuration: 0.3) {
+            self.wachtwoordLabel.layer.opacity = 1
+            self.wachtwoordError.layer.opacity = 0
+        }
     }
     @IBAction func passwordEnd(_ sender: UIInput) {
-        password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
-        wachtwoordLabel.layer.opacity = 0
         ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        password.layer.shadowColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
+        if password.text == "" {
+            UIView.animate(withDuration: 0.3) {
+                self.wachtwoordLabel.layer.opacity = 0
+            }
+        }
     }
     
     /// On the last return triggers the authenticate method and 'Next' will tab to password.
@@ -94,6 +108,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     /// Authenticates the user against the API.
     func authenticate(email: String, password : String) {
+        UIView.animate(withDuration: 0.2) {
+            self.emailError.layer.opacity = 0
+            self.wachtwoordError.layer.opacity = 0
+        }
         
         // Empty check on the fields
         if email != "" && password != "" {
@@ -101,8 +119,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
             // Authenticate API call
             authService?.authenticate(email: email, password: password) { success in // "rob@mail.nl" "max"
                 if(success == true) {
-                    self.emailError.layer.opacity = 0
-                    
                     // Debug messageToken
                     // print(Messaging.messaging().fcmToken!)
                     
@@ -122,15 +138,31 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.present(vc, animated: true, completion: nil)
                     
                 } else {
-                    // TODO: return ERROR message
                     self.loginButton.loadingIndicator(show: false, text: "Log in")
-                    self.emailError.layer.opacity = 100
+                    self.emailError.text = "Verkeerde inloggegevens"
+                    UIView.animate(withDuration: 0.3) {
+                        self.emailError.layer.opacity = 1
+                    }
                 }
             }
-        } else {
-            // TODO: return ERROR message.
+        } else if email == "" && password != "" {
             self.loginButton.loadingIndicator(show: false, text: "Log in")
-            self.emailError.layer.opacity = 100
+            emailError.text = "Vul een e-mailadres in"
+            UIView.animate(withDuration: 0.3) {
+                self.emailError.layer.opacity = 1
+            }
+        } else if email != "" && password == "" {
+            self.loginButton.loadingIndicator(show: false, text: "Log in")
+            UIView.animate(withDuration: 0.3) {
+                self.wachtwoordError.layer.opacity = 1
+            }
+        } else {
+            self.loginButton.loadingIndicator(show: false, text: "Log in")
+            emailError.text = "Vul een e-mailadres in"
+            UIView.animate(withDuration: 0.3) {
+                self.emailError.layer.opacity = 1
+                self.wachtwoordError.layer.opacity = 1
+            }
         }
 
     }
