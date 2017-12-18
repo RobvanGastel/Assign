@@ -2240,7 +2240,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVm-zw-Qbl" customClass="UIOverviewDetail" customModule="assign_app" customModuleProvider="target">
-                                        <rect key="frame" x="14" y="5" width="386" height="523"/>
+                                        <rect key="frame" x="14" y="5" width="386" height="515"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkY-tQ-XCa">
                                                 <rect key="frame" x="20" y="87" width="346" height="24"/>
@@ -2357,7 +2357,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nog geen hulp aangeboden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuP-ta-jzi">
-                                                <rect key="frame" x="20" y="207" width="170.66666666666666" height="21"/>
+                                                <rect key="frame" x="20" y="211" width="170.66666666666666" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="atE-e6-hcq"/>
                                                 </constraints>
@@ -2366,21 +2366,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCv-m2-LHO">
-                                                <rect key="frame" x="0.0" y="186" width="386" height="1"/>
+                                                <rect key="frame" x="0.0" y="190" width="386" height="1"/>
                                                 <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LLJ-t6-LdX"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oV-Ps-glf">
-                                                <rect key="frame" x="0.0" y="456" width="386" height="12"/>
+                                                <rect key="frame" x="0.0" y="448" width="386" height="12"/>
                                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="yF6-yC-caQ"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4N-JL-0og">
-                                                <rect key="frame" x="0.0" y="456" width="386" height="67"/>
+                                                <rect key="frame" x="0.0" y="448" width="386" height="67"/>
                                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="67" id="DIl-f4-dKW"/>
@@ -2405,7 +2405,7 @@
                                             <constraint firstItem="Dv1-0H-SwX" firstAttribute="top" secondItem="6QQ-WT-zZk" secondAttribute="bottom" constant="92" id="1RP-et-Dwv"/>
                                             <constraint firstItem="0oV-Ps-glf" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" id="31N-44-Y7t"/>
                                             <constraint firstItem="VCv-m2-LHO" firstAttribute="trailing" secondItem="Dv1-0H-SwX" secondAttribute="trailing" id="32o-G4-MX1"/>
-                                            <constraint firstItem="Dv1-0H-SwX" firstAttribute="top" secondItem="SuP-ta-jzi" secondAttribute="bottom" constant="12" id="4Jk-Lg-CZS"/>
+                                            <constraint firstItem="Dv1-0H-SwX" firstAttribute="top" secondItem="SuP-ta-jzi" secondAttribute="bottom" constant="8" id="4Jk-Lg-CZS"/>
                                             <constraint firstItem="VCv-m2-LHO" firstAttribute="leading" secondItem="Dv1-0H-SwX" secondAttribute="leading" id="9MS-4r-fFA"/>
                                             <constraint firstItem="bWe-gQ-2cy" firstAttribute="top" secondItem="aVm-zw-Qbl" secondAttribute="top" constant="20" id="9hV-mQ-e2D"/>
                                             <constraint firstItem="SuP-ta-jzi" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" constant="20" id="BJL-79-78b"/>
@@ -2423,7 +2423,7 @@
                                             <constraint firstItem="6QQ-WT-zZk" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" constant="20" id="qA1-Os-oaq"/>
                                             <constraint firstAttribute="trailing" secondItem="Dv1-0H-SwX" secondAttribute="trailing" id="rn5-ol-nfc"/>
                                             <constraint firstItem="j4N-JL-0og" firstAttribute="leading" secondItem="aVm-zw-Qbl" secondAttribute="leading" id="tRj-Kq-2N1"/>
-                                            <constraint firstItem="j4N-JL-0og" firstAttribute="top" secondItem="Dv1-0H-SwX" secondAttribute="bottom" constant="24" id="wcL-aY-CSt"/>
+                                            <constraint firstItem="j4N-JL-0og" firstAttribute="top" secondItem="Dv1-0H-SwX" secondAttribute="bottom" constant="16" id="wcL-aY-CSt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2463,6 +2463,7 @@
                         <outlet property="dateLabel" destination="75G-qo-wBD" id="0ve-Ik-3YA"/>
                         <outlet property="endAssignmentButton" destination="j4N-JL-0og" id="1c1-S8-T3h"/>
                         <outlet property="endAssignmentButtonBar" destination="0oV-Ps-glf" id="8PJ-be-tS1"/>
+                        <outlet property="endAssignmentButtonHeight" destination="DIl-f4-dKW" id="iEz-Oy-AyJ"/>
                         <outlet property="nameButton" destination="Cby-gT-kVr" id="H2Y-AU-PNj"/>
                         <outlet property="profileImage" destination="bWe-gQ-2cy" id="zRX-HX-tkU"/>
                         <outlet property="replyCountLabel" destination="SuP-ta-jzi" id="1BS-mk-Lpf"/>
