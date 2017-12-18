@@ -28,6 +28,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var endAssignmentButtonBar: UIView!
     @IBOutlet weak var endAssignmentButton: UIButton!
+    @IBOutlet weak var endAssignmentButtonHeight: NSLayoutConstraint!
     
     // The API service
     var apiService: ApiService?
@@ -85,8 +86,11 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         
         if (currentPost?.done)! {
             // TODO: Improve UI disabled button
+            self.replyCountLabel.text = "Assignment is beëindigd"
             self.endAssignmentButtonBar.isHidden = true
             self.endAssignmentButton.isHidden = true
+            endAssignmentButtonHeight.constant = 0
+            self.tableView.isHidden = true
         }
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OwnPostDetailController.nameClick))
@@ -242,6 +246,7 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
             replyCountLabel.text = "Nog geen hulp aangeboden"
             endAssignmentButtonBar.isHidden = true
             endAssignmentButton.isHidden = true
+            endAssignmentButtonHeight.constant = 0
         } else if replies.count == 1 {
              replyCountLabel.text = "Iemand wilt jou helpen"
         } else if replies.count >= 2 {
@@ -269,8 +274,12 @@ class OwnPostDetailController: UIViewController, UITableViewDataSource, UITableV
         // TODO: Update the post that is now completed
         popupView?.dismiss(animated: true)
 
+        self.replyCountLabel.text = "Assignment is beëindigd"
         self.endAssignmentButtonBar.isHidden = true
         self.endAssignmentButton.isHidden = true
+        endAssignmentButtonHeight.constant = 0
+        self.tableView.isHidden = true
+        tableHeight?.constant = 0
         
         delegate?.refreshPosts()
     }
