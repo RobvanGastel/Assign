@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SSH to server
+# TODO: Fix only works on Linux or MacOS!
+ssh rob@***REMOVED*** -p 2122 << EOF
+
 cd /opt/assign-app
 
 # Pull the new changes
@@ -13,3 +17,5 @@ docker build -t assign-page .
 cd ..
 
 docker-compose up -d
+
+EOF
