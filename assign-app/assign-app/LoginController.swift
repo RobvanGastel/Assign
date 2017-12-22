@@ -123,7 +123,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if email != "" && password != "" {
             
             // Authenticate API call
+<<<<<<< Updated upstream
             authService?.authenticate(email: email, password: password) { success in // "rob@mail.nl" "max"
+=======
+            authService?.authenticate(email: "max@mail.nl", password: "max") { success in
+>>>>>>> Stashed changes
                 if(success == true) {
                     // Debug messageToken
                     // print(Messaging.messaging().fcmToken!)
