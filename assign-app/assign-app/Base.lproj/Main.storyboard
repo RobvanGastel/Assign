@@ -726,7 +726,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="kH9-q6-1OZ"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                 <userDefinedRuntimeAttributes>
@@ -764,7 +764,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="fX8-4T-JvL"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                                 <userDefinedRuntimeAttributes>
@@ -945,7 +945,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="O11-Pb-t9o"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                                 <userDefinedRuntimeAttributes>
@@ -965,7 +965,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="Pfh-4h-uJ0"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next" textContentType="email"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1032,7 +1032,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="81Y-bu-81R"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" keyboardAppearance="light" returnKeyType="next" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1093,7 +1093,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="plg-2b-QZL"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go" textContentType="postal-code"/>
                                                 <userDefinedRuntimeAttributes>
@@ -2524,7 +2524,7 @@
         <image name="profile.jpg" width="103" height="103"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uth-nG-Moh"/>
+        <segue reference="Yxs-Gc-6XC"/>
         <segue reference="lIc-Nk-6xF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49803921568627452" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
