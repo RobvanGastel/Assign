@@ -44,7 +44,7 @@ class UIName: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.textColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+        self.textColor = UIColor(red: 0.26, green: 0.26, blue: 0.26, alpha: 1)
     }
 }
 
