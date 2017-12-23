@@ -7,7 +7,10 @@ ssh rob@***REMOVED*** -p 2122 << EOF
 cd /opt/assign-app
 
 # Pull the new changes
-sudo git pull
+# Make sure to configure git on the server:
+# sudo chown -R user:user /opt/app/.git
+# sudo chown -R user:user /opt/app/
+git pull
 
 cd ./assign-page/
 
@@ -17,5 +20,8 @@ docker build -t assign-page .
 cd ..
 
 docker-compose up -d
+
+# Clean up docker
+yes | docker system prune
 
 EOF
