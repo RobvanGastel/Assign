@@ -39,7 +39,7 @@ export default {
     btnMessage: 'Deel met jouw school'
   }),
   methods: {
-    setNewValue: function () {
+    setNewValue: () => {
       this.btnMessage = 'De link is gekopieerd'
     }
   }
