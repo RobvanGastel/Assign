@@ -43,6 +43,7 @@ services:
     environment:
      - VIRTUAL_HOST=api.assignapp.nl
      - VIRTUAL_PORT=8080
+     - VIRTUAL_NETWORK=nginx-proxy
      - LETSENCRYPT_HOST=api.assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
      - MYSQL_HOST=***REMOVED***
@@ -58,6 +59,7 @@ services:
     environment:
      - VIRTUAL_HOST=www.assignapp.nl,assignapp.nl
      - VIRTUAL_PORT=3000
+     - VIRTUAL_NETWORK=nginx-proxy
      - LETSENCRYPT_HOST=assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
 
