@@ -48,6 +48,16 @@ services:
      - LETSENCRYPT_HOST=assignapp.nl
      - LETSENCRYPT_EMAIL=assignapp.dev@gmail.com
 
+  sport-app:
+    image: sport-app
+    restart: always
+    network_mode: bridge
+    environment:
+     - VIRTUAL_HOST=timityapp.com,www.timityapp.com
+     - VIRTUAL_PORT=5000
+     - LETSENCRYPT_HOST=timityapp.com
+     - LETSENCRYPT_EMAIL=info@timityapp.com
+
 networks:
   default:
     external:
