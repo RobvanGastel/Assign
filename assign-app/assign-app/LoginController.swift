@@ -174,7 +174,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 self.wachtwoordError.layer.opacity = 1
             }
         }
-
     }
     
     /// Redirect to another view.
