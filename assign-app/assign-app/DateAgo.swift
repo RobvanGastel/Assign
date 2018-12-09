@@ -109,7 +109,7 @@ extension Date {
 
         if components.minute! > 0 {
             if components.minute! < 2 {
-                return "Een minuute geleden"
+                return "Een minuut geleden"
 //                return "A minute ago"
             } else {
                 return self.string(fromFormat: "%%d minuten geleden", withValue: components.minute!)

@@ -230,7 +230,7 @@ class NotificationsController: UIViewController, UITableViewDelegate, UITableVie
             ids.append(notification.id)
         }
         
-        self.apiService?.setRead(ids: ids) {
+        self.apiService?.setRead(ids: ids) { _ in
             self.loadNotifications()
             self.tableView.reloadData()
         }

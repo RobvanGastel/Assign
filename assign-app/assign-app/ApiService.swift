@@ -425,7 +425,7 @@ class ApiService {
     /// This function sets a post to done.
     @discardableResult
     func setRead(ids: [Int],
-                 completionHandler: @escaping() -> Void) -> Alamofire.DataRequest {
+                 completionHandler: @escaping(_ response: Bool) -> Void) -> Alamofire.DataRequest {
         let sessionManager = NetworkManager.shared()
         
         var idsString = ""
@@ -447,10 +447,12 @@ class ApiService {
                 switch response.result {
                 case .success:
                     print("API: set read notifications succesful")
+                    completionHandler(true)
                     
                 case .failure(let error):
                     print("API: set read notifications failed")
                     print(error)
+                    completionHandler(false)
                 }
         }
     }
