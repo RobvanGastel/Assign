@@ -11,7 +11,7 @@
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.1080200886079-o8jvq24kfnakoa296bfsd9k4rvuf5c4j</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDxKoZpAzzxC5kwqMrLnV6s_PN4OiyJQqY</string>
+	<string>***REMOVED***</string>
 	<key>GCM_SENDER_ID</key>
 	<string>1080200886079</string>
 	<key>PLIST_VERSION</key>
@@ -19,9 +19,9 @@
 	<key>BUNDLE_ID</key>
 	<string>com.assign.app</string>
 	<key>PROJECT_ID</key>
-	<string>assign-50fa2</string>
+	<string>***REMOVED***</string>
 	<key>STORAGE_BUCKET</key>
-	<string>assign-50fa2.appspot.com</string>
+	<string>***REMOVED***.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1080200886079:ios:1a6684d761886b02</string>
+	<string>***REMOVED***</string>
 	<key>DATABASE_URL</key>
-	<string>https://assign-50fa2.firebaseio.com</string>
+	<string>https://***REMOVED***.firebaseio.com</string>
 </dict>
 </plist>
